@@ -1040,13 +1040,17 @@ const F=[
 const Q=["What small thing do I do that always makes your day better?","If we could teleport anywhere in the Philippines right now, where would we go?","What is the funniest thing that has happened to us?","What was your first impression of me?","Which song instantly puts you in a good mood?","What place in CDO have you never been to but want to try with me?","If we won one million pesos tomorrow, what is the first thing we do?","What is something you are proud of that you rarely talk about?","What do you need more of from me lately?","What is a dream you have not told many people?","When do you feel most loved?","What is a memory of us that you replay in your head?","What did your family do that you would want to keep doing in ours?","What is one thing you want us to try this year?","Would you rather have free taho for life or free halo-halo for life?","If our relationship were a movie, what genre would it be?","What is your go-to karaoke song, and will you sing it for me right now?","What habit of mine secretly annoys you but you also find cute?","Where do you see us in five years?","What is one thing I do that you hope I never stop doing?"];
 const PL={c:"Inside CDO",m:"Misamis Oriental, outside CDO",a:"Anywhere"};
 const BL={300:"Up to ₱300",800:"Up to ₱800",1500:"Up to ₱1,500",5000:"Splurge, ₱1,500 and up"};
-const S={view:"home",p:"c",b:800,t:"a",s:"a",car:"a",cat:"a",act:null,food:null,gen:false,q:[],qi:0,from:"random"};
+const S={view:"home",p:"c",b:800,t:"a",s:"a",car:"a",cat:"a",act:null,food:null,gen:false,q:[],qi:0,from:"random",code:"",surp:false,order:{name:"",partner:"",occasion:"",date:"",delivery:"pickup",address:"",contact:"",messenger:"",note:""},orderSaved:false};
 let SITE="";try{if(location.hostname.endsWith("github.io"))SITE=location.hostname+location.pathname.replace(/index\.html$/,"").replace(/\/$/,"")}catch(e){}
 const OWNER_PIN="change-me";
 const CONTACT_EMAIL="your-email@example.com";
 const app=document.getElementById("app");
 const rnd=a=>a[Math.floor(Math.random()*a.length)];
 const peso=n=>"₱"+n.toLocaleString("en-PH");
+const esc=v=>String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
+function loadOrder(){try{const x=JSON.parse(localStorage.getItem("dateCompassOrder")||"null");if(x)S.order={...S.order,...x}}catch(e){}}
+function saveOrderLocal(){try{localStorage.setItem("dateCompassOrder",JSON.stringify(S.order))}catch(e){}}
+loadOrder();
 const ok=(x,f)=>(f.p=="a"||x.p==f.p||x.p=="a")&&(f.t=="a"||!x.t||x.t==f.t||(f.t=="l"&&x.t=="n"))&&(f.s=="a"||x.s==f.s)&&(f.cat=="a"||x.cat==f.cat)&&(f.car!="n"||!x.r);
 function opts(L,f,cap){
  for(const g of [f,{...f,s:"a"},{...f,s:"a",t:"a"}]){const r=L.filter(x=>ok(x,g)&&x.c<=cap);if(r.length)return r}
@@ -1103,65 +1107,35 @@ function qview(){
 }
 const newCode=()=>"DC-"+Math.random().toString(36).slice(2,6).toUpperCase();
 function toggleSurp(){S.surp=!S.surp;render()}
-function startKit(){S.from=S.view;S.code=newCode();go("kit")}
+
+function startKit(){S.from=S.view;if(!S.code)S.code=newCode();S.orderSaved=false;go("kit")}
+function readOrderForm(){const g=id=>document.getElementById(id);if(!g("oname"))return;S.order.name=g("oname").value.trim();S.order.partner=g("opartner").value.trim();S.order.occasion=g("ooccasion").value.trim();S.order.date=g("odate").value;S.order.contact=g("ocontact").value.trim();S.order.messenger=g("omessenger").value.trim();S.order.address=g("oaddress")?g("oaddress").value.trim():"";S.order.note=g("onote").value.trim()}
+function setDelivery(v){readOrderForm();S.order.delivery=v;render()}
+function orderText(){const o=S.order;return "DATE COMPASS KIT ORDER\nOrder code: "+S.code+"\nActivity: "+(S.act?S.act.n:"To be decided")+"\nFood: "+(S.food?S.food.n:"To be decided")+"\nCategory: "+(S.act&&S.act.cat?CAT[S.act.cat]:"Not specified")+"\nSurprise version: "+(S.surp?"Yes":"No")+"\n\nCUSTOMER\nName: "+o.name+"\nPartner name: "+o.partner+"\nOccasion: "+(o.occasion||"Not specified")+"\nKit needed by: "+(o.date||"Not specified")+"\nMobile: "+o.contact+"\nMessenger: "+(o.messenger||"Not provided")+"\n\nFULFILLMENT\nMethod: "+(o.delivery=="delivery"?"Delivery":"Pick up")+"\n"+(o.delivery=="delivery"?"Address: "+(o.address||"Not provided")+"\n":"")+"\nPERSONALIZATION / NOTES\n"+(o.note||"None")+"\n\nEstimated plan total: "+peso(total())+"\nPlease confirm final price, availability, pickup/delivery details, and any partner voucher before production."}
+function saveAndOrder(){readOrderForm();const er=document.getElementById("oerr");if(!S.order.name||!S.order.partner||!S.order.contact){er.textContent="Please add your name, your partner name, and a mobile number.";return}if(S.order.delivery=="delivery"&&!S.order.address){er.textContent="Please add the delivery address or choose Pick up.";return}saveOrderLocal();S.orderSaved=true;render()}
+async function copyOrder(){const b=document.getElementById("copyorder");try{await navigator.clipboard.writeText(orderText());b.textContent="Copied! Paste it in Messenger"}catch(e){b.textContent="Copy failed. Select the order text below."}}
+function emailOrder(){location.href="mailto:"+CONTACT_EMAIL+"?subject="+encodeURIComponent("Date Compass kit order "+S.code)+"&body="+encodeURIComponent(orderText())}
+function clearOrder(){S.order={name:"",partner:"",occasion:"",date:"",delivery:"pickup",address:"",contact:"",messenger:"",note:""};S.orderSaved=false;saveOrderLocal();render()}
+function orderForm(){
+ const o=S.order;
+ let h='<section class="panel orderbox"><div class="steps"><span class="on">1 Your date</span><span class="on">2 Your details</span><span>3 We prepare it</span></div><h3>Make the kit yours</h3><p class="mute">These details are for your order and the printed card. You do not need an account.</p>';
+ h+='<div class="formgrid"><label>Your name *<input id="oname" autocomplete="name" value="'+esc(o.name)+'" placeholder="e.g. Jasper"></label><label>Partner name *<input id="opartner" autocomplete="name" value="'+esc(o.partner)+'" placeholder="e.g. Maria"></label><label>Occasion<input id="ooccasion" value="'+esc(o.occasion)+'" placeholder="Date night, anniversary, birthday..."></label><label>Date you need the kit<input id="odate" type="date" value="'+esc(o.date)+'"></label><label>Mobile number *<input id="ocontact" type="tel" autocomplete="tel" value="'+esc(o.contact)+'" placeholder="09xx xxx xxxx"></label><label>Messenger name/link<input id="omessenger" value="'+esc(o.messenger)+'" placeholder="Optional, for easier follow-up"></label></div>';
+ h+='<fieldset><legend>How should we get the kit to you? *</legend><div class="chips"><button type="button" class="chip" aria-pressed="'+(o.delivery=="pickup")+'" onclick="setDelivery(\'pickup\')">Pick up</button><button type="button" class="chip" aria-pressed="'+(o.delivery=="delivery")+'" onclick="setDelivery(\'delivery\')">Delivery</button></div></fieldset>';
+ if(o.delivery=="delivery")h+='<label>Delivery address / landmark *<textarea id="oaddress" rows="3" placeholder="House/building, street, barangay, city + nearby landmark">'+esc(o.address)+'</textarea></label>';
+ h+='<label>Special note for us<textarea id="onote" rows="3" placeholder="Card message, colors, surprise instructions, anything we should know...">'+esc(o.note)+'</textarea></label><p id="oerr" class="err" role="alert"></p><div class="orderactions"><button onclick="saveAndOrder()">Save details & create order message</button><button class="ghost" onclick="clearOrder()">Clear details</button></div><p class="note">Your details stay in this browser until you choose to copy or email the order.</p></section>';
+ return h;
+}
 function kitview(){
  if(!S.code)S.code=newCode();
- return `<a class="back" href="#${S.from}">Back to your plan</a><h2>Your kit card</h2>
- <p class="mute">This is the front of the printed card. The voucher is a sample so partner shops can see how it will look.</p>
- <div class="kit${S.surp?" sealed":""}"><div class="kh">Our date</div>${S.surp?'<div class="seal">Sealed surprise. Open on the date.</div>':""}
- <div class="kr"><span>Activity</span><b>${S.act?S.act.n:"To be decided"}</b></div>
- <div class="kr"><span>Food</span><b>${S.food?S.food.n:"To be decided"}</b></div>
- <div class="vou"><span class="tag">Partner voucher</span><b>Show this card at [Partner name]</b><p>[Offer, for example a free drink with any meal]</p><span class="tag">Valid until [date]. One voucher per card.</span><div class="code">Card code: ${S.code}</div></div>
- <div class="kf">Planned with Date Compass. The 10 question cards come in the same kit.</div></div>
- <button class="ghost" onclick="toggleSurp()">${S.surp?"Show the plan":"Make it a surprise"}</button><button id="ob" onclick="orderMsg()">Order this kit</button>${S.owner?'<button class="ghost" onclick="try{print()}catch(e){}">Owner: print kit card</button><button class="ghost" onclick="go(\'cards\')">Owner: question cards</button>':""}
- <p class="note">We print and prepare every kit ourselves. Tap Order, then paste the message to [your Facebook page link]. Your 10 question cards come in the kit.</p>`;
-}
-function contact(){
- return `<a class="back" href="#home">Back</a><h2>Contact us</h2>
- <p class="mute">Questions, kit orders, or a shop that wants a voucher on the cards? Send a message and we will reply by email.</p>
- <div class="tiles"><div><b>1</b> Tell us what you need</div><div><b>2</b> We reply by email</div><div><b>3</b> Order your kit</div></div>
- <div class="panel"><label>Full name<input id="cn" autocomplete="name"></label>
- <label>Email address<input id="ce" type="email" autocomplete="email"></label>
- <label>Mobile number (optional)<input id="ct" type="tel" autocomplete="tel"></label>
- <label>What do you need help with?<select id="cs"><option>Order a kit</option><option>Question about a plan</option><option>Shop or partner voucher</option><option>Something else</option></select></label>
- <label>Message<textarea id="cm" rows="6"></textarea></label>
- <p id="cerr" class="err" role="alert"></p>
- <button onclick="sendMail()">Send message</button><div id="cfb"></div></div>`;
-}
-async function sendMail(){
- const g=id=>document.getElementById(id).value.trim();
- const n=g("cn"),e=g("ce"),m=g("cm"),tel=g("ct"),topic=document.getElementById("cs").value,er=document.getElementById("cerr");
- if(!n||!/^S+@S+.S+$/.test(e)||!m){er.textContent="Please add your name, a valid email address, and a message.";return}
- er.textContent="";
- const body=`Name: ${n}\nEmail: ${e}\nMobile: ${tel||"not given"}\nTopic: ${topic}\n\n${m}`;
- const a=document.createElement("a");a.href="mailto:"+CONTACT_EMAIL+"?subject="+encodeURIComponent("Date Compass: "+topic)+"&body="+encodeURIComponent(body);
- document.body.appendChild(a);a.click();a.remove();
- document.getElementById("cfb").innerHTML=`<p class="note">If your email app did not open, copy this message and send it to <b>${CONTACT_EMAIL}</b>.</p><textarea id="cc" rows="6" readonly>${body.replace(/&/g,"&amp;").replace(/</g,"&lt;")}</textarea><button class="ghost" id="cb" onclick="copyMail()">Copy message</button>`;
-}
-async function copyMail(){const b=document.getElementById("cb");try{await navigator.clipboard.writeText(document.getElementById("cc").value);b.textContent="Copied"}catch(e){b.textContent="Select the text and copy it"}}
-function about(){
- return `<a class="back" href="#home">Back</a><h2>About Date Compass</h2>
- <p class="mute">Date Compass helps couples in Cagayan de Oro and Misamis Oriental stop asking "what do we do?" and start enjoying the date.</p>
- <section class="panel"><h3>Why it exists</h3><p>Planning dates gets tiring. This planner is built around places and budgets in the CDO area, and every plan comes with 10 questions so the conversation is as good as the outing.</p></section>
- <section class="panel"><h3>How the kit works</h3><p>Build a plan or let us surprise you, for free. Then order the printed kit: your plan on a card, 10 question cards, and a voucher from a local spot. Choose the surprise version to give it as a gift.</p></section>
- <h3 style="margin-top:22px">Questions</h3>
- <details><summary>Do I have to buy anything?</summary><p>No. Planning is free. The printed kit is optional.</p></details>
- <details><summary>Are the prices exact?</summary><p>No. They are estimates and may have changed, so check before you go.</p></details>
- <details><summary>How do I order a kit?</summary><p>[Add your ordering steps here, for example: message our Facebook page with your plan.]</p></details>
- <details><summary>Where can I pick up or get delivery?</summary><p>[Add your pickup area and delivery options here.]</p></details>
- <section class="panel"><h3>Contact</h3><p>Questions, kit orders, or a shop that wants a voucher on the cards? <a href="#contact">Send us a message</a>.</p></section>`;
-}
-async function orderMsg(){
- const t=`Kit order
-Activity: ${S.act?S.act.n:"to be decided"}
-Food: ${S.food?S.food.n:"to be decided"}
-Surprise version: ${S.surp?"yes":"no"}
-Card code: ${S.code}
-Name:
-Pickup or delivery:
-Contact number:`;
- const b=document.getElementById("ob");
- try{await navigator.clipboard.writeText(t);b.textContent="Copied. Paste it in Messenger"}catch(e){b.textContent="Could not copy, screenshot this page"}
+ const o=S.order;
+ let h='<a class="back" href="#'+S.from+'">Back to your plan</a><h2>Your date kit</h2><p class="mute">We will collect the details once, then you can send us one clean order message. No back-and-forth hunting for names, dates, or delivery info.</p>';
+ h+='<div class="kit'+(S.surp?" sealed":"")+'"><div class="kh">Our date</div>'+(S.surp?'<div class="seal">Sealed surprise. Open on the date.</div>':"");
+ h+='<div class="kr"><span>For</span><b>'+(esc(o.partner)||"Your partner")+'</b></div><div class="kr"><span>From</span><b>'+(esc(o.name)||"Your name")+'</b></div><div class="kr"><span>Activity</span><b>'+(S.act?S.act.n:"To be decided")+'</b></div><div class="kr"><span>Food</span><b>'+(S.food?S.food.n:"To be decided")+'</b></div>';
+ if(o.occasion)h+='<div class="kr"><span>Occasion</span><b>'+esc(o.occasion)+'</b></div>';
+ h+='<div class="vou"><span class="tag">Partner voucher</span><b>Show this card at [Partner name]</b><p>[Offer, for example a free drink with any meal]</p><span class="tag">Valid until [date]. One voucher per card.</span><div class="code">Card code: '+S.code+'</div></div><div class="kf">Planned with Date Compass. The 10 question cards come in the same kit.</div></div>';
+ h+='<button class="ghost" onclick="toggleSurp()">'+(S.surp?"Show the plan":"Make it a surprise")+'</button>'+orderForm();
+ if(S.orderSaved)h+='<section class="panel success"><h3>Ready to send ✓</h3><p>Your order is organized into one message. Send it through Messenger or email.</p><pre class="ordermsg">'+esc(orderText())+'</pre><div class="orderactions"><button id="copyorder" onclick="copyOrder()">Copy for Messenger</button><button class="ghost" onclick="emailOrder()">Email order</button></div><p class="note">Keep order code <b>'+S.code+'</b> after sending it so we can find the order quickly.</p></section>';
+ return h;
 }
 function cardsview(){
  if(S.q.length<10)S.q=[...Q].sort(()=>Math.random()-.5).slice(0,10);
