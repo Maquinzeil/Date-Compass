@@ -1071,7 +1071,7 @@ function filters(){
  <div class="steps"><span class="on">1 Choose</span><span${cu||S.gen?' class="on"':""}>2 Your plan</span><span>3 Kit</span></div>
  <h2>${cu?"Build your own date":"Surprise us"}</h2>
  <p class="mute">${cu?"Set the basics, then pick each part yourself.":"Tell us the basics and we choose the rest."}</p>
- ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setf('b',this.value)"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}`
+ ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setBudget(this.value)"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}`
  +(cu?"":`<button class="go" onclick="gen()" ${S.b>0?"":"disabled"}>Plan my date</button>`);
 }
 function slot(label,key,pool,item){
@@ -1152,8 +1152,19 @@ function render(){app.className=S.view=='home'?'wide':'';
  app.innerHTML=v=="home"?home():v=="about"?about():v=="contact"?contact():v=="cards"?cardsview():v=="q"?qview():v=="kit"?kitview():filters()+((v=="custom"||S.gen)?plan():"");
 }
 function quickCat(k){S.cat=k;S.gen=false;S.act=null;S.food=null;go("custom")}
+function setBudget(v){
+ S.b=Math.max(0,Number(v)||0);
+ if(S.view=="random")S.gen=false;
+ else{
+  if(S.act&&!aPool().includes(S.act))S.act=null;
+  if(S.food&&!fPool().includes(S.food))S.food=null;
+ }
+ const btn=document.querySelector(".go");
+ if(btn)btn.disabled=S.b<=0;
+}
 function setf(k,v){
- S[k]=k=="b"?Math.max(0,Number(v)||0):v;
+ if(k=="b"){setBudget(v);return}
+ S[k]=v;
  if(S.view=="random")S.gen=false;
  else{ if(S.act&&!aPool().includes(S.act))S.act=null; if(S.food&&!fPool().includes(S.food))S.food=null }
  render();
