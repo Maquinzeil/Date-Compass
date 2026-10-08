@@ -1147,7 +1147,7 @@ function render(){app.className=S.view=='home'?'wide':'';
  const v=S.view;
  app.innerHTML=v=="home"?home():v=="about"?about():v=="contact"?contact():v=="cards"?cardsview():v=="q"?qview():v=="kit"?kitview():filters()+((v=="custom"||S.gen)?plan():"");
 }
-function quickCat(k){S.view="custom";S.cat=k;S.gen=false;S.act=null;S.food=null;render();scrollTo(0,0)}
+function quickCat(k){S.cat=k;S.gen=false;S.act=null;S.food=null;go("custom")}
 function setf(k,v){
  S[k]=k=="b"?+v:v;
  if(S.view=="random")S.gen=false;
