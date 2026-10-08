@@ -1,4 +1,4 @@
-// Ideas: n=name, c=estimated cost for two (PHP), p=place (c=CDO, m=Misamis Oriental outside CDO, a=any), t=time (s=short, l=long), s=setting (i=indoor, o=outdoor)
+// Ideas: n=name, c=estimated cost for two (PHP), p=place (c=CDO, m=Misamis Oriental outside CDO, a=any), t=time (s=short, l=long), s=setting (i=indoor, o=outdoor), r=requires a car (1=yes)
 // ALL entries are unverified placeholders. Check each place and price before publishing.
 const A=[
 {n:"Sunset walk at Gaston Park and Divisoria",c:0,p:"c",t:"s",s:"o",d:"Golden hour in the city center. Go around 4:30 to 5:30pm."},
@@ -820,22 +820,22 @@ const F=[
 const Q=["What small thing do I do that always makes your day better?","If we could teleport anywhere in the Philippines right now, where would we go?","What is the funniest thing that has happened to us?","What was your first impression of me?","Which song instantly puts you in a good mood?","What place in CDO have you never been to but want to try with me?","If we won one million pesos tomorrow, what is the first thing we do?","What is something you are proud of that you rarely talk about?","What do you need more of from me lately?","What is a dream you have not told many people?","When do you feel most loved?","What is a memory of us that you replay in your head?","What did your family do that you would want to keep doing in ours?","What is one thing you want us to try this year?","Would you rather have free taho for life or free halo-halo for life?","If our relationship were a movie, what genre would it be?","What is your go-to karaoke song, and will you sing it for me right now?","What habit of mine secretly annoys you but you also find cute?","Where do you see us in five years?","What is one thing I do that you hope I never stop doing?"];
 const PL={c:"Inside CDO",m:"Misamis Oriental, outside CDO",a:"Anywhere"};
 const BL={300:"Up to ₱300",800:"Up to ₱800",1500:"Up to ₱1,500",5000:"Splurge, ₱1,500 and up"};
-const S={view:"home",p:"c",b:800,t:"a",s:"a",act:null,food:null,gen:false,q:[],qi:0,from:"random"};
+const S={view:"home",p:"c",b:800,t:"a",s:"a",car:"a",act:null,food:null,gen:false,q:[],qi:0,from:"random"};
 let SITE="";try{if(location.hostname.endsWith("github.io"))SITE=location.hostname+location.pathname.replace(/index\.html$/,"").replace(/\/$/,"")}catch(e){}
 const OWNER_PIN="change-me";
 const CONTACT_EMAIL="your-email@example.com";
 const app=document.getElementById("app");
 const rnd=a=>a[Math.floor(Math.random()*a.length)];
 const peso=n=>"₱"+n.toLocaleString("en-PH");
-const ok=(x,f)=>(f.p=="a"||x.p==f.p||x.p=="a")&&(f.t=="a"||!x.t||x.t==f.t||(f.t=="l"&&x.t=="n"))&&(f.s=="a"||x.s==f.s);
+const ok=(x,f)=>(f.p=="a"||x.p==f.p||x.p=="a")&&(f.t=="a"||!x.t||x.t==f.t||(f.t=="l"&&x.t=="n"))&&(f.s=="a"||x.s==f.s)&&(f.car!="n"||!x.r);
 function opts(L,f,cap){
  for(const g of [f,{...f,s:"a"},{...f,s:"a",t:"a"}]){const r=L.filter(x=>ok(x,g)&&x.c<=cap);if(r.length)return r}
  return [];
 }
-const aPool=()=>{const r=opts(A,S,Math.max(S.b-150,0));return r.length?r:opts(A,S,S.b)};
+const aPool=()=>{const r=opts(A,S,Math.max(S.b-150,0));if(S.car=="y"){const car=r.filter(x=>x.r);if(car.length)return car}return r.length?r:opts(A,S,S.b)};
 const fPool=()=>opts(S.act&&S.act.t=="n"?F.filter(x=>x.k):F.filter(x=>!x.k||x.k==2),{p:S.p,t:"a",s:S.s},S.act?Math.max(S.b-S.act.c,150):S.b);
 const total=()=>(S.act?S.act.c:0)+(S.food?S.food.c:0);
-const CH={p:{c:"Inside CDO",m:"Outside CDO",a:"Anywhere"},b:{300:"₱300",800:"₱800",1500:"₱1,500",5000:"Splurge"},t:{a:"Any length",s:"2 hours",l:"Half day or more",n:"Overnight"},s:{a:"Either",i:"Indoor",o:"Outdoor"}};
+const CH={p:{c:"Inside CDO",m:"Outside CDO",a:"Anywhere"},car:{a:"Either",y:"I have a car",n:"No car"},b:{300:"₱300",800:"₱800",1500:"₱1,500",5000:"Splurge"},t:{a:"Any length",s:"2 hours",l:"Half day or more",n:"Overnight"},s:{a:"Either",i:"Indoor",o:"Outdoor"}};
 function sel(label,key){return `<fieldset><legend>${label}</legend><div class="chips">`+Object.entries(CH[key]).map(([v,t])=>`<button type="button" class="chip" aria-pressed="${String(S[key])==v}" onclick="setf('${key}','${v}')">${t}</button>`).join("")+`</div></fieldset>`}
 function filters(){
  const cu=S.view=="custom";
@@ -843,7 +843,7 @@ function filters(){
  <div class="steps"><span class="on">1 Choose</span><span${cu||S.gen?' class="on"':""}>2 Your plan</span><span>3 Kit</span></div>
  <h2>${cu?"Build your own date":"Surprise us"}</h2>
  <p class="mute">${cu?"Set the basics, then pick each part yourself.":"Tell us the basics and we choose the rest."}</p>
- ${sel("Where","p")}${sel("Budget for two","b")}${sel("How long","t")}${sel("Setting","s")}`
+ ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Budget for two","b")}${sel("How long","t")}${sel("Setting","s")}`
  +(cu?"":`<button class="go" onclick="gen()">Plan my date</button>`);
 }
 function slot(label,key,pool,item){
@@ -867,13 +867,13 @@ function home(){
  const cir=(k,c,t,d)=>`<div class="cir ${c}"><div><svg viewBox="0 0 24 24">${ic[k]}</svg><b>${t}</b><span>${d}</span></div></div>`;
  return `<div class="hero2"><i class="c1"></i><i class="c2"></i><i class="c3"></i>
  <div class="txt"><h1>Find your best date spot</h1>
- <p class="lead2">Pick a place and a budget in Cagayan de Oro and Misamis Oriental. Get a full date plan and 10 questions to make it special.</p>
+ <p class="lead2">Pick a place, budget, and whether you have a car in Cagayan de Oro and Misamis Oriental. Get a full date plan and 10 questions to make it special.</p>
  <a class="cta" href="#custom">Create your date spot</a><a class="cta cta2" href="#random">Surprise me</a></div>
  <div class="phones"><div class="ph p1"><div class="pn"></div><div class="pl">Your date</div><div class="pt"><small>Activity</small><b>Sunset walk at Gaston Park</b></div><div class="pt"><small>Food</small><b>Street food crawl</b></div><div class="pc">Start the questions</div></div>
  <div class="ph p2"><div class="pn"></div><div class="pl">Question 4 of 10</div><div class="pq">What do you need more of from me lately?</div><div class="pc">Next question</div></div></div></div>
  <section class="hiw"><div class="hiwt"><h2>How it works</h2><p class="mute">Choose your basics, get a full plan, then print the kit with 10 questions to talk about. No more running out of ideas.</p></div>
  <div class="circles">${cir("a","ca","Pick the basics","Place and budget")}${cir("b","cb","Get your plan","Activity and food")}${cir("c","cc","Print the kit","With 10 questions")}</div></section>
- <p class="note">Version 1. All ideas are placeholders that still need checking.</p>`;
+ <p class="note">Version 1. Now with 1,000 wholesome date ideas, including car-friendly options. All ideas are placeholders that still need checking.</p>`;
 }
 function qview(){
  const i=S.qi,n=S.q.length;
