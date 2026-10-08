@@ -1097,7 +1097,7 @@ function home(){
  <div class="ph p2"><div class="pn"></div><div class="pl">Question 4 of 10</div><div class="pq">What do you need more of from me lately?</div><div class="pc">Next question</div></div></div></div>
  <section class="hiw"><div class="hiwt"><h2>How it works</h2><p class="mute">Choose your basics, get a full plan, then print the kit with 10 questions to talk about. No more running out of ideas.</p></div>
  <div class="circles">${cir("a","ca","Pick the basics","Place and budget")}${cir("b","cb","Get your plan","Activity and food")}${cir("c","cc","Print the kit","With 10 questions")}</div></section>
- <p class="note">Version 1. Now with 1,000 wholesome date ideas, including car-friendly options. All ideas are placeholders that still need checking.</p>`;
+ <section class="quick"><h2>Start with a vibe</h2><p class="mute">Skip the setup and jump straight to the kind of date you want.</p><div class="quickgrid"><button class="quickcat" onclick="quickCat('romantic')"><b>Romantic</b><span>Sweet & romantic</span></button><button class="quickcat" onclick="quickCat('food')"><b>Food</b><span>Eat & explore</span></button><button class="quickcat" onclick="quickCat('adventure')"><b>Adventure</b><span>Try something new</span></button><button class="quickcat" onclick="quickCat('home')"><b>At Home</b><span>Cozy at home</span></button><button class="quickcat" onclick="quickCat('car')"><b>Car Date</b><span>Hit the road</span></button><button class="quickcat" onclick="quickCat('conversation')"><b>Deep Conversation</b><span>Talk & connect</span></button><button class="quickcat" onclick="quickCat('creative')"><b>Creative</b><span>Make something</span></button><button class="quickcat" onclick="quickCat('games')"><b>Games</b><span>Play together</span></button><button class="quickcat" onclick="quickCat('nature')"><b>Nature</b><span>Fresh air</span></button><button class="quickcat" onclick="quickCat('free')"><b>Free / Low Cost</b><span>Keep it simple</span></button></div></section><p class="note">1,000 wholesome date ideas, including car-friendly options. All ideas are placeholders that still need checking.</p>`;
 }
 function qview(){
  const i=S.qi,n=S.q.length;
@@ -1147,6 +1147,7 @@ function render(){app.className=S.view=='home'?'wide':'';
  const v=S.view;
  app.innerHTML=v=="home"?home():v=="about"?about():v=="contact"?contact():v=="cards"?cardsview():v=="q"?qview():v=="kit"?kitview():filters()+((v=="custom"||S.gen)?plan():"");
 }
+function quickCat(k){S.view="custom";S.cat=k;S.gen=false;S.act=null;S.food=null;render();scrollTo(0,0)}
 function setf(k,v){
  S[k]=k=="b"?+v:v;
  if(S.view=="random")S.gen=false;
