@@ -188,3 +188,5 @@ input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline
 .ordermsg{white-space:pre-wrap;overflow:auto;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font:400 .82rem/1.5 "DM Sans",system-ui,sans-serif;color:var(--ink);margin:12px 0}
 @media (min-width:720px){.quickgrid{grid-template-columns:repeat(5,1fr)}}
 @media (max-width:640px){.formgrid{grid-template-columns:1fr}}
+
+.selectfield{display:block;margin:0 0 14px}.selectfield>span{display:block;font-weight:700;font-size:.85rem;margin-bottom:7px}.selectfield select,.budgetinput{width:100%;box-sizing:border-box;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:12px 13px;font:inherit}.selectfield small{display:block;color:var(--mute);font-size:.76rem;margin-top:5px}.budgetinput:focus,.selectfield select:focus{outline:2px solid var(--pri);outline-offset:1px}.go:disabled{opacity:.45;cursor:not-allowed}
