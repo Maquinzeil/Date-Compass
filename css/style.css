@@ -194,3 +194,24 @@ input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline
 .dateguide{margin-top:12px;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:12px 14px}.dateguide summary{font-weight:800;color:var(--ink);padding:2px 0}.dateguide p{margin:10px 0;color:var(--ink);font-size:.9rem;line-height:1.5}.dateguide ol{margin:6px 0 10px 20px;padding:0;color:var(--ink);font-size:.9rem;line-height:1.5}.dateguide li{margin:5px 0}
 
 .kitinclude{margin:12px 0;padding:13px 14px;border:1px dashed var(--pri);border-radius:14px;background:var(--soft)}.kitinclude b{display:block;color:var(--pri)}.kitinclude p{margin:5px 0 0;font-size:.86rem;line-height:1.45}
+
+
+/* Homepage readability and floating hearts */
+.hero2 .lead2{color:#f4f6ff;text-shadow:0 1px 2px rgba(4,12,40,.28);max-width:42ch}
+.hbg i{animation:heartDrift var(--drift,18s) ease-in-out infinite alternate;will-change:transform}
+.hbg i:nth-child(1){--drift:17s;animation-delay:-3s}
+.hbg i:nth-child(2){--drift:23s;animation-delay:-11s}
+.hbg i:nth-child(3){--drift:19s;animation-delay:-7s}
+.hbg i:nth-child(4){--drift:26s;animation-delay:-16s}
+.hbg i:nth-child(5){--drift:21s;animation-delay:-5s}
+.hbg i:nth-child(6){--drift:29s;animation-delay:-19s}
+.hbg i:nth-child(7){--drift:24s;animation-delay:-13s}
+.hbg i:nth-child(8){--drift:20s;animation-delay:-9s}
+@keyframes heartDrift{
+  0%{transform:translate(0,0) rotate(-10deg) scale(.92)}
+  24%{transform:translate(24px,-32px) rotate(12deg) scale(1.04)}
+  51%{transform:translate(-18px,-58px) rotate(-7deg) scale(.98)}
+  76%{transform:translate(32px,-21px) rotate(15deg) scale(1.08)}
+  100%{transform:translate(-12px,-44px) rotate(-13deg) scale(.94)}
+}
+@media(prefers-reduced-motion:reduce){.hbg i{animation:none}}
