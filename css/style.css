@@ -175,3 +175,16 @@ input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline
 .tiles div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:.85rem;font-weight:500}
 .tiles b{color:var(--pri);margin-right:4px}
 @media (max-width:480px){.tiles{grid-template-columns:1fr}}
+.quick{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin-top:22px}
+.quick h2{margin-bottom:4px}
+.quickgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+.quickcat{display:flex;flex-direction:column;align-items:flex-start;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:13px 14px;color:var(--ink)}
+.quickcat b{font-size:.95rem}
+.quickcat span{font-size:.78rem;color:var(--mute);margin-top:3px}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.orderbox{margin-top:18px}
+.orderactions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.success{border-color:var(--pri);background:var(--soft)}
+.ordermsg{white-space:pre-wrap;overflow:auto;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font:400 .82rem/1.5 "DM Sans",system-ui,sans-serif;color:var(--ink);margin:12px 0}
+@media (min-width:720px){.quickgrid{grid-template-columns:repeat(5,1fr)}}
+@media (max-width:640px){.formgrid{grid-template-columns:1fr}}
