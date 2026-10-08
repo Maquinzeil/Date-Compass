@@ -1044,7 +1044,7 @@ F.push(...[{"n":"Simple sharing plate: Chicken inasal","c":160,"p":"c","s":"i","
 const Q=["What small thing do I do that always makes your day better?","If we could teleport anywhere in the Philippines right now, where would we go?","What is the funniest thing that has happened to us?","What was your first impression of me?","Which song instantly puts you in a good mood?","What place in CDO have you never been to but want to try with me?","If we won one million pesos tomorrow, what is the first thing we do?","What is something you are proud of that you rarely talk about?","What do you need more of from me lately?","What is a dream you have not told many people?","When do you feel most loved?","What is a memory of us that you replay in your head?","What did your family do that you would want to keep doing in ours?","What is one thing you want us to try this year?","Would you rather have free taho for life or free halo-halo for life?","If our relationship were a movie, what genre would it be?","What is your go-to karaoke song, and will you sing it for me right now?","What habit of mine secretly annoys you but you also find cute?","Where do you see us in five years?","What is one thing I do that you hope I never stop doing?"];
 const PL={c:"Inside CDO",m:"Misamis Oriental, outside CDO",a:"Anywhere"};
 const BL={300:"Up to ₱300",800:"Up to ₱800",1500:"Up to ₱1,500",5000:"Splurge, ₱1,500 and up"};
-const S={view:"home",p:"c",b:800,t:"a",s:"a",car:"a",cat:"a",act:null,food:null,gen:false,q:[],qi:0,from:"random",code:"",surp:false,order:{name:"",partner:"",occasion:"",date:"",delivery:"pickup",address:"",contact:"",messenger:"",note:""},orderSaved:false};
+const S={view:"home",p:"c",b:0,t:"a",s:"a",car:"a",cat:"a",act:null,food:null,gen:false,q:[],qi:0,from:"random",code:"",surp:false,order:{name:"",partner:"",occasion:"",date:"",delivery:"pickup",address:"",contact:"",messenger:"",note:""},orderSaved:false};
 let SITE="";try{if(location.hostname.endsWith("github.io"))SITE=location.hostname+location.pathname.replace(/index\.html$/,"").replace(/\/$/,"")}catch(e){}
 const OWNER_PIN="change-me";
 const CONTACT_EMAIL="your-email@example.com";
@@ -1064,15 +1064,15 @@ const aPool=()=>{const r=opts(A,S,Math.max(S.b-150,0));if(S.car=="y"){const car=
 const fPool=()=>opts(S.act&&S.act.t=="n"?F.filter(x=>x.k):F.filter(x=>!x.k||x.k==2),{p:S.p,t:"a",s:S.s},S.act?Math.max(S.b-S.act.c,150):S.b);
 const total=()=>(S.act?S.act.c:0)+(S.food?S.food.c:0);
 const CH={p:{c:"Inside CDO",m:"Outside CDO",a:"Anywhere"},car:{a:"Either",y:"I have a car",n:"No car"},b:{300:"₱300",800:"₱800",1500:"₱1,500",5000:"Splurge"},t:{a:"Any length",s:"2 hours",l:"Half day or more",n:"Overnight"},s:{a:"Either",i:"Indoor",o:"Outdoor"},cat:{a:"All categories",...CAT}};
-function sel(label,key){return `<fieldset><legend>${label}</legend><div class="chips">`+Object.entries(CH[key]).map(([v,t])=>`<button type="button" class="chip" aria-pressed="${String(S[key])==v}" onclick="setf('${key}','${v}')">${t}</button>`).join("")+`</div></fieldset>`}
+function sel(label,key){return `<label class="selectfield"><span>${label}</span><select aria-label="${label}" onchange="setf('${key}',this.value)">${Object.entries(CH[key]).map(([v,t])=>`<option value="${v}"${String(S[key])==v?" selected":""}>${t}</option>`).join("")}</select></label>`}
 function filters(){
  const cu=S.view=="custom";
  return `<a class="back" href="#home">Back</a>
  <div class="steps"><span class="on">1 Choose</span><span${cu||S.gen?' class="on"':""}>2 Your plan</span><span>3 Kit</span></div>
  <h2>${cu?"Build your own date":"Surprise us"}</h2>
  <p class="mute">${cu?"Set the basics, then pick each part yourself.":"Tell us the basics and we choose the rest."}</p>
- ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}${sel("Budget for two","b")}${sel("How long","t")}${sel("Setting","s")}`
- +(cu?"":`<button class="go" onclick="gen()">Plan my date</button>`);
+ ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setf('b',this.value)"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}`
+ +(cu?"":`<button class="go" onclick="gen()" ${S.b>0?"":"disabled"}>Plan my date</button>`);
 }
 function slot(label,key,pool,item){
  const cu=S.view=="custom",L=key=="act"?A:F;
@@ -1153,7 +1153,7 @@ function render(){app.className=S.view=='home'?'wide':'';
 }
 function quickCat(k){S.cat=k;S.gen=false;S.act=null;S.food=null;go("custom")}
 function setf(k,v){
- S[k]=k=="b"?+v:v;
+ S[k]=k=="b"?Math.max(0,Number(v)||0):v;
  if(S.view=="random")S.gen=false;
  else{ if(S.act&&!aPool().includes(S.act))S.act=null; if(S.food&&!fPool().includes(S.food))S.food=null }
  render();
