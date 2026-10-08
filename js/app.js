@@ -1073,6 +1073,11 @@ function filters(){
  ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}${sel("Food style","foodMode")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setBudget(this.value)"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}`
  +(cu?"":`<button class="go" onclick="gen()" ${S.b>0?"":"disabled"}>Plan my date</button>`);
 }
+function foodGuide(x){
+ const z=(x.n+" "+(x.d||"")).toLowerCase();
+ if(/jollibee|mcdo|chowking|greenwich|mang inasal|kfc|shakey|bonchon|starbucks|coffee bean/.test(z))return {what:"This date is simply about going to the chosen restaurant or cafe together. The food is the setting for the date, so you can focus on talking, laughing, and enjoying the meal.",steps:["Choose a convenient branch and check its current hours and menu.","Go together and order within your budget.","Put the phones away for part of the meal and talk.","After eating, add a short walk, dessert, or another small activity if you want."],need:"Your budget and a way to get there.",tip:"Menu items, prices, and branch hours can change, so check before going."};
+ return null;
+}
 function guideFor(x){
  const z=(x.n+" "+(x.d||"")).toLowerCase();
  if(/vision board/.test(z))return {what:"You and your partner make a collage of things you want to experience, achieve, or build together. It is a fun way to talk about your future while making something you can keep.",steps:["Pick a comfortable spot and arrive early if you want the sunset part.","Talk about shared dreams such as travel, home, money, family, hobbies, or experiences.","Choose pictures, words, drawings, or notes that represent those dreams and arrange them on paper or a board.","Finish it together, give it a title, and take a photo to keep the memory."],need:"Paper or cardboard, old magazines or printed pictures, scissors, glue or tape, and pens or markers. A digital board works too.",tip:"The goal is the conversation, not making a perfect-looking board."};
@@ -1087,7 +1092,7 @@ function guideFor(x){
 }
 function guideHtml(x){
  if(!x)return "";
- const g=guideFor(x);
+ const g=foodGuide(x)||guideFor(x);
  return '<details class="dateguide"><summary>What is this date? · How do we do it?</summary><p><b>What it is:</b> '+esc(g.what)+'</p><p><b>How to do it:</b></p><ol>'+g.steps.map(s=>'<li>'+esc(s)+'</li>').join("")+'</ol><p><b>What you need:</b> '+esc(g.need)+'</p><p><b>Tip:</b> '+esc(g.tip)+'</p></details>';
 }
 function slot(label,key,pool,item){
@@ -1153,7 +1158,7 @@ function kitview(){
  h+='<div class="kr"><span>For</span><b>'+(esc(o.partner)||"Your partner")+'</b></div><div class="kr"><span>From</span><b>'+(esc(o.name)||"Your name")+'</b></div><div class="kr"><span>Activity</span><b>'+(S.act?S.act.n:"To be decided")+'</b></div><div class="kr"><span>Food</span><b>'+(S.food?S.food.n:"To be decided")+'</b></div>';
  if(o.occasion)h+='<div class="kr"><span>Occasion</span><b>'+esc(o.occasion)+'</b></div>';
  h+='<div class="vou"><span class="tag">Partner voucher</span><b>Show this card at [Partner name]</b><p>[Offer, for example a free drink with any meal]</p><span class="tag">Valid until [date]. One voucher per card.</span><div class="code">Card code: '+S.code+'</div></div><div class="kf">Planned with Date Compass. The 10 question cards come in the same kit.</div></div>';
- h+=guideHtml(S.act);if(S.food)h+=guideHtml(S.food);h+='<button class="ghost" onclick="toggleSurp()">'+(S.surp?"Show the plan":"Make it a surprise")+'</button>'+orderForm();
+ h+='<button class="ghost" onclick="toggleSurp()">'+(S.surp?"Show the plan":"Make it a surprise")+'</button>'+orderForm();
  if(S.orderSaved)h+='<section class="panel success"><h3>Ready to send ✓</h3><p>Your order is organized into one message. Send it through Messenger or email.</p><pre class="ordermsg">'+esc(orderText())+'</pre><div class="orderactions"><button id="copyorder" onclick="copyOrder()">Copy for Messenger</button><button class="ghost" onclick="emailOrder()">Email order</button></div><p class="note">Keep order code <b>'+S.code+'</b> after sending it so we can find the order quickly.</p></section>';
  return h;
 }
