@@ -1109,14 +1109,14 @@ function plan(){
  return `<h2 style="margin-top:22px">Your date</h2>`+slot("Activity","act",ap,S.act)+slot("Food","food",fPool(),S.food)
  +(t?`<div class="total">About ${peso(t)} of ${bl}.${over}</div>`:"")
  +`<p class="note">Food ideas now include eating out, takeout, street food, cafe dates, and actual cook-together meals. Prices are rough planning estimates, so check current menus and ingredient costs before you go.</p>`
- +`<p class="brandline">♥ Date Compass${SITE?" "+SITE:""}</p><div class="bar">`+(S.view=="random"?`<button class="ghost" onclick="gen()">New plan</button>`:"")+`<button onclick="startQ()">10 questions</button><button class="ghost" onclick="startKit()">Kit card</button><button class="ghost" id="cp" onclick="copyPlan()">Copy</button></div>`;
+ +`<p class="brandline">♥ Date Compass${SITE?" "+SITE:""}</p><div class="bar">`+(S.view=="random"?`<button class="ghost" onclick="gen()">New plan</button>`:"")+`<button class="ghost" onclick="startKit()">Get the Date Compass Kit</button><button class="ghost" id="cp" onclick="copyPlan()">Copy</button></div>`;
 }
 function home(){
  const ic={a:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',b:'<path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/>',c:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>'};
  const cir=(k,c,t,d)=>`<div class="cir ${c}"><div><svg viewBox="0 0 24 24">${ic[k]}</svg><b>${t}</b><span>${d}</span></div></div>`;
  return `<div class="hero2"><i class="c1"></i><i class="c2"></i><i class="c3"></i>
  <div class="txt"><h1>Find your best date spot</h1>
- <p class="lead2">Pick a place, budget, and whether you have a car in Cagayan de Oro and Misamis Oriental. Get a full date plan and 10 questions to make it special.</p>
+ <p class="lead2">Pick a place, budget, and whether you have a car in Cagayan de Oro and Misamis Oriental. Get a full date plan. Your 10 printed question cards are included only when you order the physical kit.</p>
  <a class="cta" href="#custom">Create your date spot</a><a class="cta cta2" href="#random">Surprise me</a></div>
  <div class="phones"><div class="ph p1"><div class="pn"></div><div class="pl">Your date</div><div class="pt"><small>Activity</small><b>Sunset walk at Gaston Park</b></div><div class="pt"><small>Food</small><b>Street food crawl</b></div><div class="pc">Start the questions</div></div>
  <div class="ph p2"><div class="pn"></div><div class="pl">Question 4 of 10</div><div class="pq">What do you need more of from me lately?</div><div class="pc">Next question</div></div></div></div>
@@ -1157,7 +1157,7 @@ function kitview(){
  h+='<div class="kit'+(S.surp?" sealed":"")+'"><div class="kh">Our date</div>'+(S.surp?'<div class="seal">Sealed surprise. Open on the date.</div>':"");
  h+='<div class="kr"><span>For</span><b>'+(esc(o.partner)||"Your partner")+'</b></div><div class="kr"><span>From</span><b>'+(esc(o.name)||"Your name")+'</b></div><div class="kr"><span>Activity</span><b>'+(S.act?S.act.n:"To be decided")+'</b></div><div class="kr"><span>Food</span><b>'+(S.food?S.food.n:"To be decided")+'</b></div>';
  if(o.occasion)h+='<div class="kr"><span>Occasion</span><b>'+esc(o.occasion)+'</b></div>';
- h+='<div class="vou"><span class="tag">Partner voucher</span><b>Show this card at [Partner name]</b><p>[Offer, for example a free drink with any meal]</p><span class="tag">Valid until [date]. One voucher per card.</span><div class="code">Card code: '+S.code+'</div></div><div class="kf">Planned with Date Compass. The 10 question cards come in the same kit.</div></div>';
+ h+='<div class="kitinclude"><b>📦 Included in your Date Compass Kit</b><p>10 printed question cards to use during your date. These questions are not shown in the app. They are included only in the physical kit.</p></div><div class="vou"><span class="tag">Partner voucher</span><b>Show this card at [Partner name]</b><p>[Offer, for example a free drink with any meal]</p><span class="tag">Valid until [date]. One voucher per card.</span><div class="code">Card code: '+S.code+'</div></div><div class="kf">Planned with Date Compass.</div></div>';
  h+='<button class="ghost" onclick="toggleSurp()">'+(S.surp?"Show the plan":"Make it a surprise")+'</button>'+orderForm();
  if(S.orderSaved)h+='<section class="panel success"><h3>Ready to send ✓</h3><p>Your order is organized into one message. Send it through Messenger or email.</p><pre class="ordermsg">'+esc(orderText())+'</pre><div class="orderactions"><button id="copyorder" onclick="copyOrder()">Copy for Messenger</button><button class="ghost" onclick="emailOrder()">Email order</button></div><p class="note">Keep order code <b>'+S.code+'</b> after sending it so we can find the order quickly.</p></section>';
  return h;
