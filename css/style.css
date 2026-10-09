@@ -320,3 +320,35 @@ main.wide{width:100%;max-width:none;margin:0;padding:clamp(16px,2.8vw,42px) clam
  .hin{padding:7px 12px}
  .hiw,.quick{border-radius:16px}
 }
+
+
+/* Keep both hero phone mockups side by side instead of overlapping */
+.phones{display:flex;position:relative;align-items:center;justify-content:center;gap:clamp(14px,2.2vw,32px);height:auto;min-height:570px;max-width:760px;padding:18px 6px 24px;overflow:visible}
+.phones .ph{position:relative;inset:auto;flex:0 1 46%;width:46%;max-width:300px;min-width:0;height:clamp(420px,40vw,535px)}
+.phones .p1{left:auto;right:auto;top:auto;transform:rotate(-4deg)}
+.phones .p2{left:auto;right:auto;top:auto;transform:rotate(4deg)}
+@media(min-width:1200px){
+ .phones{min-height:640px;gap:clamp(18px,2.5vw,38px)}
+ .phones .ph{height:clamp(490px,38vw,560px);flex-basis:44%;width:44%}
+}
+@media(max-width:819px){
+ .phones{min-height:0;height:auto;max-width:620px;padding:18px 2px 28px;gap:clamp(12px,3vw,24px)}
+ .phones .ph{flex:1 1 0;width:auto;height:clamp(350px,64vw,460px);max-width:260px}
+ .phones .p1{left:auto;top:auto}
+ .phones .p2{right:auto;top:auto}
+}
+@media(max-width:480px){
+ .phones{height:auto;min-height:0;width:100%;margin:0 auto;padding:16px 0 24px;gap:10px}
+ .phones .ph{flex:1 1 0;width:calc(50% - 5px);height:clamp(310px,91vw,365px);padding:12px 9px;border-width:4px;border-radius:25px}
+ .phones .p1{left:auto;top:auto}
+ .phones .p2{right:auto;top:auto}
+ .phones .pstatus{margin-bottom:10px}
+ .phones .pl{font-size:clamp(11px,3.4vw,14px);gap:4px;line-height:1.08}
+ .phones .kit-title{font-size:clamp(13px,3.6vw,16px)}
+ .phones .pt{padding:8px 7px}
+ .phones .pt b{font-size:clamp(9px,2.7vw,11px)}
+ .phones .included span{font-size:clamp(8px,2.35vw,10px)}
+ .phones .kit-art{height:clamp(80px,25vw,100px)}
+ .phones .kit-heart{width:28px;height:28px;font-size:16px}
+ .phones .kit-tagline{left:7px;right:7px;bottom:10px;padding:8px 4px;font-size:8px}
+}
