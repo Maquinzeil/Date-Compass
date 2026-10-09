@@ -1168,8 +1168,7 @@ function kitview(){
  return h;
 }
 function cardsview(){
- if(S.q.length<10)S.q=[...Q].sort(()=>Math.random()-.5).slice(0,10);
- return `<a class="back" href="#kit">Back to kit card</a><div class="cardsheet">${S.q.map((t,i)=>`<div class="q"><div class="cnt">${i+1} of 10</div>${t}<div class="brand">Date Compass</div></div>`).join("")}</div><button onclick="try{print()}catch(e){}">Owner: print question cards</button>`;
+ return '<a class="back" href="#kit">Back to kit card</a><section class="panel" role="status"><h2>Question-card bank not configured</h2><p>The owner printing screen is paused because the question bank is not present in this frontend. Add and review the approved card content before printing customer kits.</p></section>';
 }
 function render(){app.className=S.view=='home'?'wide':'';
  const cur=(S.view=='q'||S.view=='kit')?S.from:S.view;
