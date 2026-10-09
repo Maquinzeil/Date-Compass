@@ -438,3 +438,5 @@ body{background-color:#2a0509;background-image:linear-gradient(145deg,#2a0509 0%
 @media(max-width:1000px){.quick.vibe-section .quickgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.hiw.romance-section{grid-template-columns:1fr}.showcase{min-height:370px}}
 @media(max-width:520px){.hiw.romance-section{padding:22px 17px}.step-flow{gap:8px}.step{gap:7px}.step-icon{width:40px;height:40px;flex-basis:40px}.step b{font-size:.72rem}.step span{font-size:.66rem}.step-arrow{font-size:1rem}.showcase{gap:8px;min-height:340px}.showcase-phone{width:185px;min-height:325px;padding:14px 11px}.showcase-note{font-size:1rem;max-width:94px}.sunset-art{height:125px}.quick.vibe-section .quickgrid{grid-template-columns:1fr}.quick.vibe-section .quickcat{min-height:68px}.vibe-head{align-items:flex-start}.vibe-head h2{font-size:1.65rem}.vibe-head p{font-size:.8rem}}
 @media(prefers-reduced-motion:reduce){.quick.vibe-section .quickcat{transition:none}.quick.vibe-section .quickcat:hover{transform:none}}
+
+@media(min-width:820px){main{max-width:1180px;padding-left:28px;padding-right:28px}.hero2{border-radius:30px}}
