@@ -1243,5 +1243,32 @@ function route(hh){
  app.classList.remove('enter');void app.offsetWidth;app.classList.add('enter');reveal();
 }
 addEventListener("hashchange",route);
+
+// Give every background heart its own random position, size, direction, and timing.
+function seedBackgroundHearts(){
+ const cols=document.querySelectorAll(".hbg i");
+ if(!cols.length)return;
+ cols.forEach((col,ci)=>{
+   col.replaceChildren();
+   const count=6+Math.floor(Math.random()*3);
+   for(let n=0;n<count;n++){
+     const heart=document.createElement("span");
+     heart.className="float-heart";
+     heart.textContent="♥";
+     heart.setAttribute("aria-hidden","true");
+     heart.style.left=(5+Math.random()*70)+"px";
+     heart.style.top=(Math.random()*96)+"%";
+     heart.style.setProperty("--heart-size",(13+Math.random()*24)+"px");
+     heart.style.setProperty("--heart-duration",(8+Math.random()*17)+"s");
+     heart.style.setProperty("--heart-delay",(-Math.random()*20)+"s");
+     heart.style.setProperty("--heart-opacity",(0.08+Math.random()*0.17).toFixed(2));
+     heart.style.setProperty("--heart-x",(-22+Math.random()*44)+"px");
+     heart.style.setProperty("--heart-y",(-35+Math.random()*70)+"px");
+     col.appendChild(heart);
+   }
+ });
+}
+seedBackgroundHearts();
+
 document.getElementById("yr").textContent=new Date().getFullYear();
 route();
