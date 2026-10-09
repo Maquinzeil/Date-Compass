@@ -1111,6 +1111,12 @@ function plan(){
  +`<p class="note">Food ideas now include eating out, takeout, street food, cafe dates, and actual cook-together meals. Prices are rough planning estimates, so check current menus and ingredient costs before you go.</p>`
  +`<p class="brandline">♥ Date Compass${SITE?" "+SITE:""}</p><div class="bar">`+(S.view=="random"?`<button class="ghost" onclick="gen()">New plan</button>`:"")+`<button class="ghost" onclick="startKit()">Get the Date Compass Kit</button><button class="ghost" id="cp" onclick="copyPlan()">Copy</button></div>`;
 }
+function about(){
+ return '<a class="back" href="#home">Back home</a><section class="panel"><h1>About Date Compass</h1><p>Date Compass helps couples plan a date around their budget, preferred setting, and transport in Cagayan de Oro and Misamis Oriental.</p><p>Choose your preferences to get a suggested activity and food idea, or use Surprise Me for a fresh combination.</p><p class="note">This is an early frontend version. Ideas and costs are estimates, not verified venue listings. Confirm current prices, opening hours, availability, transport, and safety before you go.</p><h3>Digital plan or physical kit?</h3><p>The digital planner helps you choose an idea. The optional physical kit is a separate printed experience. Orders are not submitted automatically; you must send the prepared order message to the Date Compass owner.</p></section>';
+}
+function contact(){
+ return '<a class="back" href="#home">Back home</a><section class="panel"><h1>Contact Date Compass</h1><p>The kit order screen can prepare an email, but the contact email is not configured yet.</p><p class="note">For now, avoid entering sensitive information. Kit details stay in this browser until you choose to copy or email them. There is no online order database connected yet.</p><a class="cta" href="#custom">Plan a date</a></section>';
+}
 function home(){
  const ic={a:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',b:'<path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/>',c:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>'};
  const cir=(k,c,t,d)=>`<div class="cir ${c}"><div><svg viewBox="0 0 24 24">${ic[k]}</svg><b>${t}</b><span>${d}</span></div></div>`;
