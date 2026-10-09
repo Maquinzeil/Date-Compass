@@ -352,3 +352,27 @@ main.wide{width:100%;max-width:none;margin:0;padding:clamp(16px,2.8vw,42px) clam
  .phones .kit-heart{width:28px;height:28px;font-size:16px}
  .phones .kit-tagline{left:7px;right:7px;bottom:10px;padding:8px 4px;font-size:8px}
 }
+
+
+/* Visible warm red + yellow homepage palette, with strong readable contrast */
+.hero2{background:linear-gradient(135deg,#a91f36 0%,#d83243 48%,#ed5149 100%)!important;color:#fff}
+.hero2 .lead2{color:#fff!important;text-shadow:0 2px 3px rgba(52,8,15,.55);font-weight:600}
+.hero2 h1{color:#fff;text-shadow:0 2px 1px rgba(52,8,15,.16)}
+.hero2 .cta{background:#ffd34e;border-color:#ffd34e;color:#25223b;box-shadow:0 5px 0 rgba(93,39,20,.18)}
+.hero2 .cta:hover,.hero2 .cta:focus-visible{background:#ffe27c;border-color:#ffe27c;color:#17172c}
+.hero2 .cta.cta2{background:#fff;color:#25223b;border-color:#fff;box-shadow:0 5px 0 rgba(93,39,20,.16)}
+.hero2 .c1,.hero2 .c2,.hero2 .c3{background:#ffd34e;opacity:.22}
+.hero2 .c2{background:#fff0ae;opacity:.16}
+.hero2 .c3{background:#ff9b70;opacity:.24}
+
+/* Each background heart gets its own randomized position and float animation */
+.hbg{justify-content:space-around;z-index:0}
+.hbg i{position:relative;display:block;flex:0 0 80px;height:100%;background:none!important;animation:none!important;overflow:visible}
+.hbg i .float-heart{position:absolute;display:block;line-height:1;color:#e2467c;opacity:var(--heart-opacity,.13);font-size:var(--heart-size,24px);animation:individualHeartFloat var(--heart-duration,12s) ease-in-out var(--heart-delay,0s) infinite alternate;will-change:transform}
+@keyframes individualHeartFloat{
+  0%{transform:translate3d(0,0,0) rotate(-18deg) scale(.85)}
+  25%{transform:translate3d(var(--heart-x,14px),calc(var(--heart-y,-20px)*.35),0) rotate(14deg) scale(1.08)}
+  60%{transform:translate3d(calc(var(--heart-x,14px)*-.7),var(--heart-y,-20px),0) rotate(-12deg) scale(.94)}
+  100%{transform:translate3d(var(--heart-x,14px),calc(var(--heart-y,-20px)*-.4),0) rotate(22deg) scale(1.12)}
+}
+@media(prefers-reduced-motion:reduce){.hbg i .float-heart{animation:none!important;will-change:auto}}
