@@ -231,3 +231,14 @@ When you find a bug, record it as a GitHub Issue with:
 ## Current rule
 
 **Finish Phase 1 first.** Do not mark tasks complete just because they sound finished; check them only after you verify the behavior on the website. The roadmap is a working document, so adjust it as the project becomes clearer.
+
+
+## Phase 1 audit log — 2026-10-09
+
+- Inspected the complete Phase 1 checklist and the current `index.html`, `css/style.css`, and `js/app.js` on `main`. The HTML links CSS and JavaScript using versioned query strings; the cache version was bumped after these changes.
+- Fixed the CSS root declaration, which had layout declarations inside the root-variable rule, and removed an extra closing brace in the disabled-button rule.
+- Added missing About and Contact route functions; the navigation previously called undefined functions for those destinations.
+- Added high-contrast hero description styling, clearer keyboard focus outlines, 44px navigation targets, small-screen layout refinements, and reduced-motion handling. Background heart columns now have independently varied drift and scroll timings.
+- Prevented the owner question-card print route from throwing because its referenced question-bank variable is absent. The screen now clearly reports that the bank is not configured. This is still a product blocker for producing physical kits with the promised 10 cards.
+- Important limitations: the planner's ideas and prices are unverified placeholders; `CONTACT_EMAIL` is still `your-email@example.com`; the order flow is local-only and does not submit to a backend. Do not accept real orders until contact and fulfillment are configured.
+- Browser automation was not available in this session. No browser console, network, cross-browser, physical-device, viewport screenshot, or runtime animation test has been performed. Therefore, visual, accessibility, responsiveness, and Phase 1 exit-gate checkboxes remain unchecked pending browser verification.
