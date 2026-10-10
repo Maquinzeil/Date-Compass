@@ -29,7 +29,7 @@ test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => 
 });
 
 test("planner food budget is capped by the remaining budget", () => {
-  assert.match(app, /const remaining=Math\\.max\\(S\\.b-\\(S\\.act\\?S\\.act\\.c:0\\),0\\),pref=base\\.filter\\(x=>foodMatchesMode\\(x,S\\.foodMode\\)\\)/);
+  assert.match(app, /const remaining=Math\.max\(S\.b-\(S\.act\?S\.act\.c:0\),0\),pref=base\.filter\(x=>foodMatchesMode\(x,S\.foodMode\)\)/);
   assert.match(app, /if\(k=="act"&&S\.food&&!fPool\(\)\.includes\(S\.food\)\)S\.food=null/);
   assert.match(app, /No food idea fits the remaining budget and preferences/);
 });
