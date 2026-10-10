@@ -1577,3 +1577,19 @@ main.wide .home-feature-pair .step-flow .step-icon svg{display:block!important;w
 main.wide .home-feature-pair .step-flow .step-pink{background:#ffa2b6!important}
 main.wide .home-feature-pair .step-flow .step-gold{background:#ffe29a!important}
 main.wide .home-feature-pair .step-flow .step-blue{background:#e8d18a!important}
+
+
+/* Accessibility correction: preserve a visible keyboard focus indicator on navigation links. */
+.site nav a:focus-visible,
+header.site .hin > nav a:focus-visible,
+footer.site nav a:focus-visible {
+  outline: 3px solid #2a0509 !important;
+  outline-offset: 3px !important;
+  border-radius: 5px !important;
+  box-shadow: 0 0 0 2px #ffe29a !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .site nav a,
+  .site nav a:hover,
+  .site nav a:focus-visible { transition: none !important; transform: none !important; }
+}
