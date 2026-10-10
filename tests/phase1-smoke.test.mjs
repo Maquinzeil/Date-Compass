@@ -15,8 +15,8 @@ const [app, html, css] = await Promise.all([
 test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
-  assert.ok(html.includes('src="js/app.js?v=20261011c"'));
-  assert.ok(html.includes('href="css/style.css?v=20261011a"'));
+  assert.ok(html.includes('src="js/app.js?v=20261011d"'));
+  assert.ok(html.includes('href="css/style.css?v=20261011b"'));
 });
 
 test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => {
@@ -92,7 +92,7 @@ test("all food-style controls have explicit matching logic and fallback stays bu
 });
 
 test("having a car does not incorrectly restrict results to car-required activities", () => {
-  assert.match(app, /Having a car expands travel options/);
+  assert.match(app, /Prefer room for food, but never silently replace the user\x27s chosen category/);
   assert.match(app, /const cap=Math\.max\(S\.b-150,0\),strict=opts\(A,S,cap\)/);
   assert.doesNotMatch(app, /if\(S\.car=="y"\)\{const car=r\.filter\(x=>x\.r\)/);
 });
@@ -134,7 +134,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
     const settings = ["a", "i", "o"];
     const categories = Object.keys(CH.cat);
     const foodModes = Object.keys(CH.foodMode);
-    let combinations = 0, noActivity = 0, overBudgetFood = 0;
+    let combinations = 0, noActivity = 0, overBudgetFood = 0, wrongCategory = 0, wrongFoodStyle = 0;
     for (const budget of budgets) for (const area of areas) for (const car of cars)
       for (const duration of durations) for (const setting of settings)
       for (const category of categories) for (const foodMode of foodModes) {
@@ -143,13 +143,27 @@ test("planner runs every area, transport, category, duration, setting, and food-
         const activities = aPool();
         combinations++;
         if (!activities.length) { noActivity++; continue; }
+        if (category !== "a" && activities.some(activity => activity.cat !== category && !(category === "free" && activity.c <= 150))) wrongCategory++;
         S.act = activities[0];
         const foods = fPool();
         if (foods.some(food => food.c > Math.max(S.b - S.act.c, 0))) overBudgetFood++;
+        if (foodMode !== "a" && foods.some(food => !foodMatchesMode(food, foodMode))) wrongFoodStyle++;
       }
-    return { combinations, noActivity, overBudgetFood, activityCount: A.length, foodCount: F.length };
+    const gameDates = A.filter(activity => /Mobile Legends|co-op mobile game|internet-cafe gaming|Online game discovery|Co-op PC game/i.test(activity.n));
+    const gameDatesWrongCategory = gameDates.filter(activity => activity.cat !== "games").map(activity => ({ name: activity.n, category: activity.cat }));
+    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, gameDatesWrongCategory, activityCount: A.length, foodCount: F.length };
   })()`, context, { timeout: 10000 });
   assert.ok(result.combinations > 5000, `Expected broad choice coverage, got ${result.combinations}`);
-  assert.equal(result.noActivity, 0, `Some choice combinations had no activity: ${JSON.stringify(result)}`);
+  assert.equal(result.wrongCategory, 0, `Planner ignored the selected activity category: ${JSON.stringify(result)}`);
   assert.equal(result.overBudgetFood, 0, `Food suggestions exceeded remaining budget: ${JSON.stringify(result)}`);
+  assert.equal(result.wrongFoodStyle, 0, `Planner ignored the selected food style: ${JSON.stringify(result)}`);
+  assert.deepEqual(result.gameDatesWrongCategory, [], `Gaming date was categorized incorrectly: ${JSON.stringify(result.gameDatesWrongCategory)}`);
+  assert.ok(result.noActivity > 0, "Impossible category/budget combinations should explain that no match exists instead of showing an unrelated category.");
+});
+
+
+test("budget changes refresh the plan after editing, and navigation keeps keyboard focus visible", () => {
+  assert.match(app, /oninput="setBudget\(this\.value\)" onchange="render\(\)"/);
+  assert.match(css, /\.site nav a:focus-visible,[\s\S]*?outline: 3px solid #2a0509 !important/);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.site nav a:hover[\s\S]*?transition: none !important/);
 });
