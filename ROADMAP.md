@@ -267,3 +267,10 @@ When you find a bug, record it as a GitHub Issue with:
 - **Remaining blockers:** venue/activity costs and transport details are still unverified sample data; the real contact email and official ordering channel are not configured; the approved question-card bank is missing; no backend, payment, order storage, email delivery, or fulfillment integration exists; and no live browser console/network, mobile/tablet/desktop, cross-browser, keyboard, screen-reader, contrast, reduced-motion, or physical-device audit has been completed.
 - **Checklist status / exit gate:** Do not mark Phase 1 complete. Keep visual, accessibility, device, browser-runtime, and end-to-end behavior items unchecked until those checks are actually performed. Phase 1 exit criteria remain: test the deployed main navigation and planner/Surprise Me flows; verify results against budgets and preferences; review console/network errors; test responsive and keyboard behavior; and decide whether unverified sample recommendations are acceptable for the intended first release.
 
+### UI follow-up — 2026-10-10
+
+- User reported that the two selects in the **Your date** results section (Activity and Food) appeared to have no breathing room and sat against the card edge.
+- Root cause found in the shared CSS: global `select` used `width:100%` plus horizontal padding and borders without `box-sizing:border-box`. The selects inside the result cards could therefore render wider than the available inner width.
+- Fixed the shared select rule with `box-sizing:border-box` and `max-width:100%`; preserved the existing card padding and select spacing. Updated the asset cache version and added a smoke assertion for the sizing rule.
+- Automated checks will rerun through GitHub Actions. This is a source-level fix; visual confirmation on the live page still needs a real browser check.
+
