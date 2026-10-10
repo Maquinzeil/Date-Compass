@@ -1008,7 +1008,7 @@ function category(x){
  const z=(x.n+" "+(x.d||"")).toLowerCase();
  if(/drive|road trip|roadtrip|car |by car|parking|scenic drive|sunrise drive|sunset drive|gas up|car wash|car karaoke|car picnic|car camping/.test(z))return "car";
  // Prioritize the actual activity over its venue: gaming at a cafe is still a games date.
- if(/arcade|game|cards|board game|puzzle|bowling|billiard|trivia|escape room|mini golf/.test(z))return "games";
+ if(/mobile legends|online game|gaming|video game|co-op mobile game|co-op pc game|arcade|game|cards|board game|puzzle|bowling|billiard|trivia|escape room|mini golf/.test(z))return "games";
  if(/cook|bake|recipe|meal|breakfast|lunch|dinner|dessert|coffee|cafe|café|food|pizza|ramen|market|restaurant|picnic/.test(z))return "food";
  if(/museum|learn|class|workshop|lecture|bookstore|book |history|language|documentary|quiz|teach/.test(z))return "learning";
  if(/volunteer|donat|community|kindness|help |charity|clean-up|cleanup|give back|compliment/.test(z))return "kindness";
