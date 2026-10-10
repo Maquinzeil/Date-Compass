@@ -1433,3 +1433,25 @@ footer.site nav a:focus-visible{
   background:rgba(42,5,9,.09)!important;
   color:#2a0509!important;
 }
+
+
+/* Home refinements: keep the disclaimer centered and match the two feature-card surfaces. */
+main.wide .home-disclaimer{
+  width:100%!important;
+  max-width:980px!important;
+  margin:22px auto 18px!important;
+  padding:0 18px!important;
+  box-sizing:border-box!important;
+  text-align:center!important;
+}
+main.wide .home-feature-pair>.hiw.romance-section{
+  background:rgba(255,226,154,.07)!important;
+  border-color:rgba(255,226,154,.2)!important;
+  box-shadow:none!important;
+}
+/* Restore the handwritten tagline beside the phone mockup on desktop. */
+@media (min-width: 1051px){
+  main.wide .home-feature-pair>.hiw.romance-section .showcase-note{
+    display:block!important;
+  }
+}
