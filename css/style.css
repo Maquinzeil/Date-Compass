@@ -572,3 +572,28 @@ footer.site{border-top:1px solid rgba(255,255,255,.12);background:transparent}
 .hiw.romance-section,.quick.vibe-section{border-color:transparent!important}
 .quick.vibe-section .quickcat{border-color:rgba(255,255,255,.12)!important}
 .quick.vibe-section .quickcat:hover,.quick.vibe-section .quickcat:focus-visible{border-color:rgba(255,143,163,.5)!important}
+
+
+/* Final correction: yellow belongs to the navigation bar background, not its text or page borders. */
+:root{--line:rgba(255,255,255,.14)!important;--soft:rgba(255,255,255,.07)!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--line:rgba(255,255,255,.14)!important;--soft:rgba(255,255,255,.07)!important}}
+:root[data-theme="dark"]{--line:rgba(255,255,255,.14)!important;--soft:rgba(255,255,255,.07)!important}
+header.site{
+  background:#f2d77b!important;
+  border:0!important;
+  box-shadow:none;
+  backdrop-filter:none;
+}
+header.site .logo{color:#2a0509!important}
+header.site .logo svg{stroke:#2a0509!important}
+header.site nav a{color:#2a0509!important;border:0!important}
+header.site nav a:hover,
+header.site nav a:focus-visible{background:rgba(42,5,9,.09)!important;color:#2a0509!important}
+header.site nav a[aria-current="page"]{background:rgba(42,5,9,.14)!important;color:#2a0509!important;border:0!important}
+header.site.sc{box-shadow:none!important}
+.hiw.romance-section,.quick.vibe-section{border:0!important;outline:0!important}
+.quick.vibe-section .quickcat,
+.quick.vibe-section .quickcat:hover,
+.quick.vibe-section .quickcat:focus-visible{border-color:rgba(255,255,255,.14)!important}
+.step-gold,.step-blue{background:rgba(255,255,255,.08)!important}
+.vibe-pin{border-color:rgba(255,255,255,.14)!important}
