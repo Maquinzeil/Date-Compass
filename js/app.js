@@ -1006,7 +1006,6 @@ const A=[
 const CAT={romantic:"Romantic",food:"Food",adventure:"Adventure",home:"At Home",car:"Car Date",conversation:"Deep Conversation",creative:"Creative",games:"Games",nature:"Nature",fitness:"Fitness",learning:"Learning",kindness:"Kindness",night:"Night Date",free:"Free / Low Cost"};
 function category(x){
  const z=(x.n+" "+(x.d||"")).toLowerCase();
- if(x.c<=0)return "free";
  if(/drive|road trip|roadtrip|car |by car|parking|scenic drive|sunrise drive|sunset drive|gas up|car wash|car karaoke|car picnic|car camping/.test(z))return "car";
  if(/cook|bake|recipe|meal|breakfast|lunch|dinner|dessert|coffee|cafe|café|food|pizza|ramen|market|restaurant|picnic/.test(z))return "food";
  if(/museum|learn|class|workshop|lecture|bookstore|book |history|language|documentary|quiz|teach/.test(z))return "learning";
@@ -1019,6 +1018,7 @@ function category(x){
  if(/park|garden|beach|river|lake|waterfront|sunset|sunrise|nature|viewpoint|botanical|bird|star|stargaz|outdoor/.test(z))return "nature";
  if(/night|evening|stargaz|moon|late-night|midnight|rooftop/.test(z))return "night";
  if(/home|living room|bedroom|indoor|movie night|at-home|stay in|blanket fort|couch|bake together/.test(z))return "home";
+ if(x.c<=150)return "free";
  return "romantic";
 }
 // Gaming dates: activity costs are estimates for two; internet-cafe rates and mobile data must be checked.
@@ -1031,6 +1031,7 @@ A.push(
  {n:"Online game discovery night + cafe drinks",c:100,p:"c",t:"s",s:"i",d:"Choose a new free-to-play co-op, puzzle, or party game and learn it together at a cafe with Wi-Fi. Includes a ₱100 planning allowance for a small venue purchase for two; extra food is separate. Confirm the cafe's minimum spend and Wi-Fi policy."},
  {n:"Co-op PC game date at a gaming hub",c:60,p:"c",t:"s",s:"i",d:"Try a co-op adventure, racing game, or friendly 1v1 together at an internet cafe. ₱60 is an estimate for two PCs for two hours at ₱15/hour each; check the current rate and game availability before going."}
 );
+A.forEach(x=>x.cat=category(x));
 A.forEach(x=>x.cat=category(x));
 const F=[
 {n:"Picnic with baon",c:150,p:"a",s:"o",k:2,d:"Pack sandwiches or ulam from home and eat somewhere with a view."},
@@ -1071,13 +1072,39 @@ const esc=v=>String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replac
 function loadOrder(){try{const x=JSON.parse(localStorage.getItem("dateCompassOrder")||"null");if(x)S.order={...S.order,...x}}catch(e){}}
 function saveOrderLocal(){try{localStorage.setItem("dateCompassOrder",JSON.stringify(S.order))}catch(e){}}
 loadOrder();
-const ok=(x,f)=>(f.p=="a"||x.p==f.p||x.p=="a")&&(f.t=="a"||!x.t||x.t==f.t||(f.t=="l"&&x.t=="n"))&&(f.s=="a"||x.s==f.s)&&(f.cat=="a"||!x.cat||x.cat==f.cat)&&(f.car!="n"||!x.r);
+const ok=(x,f)=>(f.p=="a"||x.p==f.p||x.p=="a")&&(f.t=="a"||!x.t||x.t==f.t||(f.t=="l"&&x.t=="n"))&&(f.s=="a"||x.s==f.s)&&(f.cat=="a"||!x.cat||(f.cat=="free"?x.c<=150:x.cat==f.cat))&&(f.car!="n"||!x.r);
 function opts(L,f,cap){
  for(const g of [f,{...f,s:"a"},{...f,s:"a",t:"a"}]){const r=L.filter(x=>ok(x,g)&&x.c<=cap);if(r.length)return r}
  return [];
 }
-const aPool=()=>{const r=opts(A,S,Math.max(S.b-150,0));if(S.car=="y"){const car=r.filter(x=>x.r);if(car.length)return car}return r.length?r:opts(A,S,S.b)};
-const fPool=()=>{const base=S.act&&S.act.t=="n"?F.filter(x=>x.k):F.filter(x=>!x.k||x.k==2);const remaining=Math.max(S.b-(S.act?S.act.c:0),0);const pref=S.foodMode=="a"?base:base.filter(x=>x.m==S.foodMode);const found=opts(pref,{p:S.p,t:"a",s:S.s},remaining);return found.length?found:opts(base,{p:S.p,t:"a",s:S.s},remaining)};
+const aPool=()=>{
+ const cap=Math.max(S.b-150,0),strict=opts(A,S,cap);
+ // Having a car expands travel options; it must not hide activities that do not need one.
+ if(strict.length)return strict;
+ const sameArea=opts(A,{...S,cat:"a"},S.b);
+ if(sameArea.length)return sameArea;
+ return opts(A,{...S,cat:"a",p:"a",s:"a",t:"a"},S.b);
+};
+function foodMatchesMode(x,mode){
+ if(mode=="a")return true;
+ const z=(x.n+" "+(x.d||"")).toLowerCase();
+ if(mode=="home")return x.m=="home"||/cook at home|at home|homemade|home-cooked|instant noodles|snacks from home|cook together|make drinks|kitchen|bake together/.test(z);
+ if(mode=="out")return x.m=="out"||/jollibee|mcdo|chowking|greenwich|mang inasal|kfc|shakey|bonchon|samgyupsal|restaurant|dine out|fast-food|fast food|eat out|seafood restaurant|burger date|pizza date|ramen date/.test(z);
+ if(mode=="breakfast")return /breakfast|brunch|silog|pancake|sunrise coffee|morning coffee|coffee and pastry/.test(z);
+ if(mode=="cafe")return /cafe|café|coffee|dessert|bakery|boba|milk tea|tea date|ice cream|halo-halo|hot choco|chocolate tasting/.test(z);
+ if(mode=="street")return /street food|market|food crawl|turo-turo|fishball|kwek-kwek|barbecue|night market|food stall/.test(z);
+ if(mode=="takeout")return x.m=="takeout"||/takeout|take-out|picnic|baon|convenience-store|snack run|food to go|packed lunch/.test(z);
+ if(mode=="healthy")return /healthy|lighter|salad|fruit|smoothie|vegetarian|vegan|fresh juice|yogurt|healthy bowl/.test(z);
+ if(mode=="special")return /celebration|samgyupsal|seafood|sushi|steak|anniversary|fine dining|tasting menu|special dinner/.test(z);
+ return true;
+}
+const fPool=()=>{
+ const base=S.act&&S.act.t=="n"?F.filter(x=>x.k):F.filter(x=>!x.k||x.k==2);
+ const remaining=Math.max(S.b-(S.act?S.act.c:0),0),pref=base.filter(x=>foodMatchesMode(x,S.foodMode));
+ const found=opts(pref,{p:S.p,t:"a",s:S.s},remaining);
+ // If the chosen style has no affordable option, prefer a usable within-budget option over an empty result.
+ return found.length?found:opts(base,{p:S.p,t:"a",s:S.s},remaining);
+};
 const total=()=>(S.act?S.act.c:0)+(S.food?S.food.c:0);
 const CH={p:{c:"Inside CDO",m:"Outside CDO",a:"Anywhere"},car:{a:"Either",y:"I have a car",n:"No car"},b:{300:"₱300",800:"₱800",1500:"₱1,500",5000:"Splurge"},t:{a:"Any length",s:"2 hours",l:"Half day or more",n:"Overnight"},s:{a:"Either",i:"Indoor",o:"Outdoor"},cat:{a:"All categories",...CAT},foodMode:{a:"Any food style",out:"Eat out",home:"Cook at home",breakfast:"Breakfast",cafe:"Cafe & dessert",street:"Street & market",takeout:"Takeout & picnic",healthy:"Lighter & healthy",special:"Special food date"}};
 function sel(label,key){return `<label class="selectfield"><span>${label}</span><select aria-label="${label}" onchange="setf('${key}',this.value)">${Object.entries(CH[key]).map(([v,t])=>`<option value="${v}"${String(S[key])==v?" selected":""}>${t}</option>`).join("")}</select></label>`}
