@@ -1092,3 +1092,21 @@ header.site .hin>nav a:active{
   .home-feature-pair>.hiw.romance-section .showcase-phone{width:135px!important;min-height:270px!important}
   .home-feature-pair>.hiw.romance-section .showcase-note{display:none!important}
 }
+
+
+/* Landscape means wider than tall: flatten both feature cards on desktop. */
+@media(min-width:900px){
+ .home-feature-pair{width:calc(100% + 120px)!important;max-width:1680px!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:28px!important;align-items:stretch!important}
+ .home-feature-pair>.hiw.romance-section,.home-feature-pair>.quick.vibe-section{box-sizing:border-box!important;min-height:0!important;height:auto!important;aspect-ratio:1.75 / 1!important;padding:clamp(18px,1.8vw,28px)!important;overflow:hidden!important}
+ .home-feature-pair>.hiw.romance-section{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)!important;align-items:center!important}
+ .home-feature-pair>.hiw.romance-section .step-flow{gap:8px!important;margin-top:12px!important}
+ .home-feature-pair>.hiw.romance-section .step{gap:8px!important}
+ .home-feature-pair>.hiw.romance-section .step-icon{width:38px!important;height:38px!important;flex-basis:38px!important}
+ .home-feature-pair>.hiw.romance-section .showcase{min-height:0!important;height:100%!important;padding:0!important;overflow:visible!important}
+ .home-feature-pair>.hiw.romance-section .showcase-phone{width:clamp(125px,10vw,165px)!important;min-height:220px!important;height:80%!important;max-height:270px!important}
+ .home-feature-pair>.hiw.romance-section .showcase-note{display:none!important}
+ .home-feature-pair>.quick.vibe-section .quickgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;margin-top:10px!important}
+ .home-feature-pair>.quick.vibe-section .quickcat{min-height:0!important;padding:10px 12px!important}
+}
+@media(min-width:1200px){.home-feature-pair{width:calc(100% + 160px)!important;gap:32px!important}.home-feature-pair>.hiw.romance-section,.home-feature-pair>.quick.vibe-section{aspect-ratio:1.9 / 1!important}}
+@media(min-width:900px) and (max-width:1050px){.home-feature-pair>.hiw.romance-section{grid-template-columns:minmax(0,1fr) minmax(0,.75fr)!important}.home-feature-pair>.hiw.romance-section .showcase{display:flex!important}.home-feature-pair>.hiw.romance-section .showcase-phone{width:115px!important;min-height:210px!important}}
