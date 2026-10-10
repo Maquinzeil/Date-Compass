@@ -1030,3 +1030,65 @@ header.site .hin>nav a:active{
   .home-feature-pair>.hiw.romance-section{grid-template-columns:minmax(0,1fr)}
   .home-feature-pair>.hiw.romance-section .showcase{display:none}
 }
+
+
+/* Make BOTH homepage panels genuinely panoramic, with no single-panel portrait layout. */
+@media(min-width:900px){
+  .home-feature-pair{
+    width:calc(100% + 96px)!important;
+    max-width:1680px!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    align-items:stretch!important;
+    gap:28px!important;
+  }
+  .home-feature-pair>.hiw.romance-section,
+  .home-feature-pair>.quick.vibe-section{
+    min-height:420px!important;
+    height:100%!important;
+  }
+  .home-feature-pair>.hiw.romance-section{
+    display:grid!important;
+    grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)!important;
+    align-items:center!important;
+    gap:18px!important;
+  }
+  .home-feature-pair>.hiw.romance-section .showcase{
+    display:flex!important;
+    min-height:0!important;
+    height:100%!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:8px!important;
+    overflow:visible!important;
+  }
+  .home-feature-pair>.hiw.romance-section .showcase-phone{
+    width:clamp(135px,12vw,185px)!important;
+    min-height:290px!important;
+  }
+  .home-feature-pair>.hiw.romance-section .showcase-note{
+    position:relative!important;right:auto!important;bottom:auto!important;
+    flex:0 1 78px!important;max-width:78px!important;font-size:.9rem!important;
+  }
+  .home-feature-pair>.quick.vibe-section{
+    display:flex!important;flex-direction:column!important;justify-content:flex-start!important;
+  }
+  .home-feature-pair>.quick.vibe-section .quickgrid{
+    display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:14px!important;align-content:start!important;flex:1!important;
+  }
+  .home-feature-pair>.quick.vibe-section .quickcat{
+    min-height:108px!important;padding:14px!important;
+  }
+}
+@media(min-width:1200px){
+  .home-feature-pair{width:calc(100% + 140px)!important;gap:32px!important}
+  .home-feature-pair>.hiw.romance-section,
+  .home-feature-pair>.quick.vibe-section{min-height:460px!important}
+  .home-feature-pair>.hiw.romance-section .showcase-phone{width:clamp(155px,12vw,205px)!important}
+}
+@media(min-width:900px) and (max-width:1050px){
+  .home-feature-pair>.hiw.romance-section{grid-template-columns:minmax(0,1fr) minmax(0,.8fr)!important}
+  .home-feature-pair>.hiw.romance-section .showcase{display:flex!important}
+  .home-feature-pair>.hiw.romance-section .showcase-phone{width:135px!important;min-height:270px!important}
+  .home-feature-pair>.hiw.romance-section .showcase-note{display:none!important}
+}
