@@ -1405,3 +1405,31 @@ header.site .hin > nav a:active,
   box-shadow: none !important;
   transform: translateY(-1px) !important;
 }
+
+
+/* Footer matches the gold navigation bar; center the full disclaimer line. */
+footer.site{
+  background:#D4AF37!important;
+  border-top:0!important;
+  color:#2a0509!important;
+}
+footer.site .logo,
+footer.site .fin p,
+footer.site nav a,
+footer.site .fine{
+  color:#2a0509!important;
+}
+footer.site .fine{
+  max-width:1440px!important;
+  width:100%!important;
+  box-sizing:border-box!important;
+  text-align:center!important;
+  margin:0 auto!important;
+  padding:14px 18px 20px!important;
+}
+footer.site .fin p{color:#2a0509!important}
+footer.site nav a:hover,
+footer.site nav a:focus-visible{
+  background:rgba(42,5,9,.09)!important;
+  color:#2a0509!important;
+}
