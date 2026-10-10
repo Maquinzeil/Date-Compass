@@ -1569,3 +1569,11 @@ main.wide .home-feature-pair>.hiw.romance-section{
 @media(max-width:480px){
   .phones .p1 .hero-tagline{font-size:clamp(1.35rem,5.6vw,1.65rem)!important;line-height:1.08!important;}
 }
+
+
+/* Restore the three How It Works icon badges above later style overrides. */
+main.wide .home-feature-pair .step-flow .step-icon{display:grid!important;place-items:center!important;width:48px!important;height:48px!important;min-width:48px!important;min-height:48px!important;flex:0 0 48px!important;border-radius:50%!important;opacity:1!important;visibility:visible!important;overflow:visible!important}
+main.wide .home-feature-pair .step-flow .step-icon svg{display:block!important;width:23px!important;height:23px!important;opacity:1!important;visibility:visible!important;fill:none!important;stroke:#4a080e!important;stroke-width:1.9!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+main.wide .home-feature-pair .step-flow .step-pink{background:#ffa2b6!important}
+main.wide .home-feature-pair .step-flow .step-gold{background:#ffe29a!important}
+main.wide .home-feature-pair .step-flow .step-blue{background:#e8d18a!important}
