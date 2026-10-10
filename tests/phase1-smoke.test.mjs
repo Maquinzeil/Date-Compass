@@ -14,8 +14,8 @@ const [app, html, css] = await Promise.all([
 test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
-  assert.match(html, /src="js\/app\.js\?v=20261010f"/);
-  assert.match(html, /href="css\/style\.css\?v=20261010f"/);
+  assert.match(html, /src="js\/app\.js\?v=20261010g"/);
+  assert.match(html, /href="css\/style\.css\?v=20261010g"/);
 });
 
 test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => {
@@ -64,4 +64,11 @@ test("background hearts and warm accent palette are configured", () => {
   assert.match(app, /const count=10\+Math\.floor\(Math\.random\(\)\*4\)/);
   assert.match(css, /--pri:#c5a665/);
   assert.match(css, /rgba\(255,226,154/);
+});
+
+
+test("vibe sections use translucent warm-yellow accents and responsive columns", () => {
+  assert.match(css, /\.hiw\.romance-section\{grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\)/);
+  assert.match(css, /@media\(max-width:720px\)\{\.hiw\.romance-section\{grid-template-columns:1fr/);
+  assert.match(css, /rgba\(255,226,154,\.12\)/);
 });
