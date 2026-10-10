@@ -1545,3 +1545,28 @@ main.wide .home-feature-pair>.hiw.romance-section{
   transform:translateY(-2px)!important;
 }
 .phones .p1 .hero-tagline span{color:#e63946!important;font-family:serif!important;margin-left:2px!important;}
+
+
+/* Enlarge and vertically center the handwritten tagline in the first phone's remaining space. */
+.phones .p1 .hero-tagline{
+  margin-top:auto!important;
+  margin-bottom:18px!important;
+  padding:0 4px!important;
+  font-size:clamp(1.08rem,3vw,1.38rem)!important;
+  line-height:1.18!important;
+  font-weight:700!important;
+  text-align:center!important;
+}
+.phones .p1 .hero-tagline::before{
+  width:78%!important;
+  height:12px!important;
+  margin:0 auto 5px!important;
+}
+@media(max-width:480px){
+  .phones .p1 .hero-tagline{
+    font-size:clamp(1rem,4vw,1.15rem)!important;
+    margin-bottom:14px!important;
+    line-height:1.15!important;
+  }
+  .phones .p1 .hero-tagline::before{width:82%!important;height:10px!important;}
+}
