@@ -1145,7 +1145,7 @@ function home(){
  <button class="quickcat" onclick="quickCat('games')"><span class="vibe-icon purple"><svg viewBox="0 0 24 24"><path d="M6 9h12a4 4 0 0 1 4 4l-1 5a2 2 0 0 1-3 1l-3-3H9l-3 3a2 2 0 0 1-3-1l-1-5a4 4 0 0 1 4-4Z"/><path d="M7 12v4m-2-2h4m7-1h.01M18 15h.01"/></svg></span><span class="vibe-text"><b>Games</b><small>Play together</small></span></button>
  <button class="quickcat" onclick="quickCat('nature')"><span class="vibe-icon green"><svg viewBox="0 0 24 24"><path d="M20 4c-8 0-14 3-14 10a6 6 0 0 0 6 6c7 0 10-8 8-16Z"/><path d="M4 21c3-6 7-9 12-12"/></svg></span><span class="vibe-text"><b>Nature</b><small>Fresh air</small></span></button>
  <button class="quickcat" onclick="quickCat('free')"><span class="vibe-icon pink"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2m4 5v3"/></svg></span><span class="vibe-text"><b>Free / Low Cost</b><small>Keep it simple</small></span></button>
- </div></section></div><p class="note">Sample date ideas for Cagayan de Oro and Misamis Oriental. Venues, costs, travel requirements, and availability are not verified; check details before going.</p>`;
+ </div></section></div><p class="note home-disclaimer">Sample date ideas for Cagayan de Oro and Misamis Oriental. Venues, costs, travel requirements, and availability are not verified; check details before going.</p>`;
 }
 function qview(){
  const i=S.qi,n=S.q.length;
