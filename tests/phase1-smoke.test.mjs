@@ -76,11 +76,12 @@ test("homepage feature sections sit side by side on desktop and stack on mobile"
 });
 
 test("every advertised planner category has an activity classification and free ideas keep their real category", () => {
-  assert.ok(app.split("A.forEach(x=>x.cat=category(x));").length >= 3);
+  assert.equal(app.split("A.forEach(x=>x.cat=category(x));").length - 1, 1, "Classify activity records once after all additions.");
   assert.ok(app.includes('{n:"Mobile Legends duo game night at home",c:0'));
   assert.ok(app.includes('return "games";'));
   assert.ok(app.includes('f.cat=="free"?x.c<=150:x.cat==f.cat'));
   assert.ok(app.includes('if(x.c<=150)return "free";'));
+  assert.match(app, /No activity matches this category and budget with the selected preferences/);
 });
 
 test("all food-style controls have explicit matching logic and fallback stays budget-limited", () => {
