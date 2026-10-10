@@ -675,3 +675,45 @@ header.site nav a{white-space:nowrap}
   .home-feature-pair{margin-inline:12px;gap:14px}
   .home-feature-pair>.hiw,.home-feature-pair>.quick{padding:18px}
 }
+
+
+/* Requested layout correction: keep the brand left and the full nav right on desktop. */
+@media (min-width:821px){
+  header.site .hin{
+    width:100%;
+    max-width:1440px;
+    margin:0 auto;
+    padding:8px 28px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:nowrap;
+    gap:16px;
+  }
+  header.site .hin>.logo{
+    flex:0 0 auto;
+    margin:0 auto 0 0;
+    align-self:center;
+  }
+  header.site .hin>nav{
+    flex:0 0 auto;
+    width:auto;
+    margin:0 0 0 auto;
+    display:flex;
+    justify-content:flex-end;
+    flex-wrap:nowrap;
+  }
+}
+
+/* Restore the date ticket/card as an opaque card; do not make it glassy or transparent. */
+.kit{
+  background-color:var(--card)!important;
+  background-image:none!important;
+  opacity:1!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  border:2px solid var(--ink)!important;
+  border-radius:20px!important;
+  box-shadow:8px 8px 0 var(--gold)!important;
+}
