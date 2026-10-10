@@ -1007,12 +1007,13 @@ const CAT={romantic:"Romantic",food:"Food",adventure:"Adventure",home:"At Home",
 function category(x){
  const z=(x.n+" "+(x.d||"")).toLowerCase();
  if(/drive|road trip|roadtrip|car |by car|parking|scenic drive|sunrise drive|sunset drive|gas up|car wash|car karaoke|car picnic|car camping/.test(z))return "car";
+ // Prioritize the actual activity over its venue: gaming at a cafe is still a games date.
+ if(/arcade|game|cards|board game|puzzle|bowling|billiard|trivia|escape room|mini golf/.test(z))return "games";
  if(/cook|bake|recipe|meal|breakfast|lunch|dinner|dessert|coffee|cafe|café|food|pizza|ramen|market|restaurant|picnic/.test(z))return "food";
  if(/museum|learn|class|workshop|lecture|bookstore|book |history|language|documentary|quiz|teach/.test(z))return "learning";
  if(/volunteer|donat|community|kindness|help |charity|clean-up|cleanup|give back|compliment/.test(z))return "kindness";
  if(/question|conversation|talk |deep |gratitude|appreciation|future|dream|memory|relationship|values|goals/.test(z))return "conversation";
  if(/paint|draw|craft|scrapbook|photo|photography|write |poem|playlist|make |diy|collage|pottery/.test(z))return "creative";
- if(/arcade|game|cards|board game|puzzle|bowling|billiard|trivia|escape room|mini golf/.test(z))return "games";
  if(/run|hike|bike|biking|walk|workout|yoga|fitness|badminton|basketball|swim|dance class|exercise/.test(z))return "fitness";
  if(/cave|zipline|adventure|climb|kayak|camping|camp |trek|waterfall|snorkel|surf|horseback|explore/.test(z))return "adventure";
  if(/park|garden|beach|river|lake|waterfront|sunset|sunrise|nature|viewpoint|botanical|bird|star|stargaz|outdoor/.test(z))return "nature";
@@ -1079,11 +1080,12 @@ function opts(L,f,cap){
 }
 const aPool=()=>{
  const cap=Math.max(S.b-150,0),strict=opts(A,S,cap);
- // Having a car expands travel options; it must not hide activities that do not need one.
+ // Prefer room for food, but never silently replace the user's chosen category.
  if(strict.length)return strict;
- const sameArea=opts(A,{...S,cat:"a"},S.b);
- if(sameArea.length)return sameArea;
- return opts(A,{...S,cat:"a",p:"a",s:"a",t:"a"},S.b);
+ const sameCategory=opts(A,{...S,cat:S.cat},S.b);
+ if(sameCategory.length)return sameCategory;
+ // If place/setting/duration are too restrictive, relax those only. Keep category and car constraints.
+ return opts(A,{...S,p:"a",s:"a",t:"a",cat:S.cat},S.b);
 };
 function foodMatchesMode(x,mode){
  if(mode=="a")return true;
@@ -1102,8 +1104,9 @@ const fPool=()=>{
  const base=S.act&&S.act.t=="n"?F.filter(x=>x.k):F.filter(x=>!x.k||x.k==2);
  const remaining=Math.max(S.b-(S.act?S.act.c:0),0),pref=base.filter(x=>foodMatchesMode(x,S.foodMode));
  const found=opts(pref,{p:S.p,t:"a",s:S.s},remaining);
- // If the chosen style has no affordable option, prefer a usable within-budget option over an empty result.
- return found.length?found:opts(base,{p:S.p,t:"a",s:S.s},remaining);
+ if(found.length)return found;
+ // Keep the selected food style even when we must relax the place, setting, or duration filters.
+ return opts(pref,{p:"a",t:"a",s:"a"},remaining);
 };
 const total=()=>(S.act?S.act.c:0)+(S.food?S.food.c:0);
 const CH={p:{c:"Inside CDO",m:"Outside CDO",a:"Anywhere"},car:{a:"Either",y:"I have a car",n:"No car"},b:{300:"₱300",800:"₱800",1500:"₱1,500",5000:"Splurge"},t:{a:"Any length",s:"2 hours",l:"Half day or more",n:"Overnight"},s:{a:"Either",i:"Indoor",o:"Outdoor"},cat:{a:"All categories",...CAT},foodMode:{a:"Any food style",out:"Eat out",home:"Cook at home",breakfast:"Breakfast",cafe:"Cafe & dessert",street:"Street & market",takeout:"Takeout & picnic",healthy:"Lighter & healthy",special:"Special food date"}};
@@ -1114,7 +1117,7 @@ function filters(){
  <div class="steps"><span class="on">1 Choose</span><span${cu||S.gen?' class="on"':""}>2 Your plan</span><span>3 Kit</span></div>
  <h2>${cu?"Build your own date":"Surprise us"}</h2>
  <p class="mute">${cu?"Set the basics, then pick each part yourself.":"Tell us the basics and we choose the rest."}</p>
- ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}${sel("Food style","foodMode")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setBudget(this.value)"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}`
+ ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}${sel("Food style","foodMode")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setBudget(this.value)" onchange="render()"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}`
  +(cu?"":`<button class="go" onclick="gen()" ${S.b>0?"":"disabled"}>Plan my date</button>`);
 }
 function foodGuide(x){
@@ -1143,7 +1146,7 @@ function slot(label,key,pool,item){
  const cu=S.view=="custom",L=key=="act"?A:F;
  return `<div class="card"><div class="lab">${label}</div>`
  +(cu?`<select aria-label="${label}" onchange="pick('${key}',this.value)"><option value="">Choose one (${pool.length} matches)</option>${pool.map(x=>`<option value="${L.indexOf(x)}"${item&&item.n==x.n?" selected":""}>${x.n}, about ${peso(x.c)}</option>`).join("")}</select>`:"")
- +(item?`<h3>${esc(item.n)}</h3><p>${esc(item.d)}</p><p class="tag">Estimated ${peso(item.c)} for two. ${PL[item.p]}. ${CAT[item.cat]?" · "+CAT[item.cat]:""}</p>${guideHtml(item)}`:(S.gen&&key=="food"?`<p class="note">No food idea fits the remaining budget and preferences. Try a different activity or increase your budget.</p>`:""))
+ +(item?`<h3>${esc(item.n)}</h3><p>${esc(item.d)}</p><p class="tag">Estimated ${peso(item.c)} for two. ${PL[item.p]}. ${CAT[item.cat]?" · "+CAT[item.cat]:""}</p>${guideHtml(item)}`:((!pool.length||S.gen)&&key=="food"?`<p class="note">No food idea matches this food style within the remaining budget. Try another food style, a cheaper activity, or a higher budget.</p>`:""))
  +`<button class="ghost" onclick="shuffle('${key}')">${cu?"Surprise me":"Try another"}</button></div>`;
 }
 function plan(){
