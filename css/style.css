@@ -1510,3 +1510,36 @@ main.wide .home-feature-pair>.hiw.romance-section{
   .hero2 .hero-tagline{padding-left:clamp(125px, 38vw, 180px)!important;max-width:100%!important;text-align:center!important;}
   .hero2 .hero-tagline::before{width:clamp(105px, 32vw, 150px)!important;margin-left:10px!important;height:12px!important;}
 }
+
+
+/* Keep the romantic tagline inside the first phone, just below its red plan button. */
+.hero2 .hero-actions .hero-tagline{display:none!important;}
+.phones .p1 .hero-tagline{
+  display:block!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  padding:0!important;
+  margin:10px auto 0!important;
+  color:#7b2637!important;
+  font-family:"Brush Script MT","Segoe Script",cursive!important;
+  font-size:clamp(.72rem,2.1vw,.88rem)!important;
+  line-height:1.1!important;
+  text-align:center!important;
+  white-space:normal!important;
+  overflow-wrap:normal!important;
+  position:relative!important;
+  left:auto!important;
+  transform:none!important;
+}
+.phones .p1 .hero-tagline::before{
+  content:""!important;
+  display:block!important;
+  width:72%!important;
+  height:8px!important;
+  border-bottom:1.5px solid rgba(123,38,55,.65)!important;
+  border-radius:0 0 50% 50%!important;
+  margin:0 auto 2px!important;
+  transform:translateY(-2px)!important;
+}
+.phones .p1 .hero-tagline span{color:#e63946!important;font-family:serif!important;margin-left:2px!important;}
