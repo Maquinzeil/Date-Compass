@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile, access } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
+import vm from "node:vm";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const [app, html, css] = await Promise.all([
@@ -94,4 +95,61 @@ test("having a car does not incorrectly restrict results to car-required activit
   assert.match(app, /Having a car expands travel options/);
   assert.match(app, /const cap=Math\.max\(S\.b-150,0\),strict=opts\(A,S,cap\)/);
   assert.doesNotMatch(app, /if\(S\.car=="y"\)\{const car=r\.filter\(x=>x\.r\)/);
+});
+
+
+test("planner runs every area, transport, category, duration, setting, and food-style choice without blank activities or over-budget food", () => {
+  const elements = {
+    app: { className: "", innerHTML: "", offsetWidth: 0, classList: { add() {}, remove() {} } },
+    yr: { textContent: "" },
+  };
+  const document = {
+    getElementById(id) { return elements[id] || (elements[id] = { textContent: "", innerHTML: "", classList: { add() {}, remove() {} }, style: { setProperty() {} } }); },
+    querySelectorAll() { return []; },
+    addEventListener() {},
+    createElement() { return { style: { setProperty() {} }, classList: { add() {}, remove() {} }, setAttribute() {}, appendChild() {}, replaceChildren() {} }; },
+  };
+  const context = {
+    document,
+    location: { hostname: "", pathname: "/", hash: "" },
+    history: { pushState() {}, replaceState() {} },
+    localStorage: { getItem() { return null; }, setItem() {} },
+    matchMedia() { return { matches: true }; },
+    addEventListener() {},
+    scrollTo() {},
+    window: {},
+    console,
+    Math,
+    Date,
+    setTimeout() {},
+    navigator: {},
+  };
+  vm.createContext(context);
+  vm.runInContext(app, context, { timeout: 5000 });
+  const result = vm.runInContext(`(() => {
+    const budgets = [300, 800, 1500, 5000];
+    const areas = ["c", "m", "a"];
+    const cars = ["a", "y", "n"];
+    const durations = ["a", "s", "l", "n"];
+    const settings = ["a", "i", "o"];
+    const categories = Object.keys(CH.cat);
+    const foodModes = Object.keys(CH.foodMode);
+    let combinations = 0, noActivity = 0, overBudgetFood = 0;
+    for (const budget of budgets) for (const area of areas) for (const car of cars)
+      for (const duration of durations) for (const setting of settings)
+      for (const category of categories) for (const foodMode of foodModes) {
+        S.b = budget; S.p = area; S.car = car; S.t = duration; S.s = setting;
+        S.cat = category; S.foodMode = foodMode; S.act = null; S.food = null;
+        const activities = aPool();
+        combinations++;
+        if (!activities.length) { noActivity++; continue; }
+        S.act = activities[0];
+        const foods = fPool();
+        if (foods.some(food => food.c > Math.max(S.b - S.act.c, 0))) overBudgetFood++;
+      }
+    return { combinations, noActivity, overBudgetFood, activityCount: A.length, foodCount: F.length };
+  })()`, context, { timeout: 10000 });
+  assert.ok(result.combinations > 5000, `Expected broad choice coverage, got ${result.combinations}`);
+  assert.equal(result.noActivity, 0, `Some choice combinations had no activity: ${JSON.stringify(result)}`);
+  assert.equal(result.overBudgetFood, 0, `Food suggestions exceeded remaining budget: ${JSON.stringify(result)}`);
 });
