@@ -1354,3 +1354,7 @@ header.site .hin>nav a:active{
     gap: 18px !important;
   }
 }
+
+/* Prevent viewport-wide horizontal overflow: the universal box-sizing rule inherits from html. */
+html{box-sizing:border-box}
+body{max-width:100%;overflow-x:clip}
