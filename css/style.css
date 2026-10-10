@@ -1221,3 +1221,75 @@ header.site .hin>nav a:active{
     line-height: 1.5 !important;
   }
 }
+
+
+/* Final spacing and balance pass: equal feature cards, with consistent inner breathing room. */
+@media (min-width: 900px) {
+  main:has(.hero2) .home-feature-pair {
+    width: calc(100% - 88px) !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 24px !important;
+    align-items: stretch !important;
+  }
+  main:has(.hero2) .home-feature-pair > .hiw.romance-section,
+  main:has(.hero2) .home-feature-pair > .quick.vibe-section {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    padding: 28px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+  }
+  main:has(.hero2) .home-feature-pair > .hiw.romance-section {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr) !important;
+    gap: 16px !important;
+  }
+  main:has(.hero2) .home-feature-pair > .quick.vibe-section {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+  main:has(.hero2) .home-feature-pair > .quick.vibe-section .vibe-head {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  main:has(.hero2) .home-feature-pair > .quick.vibe-section .vibe-head > div:last-child {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+  }
+  main:has(.hero2) .home-feature-pair > .quick.vibe-section .quickgrid {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 18px 0 0 !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+  main:has(.hero2) .home-feature-pair > .quick.vibe-section .quickcat {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding: 14px !important;
+    margin: 0 !important;
+  }
+}
+@media (min-width: 1200px) {
+  main:has(.hero2) .home-feature-pair { gap: 28px !important; }
+  main:has(.hero2) .home-feature-pair > .hiw.romance-section,
+  main:has(.hero2) .home-feature-pair > .quick.vibe-section { padding: 32px !important; }
+}
+@media (min-width: 900px) and (max-width: 1050px) {
+  main:has(.hero2) .home-feature-pair { width: calc(100% - 56px) !important; gap: 18px !important; }
+  main:has(.hero2) .home-feature-pair > .hiw.romance-section,
+  main:has(.hero2) .home-feature-pair > .quick.vibe-section { padding: 20px !important; }
+}
