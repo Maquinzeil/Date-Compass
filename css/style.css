@@ -538,3 +538,16 @@ body{
 :root{--bg:#fbf3df;--bg-t:#f4e8c8;--bg-m:#f7edda;--bg-b:#2a0509;--pri:#c5a665;--pri-ink:#2a0509;--gold:#e4c67d;--line:rgba(255,226,154,.25);--soft:rgba(255,226,154,.13)}
 .step-blue{background:rgba(255,226,154,.48)}
 .cb{background:rgba(255,226,154,.16)}
+
+
+/* Corrected visual direction: soft transparent yellow accents, responsive side-by-side sections. */
+:root{--pri:#d6b85e;--pri-ink:#2a0509;--gold:#e6ce84;--line:rgba(255,226,154,.28);--soft:rgba(255,226,154,.12)}
+.hiw.romance-section{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;gap:20px;padding:clamp(18px,2.4vw,28px);background:transparent;border:1px solid rgba(255,226,154,.22);box-shadow:none;border-radius:22px;overflow:hidden}
+.quick.vibe-section{margin-top:24px;padding:clamp(18px,2.4vw,28px);background:rgba(255,226,154,.07);border:1px solid rgba(255,226,154,.2);border-radius:22px;box-shadow:none}
+.step-pink{background:rgba(255,143,163,.2)}.step-gold,.step-blue{background:rgba(255,226,154,.18)}
+.vibe-pin{background:rgba(255,226,154,.18)!important;color:#f0d991!important;border:1px solid rgba(255,226,154,.25)}
+.vibe-icon.yellow{background:rgba(255,226,154,.14);color:#f0d991}.vibe-icon.pink{background:rgba(255,143,163,.12);color:#ff9eb1}
+.quick.vibe-section .quickcat{background:rgba(255,226,154,.055);border-color:rgba(255,226,154,.16)}.quick.vibe-section .quickcat:hover,.quick.vibe-section .quickcat:focus-visible{background:rgba(255,226,154,.12);border-color:rgba(255,226,154,.38)}
+.hero2 .c1,.hero2 .c2,.hero2 .c3{opacity:.14}.hero2 .c1,.hero2 .c3{background:rgba(255,226,154,.65)}
+@media(max-width:1000px){.hiw.romance-section{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.quick.vibe-section .quickgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.hiw.romance-section{grid-template-columns:1fr;gap:12px}.quick.vibe-section{margin-top:18px}}
