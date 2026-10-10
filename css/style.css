@@ -1174,3 +1174,50 @@ header.site .hin>nav a:active{
   main:has(.hero2) .home-feature-pair > .hiw.romance-section { grid-template-columns: minmax(0, 1fr) minmax(0, .72fr) !important; }
   main:has(.hero2) .home-feature-pair > .hiw.romance-section .showcase-phone { width: 112px !important; height: 215px !important; }
 }
+
+
+/* Improve readability in both homepage feature panels without changing their aligned layout. */
+@media (min-width: 900px) {
+  .home-feature-pair > .hiw.romance-section .section-kicker,
+  .home-feature-pair > .quick.vibe-section .section-kicker {
+    font-size: clamp(.9rem, .85vw, 1.05rem) !important;
+    letter-spacing: .08em !important;
+  }
+  .home-feature-pair > .hiw.romance-section h2,
+  .home-feature-pair > .quick.vibe-section h2 {
+    font-size: clamp(1.65rem, 1.75vw, 2.1rem) !important;
+    line-height: 1.12 !important;
+    margin-bottom: 12px !important;
+  }
+  .home-feature-pair > .hiw.romance-section p,
+  .home-feature-pair > .quick.vibe-section p,
+  .home-feature-pair > .hiw.romance-section .step,
+  .home-feature-pair > .hiw.romance-section li {
+    font-size: clamp(1rem, 1.05vw, 1.16rem) !important;
+    line-height: 1.55 !important;
+  }
+  .home-feature-pair > .quick.vibe-section .quickcat {
+    font-size: clamp(1rem, 1.05vw, 1.15rem) !important;
+    line-height: 1.35 !important;
+  }
+  .home-feature-pair > .quick.vibe-section .quickcat small,
+  .home-feature-pair > .quick.vibe-section .quickcat span {
+    font-size: .95em !important;
+    line-height: 1.4 !important;
+  }
+  .home-feature-pair > .hiw.romance-section .showcase-note {
+    font-size: .95rem !important;
+  }
+}
+@media (max-width: 899px) {
+  .home-feature-pair > .hiw.romance-section h2,
+  .home-feature-pair > .quick.vibe-section h2 {
+    font-size: clamp(1.55rem, 5vw, 1.9rem) !important;
+  }
+  .home-feature-pair > .hiw.romance-section p,
+  .home-feature-pair > .quick.vibe-section p,
+  .home-feature-pair > .quick.vibe-section .quickcat {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+}
