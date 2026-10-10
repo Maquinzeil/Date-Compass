@@ -1398,7 +1398,7 @@ header.site .hin > nav a:active,
 .site nav a:hover,
 .site nav a:focus-visible,
 .site nav a:active {
-  background: rgba(42,5,9,.10) !important;
+  background: #ffe29a !important;
   background-image: none !important;
   color: #2a0509 !important;
   border: 0 !important;
