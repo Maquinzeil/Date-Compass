@@ -1269,7 +1269,7 @@ function seedBackgroundHearts(){
  if(!cols.length)return;
  cols.forEach((col,ci)=>{
    col.replaceChildren();
-   const count=6+Math.floor(Math.random()*3);
+   const count=10+Math.floor(Math.random()*4);
    for(let n=0;n<count;n++){
      const heart=document.createElement("span");
      heart.className="float-heart";
