@@ -14,8 +14,8 @@ const [app, html, css] = await Promise.all([
 test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
-  assert.match(html, /src="js\/app\.js\?v=20261010e"/);
-  assert.match(html, /href="css\/style\.css\?v=20261010e"/);
+  assert.match(html, /src="js\/app\.js\?v=20261010f"/);
+  assert.match(html, /href="css\/style\.css\?v=20261010f"/);
 });
 
 test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => {
@@ -57,4 +57,11 @@ test("placeholder recommendation count is not advertised as verified inventory",
   assert.match(app, /Sample date ideas for Cagayan de Oro and Misamis Oriental/);
   assert.match(app, /not verified venue listings/);
   assert.match(app, /Sample voucher preview — not redeemable/);
+});
+
+
+test("background hearts and warm accent palette are configured", () => {
+  assert.match(app, /const count=10\+Math\.floor\(Math\.random\(\)\*4\)/);
+  assert.match(css, /--pri:#c5a665/);
+  assert.match(css, /rgba\(255,226,154/);
 });
