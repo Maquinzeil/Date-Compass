@@ -1045,7 +1045,7 @@ const PL={c:"Inside CDO",m:"Misamis Oriental, outside CDO",a:"Anywhere"};
 const BL={300:"Up to ₱300",800:"Up to ₱800",1500:"Up to ₱1,500",5000:"Splurge, ₱1,500 and up"};
 const S={view:"home",p:"c",b:0,t:"a",s:"a",car:"a",cat:"a",foodMode:"a",act:null,food:null,gen:false,q:[],qi:0,from:"random",code:"",surp:false,order:{name:"",partner:"",occasion:"",date:"",delivery:"pickup",address:"",contact:"",messenger:"",note:""},orderSaved:false};
 let SITE="";try{if(location.hostname.endsWith("github.io"))SITE=location.hostname+location.pathname.replace(/index\.html$/,"").replace(/\/$/,"")}catch(e){}
-const OWNER_PIN="change-me";
+// Owner/admin tools are disabled in this public static frontend. A client-side PIN is not secure authentication.
 const CONTACT_EMAIL="your-email@example.com";
 const app=document.getElementById("app");
 const rnd=a=>a[Math.floor(Math.random()*a.length)];
@@ -1060,7 +1060,7 @@ function opts(L,f,cap){
  return [];
 }
 const aPool=()=>{const r=opts(A,S,Math.max(S.b-150,0));if(S.car=="y"){const car=r.filter(x=>x.r);if(car.length)return car}return r.length?r:opts(A,S,S.b)};
-const fPool=()=>{const base=S.act&&S.act.t=="n"?F.filter(x=>x.k):F.filter(x=>!x.k||x.k==2);const mode=S.foodMode=="a"?base:base.filter(x=>x.m==S.foodMode);return opts(mode,{p:S.p,t:"a",s:S.s},S.act?Math.max(S.b-S.act.c,150):S.b)};
+const fPool=()=>{const base=S.act&&S.act.t=="n"?F.filter(x=>x.k):F.filter(x=>!x.k||x.k==2);const mode=S.foodMode=="a"?base:base.filter(x=>x.m==S.foodMode);const remaining=Math.max(S.b-(S.act?S.act.c:0),0);return opts(mode,{p:S.p,t:"a",s:S.s},remaining)};
 const total=()=>(S.act?S.act.c:0)+(S.food?S.food.c:0);
 const CH={p:{c:"Inside CDO",m:"Outside CDO",a:"Anywhere"},car:{a:"Either",y:"I have a car",n:"No car"},b:{300:"₱300",800:"₱800",1500:"₱1,500",5000:"Splurge"},t:{a:"Any length",s:"2 hours",l:"Half day or more",n:"Overnight"},s:{a:"Either",i:"Indoor",o:"Outdoor"},cat:{a:"All categories",...CAT},foodMode:{a:"Any food style",out:"Eat out",home:"Cook at home",breakfast:"Breakfast",cafe:"Cafe & dessert",street:"Street & market",takeout:"Takeout & picnic",healthy:"Lighter & healthy",special:"Special food date"}};
 function sel(label,key){return `<label class="selectfield"><span>${label}</span><select aria-label="${label}" onchange="setf('${key}',this.value)">${Object.entries(CH[key]).map(([v,t])=>`<option value="${v}"${String(S[key])==v?" selected":""}>${t}</option>`).join("")}</select></label>`}
@@ -1108,7 +1108,7 @@ function plan(){
  const t=total(),bl=S.b>=5000?"your splurge budget":"your "+peso(S.b)+" budget",over=t>S.b?" That is a bit over, so try another pick.":"";
  return `<h2 style="margin-top:22px">Your date</h2>`+slot("Activity","act",ap,S.act)+slot("Food","food",fPool(),S.food)
  +(t?`<div class="total">About ${peso(t)} of ${bl}.${over}</div>`:"")
- +`<p class="note">Food ideas now include eating out, takeout, street food, cafe dates, and actual cook-together meals. Prices are rough planning estimates, so check current menus and ingredient costs before you go.</p>`
+ +`<p class="note">These are sample date ideas, not verified venue listings. Cost figures are rough estimates for two, not live quotes. Check current prices, opening hours, availability, transport, and safety before going.</p>`
  +`<p class="brandline">♥ Date Compass${SITE?" "+SITE:""}</p><div class="bar">`+(S.view=="random"?`<button class="ghost" onclick="gen()">New plan</button>`:"")+`<button class="ghost" onclick="startKit()">Get the Date Compass Kit</button><button class="ghost" id="cp" onclick="copyPlan()">Copy</button></div>`;
 }
 function about(){
@@ -1145,7 +1145,7 @@ function home(){
  <button class="quickcat" onclick="quickCat('games')"><span class="vibe-icon purple"><svg viewBox="0 0 24 24"><path d="M6 9h12a4 4 0 0 1 4 4l-1 5a2 2 0 0 1-3 1l-3-3H9l-3 3a2 2 0 0 1-3-1l-1-5a4 4 0 0 1 4-4Z"/><path d="M7 12v4m-2-2h4m7-1h.01M18 15h.01"/></svg></span><span class="vibe-text"><b>Games</b><small>Play together</small></span></button>
  <button class="quickcat" onclick="quickCat('nature')"><span class="vibe-icon green"><svg viewBox="0 0 24 24"><path d="M20 4c-8 0-14 3-14 10a6 6 0 0 0 6 6c7 0 10-8 8-16Z"/><path d="M4 21c3-6 7-9 12-12"/></svg></span><span class="vibe-text"><b>Nature</b><small>Fresh air</small></span></button>
  <button class="quickcat" onclick="quickCat('free')"><span class="vibe-icon pink"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2m4 5v3"/></svg></span><span class="vibe-text"><b>Free / Low Cost</b><small>Keep it simple</small></span></button>
- </div></section><p class="note">1,000 wholesome date ideas, including car-friendly options. All ideas are placeholders that still need checking.</p>`;
+ </div></section><p class="note">Sample date ideas for Cagayan de Oro and Misamis Oriental. Venues, costs, travel requirements, and availability are not verified; check details before going.</p>`;
 }
 function qview(){
  const i=S.qi,n=S.q.length;
@@ -1162,7 +1162,7 @@ function setDelivery(v){readOrderForm();S.order.delivery=v;render()}
 function orderText(){const o=S.order;return "DATE COMPASS KIT ORDER\nOrder code: "+S.code+"\nActivity: "+(S.act?S.act.n:"To be decided")+"\nFood: "+(S.food?S.food.n:"To be decided")+"\nCategory: "+(S.act&&S.act.cat?CAT[S.act.cat]:"Not specified")+"\nSurprise version: "+(S.surp?"Yes":"No")+"\n\nCUSTOMER\nName: "+o.name+"\nPartner name: "+o.partner+"\nOccasion: "+(o.occasion||"Not specified")+"\nKit needed by: "+(o.date||"Not specified")+"\nMobile: "+o.contact+"\nMessenger: "+(o.messenger||"Not provided")+"\n\nFULFILLMENT\nMethod: "+(o.delivery=="delivery"?"Delivery":"Pick up")+"\n"+(o.delivery=="delivery"?"Address: "+(o.address||"Not provided")+"\n":"")+"\nPERSONALIZATION / NOTES\n"+(o.note||"None")+"\n\nEstimated plan total: "+peso(total())+"\nPlease confirm final price, availability, pickup/delivery details, and any partner voucher before production."}
 function saveAndOrder(){readOrderForm();const er=document.getElementById("oerr");if(!S.order.name||!S.order.partner||!S.order.contact||!S.order.date){er.textContent="Please add your name, your partner name, mobile number, and the date you need the kit.";return}if(S.order.delivery=="delivery"&&!S.order.address){er.textContent="Please add the delivery address or choose Pick up.";return}saveOrderLocal();S.orderSaved=true;render()}
 async function copyOrder(){const b=document.getElementById("copyorder");try{await navigator.clipboard.writeText(orderText());b.textContent="Copied! Paste it in Messenger"}catch(e){b.textContent="Copy failed. Select the order text below."}}
-function emailOrder(){location.href="mailto:"+CONTACT_EMAIL+"?subject="+encodeURIComponent("Date Compass kit order "+S.code)+"&body="+encodeURIComponent(orderText())}
+function emailOrder(){if(!CONTACT_EMAIL||CONTACT_EMAIL==="your-email@example.com"){const b=document.getElementById("emailnotice");if(b)b.textContent="Email is unavailable because the owner has not configured the contact address. Copy the draft and send it only through a verified official channel.";return}location.href="mailto:"+CONTACT_EMAIL+"?subject="+encodeURIComponent("Date Compass kit order "+S.code)+"&body="+encodeURIComponent(orderText())}
 function clearOrder(){S.order={name:"",partner:"",occasion:"",date:"",delivery:"pickup",address:"",contact:"",messenger:"",note:""};S.orderSaved=false;saveOrderLocal();render()}
 function orderForm(){
  const o=S.order;
@@ -1170,7 +1170,7 @@ function orderForm(){
  h+='<div class="formgrid"><label>Your name *<input id="oname" autocomplete="name" value="'+esc(o.name)+'" placeholder="e.g. Jasper"></label><label>Partner name *<input id="opartner" autocomplete="name" value="'+esc(o.partner)+'" placeholder="e.g. Maria"></label><label>Occasion<input id="ooccasion" value="'+esc(o.occasion)+'" placeholder="Date night, anniversary, birthday..."></label><label>Date you need the kit *<input id="odate" type="date" value="'+esc(o.date)+'"></label><label>Mobile number *<input id="ocontact" type="tel" autocomplete="tel" value="'+esc(o.contact)+'" placeholder="09xx xxx xxxx"></label><label>Messenger name/link<input id="omessenger" value="'+esc(o.messenger)+'" placeholder="Optional, for easier follow-up"></label></div>';
  h+='<fieldset><legend>How should we get the kit to you? *</legend><div class="chips"><button type="button" class="chip" aria-pressed="'+(o.delivery=="pickup")+'" onclick="setDelivery(\'pickup\')">Pick up</button><button type="button" class="chip" aria-pressed="'+(o.delivery=="delivery")+'" onclick="setDelivery(\'delivery\')">Delivery</button></div></fieldset>';
  if(o.delivery=="delivery")h+='<label>Delivery address / landmark *<textarea id="oaddress" rows="3" placeholder="House/building, street, barangay, city + nearby landmark">'+esc(o.address)+'</textarea></label>';
- h+='<label>Special note for us<textarea id="onote" rows="3" placeholder="Card message, colors, surprise instructions, anything we should know...">'+esc(o.note)+'</textarea></label><p id="oerr" class="err" role="alert"></p><div class="orderactions"><button onclick="saveAndOrder()">Save details & create order message</button><button class="ghost" onclick="clearOrder()">Clear details</button></div><p class="note">Your details stay in this browser until you choose to copy or email the order.</p></section>';
+ h+='<label>Special note for us<textarea id="onote" rows="3" placeholder="Card message, colors, surprise instructions, anything we should know...">'+esc(o.note)+'</textarea></label><p id="oerr" class="err" role="alert"></p><div class="orderactions"><button onclick="saveAndOrder()">Save draft details</button><button class="ghost" onclick="clearOrder()">Clear details</button></div><p class="note">This is a draft only. It is saved in this browser and does not submit an order, reserve a kit, or confirm fulfillment.</p></section>';
  return h;
 }
 function kitview(){
@@ -1180,19 +1180,22 @@ function kitview(){
  h+='<div class="kit'+(S.surp?" sealed":"")+'"><div class="kh">Our date</div>'+(S.surp?'<div class="seal">Sealed surprise. Open on the date.</div>':"");
  h+='<div class="kr"><span>For</span><b>'+(esc(o.partner)||"Your partner")+'</b></div><div class="kr"><span>From</span><b>'+(esc(o.name)||"Your name")+'</b></div><div class="kr"><span>Activity</span><b>'+(S.act?S.act.n:"To be decided")+'</b></div><div class="kr"><span>Food</span><b>'+(S.food?S.food.n:"To be decided")+'</b></div>';
  if(o.occasion)h+='<div class="kr"><span>Occasion</span><b>'+esc(o.occasion)+'</b></div>';
- h+='<div class="kitinclude"><b>📦 Included in your Date Compass Kit</b><p>10 printed question cards to use during your date. These questions are not shown in the app. They are included only in the physical kit.</p></div><div class="vou"><span class="tag">Partner voucher</span><b>Show this card at [Partner name]</b><p>[Offer, for example a free drink with any meal]</p><span class="tag">Valid until [date]. One voucher per card.</span><div class="code">Card code: '+S.code+'</div></div><div class="kf">Planned with Date Compass.</div></div>';
+ h+='<div class="kitinclude"><b>📦 Planned kit contents — not production-ready</b><p>The question-card bank is not configured. Confirm and approve the final card content before offering a printed kit.</p></div><div class="vou"><span class="tag">Sample voucher preview — not redeemable</span><b>Partner: [Partner name not configured]</b><p>Offer: [Voucher terms not configured]</p><span class="tag">Expiry and redemption terms must be confirmed.</span><div class="code">Card code: '+S.code+'</div></div><div class="kf">Planned with Date Compass.</div></div>';
  h+='<button class="ghost" onclick="toggleSurp()">'+(S.surp?"Show the plan":"Make it a surprise")+'</button>'+orderForm();
- if(S.orderSaved)h+='<section class="panel success"><h3>Ready to send ✓</h3><p>Your order is organized into one message. Send it through Messenger or email.</p><pre class="ordermsg">'+esc(orderText())+'</pre><div class="orderactions"><button id="copyorder" onclick="copyOrder()">Copy for Messenger</button><button class="ghost" onclick="emailOrder()">Email order</button></div><p class="note">Keep order code <b>'+S.code+'</b> after sending it so we can find the order quickly.</p></section>';
+ if(S.orderSaved)h+='<section class="panel success"><h3>Order message draft</h3><p>This is not a submitted or confirmed order. Nothing has been sent, reserved, or scheduled. Copy the draft and send it only through an official channel after the owner confirms contact and fulfillment details.</p><pre class="ordermsg">'+esc(orderText())+'</pre><div class="orderactions"><button id="copyorder" onclick="copyOrder()">Copy for Messenger</button>'+(CONTACT_EMAIL&&CONTACT_EMAIL!=="your-email@example.com"?'<button class="ghost" onclick="emailOrder()">Email draft</button>':'<button class="ghost" disabled>Email not configured</button>')+'</div>'+(CONTACT_EMAIL&&CONTACT_EMAIL!=="your-email@example.com"?'':'<p class="note" id="emailnotice" role="status">Email is unavailable until the owner configures the contact address. You can still copy this draft.</p>')+'<p class="note">Keep the draft code <b>'+S.code+'</b> for reference; it does not prove an order was received.</p></section>';
  return h;
 }
 function cardsview(){
- return '<a class="back" href="#kit">Back to kit card</a><section class="panel" role="status"><h2>Question-card bank not configured</h2><p>The owner printing screen is paused because the question bank is not present in this frontend. Add and review the approved card content before printing customer kits.</p></section>';
+ return '<a class="back" href="#kit">Back to kit card</a><section class="panel" role="status"><h2>Question-card bank not configured</h2><p>The question bank is not present in this frontend. Add and review the approved card content before printing customer kits.</p></section>';
+}
+function adminDisabled(){
+ return '<a class="back" href="#home">Back home</a><section class="panel" role="status"><h1>Owner tools are disabled</h1><p>This public static website does not have secure owner authentication. Printing and administration stay disabled until a private, authenticated workflow is configured.</p></section>';
 }
 function render(){app.className=S.view=='home'?'wide':'';
  const cur=(S.view=='q'||S.view=='kit')?S.from:S.view;
  document.querySelectorAll('header.site nav a').forEach(a=>{if(a.getAttribute('href')=='#'+cur)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
  const v=S.view;
- app.innerHTML=v=="home"?home():v=="about"?about():v=="contact"?contact():v=="cards"?cardsview():v=="q"?qview():v=="kit"?kitview():filters()+((v=="custom"||S.gen)?plan():"");
+ app.innerHTML=v=="home"?home():v=="about"?about():v=="contact"?contact():v=="cards"?cardsview():v=="q"?qview():v=="kit"?kitview():v=="admin-disabled"?adminDisabled():filters()+((v=="custom"||S.gen)?plan():"");
 }
 function quickCat(k){S.cat=k;S.gen=false;S.act=null;S.food=null;go("custom")}
 function setBudget(v){
@@ -1224,7 +1227,7 @@ function shuffle(k){
   if(k=="act"&&S.view=="random"&&S.food&&S.food.c>Math.max(S.b-c.c,150)){const fp=fPool();if(fp.length)S.food=rnd(fp)}}
  render();
 }
-function startQ(){S.from=S.view;S.q=[...Q].sort(()=>Math.random()-.5).slice(0,10);S.qi=0;go("q")}
+function startQ(){S.from=S.view;if(typeof Q==="undefined"||!Array.isArray(Q)||!Q.length){S.view="cards";render();return}S.q=[...Q].sort(()=>Math.random()-.5).slice(0,10);S.qi=0;go("q")}
 function qn(d){S.qi=Math.max(0,S.qi+d);render();scrollTo(0,0)}
 async function copyPlan(){
  const t=`Date plan for us
@@ -1250,7 +1253,7 @@ addEventListener("popstate",()=>route());
 function route(hh){
  const h=hh||location.hash.slice(1)||"home";
  if((h=="custom"||h=="random")&&S.view=="home"){S.act=S.food=null;S.gen=false}
- if(h=="owner"){const pin=prompt("Owner PIN");if(pin===OWNER_PIN){S.owner=true;document.body.classList.add("owner")}go("home");return}
+ if(h=="owner"){S.view="admin-disabled";render();scrollTo(0,0);return}
  if(h=="cards"&&!S.owner){go("home");return}
  if(h=="q"&&!S.q.length){go("home");return}
  if(h=="kit"&&!S.act&&!S.food){go("home");return}
