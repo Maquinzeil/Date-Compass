@@ -14,8 +14,8 @@ const [app, html, css] = await Promise.all([
 test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
-  assert.match(html, /src="js\/app\.js\?v=20261010g"/);
-  assert.match(html, /href="css\/style\.css\?v=20261010g"/);
+  assert.match(html, /src="js\/app\.js\?v=20261010t"/);
+  assert.match(html, /href="css\/style\.css\?v=20261010t"/);
 });
 
 test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => {
@@ -67,8 +67,9 @@ test("background hearts and warm accent palette are configured", () => {
 });
 
 
-test("vibe sections use translucent warm-yellow accents and responsive columns", () => {
-  assert.match(css, /\.hiw\.romance-section\{grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\)/);
-  assert.match(css, /@media\(max-width:720px\)\{\.hiw\.romance-section\{grid-template-columns:1fr/);
-  assert.match(css, /rgba\(255,226,154,\.12\)/);
+test("homepage feature sections sit side by side on desktop and stack on mobile", () => {
+  assert.match(app, /class="home-feature-pair"/);
+  assert.match(css, /\.home-feature-pair\{[\s\S]*?grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\)/);
+  assert.match(css, /@media\(max-width:899px\)\{[\s\S]*?\.home-feature-pair\{grid-template-columns:minmax\(0,1fr\)/);
+  assert.match(css, /\.home-feature-pair>\.quick\.vibe-section \.quickgrid\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
 });
