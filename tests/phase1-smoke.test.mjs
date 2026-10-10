@@ -14,8 +14,8 @@ const [app, html, css] = await Promise.all([
 test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
-  assert.match(html, /src="js\/app\.js\?v=20261010d"/);
-  assert.match(html, /href="css\/style\.css\?v=20261010d"/);
+  assert.match(html, /src="js\/app\.js\?v=20261010e"/);
+  assert.match(html, /href="css\/style\.css\?v=20261010e"/);
 });
 
 test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => {
@@ -25,6 +25,7 @@ test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => 
   assert.match(css, /\.hero2 \.cta\s*\{[^}]*justify-content:center/s);
   assert.match(app, /class="ph p1"/);
   assert.match(app, /class="ph p2"/);
+  assert.match(css, /select\{box-sizing:border-box;width:100%;max-width:100%/);
 });
 
 test("planner food budget is capped by the remaining budget", () => {
