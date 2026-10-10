@@ -440,3 +440,53 @@ body{background-color:#2a0509;background-image:linear-gradient(145deg,#2a0509 0%
 @media(prefers-reduced-motion:reduce){.quick.vibe-section .quickcat{transition:none}.quick.vibe-section .quickcat:hover{transform:none}}
 
 @media(min-width:820px){main{max-width:1180px;padding-left:28px;padding-right:28px}.hero2{border-radius:30px}}
+
+/* Phase 1 polish: restore the site's original main palette */
+body{
+  background-color:var(--bg);
+  background-image:none;
+  background-attachment:initial;
+  color:var(--ink);
+}
+.hiw.romance-section,
+.quick.vibe-section{
+  color:var(--ink);
+  background:var(--card);
+  border-color:var(--line);
+  box-shadow:0 12px 34px rgba(13,47,63,.08);
+}
+.hiw.romance-section .section-kicker,
+.quick.vibe-section .section-kicker{color:var(--pri)}
+.hiw.romance-section .section-kicker span{color:var(--pri)}
+.hiw.romance-section .hiwt h2,
+.romance-section h2,
+.vibe-section h2{color:var(--ink)}
+.hiw.romance-section p,
+.quick.vibe-section p,
+.vibe-head p{color:var(--mute)}
+.quick.vibe-section .quickcat{
+  color:var(--ink);
+  background:var(--bg);
+  border-color:var(--line);
+}
+.quick.vibe-section .quickcat:hover,
+.quick.vibe-section .quickcat:focus-visible{
+  background:var(--soft);
+  border-color:var(--pri);
+}
+.quick.vibe-section .vibe-pin{background:var(--soft);color:var(--pri)}
+.showcase-phone{
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease;
+  transform:rotate(-6deg) translateY(0);
+  transform-origin:center center;
+}
+.showcase-phone:hover,
+.showcase-phone:focus-within{
+  transform:rotate(0deg) translateY(-8px) scale(1.025);
+  box-shadow:0 30px 58px rgba(13,47,63,.24);
+}
+@media (prefers-reduced-motion:reduce){
+  .showcase-phone{transition:none}
+  .showcase-phone:hover,.showcase-phone:focus-within{transform:rotate(-6deg)}
+}
+
