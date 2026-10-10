@@ -1306,3 +1306,51 @@ header.site .hin>nav a:active{
 @media(min-width:900px) and (max-width:1050px){.home-feature-pair{width:calc(100% - 40px)!important;gap:18px!important}.home-feature-pair>.hiw.romance-section,.home-feature-pair>.quick.vibe-section{padding:20px!important}.home-feature-pair>.hiw.romance-section{grid-template-columns:minmax(0,1fr)!important}.home-feature-pair>.hiw.romance-section .showcase{display:none!important}}
 @media(max-width:899px){.home-feature-pair{width:auto!important;max-width:none!important;margin:22px 18px 0!important;grid-template-columns:minmax(0,1fr)!important;gap:18px!important}.home-feature-pair>.hiw.romance-section,.home-feature-pair>.quick.vibe-section{padding:22px!important;aspect-ratio:auto!important}.home-feature-pair>.quick.vibe-section .quickgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}}
 @media(max-width:480px){.home-feature-pair{margin-left:12px!important;margin-right:12px!important}.home-feature-pair>.hiw.romance-section,.home-feature-pair>.quick.vibe-section{padding:18px!important}}
+
+
+/* Corrective layout: equal landscape cards inside the existing page width, never an outward extension. */
+@media (min-width: 900px) {
+  main.wide .home-feature-pair {
+    display: grid !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 28px 0 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+    align-items: stretch !important;
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+  }
+  main.wide .home-feature-pair > .hiw.romance-section,
+  main.wide .home-feature-pair > .quick.vibe-section {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    box-sizing: border-box !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+    overflow: hidden !important;
+  }
+}
+@media (min-width: 900px) and (max-width: 1050px) {
+  main.wide .home-feature-pair { gap: 18px !important; }
+  main.wide .home-feature-pair > .hiw.romance-section,
+  main.wide .home-feature-pair > .quick.vibe-section { padding: 18px !important; }
+}
+@media (max-width: 899px) {
+  main.wide .home-feature-pair {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 22px 0 0 !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
+  }
+}
