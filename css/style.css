@@ -949,3 +949,84 @@ header.site .hin>nav a:active{
   .home-feature-pair>.hiw.romance-section .showcase-note{font-size:1rem;max-width:94px}
   .home-feature-pair>.quick.vibe-section .quickgrid{grid-template-columns:1fr}
 }
+
+
+/* Wider, more panoramic homepage feature row. */
+@media(min-width:900px){
+  .home-feature-pair{
+    width:calc(100% + 48px);
+    max-width:1600px;
+    margin-left:50%;
+    transform:translateX(-50%);
+    grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+    gap:24px;
+  }
+  .home-feature-pair>.hiw.romance-section{
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+    align-items:center;
+    gap:12px;
+    padding:clamp(20px,2vw,32px);
+  }
+  .home-feature-pair>.hiw.romance-section .hiw-left{min-width:0}
+  .home-feature-pair>.hiw.romance-section .romance-copy{max-width:38ch}
+  .home-feature-pair>.hiw.romance-section .step-flow{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+    margin-top:18px;
+  }
+  .home-feature-pair>.hiw.romance-section .step{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .home-feature-pair>.hiw.romance-section .step-arrow{
+    display:none;
+  }
+  .home-feature-pair>.hiw.romance-section .step b{font-size:.86rem}
+  .home-feature-pair>.hiw.romance-section .step span{font-size:.76rem}
+  .home-feature-pair>.hiw.romance-section .showcase{
+    min-width:0;
+    min-height:0;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    padding:8px 0;
+  }
+  .home-feature-pair>.hiw.romance-section .showcase-phone{
+    width:clamp(145px,13vw,185px);
+    min-height:300px;
+    flex:0 1 auto;
+  }
+  .home-feature-pair>.hiw.romance-section .showcase-note{
+    position:relative;
+    right:auto;
+    bottom:auto;
+    max-width:85px;
+    font-size:.92rem;
+    flex:0 0 75px;
+  }
+  .home-feature-pair>.quick.vibe-section{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+  }
+  .home-feature-pair>.quick.vibe-section .quickgrid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    flex:1;
+    align-content:start;
+    gap:12px;
+  }
+}
+@media(min-width:1200px){
+  .home-feature-pair{width:calc(100% + 80px);gap:28px}
+  .home-feature-pair>.hiw.romance-section .showcase-phone{width:clamp(165px,13vw,205px)}
+}
+@media(min-width:900px) and (max-width:1050px){
+  .home-feature-pair>.hiw.romance-section{grid-template-columns:minmax(0,1fr)}
+  .home-feature-pair>.hiw.romance-section .showcase{display:none}
+}
