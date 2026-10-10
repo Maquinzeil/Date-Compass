@@ -242,3 +242,12 @@ When you find a bug, record it as a GitHub Issue with:
 - Prevented the owner question-card print route from throwing because its referenced question-bank variable is absent. The screen now clearly reports that the bank is not configured. This is still a product blocker for producing physical kits with the promised 10 cards.
 - Important limitations: the planner's ideas and prices are unverified placeholders; `CONTACT_EMAIL` is still `your-email@example.com`; the order flow is local-only and does not submit to a backend. Do not accept real orders until contact and fulfillment are configured.
 - Browser automation was not available in this session. No browser console, network, cross-browser, physical-device, viewport screenshot, or runtime animation test has been performed. Therefore, visual, accessibility, responsiveness, and Phase 1 exit-gate checkboxes remain unchecked pending browser verification.
+
+
+## Phase 1 audit log — 2026-10-10
+
+- Removed the solid crimson gradient panel from the homepage hero so the “Find your best date spot” content sits on the page's existing background instead of inside a large red box. Kept the red/yellow palette in CTA buttons and small decorative accents.
+- Centered the “Create your date spot” and “Surprise me” CTA labels with flex alignment and consistent line-height.
+- Stabilized the two phone mockups' hover behavior: hover no longer changes their tilt angle, hover effects are limited to fine-pointer devices, and touch devices do not retain hover transforms.
+- Bumped the CSS and JavaScript cache query versions in index.html so browsers request the updated assets.
+- **Checklist status:** Phase 1 is not marked complete. The source changes are committed, but a real browser/device test has not been performed in this session. Keep all verification checkboxes unchecked until the homepage, phone layouts, navigation, planner, Surprise Me flow, console, network requests, and accessibility behavior have been tested. Existing blockers remain: placeholder venue/price data, unconfigured contact email, and the physical kit question-card bank.
