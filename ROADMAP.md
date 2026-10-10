@@ -274,3 +274,11 @@ When you find a bug, record it as a GitHub Issue with:
 - Fixed the shared select rule with `box-sizing:border-box` and `max-width:100%`; preserved the existing card padding and select spacing. Updated the asset cache version and added a smoke assertion for the sizing rule.
 - Automated checks will rerun through GitHub Actions. This is a source-level fix; visual confirmation on the live page still needs a real browser check.
 
+
+
+### Visual polish follow-up — 2026-10-10
+
+- Increased independently positioned floating background hearts from 6–8 to 10–13 per column, keeping their varied size, speed, opacity, and motion and honoring reduced-motion preferences.
+- Shifted cool blue/teal accents toward muted champagne gold and translucent warm-yellow accents to fit the burgundy background. Kept the red primary call-to-action styling.
+- Updated CSS/JS cache-busting to `20261010f` and expanded smoke tests for the heart count and warm palette.
+- Automated checks do not replace visual confirmation on desktop and mobile.
