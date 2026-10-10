@@ -1376,3 +1376,43 @@ header.site nav a:focus-visible{
   border:0!important;
   box-shadow:none!important;
 }
+
+
+/* Consistent navigation hover feedback across the site, including footer navigation. */
+.site nav a {
+  border: 0 !important;
+  outline: 0;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: #2a0509 !important;
+  font-weight: 500 !important;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease !important;
+}
+.site nav a:hover,
+.site nav a:focus-visible {
+  background: rgba(42,5,9,.10) !important;
+  color: #2a0509 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: translateY(-1px);
+}
+
+/* The homepage disclaimer is centered without changing other note text. */
+.home-disclaimer {
+  text-align: center !important;
+  max-width: 70ch;
+  margin: 22px auto 0 !important;
+}
+
+/* Give How It Works the same solid, readable card treatment as Start with Your Vibe. */
+.home-feature-pair > .hiw.romance-section {
+  background: rgba(24,3,6,.94) !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+.home-feature-pair > .quick.vibe-section {
+  background: rgba(24,3,6,.94) !important;
+}
+.home-feature-pair > .hiw.romance-section::before,
+.home-feature-pair > .quick.vibe-section::before {
+  opacity: .72 !important;
+}
