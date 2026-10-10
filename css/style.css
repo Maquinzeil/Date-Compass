@@ -717,3 +717,66 @@ header.site nav a{white-space:nowrap}
   border-radius:20px!important;
   box-shadow:8px 8px 0 var(--gold)!important;
 }
+
+
+/* Make the customer details form comfortable to scan and fill in. */
+#app .orderbox{
+  box-sizing:border-box;
+  padding:clamp(18px,3vw,28px);
+}
+#app .orderbox .steps{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:0 0 20px;
+}
+#app .orderbox h3{margin:0 0 8px}
+#app .orderbox>p.mute{margin:0 0 22px;line-height:1.55}
+#app .orderbox .formgrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:18px;
+  row-gap:18px;
+  margin:0 0 22px;
+}
+#app .orderbox .formgrid label,
+#app .orderbox>label{
+  display:block;
+  min-width:0;
+  margin:0;
+  line-height:1.45;
+}
+#app .orderbox input,
+#app .orderbox textarea{
+  box-sizing:border-box;
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  margin-top:8px;
+  padding:12px 14px;
+  line-height:1.45;
+}
+#app .orderbox input{min-height:48px}
+#app .orderbox textarea{min-height:100px}
+#app .orderbox fieldset{
+  box-sizing:border-box;
+  min-width:0;
+  margin:0 0 22px;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:14px;
+}
+#app .orderbox fieldset legend{
+  padding:0 8px;
+  font-weight:700;
+}
+#app .orderbox .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+#app .orderbox>label{margin-bottom:20px}
+#app .orderbox .err{margin:8px 0 0}
+#app .orderbox .orderactions{gap:10px;margin-top:16px}
+#app .orderbox .note{line-height:1.55;margin:18px 0 0}
+@media(max-width:640px){
+  #app .orderbox .formgrid{grid-template-columns:minmax(0,1fr);row-gap:16px}
+  #app .orderbox{padding:18px}
+  #app .orderbox fieldset{padding:14px}
+}
