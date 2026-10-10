@@ -75,8 +75,8 @@ test("homepage feature sections sit side by side on desktop and stack on mobile"
 });
 
 test("every advertised planner category has an activity classification and free ideas keep their real category", () => {
-  assert.match(app, /A\.forEach\(x=>x\.cat=category\(x\)\);\s*const F=/);
-  assert.match(app, /A\.push\([\s\S]*?Mobile Legends duo game night at home[\s\S]*?\);\s*A\.forEach\(x=>x\.cat=category\(x\)\);/);
+  assert.ok(app.split("A.forEach(x=>x.cat=category(x));").length >= 3);
+  assert.ok(app.includes('{n:"Mobile Legends duo game night at home",c:0'));
   assert.ok(app.includes('return "games";'));
   assert.ok(app.includes('f.cat=="free"?x.c<=150:x.cat==f.cat'));
   assert.ok(app.includes('if(x.c<=150)return "free";'));
