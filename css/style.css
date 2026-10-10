@@ -1455,3 +1455,31 @@ main.wide .home-feature-pair>.hiw.romance-section{
     display:block!important;
   }
 }
+
+
+/* Place the home tagline just below and slightly to the right of Surprise me. */
+.hero2 .hero-actions{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:12px 10px!important;
+  max-width:100%!important;
+}
+.hero2 .hero-actions .cta{margin:0!important;}
+.hero2 .hero-tagline{
+  flex:0 0 100%!important;
+  box-sizing:border-box!important;
+  padding-left:clamp(150px, 18vw, 205px)!important;
+  margin-top:-3px!important;
+  color:#ffe6c7!important;
+  font-family:"Brush Script MT","Segoe Script",cursive!important;
+  font-size:clamp(1rem,1.35vw,1.22rem)!important;
+  line-height:1.2!important;
+  transform:rotate(2deg)!important;
+  overflow-wrap:anywhere!important;
+}
+.hero2 .hero-tagline span{color:#ff8fa3!important;font-family:serif!important;margin-left:3px!important;}
+@media(max-width:640px){
+  .hero2 .hero-actions{gap:10px 8px!important;}
+  .hero2 .hero-tagline{padding-left:clamp(115px,36vw,165px)!important;font-size:1rem!important;}
+}
