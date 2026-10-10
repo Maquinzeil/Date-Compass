@@ -1358,3 +1358,21 @@ header.site .hin>nav a:active{
 /* Prevent viewport-wide horizontal overflow: the universal box-sizing rule inherits from html. */
 html{box-sizing:border-box}
 body{max-width:100%;overflow-x:clip}
+
+/* Navigation: remove the outlined active-pill treatment; keep a simple hover-only effect. */
+header.site nav a,
+header.site nav a[aria-current="page"]{
+  border:0!important;
+  outline:0;
+  box-shadow:none!important;
+  background:transparent!important;
+  color:#2a0509!important;
+  font-weight:500!important;
+}
+header.site nav a:hover,
+header.site nav a:focus-visible{
+  background:rgba(42,5,9,.10)!important;
+  color:#2a0509!important;
+  border:0!important;
+  box-shadow:none!important;
+}
