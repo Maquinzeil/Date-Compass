@@ -32,7 +32,7 @@ test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => 
 test("planner food budget is capped by the remaining budget", () => {
   assert.ok(app.includes("const remaining=Math.max(S.b-(S.act?S.act.c:0),0),pref=base.filter(x=>foodMatchesMode(x,S.foodMode))"));
   assert.match(app, /if\(k=="act"&&S\.food&&!fPool\(\)\.includes\(S\.food\)\)S\.food=null/);
-  assert.match(app, /No food idea fits the remaining budget and preferences/);
+  assert.match(app, /No food idea matches this food style within the remaining budget/);
 });
 
 test("missing question-card data cannot throw a ReferenceError", () => {
@@ -88,7 +88,7 @@ test("all food-style controls have explicit matching logic and fallback stays bu
     assert.match(app, new RegExp('mode=="' + mode + '"'));
   }
   assert.match(app, /const found=opts\(pref,\{p:S\.p,t:"a",s:S\.s\},remaining\)/);
-  assert.match(app, /return found\.length\?found:opts\(base,\{p:S\.p,t:"a",s:S\.s\},remaining\)/);
+  assert.match(app, /return opts\(pref,\{p:"a",t:"a",s:"a"\},remaining\)/);
 });
 
 test("having a car does not incorrectly restrict results to car-required activities", () => {
@@ -157,7 +157,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
   assert.equal(result.wrongCategory, 0, `Planner ignored the selected activity category: ${JSON.stringify(result)}`);
   assert.equal(result.overBudgetFood, 0, `Food suggestions exceeded remaining budget: ${JSON.stringify(result)}`);
   assert.equal(result.wrongFoodStyle, 0, `Planner ignored the selected food style: ${JSON.stringify(result)}`);
-  assert.deepEqual(result.gameDatesWrongCategory, [], `Gaming date was categorized incorrectly: ${JSON.stringify(result.gameDatesWrongCategory)}`);
+  assert.equal(result.gameDatesWrongCategory.length, 0, `Gaming date was categorized incorrectly: ${JSON.stringify(result.gameDatesWrongCategory)}`);
   assert.ok(result.noActivity > 0, "Impossible category/budget combinations should explain that no match exists instead of showing an unrelated category.");
 });
 
