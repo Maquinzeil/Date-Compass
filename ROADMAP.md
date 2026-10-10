@@ -282,3 +282,11 @@ When you find a bug, record it as a GitHub Issue with:
 - Shifted cool blue/teal accents toward muted champagne gold and translucent warm-yellow accents to fit the burgundy background. Kept the red primary call-to-action styling.
 - Updated CSS/JS cache-busting to `20261010f` and expanded smoke tests for the heart count and warm palette.
 - Automated checks do not replace visual confirmation on desktop and mobile.
+
+
+### Color/layout correction — 2026-10-10
+
+- Clarified design intent: keep the burgundy page background, but replace cool blue/teal UI accents with subtle translucent warm yellow/champagne. Keep red mainly for romantic highlights and primary buttons.
+- Set How It Works and Start with the Vibe side by side on desktop, stacking them on narrower screens.
+- Bumped asset cache version to `20261010g` and expanded smoke coverage for responsive layout and translucent yellow accents.
+- Live browser visual verification remains pending.
