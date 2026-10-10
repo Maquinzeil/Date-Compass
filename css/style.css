@@ -1110,3 +1110,67 @@ header.site .hin>nav a:active{
 }
 @media(min-width:1200px){.home-feature-pair{width:calc(100% + 160px)!important;gap:32px!important}.home-feature-pair>.hiw.romance-section,.home-feature-pair>.quick.vibe-section{aspect-ratio:1.9 / 1!important}}
 @media(min-width:900px) and (max-width:1050px){.home-feature-pair>.hiw.romance-section{grid-template-columns:minmax(0,1fr) minmax(0,.75fr)!important}.home-feature-pair>.hiw.romance-section .showcase{display:flex!important}.home-feature-pair>.hiw.romance-section .showcase-phone{width:115px!important;min-height:210px!important}}
+
+
+/* Align the feature row with the hero's inner content edges: headline on the left, phone mockups on the right. */
+@media (min-width: 900px) {
+  main:has(.hero2) .home-feature-pair {
+    width: calc(100% - 88px) !important;
+    max-width: none !important;
+    margin: 22px auto 0 !important;
+    transform: none !important;
+    position: relative;
+    left: auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 22px !important;
+    align-items: stretch !important;
+  }
+  main:has(.hero2) .home-feature-pair > .hiw.romance-section,
+  main:has(.hero2) .home-feature-pair > .quick.vibe-section {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    padding: clamp(18px, 1.8vw, 28px) !important;
+  }
+  main:has(.hero2) .home-feature-pair > .hiw.romance-section {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr) !important;
+    gap: 14px !important;
+  }
+  main:has(.hero2) .home-feature-pair > .hiw.romance-section .showcase {
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: 100% !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  main:has(.hero2) .home-feature-pair > .hiw.romance-section .showcase-phone {
+    width: clamp(118px, 10vw, 158px) !important;
+    min-height: 0 !important;
+    height: clamp(220px, 22vw, 270px) !important;
+    max-height: 270px !important;
+  }
+  main:has(.hero2) .home-feature-pair > .hiw.romance-section .showcase-note {
+    display: none !important;
+  }
+  main:has(.hero2) .home-feature-pair > .quick.vibe-section .quickgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    margin-top: 12px !important;
+  }
+  main:has(.hero2) .home-feature-pair > .quick.vibe-section .quickcat {
+    min-height: 0 !important;
+    padding: 10px 12px !important;
+  }
+}
+@media (min-width: 1200px) {
+  main:has(.hero2) .home-feature-pair { width: calc(100% - 88px) !important; gap: 26px !important; }
+}
+@media (min-width: 900px) and (max-width: 1050px) {
+  main:has(.hero2) .home-feature-pair { width: calc(100% - 56px) !important; gap: 16px !important; }
+  main:has(.hero2) .home-feature-pair > .hiw.romance-section { grid-template-columns: minmax(0, 1fr) minmax(0, .72fr) !important; }
+  main:has(.hero2) .home-feature-pair > .hiw.romance-section .showcase-phone { width: 112px !important; height: 215px !important; }
+}
