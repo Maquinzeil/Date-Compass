@@ -15,7 +15,7 @@ const [app, html, css] = await Promise.all([
 test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
-  assert.ok(html.includes('src="js/app.js?v=20261011d"'));
+  assert.ok(html.includes('src="js/app.js?v=20261011e"'));
   assert.ok(html.includes('href="css/style.css?v=20261011b"'));
 });
 
