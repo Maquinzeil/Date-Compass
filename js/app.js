@@ -1099,7 +1099,7 @@ function slot(label,key,pool,item){
  const cu=S.view=="custom",L=key=="act"?A:F;
  return `<div class="card"><div class="lab">${label}</div>`
  +(cu?`<select aria-label="${label}" onchange="pick('${key}',this.value)"><option value="">Choose one (${pool.length} matches)</option>${pool.map(x=>`<option value="${L.indexOf(x)}"${item&&item.n==x.n?" selected":""}>${x.n}, about ${peso(x.c)}</option>`).join("")}</select>`:"")
- +(item?`<h3>${esc(item.n)}</h3><p>${esc(item.d)}</p><p class="tag">About ${peso(item.c)} for two. ${PL[item.p]}. ${CAT[item.cat]?" · "+CAT[item.cat]:""}</p>${guideHtml(item)}`:"")
+ +(item?`<h3>${esc(item.n)}</h3><p>${esc(item.d)}</p><p class="tag">About ${peso(item.c)} for two. ${PL[item.p]}. ${CAT[item.cat]?" · "+CAT[item.cat]:""}</p>${guideHtml(item)}`:(S.gen&&key=="food"?`<p class="note">No food idea fits the remaining budget and preferences. Try a different activity or increase your budget.</p>`:""))
  +`<button class="ghost" onclick="shuffle('${key}')">${cu?"Surprise me":"Try another"}</button></div>`;
 }
 function plan(){
@@ -1219,12 +1219,12 @@ function gen(){
  const ap=aPool();S.act=ap.length?rnd(ap):null;
  const fp=fPool();S.food=fp.length?rnd(fp):null;S.gen=true;render();
 }
-function pick(k,i){const L=k=="act"?A:F;S[k]=i===""?null:L[+i];render()}
+function pick(k,i){const L=k=="act"?A:F;S[k]=i===""?null:L[+i];if(k=="act"&&S.food&&!fPool().includes(S.food))S.food=null;render()}
 function shuffle(k){
  const pool=k=="act"?aPool():fPool(),cur=S[k],alt=pool.filter(x=>x!=cur);
  const c=alt.length?rnd(alt):cur;
  if(c){S[k]=c;
-  if(k=="act"&&S.view=="random"&&S.food&&S.food.c>Math.max(S.b-c.c,150)){const fp=fPool();if(fp.length)S.food=rnd(fp)}}
+  if(k=="act"&&S.view=="random"&&S.food&&S.food.c>Math.max(S.b-c.c,0)){const fp=fPool();S.food=fp.length?rnd(fp):null}else if(k=="act"&&S.food&&!fPool().includes(S.food)){const fp=fPool();S.food=fp.length?rnd(fp):null}}
  render();
 }
 function startQ(){S.from=S.view;if(typeof Q==="undefined"||!Array.isArray(Q)||!Q.length){S.view="cards";render();return}S.q=[...Q].sort(()=>Math.random()-.5).slice(0,10);S.qi=0;go("q")}
@@ -1252,6 +1252,7 @@ document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest
 addEventListener("popstate",()=>route());
 function route(hh){
  const h=hh||location.hash.slice(1)||"home";
+ if(!["home","custom","random","about","contact","kit","q","cards","owner"].includes(h)){try{history.replaceState(null,"","#home")}catch(e){}S.view="home";render();scrollTo(0,0);return}
  if((h=="custom"||h=="random")&&S.view=="home"){S.act=S.food=null;S.gen=false}
  if(h=="owner"){S.view="admin-disabled";render();scrollTo(0,0);return}
  if(h=="cards"&&!S.owner){go("home");return}
