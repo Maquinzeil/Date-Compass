@@ -490,3 +490,45 @@ body{
   .showcase-phone{transition:none}
   .showcase-phone:hover,.showcase-phone:focus-within{transform:rotate(-6deg)}
 }
+
+
+/* Phase 1 polish — remove the hero's boxed red panel while keeping the warm palette. */
+.hero2{
+  background:transparent!important;
+  color:var(--ink);
+  border-radius:0;
+  box-shadow:none;
+  overflow:visible;
+}
+.hero2 h1{color:var(--ink)!important;text-shadow:none!important}
+.hero2 .lead2{color:var(--mute)!important;text-shadow:none!important;font-weight:500}
+.hero2 .c1,.hero2 .c2,.hero2 .c3{opacity:.12}
+.hero2 .c1{background:#f2b134}
+.hero2 .c2{background:#e2467c}
+.hero2 .c3{background:#0f6f7d}
+.hero2 .cta{
+  display:inline-flex;align-items:center;justify-content:center;text-align:center;
+  vertical-align:middle;line-height:1.25;background:#a91f36!important;
+  border-color:#a91f36!important;color:#fff!important;box-shadow:0 4px 0 rgba(93,20,35,.14);
+}
+.hero2 .cta:hover,.hero2 .cta:focus-visible{
+  background:#86172a!important;border-color:#86172a!important;color:#fff!important;
+}
+.hero2 .cta.cta2{
+  background:var(--card)!important;border-color:var(--line)!important;color:var(--ink)!important;
+  box-shadow:0 4px 0 rgba(13,47,63,.06);
+}
+.hero2 .cta.cta2:hover,.hero2 .cta.cta2:focus-visible{
+  background:var(--soft)!important;border-color:var(--pri)!important;color:var(--ink)!important;
+}
+/* Keep phone mockups stable: hover only lifts them slightly without changing their angle. */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .phones .p1:hover{transform:rotate(-4deg) translateY(-5px)}
+  .phones .p2:hover{transform:rotate(4deg) translateY(-5px)}
+}
+@media (hover:none), (pointer:coarse){.phones .ph{transform:none!important}}
+@media (max-width:640px){
+  .hero2{gap:8px}.hero2 .txt{padding-bottom:8px}
+  .hero2 .cta{margin-right:6px;padding:11px 16px}
+}
+@media (prefers-reduced-motion:reduce){.phones .ph{transition:none!important}}
