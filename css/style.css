@@ -551,3 +551,24 @@ body{
 .hero2 .c1,.hero2 .c2,.hero2 .c3{opacity:.14}.hero2 .c1,.hero2 .c3{background:rgba(255,226,154,.65)}
 @media(max-width:1000px){.hiw.romance-section{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.quick.vibe-section .quickgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.hiw.romance-section{grid-template-columns:1fr;gap:12px}.quick.vibe-section{margin-top:18px}}
+
+
+/* Header-only champagne-yellow navigation; keep other section borders neutral. */
+:root{--line:rgba(255,255,255,.13);--soft:rgba(255,255,255,.07)}
+header.site{
+  background:rgba(42,5,9,.94);
+  border-bottom:1px solid rgba(255,226,154,.3);
+  backdrop-filter:blur(12px);
+}
+header.site .site .logo,
+header.site .logo{color:#ffe29a}
+header.site .logo svg{stroke:#ffe29a}
+header.site nav a{color:#ffe29a}
+header.site nav a:hover,
+header.site nav a:focus-visible{background:rgba(255,226,154,.12);color:#fff0bd}
+header.site nav a[aria-current="page"]{background:rgba(255,226,154,.18);color:#ffe29a;border:1px solid rgba(255,226,154,.3)}
+header.site.sc{box-shadow:0 6px 18px rgba(0,0,0,.22)}
+footer.site{border-top:1px solid rgba(255,255,255,.12);background:transparent}
+.hiw.romance-section,.quick.vibe-section{border-color:transparent!important}
+.quick.vibe-section .quickcat{border-color:rgba(255,255,255,.12)!important}
+.quick.vibe-section .quickcat:hover,.quick.vibe-section .quickcat:focus-visible{border-color:rgba(255,143,163,.5)!important}
