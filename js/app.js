@@ -1033,7 +1033,6 @@ A.push(
  {n:"Co-op PC game date at a gaming hub",c:60,p:"c",t:"s",s:"i",d:"Try a co-op adventure, racing game, or friendly 1v1 together at an internet cafe. ₱60 is an estimate for two PCs for two hours at ₱15/hour each; check the current rate and game availability before going."}
 );
 A.forEach(x=>x.cat=category(x));
-A.forEach(x=>x.cat=category(x));
 const F=[
 {n:"Picnic with baon",c:150,p:"a",s:"o",k:2,d:"Pack sandwiches or ulam from home and eat somewhere with a view."},
 {n:"Street food crawl",c:200,p:"c",s:"o",d:"Fishball, kwek-kwek, barbecue. Set a shared budget and share everything."},
@@ -1151,7 +1150,7 @@ function slot(label,key,pool,item){
 }
 function plan(){
  const ap=aPool();
- if(!ap.length)return `<div class="card"><p>Nothing fits that combination yet. Try a bigger budget or set the place to Anywhere.</p></div>`;
+ if(!ap.length)return `<div class="card"><p>No activity matches this category and budget with the selected preferences. Try a higher budget, another category, or a wider area.</p></div>`;
  const t=total(),remaining=Math.max(S.b-t,0),over=t>S.b?" This combination is over budget; choose a cheaper option.":"";
  return `<h2 style="margin-top:22px">Your date</h2>`+slot("Activity","act",ap,S.act)+slot("Food","food",fPool(),S.food)
  +(S.act||S.food?`<div class="total"><b>Budget breakdown for two</b><p>Activity: ${peso(S.act?S.act.c:0)}</p><p>Food: ${peso(S.food?S.food.c:0)}</p><p><b>Estimated plan total: ${peso(t)}</b></p><p>Budget: ${peso(S.b)} · ${t<=S.b?"Remaining: "+peso(remaining):"Over by: "+peso(t-S.b)}</p>${over}</div>`:"")
