@@ -166,7 +166,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
 test("navigation CSS has one canonical hover treatment and no obsolete duplicate override", () => {
   assert.doesNotMatch(css, /Navigation: remove the outlined active-pill treatment/);
   assert.match(css, /One consistent navigation treatment on every view/);
-  assert.match(css, /header\\.site \\.hin > nav a:hover[\\s\\S]*?background: #ffe29a !important/);
+  assert.match(css, /header\.site \.hin > nav a:hover[\s\S]*?background: #ffe29a !important/);
 });
 
 test("budget changes refresh the plan after editing, and navigation keeps keyboard focus visible", () => {
