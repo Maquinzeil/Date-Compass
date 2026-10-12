@@ -1613,3 +1613,60 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
     grid-template-columns: minmax(0, 1fr) !important;
   }
 }
+
+
+/* Wider, landscape home feature panels: use the available desktop space without changing
+   the left-top / right-below diagonal placement or left-aligned Vibe text. */
+@media (min-width: 900px) {
+  main.wide .home-feature-pair {
+    width: calc(100% - 24px) !important;
+    max-width: 1600px !important;
+    gap: clamp(28px, 3vw, 44px) !important;
+  }
+  main.wide .home-feature-pair > .hiw.romance-section,
+  main.wide .home-feature-pair > .quick.vibe-section {
+    width: 92% !important;
+    max-width: 1240px !important;
+    padding: clamp(28px, 3vw, 44px) !important;
+  }
+  main.wide .home-feature-pair > .hiw.romance-section {
+    align-self: flex-start !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr) !important;
+    gap: clamp(24px, 3vw, 48px) !important;
+  }
+  main.wide .home-feature-pair > .quick.vibe-section {
+    align-self: flex-end !important;
+  }
+  main.wide .home-feature-pair > .quick.vibe-section .quickgrid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: clamp(10px, 1.2vw, 16px) !important;
+  }
+  main.wide .home-feature-pair > .quick.vibe-section .quickcat {
+    min-height: 88px !important;
+    padding: 14px !important;
+    gap: 12px !important;
+  }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  main.wide .home-feature-pair > .quick.vibe-section .quickgrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 899px) {
+  main.wide .home-feature-pair {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  main.wide .home-feature-pair > .hiw.romance-section,
+  main.wide .home-feature-pair > .quick.vibe-section {
+    width: 94% !important;
+    max-width: none !important;
+  }
+}
+@media (max-width: 480px) {
+  main.wide .home-feature-pair > .hiw.romance-section,
+  main.wide .home-feature-pair > .quick.vibe-section {
+    width: 96% !important;
+    padding: 18px !important;
+  }
+}
