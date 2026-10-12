@@ -1670,3 +1670,45 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
     padding: 18px !important;
   }
 }
+
+
+/* Final side anchoring: keep How It Works on the left and Vibe below on the right,
+   while making the panels visibly sit toward the page edges instead of the center. */
+@media (min-width: 900px) {
+  main.wide .home-feature-pair {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 28px 0 0 !important;
+    padding: 0 !important;
+    align-items: stretch !important;
+  }
+  main.wide .home-feature-pair > .hiw.romance-section,
+  main.wide .home-feature-pair > .quick.vibe-section {
+    width: 72% !important;
+    max-width: 1120px !important;
+  }
+  main.wide .home-feature-pair > .hiw.romance-section {
+    align-self: flex-start !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+  main.wide .home-feature-pair > .quick.vibe-section {
+    align-self: flex-end !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  main.wide .home-feature-pair > .hiw.romance-section,
+  main.wide .home-feature-pair > .quick.vibe-section {
+    width: 78% !important;
+  }
+}
+@media (max-width: 899px) {
+  main.wide .home-feature-pair {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
