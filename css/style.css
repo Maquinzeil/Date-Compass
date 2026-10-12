@@ -1712,3 +1712,16 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
     margin-right: 0 !important;
   }
 }
+
+
+/* Keep the two home feature panels hidden until their scroll-reveal observer marks them visible. */
+#app .home-feature-pair > .hiw.romance-section.rv:not(.in),
+#app .home-feature-pair > .quick.vibe-section.rv:not(.in) {
+  opacity: 0 !important;
+  transform: translateY(22px) !important;
+}
+#app .home-feature-pair > .hiw.romance-section.rv.in,
+#app .home-feature-pair > .quick.vibe-section.rv.in {
+  opacity: 1 !important;
+  transform: none !important;
+}
