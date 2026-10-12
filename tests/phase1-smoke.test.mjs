@@ -16,7 +16,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
   assert.ok(html.includes('src="js/app.js?v=20261011f"'));
-  assert.ok(html.includes('href="css/style.css?v=20261011b"'));
+  assert.ok(html.includes('href="css/style.css?v=20261012a"'));
 });
 
 test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => {
