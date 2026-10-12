@@ -16,7 +16,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
   assert.ok(html.includes('src="js/app.js?v=20261011f"'));
-  assert.ok(html.includes('href="css/style.css?v=20261012a"'));
+  assert.ok(html.includes('href="css/style.css?v=20261012b"'));
 });
 
 test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => {
@@ -162,6 +162,12 @@ test("planner runs every area, transport, category, duration, setting, and food-
   assert.ok(result.noActivity > 0, "Impossible category/budget combinations should explain that no match exists instead of showing an unrelated category.");
 });
 
+
+test("navigation CSS has one canonical hover treatment and no obsolete duplicate override", () => {
+  assert.doesNotMatch(css, /Navigation: remove the outlined active-pill treatment/);
+  assert.match(css, /One consistent navigation treatment on every view/);
+  assert.match(css, /header\\.site \\.hin > nav a:hover[\\s\\S]*?background: #ffe29a !important/);
+});
 
 test("budget changes refresh the plan after editing, and navigation keeps keyboard focus visible", () => {
   assert.match(app, /oninput="setBudget\(this\.value\)" onchange="render\(\)"/);
