@@ -1415,7 +1415,7 @@ footer.site nav a:focus-visible{
 }
 
 
-/* Home refinements: keep the disclaimer centered and match the two feature-card surfaces. */
+/* Home disclaimer layout. Feature-panel surfaces are defined in the final home-surface rules. */
 main.wide .home-disclaimer{
   width:100%!important;
   max-width:980px!important;
@@ -1423,11 +1423,6 @@ main.wide .home-disclaimer{
   padding:0 18px!important;
   box-sizing:border-box!important;
   text-align:center!important;
-}
-main.wide .home-feature-pair>.hiw.romance-section{
-  background:rgba(255,226,154,.07)!important;
-  border-color:rgba(255,226,154,.2)!important;
-  box-shadow:none!important;
 }
 /* Restore the handwritten tagline beside the phone mockup on desktop. */
 @media (min-width: 1051px){
@@ -1509,4 +1504,13 @@ footer.site nav a:focus-visible {
   .site nav a,
   .site nav a:hover,
   .site nav a:focus-visible { transition: none !important; transform: none !important; }
+}
+
+
+/* Controlled CSS cleanup: one final source of truth for home feature surfaces. */
+main.wide .home-feature-pair > .hiw.romance-section,
+main.wide .home-feature-pair > .quick.vibe-section {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
