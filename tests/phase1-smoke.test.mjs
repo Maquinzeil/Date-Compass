@@ -68,7 +68,14 @@ test("background hearts and warm accent palette are configured", () => {
 });
 
 
-test("homepage feature sections are vertically ordered on desktop with How It Works left and Vibe right; mobile panels stack full-width", () => {\n  assert.match(app, /class="home-feature-pair"/);\n  assert.match(css, /User-requested desktop arrangement: keep How It Works on the left and place Start with a Vibe below it on the right/);\n  assert.match(css, /@media \\(min-width: 900px\\)[\\s\\S]*?\.home-feature-pair \\{[\\s\\S]*?flex-direction: column !important/);\n  assert.match(css, /\.home-feature-pair > \.hiw\\.romance-section \\{[\\s\\S]*?align-self: flex-start !important/);\n  assert.match(css, /\.home-feature-pair > \.quick\\.vibe-section \\{[\\s\\S]*?align-self: flex-end !important/);\n  assert.match(css, /@media \\(max-width: 899px\\)[\\s\\S]*?\.home-feature-pair \\{[\\s\\S]*?flex-direction: column !important/);\n});
+test("homepage feature sections are vertically ordered on desktop with How It Works left and Vibe right; mobile panels stack full-width", () => {
+  assert.match(app, /class="home-feature-pair"/);
+  assert.match(css, /User-requested desktop arrangement: keep How It Works on the left and place Start with a Vibe below it on the right/);
+  assert.match(css, /@media \\(min-width: 900px\\)[\\s\\S]*?\.home-feature-pair \\{[\\s\\S]*?flex-direction: column !important/);
+  assert.match(css, /\.home-feature-pair > \.hiw\\.romance-section \\{[\\s\\S]*?align-self: flex-start !important/);
+  assert.match(css, /\.home-feature-pair > \.quick\\.vibe-section \\{[\\s\\S]*?align-self: flex-end !important/);
+  assert.match(css, /@media \\(max-width: 899px\\)[\\s\\S]*?\.home-feature-pair \\{[\\s\\S]*?flex-direction: column !important/);
+});
 
 test("every advertised planner category has an activity classification and free ideas keep their real category", () => {
   assert.equal(app.split("A.forEach(x=>x.cat=category(x));").length - 1, 1, "Classify activity records once after all additions.");
