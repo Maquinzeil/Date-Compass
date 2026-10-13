@@ -1767,3 +1767,23 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
     margin-right: auto !important;
   }
 }
+
+
+/* Immediate hide on first paint; the scroll observer only reveals the panels when reached. */
+#app .home-feature-pair > .hiw.romance-section,
+#app .home-feature-pair > .quick.vibe-section {
+  opacity: 0 !important;
+  transform: translateY(22px) !important;
+  transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1) !important;
+}
+#app .home-feature-pair > .hiw.romance-section.in,
+#app .home-feature-pair > .quick.vibe-section.in {
+  opacity: 1 !important;
+  transform: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  #app .home-feature-pair > .hiw.romance-section,
+  #app .home-feature-pair > .quick.vibe-section {
+    transition: none !important;
+  }
+}
