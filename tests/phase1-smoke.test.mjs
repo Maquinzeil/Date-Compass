@@ -68,7 +68,7 @@ test("background hearts and warm accent palette are configured", () => {
 });
 
 
-test("homepage feature sections are vertically ordered on desktop with How It Works left and Vibe right; mobile panels stack full-width", () => {
+test("homepage feature panels wait for a user scroll before revealing on initial visit", () => {\n  assert.match(app, /Keep homepage feature panels hidden on the initial page load/);\n  assert.match(app, /homeFeature&&window\\.scrollY<=40/);\n  assert.match(app, /rootMargin:"0px 0px -12% 0px"/);\n});\n\ntest("homepage feature sections are vertically ordered on desktop with How It Works left and Vibe right; mobile panels stack full-width", () => {
   assert.match(app, /class="home-feature-pair"/);
   assert.match(css, /User-requested desktop arrangement: keep How It Works on the left and place Start with a Vibe below it on the right/);
   assert.match(css, /@media \\(min-width: 900px\\)[\\s\\S]*?\.home-feature-pair \\{[\\s\\S]*?flex-direction: column !important/);
