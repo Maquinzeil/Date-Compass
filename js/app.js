@@ -1289,7 +1289,7 @@ let IO=null;
 function reveal(){
  if(!("IntersectionObserver" in window))return;
  if(IO)IO.disconnect();
- IO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;t.classList.add("in");IO.unobserve(t);setTimeout(()=>{t.classList.add("done");t.style.transitionDelay=""},1000)}}),{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+ IO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;const homeFeature=t.matches(".home-feature-pair > .hiw.romance-section,.home-feature-pair > .quick.vibe-section");/* Keep homepage feature panels hidden on the initial page load; reveal them only after the visitor starts scrolling, like the vibe reveal. */if(homeFeature&&window.scrollY<=40)return;t.classList.add("in");IO.unobserve(t);setTimeout(()=>{t.classList.add("done");t.style.transitionDelay=""},1000)}}),{threshold:.08,rootMargin:"0px 0px -12% 0px"});
  document.querySelectorAll("#app .hiw,#app .quick.vibe-section,#app .cir,#app .panel,#app details,#app .card,#app .total,#app .big").forEach((el,i)=>{el.classList.add("rv");const pairedFeature=el.matches(".home-feature-pair > .hiw.romance-section,.home-feature-pair > .quick.vibe-section");el.style.transitionDelay=pairedFeature?"0ms":(i%4)*70+"ms";IO.observe(el)});
 }
 addEventListener("scroll",()=>{const h=document.querySelector("header.site");if(h)h.classList.toggle("sc",scrollY>8)},{passive:true});
