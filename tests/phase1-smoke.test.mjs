@@ -185,3 +185,14 @@ test("budget changes refresh the plan after editing, and navigation keeps keyboa
   assert.match(css, /\.site nav a:focus-visible,[\s\S]*?outline: 3px solid #2a0509 !important/);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.site nav a:hover[\s\S]*?transition: none !important/);
 });
+
+
+test("mobile navigation and footer stay single-row and hero phones cannot cover How It Works", () => {
+  assert.match(css, /Mobile responsive correction: keep nav links on one swipeable row/);
+  assert.match(css, /\.site nav\s*\{[^}]*flex-wrap:\s*nowrap !important/s);
+  assert.match(css, /footer\.site \.fin nav\s*\{[^}]*overflow-x:\s*auto !important/s);
+  assert.match(css, /\.hero2\s*\{[^}]*overflow:\s*hidden !important/s);
+  assert.match(css, /\.phones\s*\{[^}]*height:\s*312px !important/s);
+  assert.match(css, /main\.wide \.home-feature-pair > \.hiw\.romance-section \{ grid-template-columns: minmax\(0, 1fr\) !important; \}/);
+  assert.ok(html.includes('href="css/style.css?v=20261014b"'));
+});
