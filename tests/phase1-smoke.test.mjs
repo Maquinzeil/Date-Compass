@@ -249,3 +249,13 @@ test("local activity descriptions include practical verification and safety guid
   assert.match(app, /sample amount is not a current travel quote/);
   assert.doesNotMatch(app, /safe rooftop/);
 });
+
+test("C-ONE badminton options use sourced conservative court-only budgets", () => {
+  assert.match(app, /C-ONE badminton date — weekday happy hour/);
+  assert.match(app, /C-ONE badminton date — evening or weekend/);
+  assert.match(venueData, /c: 150,[\s\S]*?priceBasis: "One court for one hour: ₱110/);
+  assert.match(venueData, /c: 300,[\s\S]*?priceBasis: "One court for one hour: ₱220/);
+  assert.match(venueData, /https:\/\/c-one\.bookingdyno\.com\//);
+  assert.match(venueData, /not equipment rentals, shuttlecocks, transport, or food/);
+  assert.match(venueData, /C-ONE Sports Center — Kauswagan/);
+});
