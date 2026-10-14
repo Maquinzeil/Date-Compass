@@ -17,9 +17,9 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/app.js?v=20261014k"'));
-  assert.ok(html.includes('href="css/style.css?v=20261014k"'));
-  assert.ok(html.includes('href="css/phone-fix.css?v=20261014k"'));
+  assert.ok(html.includes('src="js/app.js?v=20261014u"'));
+  assert.ok(html.includes('href="css/style.css?v=20261014u"'));
+  assert.ok(html.includes('href="css/phone-fix.css?v=20261014u"'));
   assert.ok(html.indexOf('href="css/style.css?') < html.indexOf('href="css/phone-fix.css?'), "Responsive overrides must load after the base stylesheet.");
 });
 
@@ -200,7 +200,7 @@ test("mobile navigation and footer stay single-row and hero phones cannot cover 
   assert.match(css, /\.hero2\s*\{[^}]*overflow:\s*hidden !important/s);
   assert.match(css, /\.phones\s*\{[^}]*height:\s*312px !important/s);
   assert.match(css, /main\.wide \.home-feature-pair > \.hiw\.romance-section \{ grid-template-columns: minmax\(0, 1fr\) !important; \}/);
-  assert.ok(html.includes('href="css/style.css?v=20261014k"'));
+  assert.ok(html.includes('href="css/style.css?v=20261014u"'));
 });
 
 
@@ -222,4 +222,18 @@ test("contact page includes the requested fields and clearly reports send limita
   assert.match(app, /function sendContact\(event\)/);
   assert.match(app, /has not been sent/);
   assert.match(css, /\.contact-form/);
+});
+
+
+test("homepage How It Works and Vibe panels use opaque, readable surfaces", () => {
+  assert.match(css, /#app \.home-feature-pair > \.hiw\.romance-section,[\s\S]*?#app \.home-feature-pair > \.quick\.vibe-section \{[\s\S]*?background: var\(--card\) !important;[\s\S]*?opacity: 1 !important;/);
+  assert.match(css, /backdrop-filter: none !important/);
+});
+
+test("local activity descriptions include practical verification and safety guidance", () => {
+  assert.match(app, /confirm the museum’s current opening hours, admission fee, and visitor arrangements/);
+  assert.match(app, /Avoid rooftops and any place without secure, approved access/);
+  assert.match(app, /confirm which facilities and activities are currently operating/);
+  assert.match(app, /sample amount is not a current travel quote/);
+  assert.doesNotMatch(app, /safe rooftop/);
 });
