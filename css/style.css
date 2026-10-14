@@ -2012,3 +2012,24 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
 
 /* Keep the native calendar picker icon white against the date-field backgrounds. */
 input[type="date"]::-webkit-calendar-picker-indicator{filter:brightness(0) invert(1);opacity:1;cursor:pointer}
+
+
+/* Keep the footer at the bottom of short pages and after all content on long pages. */
+@media screen {
+  html, body { min-height: 100%; }
+  body {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  body > main#app {
+    flex: 1 0 auto !important;
+    width: 100%;
+    box-sizing: border-box !important;
+  }
+  body > footer.site {
+    flex: 0 0 auto !important;
+    position: relative !important;
+    margin-top: 20px !important;
+  }
+}
