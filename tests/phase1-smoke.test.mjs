@@ -41,7 +41,8 @@ test("planner food budget is capped by the remaining budget", () => {
 
 test("missing question-card data cannot throw a ReferenceError", () => {
   assert.match(app, /typeof Q==="undefined"\|\|!Array\.isArray\(Q\)\|\|!Q\.length/);
-  assert.match(app, /const Q=\[/);\n  assert.match(app, /10 randomly selected date question cards/);
+  assert.match(app, /const Q=\[/);
+  assert.match(app, /10 randomly selected date question cards/);
 });
 
 test("placeholder email and local-only ordering are represented honestly", () => {
