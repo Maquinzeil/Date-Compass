@@ -299,3 +299,14 @@ When you find a bug, record it as a GitHub Issue with:
 - These source and test updates are committed. The automated workflow needs to finish successfully before the test changes can be called passing; live browser behavior is still not visually verified.
 - **Still blocked by owner input or external verification:** the real contact email and official order channel, the approved physical-kit question-card bank, and verification of local venue/activity details, prices, and transport assumptions.
 - **Still required before Phase 1 exit:** browser console/network inspection; desktop/tablet/mobile and cross-browser checks; keyboard, contrast, labels, and reduced-motion checks; and end-to-end testing of all navigation, planner, and Surprise Me flows on the deployed site. Keep the Phase 1 checkboxes and exit gate unchecked until these checks have evidence.
+
+
+## Phase 1 audit log — 2026-10-15 (fresh verification)
+
+- Re-read the Phase 1 checklist against the current `main` branch. All **58 Phase 1 and exit-gate checkboxes remain unchecked** because the required live browser/device/accessibility evidence is not available yet; do not mark the phase complete.
+- Ran a fresh static review of the current homepage assets and planner source. `js/app.js` parses successfully; `index.html` references the same cache token (`20261015b`) for the primary stylesheet, responsive stylesheet, and JavaScript.
+- Checked the latest GitHub Actions run after the recent homepage phone-copy change. The Pages build had succeeded for the preceding commit, but the smoke-test workflow failed because four test assertions still expected the old asset token (`20261014u`). Updated those stale assertions to the current token and pushed commit `1cf8dcb9d7c22a9a4ee6d97017aba0fb2d2f5a02`.
+- Re-ran the automated workflow: **JavaScript syntax check passed and all 21/21 smoke tests passed**. This includes coverage for planner option combinations and budget behavior, missing question-bank handling, scroll-reveal source behavior, navigation/responsive CSS assertions, contact limitations, and placeholder-data disclosures.
+- **Still open:** live visual verification; browser console/network review; mobile/tablet/desktop and cross-browser testing; keyboard, contrast, form-label, and reduced-motion checks; and end-to-end validation of all navigation, planner, and Surprise Me flows.
+- **Still blocked by owner input or real-world verification:** verified venue/activity information and prices, official contact email/order channel, and the approved physical-kit question-card bank. The current order/contact paths are drafts only; no backend, payment, order persistence, automatic email, or fulfillment integration exists.
+- **Status:** automated source-level checks are green, but Phase 1 is **not complete**. Keep every checklist and exit-gate box unchecked until the remaining tests and blockers are addressed.
