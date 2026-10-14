@@ -70,25 +70,25 @@
   .hero2 .phones > .ph { height: 370px !important; padding: 10px 7px !important; }
 }
 
-/* Tighten the main navigation spacing so the links read as one compact group. */
+/* Keep the navigation comfortably spaced and center the link group. */
+header.site .hin > nav {
+  justify-content: center !important;
+  gap: 7px !important;
+}
+header.site .hin > nav a {
+  padding: 7px 12px !important;
+  margin: 0 !important;
+}
 @media (min-width: 641px) {
   header.site .hin { gap: 8px 14px !important; }
-  header.site .hin > nav {
-    justify-content: flex-end !important;
-    gap: 2px !important;
-  }
-  header.site .hin > nav a {
-    padding: 7px 9px !important;
-    margin: 0 !important;
-  }
 }
 @media (max-width: 640px) {
   header.site .hin > nav {
-    justify-content: flex-start !important;
-    gap: 2px !important;
+    justify-content: center !important;
+    gap: 5px !important;
   }
   header.site .hin > nav a {
-    padding-left: 4px !important;
-    padding-right: 4px !important;
+    padding-left: 7px !important;
+    padding-right: 7px !important;
   }
 }
