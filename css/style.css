@@ -2008,3 +2008,6 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
   border:2px solid #e2467c !important;
   box-shadow:none !important;
 }
+
+/* Keep the native calendar picker icon white against the date-field backgrounds. */
+input[type="date"]::-webkit-calendar-picker-indicator{filter:brightness(0) invert(1);opacity:1;cursor:pointer}
