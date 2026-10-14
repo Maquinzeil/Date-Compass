@@ -6,6 +6,33 @@ window.DATE_COMPASS_VERIFIED_DATA = {
   checkedOn: "2026-10-15",
   foodIdeas: [
     {
+      n: "Burger King SM CDO Downtown: Whopper Jr. Meals",
+      m: "out", c: 500, p: "c", s: "i",
+      d: "A classic burger meal date. Estimate uses two Whopper Jr. meals from the branch-specific delivery menu and adds a 15% cushion.",
+      venueName: "Burger King SM CDO Downtown Premier",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s7po/burger-king-sm-cdo-premier",
+      sourceLabel: "Foodpanda SM CDO Premier menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Burger+King+SM+CDO+Downtown+Premier",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱200 Whopper Jr. Meal = ₱400; 15% buffer = ₱460; rounded up to ₱500.",
+      priceNote: "The branch listing shows Whopper Jr. Meal from ₱200. Delivery-app prices may differ from dine-in and change with offers or item availability. Delivery fees and transport are not included.",
+      checkedOn: "2026-10-15"
+    },
+    {
+      n: "Burger King SM CDO Downtown: Whopper Meals",
+      m: "out", c: 800, p: "c", s: "i",
+      d: "A bigger burger meal date. Estimate uses two Whopper Meals from the branch-specific delivery menu and adds a 15% cushion.",
+      venueName: "Burger King SM CDO Downtown Premier",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s7po/burger-king-sm-cdo-premier",
+      sourceLabel: "Foodpanda SM CDO Premier menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Burger+King+SM+CDO+Downtown+Premier",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱329 Whopper Meal = ₱658; 15% buffer = ₱756.70; rounded up to ₱800.",
+      priceNote: "The branch listing shows Whopper Meal from ₱329 including a side and drink. Delivery-app prices may differ from dine-in and change with offers or item availability. Delivery fees and transport are not included.",
+      checkedOn: "2026-10-15"
+    },
+
+    {
       n: "Frkn' Brgrs Centerpoint: Single Smash and drinks",
       m: "out", c: 450, p: "c", s: "i",
       d: "A local CDO burger date. Each Single Smash includes fries; this estimate adds one ₱45 homemade drink per person and a 15% cushion.",
@@ -275,9 +302,9 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       name: "Burger King — SM CDO Downtown Premier",
       category: "fast food",
       area: "2nd Floor, SM CDO Downtown Premier, Cagayan de Oro",
-      venueStatus: "Local map listing found",
-      priceStatus: "Branch-specific current menu prices need verification",
-      sourceUrl: "https://www.google.com/maps/search/?api=1&query=Burger+King+SM+CDO+Downtown+Premier",
+      venueStatus: "Branch-specific delivery menu listing found",
+      priceStatus: "Delivery menu prices captured; dine-in prices may differ",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s7po/burger-king-sm-cdo-premier",
       checkedOn: "2026-10-15"
     },
     {
