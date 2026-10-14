@@ -290,3 +290,12 @@ When you find a bug, record it as a GitHub Issue with:
 - Set How It Works and Start with the Vibe side by side on desktop, stacking them on narrower screens.
 - Bumped asset cache version to `20261010g` and expanded smoke coverage for responsive layout and translucent yellow accents.
 - Live browser visual verification remains pending.
+
+## Phase 1 audit log — 2026-10-14 (continued)
+
+- Rechecked the live repository checklist and recent scroll-reveal fix. The homepage panels were still registered with the initial IntersectionObserver even though the callback attempted to suppress their first-load reveal; changed the observer setup so the two homepage feature panels are revealed only by the scroll handler after the visitor scrolls.
+- Bumped the JavaScript cache query in `index.html` to `js/app.js?v=20261014c` so browsers request the latest reveal logic.
+- Updated `tests/phase1-smoke.test.mjs` to match the new asset version and added regression assertions that the initial observer skips the homepage feature panels and that the scroll handler unobserves a panel after revealing it.
+- These source and test updates are committed. The automated workflow needs to finish successfully before the test changes can be called passing; live browser behavior is still not visually verified.
+- **Still blocked by owner input or external verification:** the real contact email and official order channel, the approved physical-kit question-card bank, and verification of local venue/activity details, prices, and transport assumptions.
+- **Still required before Phase 1 exit:** browser console/network inspection; desktop/tablet/mobile and cross-browser checks; keyboard, contrast, labels, and reduced-motion checks; and end-to-end testing of all navigation, planner, and Surprise Me flows on the deployed site. Keep the Phase 1 checkboxes and exit gate unchecked until these checks have evidence.
