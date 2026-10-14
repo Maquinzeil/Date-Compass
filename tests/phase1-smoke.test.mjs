@@ -19,8 +19,8 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/venue-data.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/venue-data.js?v=20261015a"'));
-  assert.ok(html.includes('src="js/app.js?v=20261015d"'));
+  assert.ok(html.includes('src="js/venue-data.js?v=20261015b"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015e"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015d"'));
   assert.ok(html.includes('href="css/phone-fix.css?v=20261015c"'));
@@ -405,4 +405,11 @@ test("planner choices sit inside a spaced responsive panel and plan actions are 
   assert.match(css, /#app \.bar button\.ghost,[\s\S]*?background:var\(--gold\)!important;[\s\S]*?color:var\(--ink\)!important;[\s\S]*?opacity:1!important/);
   assert.ok(html.includes('href="css/style.css?v=20261015d"'));
   assert.ok(html.includes('src="js/app.js?v=20261015d"'));
+});
+
+
+test("Surprise Me planner button remains actionable and explains missing budget", () => {
+  assert.match(app, /<button class="go" onclick="gen\(\)">Plan my date<\/button>/);
+  assert.match(app, /Please enter a budget for both of you first/);
+  assert.ok(html.includes('src="js/app.js?v=20261015e"'));
 });

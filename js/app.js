@@ -1173,7 +1173,7 @@ function filters(){
  <p class="mute">${cu?"Set the basics, then pick each part yourself.":"Tell us the basics and we choose the rest."}</p><p class="kit-promo">Get the physical kit and receive <b>10 randomly selected date questions</b> to spark fun conversations on your date. ♥</p>
  <div class="planner-filters">
  ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}${sel("Food style","foodMode")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setBudget(this.value)" onchange="render()"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}
- ${cu?"":`<button class="go" onclick="gen()" ${S.b>0?"":"disabled"}>Plan my date</button>`}
+ ${cu?"":`<button class="go" onclick="gen()">Plan my date</button><p class="note planner-status" id="planner-status" role="status">${S.b>0?"Choose your date preferences, then plan your date.":"Enter a budget for two, then click Plan my date."}</p>`}
  </div>`;
 }
 function foodGuide(x){
@@ -1327,7 +1327,9 @@ function setBudget(v){
   if(S.food&&!fPool().includes(S.food))S.food=null;
  }
  const btn=document.querySelector(".go");
- if(btn)btn.disabled=S.b<=0;
+ if(btn)btn.disabled=false;
+ const status=document.getElementById("planner-status");
+ if(status)status.textContent=S.b>0?"Budget set. Click Plan my date when you are ready.":"Enter a budget for two, then click Plan my date.";
 }
 function setf(k,v){
  if(k=="b"){setBudget(v);return}
@@ -1337,6 +1339,13 @@ function setf(k,v){
  render();
 }
 function gen(){
+ if(S.b<=0){
+  const input=document.querySelector(".budgetinput");
+  const status=document.getElementById("planner-status");
+  if(status)status.textContent="Please enter a budget for both of you first (for example, ₱800).";
+  if(input){input.setCustomValidity("Enter a budget for two before planning.");input.reportValidity();input.focus();input.addEventListener("input",()=>input.setCustomValidity(""),{once:true});}
+  return;
+ }
  const ap=aPool();S.act=ap.length?rnd(ap):null;
  const fp=fPool();S.food=fp.length?rnd(fp):null;S.gen=true;render();
 }
