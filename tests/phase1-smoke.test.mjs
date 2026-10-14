@@ -15,7 +15,7 @@ const [app, html, css] = await Promise.all([
 test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
-  assert.ok(html.includes('src="js/app.js?v=20261014b"'));
+  assert.ok(html.includes('src="js/app.js?v=20261014c"'));
   assert.ok(html.includes('href="css/style.css?v=20261014a"'));
 });
 
@@ -70,9 +70,11 @@ test("background hearts and warm accent palette are configured", () => {
 
 test("homepage feature panels wait for a user scroll before revealing on initial visit", () => {
   assert.match(app, /Keep homepage feature panels hidden on the initial page load/);
-  assert.match(app, /homeFeature&&window\.scrollY<=40/);
-  assert.match(app, /if\(y>40\)\{document\.querySelectorAll/);
+  assert.match(app, /homeFeature&&window\\.scrollY<=40/);
+  assert.match(app, /if\\(y>40\\)\\{document\\.querySelectorAll/);
   assert.match(app, /rootMargin:"0px 0px -12% 0px"/);
+  assert.match(app, /if\\(!pairedFeature\\)IO\\.observe\\(el\\)/, "The initial observer must not reveal either homepage feature panel.");
+  assert.match(app, /t\\.classList\\.add\\('in'\\);if\\(IO\\)IO\\.unobserve\\(t\\)/, "Scroll-triggered reveal must stop observing the panel after it appears.");
 });
 
 test("homepage feature sections are vertically ordered on desktop with How It Works left and Vibe right; mobile panels stack full-width", () => {
