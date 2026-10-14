@@ -104,3 +104,17 @@ This batch adds five couple-budget options based on branch-specific Foodpanda me
 | Jollibee Divisoria — Chickenjoy with Jolly Spaghetti Solo | 2 × ₱178 = ₱356 | ₱53.40 | ₱450 | https://www.foodpanda.ph/restaurant/b6jj/jollibee-cdo-divisoria |
 
 **Interpretation:** Menu pages expose branch-specific listed prices, but the delivery platform can price items differently from in-store menus and change them with promotions or availability. The new directory entries therefore explicitly keep this distinction visible. The planner budgets are rounded conservative allowances, not checkout totals or live availability checks.
+
+
+## Venue research batch 4 — Japanese meals and café dates (15 October 2026)
+
+This batch adds four couple-budget options based on branch-specific delivery-menu listings. Estimates use the menu's regular/listed price before temporary app discounts, then add a 15% cushion and round up. They are planning allowances, not checkout totals. Delivery-menu prices can differ from dine-in, and transport/delivery fees are excluded.
+
+| Planner option | Regular menu basis | 15% cushion | Planner budget | Source |
+|---|---:|---:|---:|---|
+| Raki-Yata SM City CDO Northwing — Katsu Bento for two | 2 × ₱250 = ₱500 | ₱75 | ₱600 | https://www.foodpanda.ph/restaurant/pdpi/raki-yata-ramen-sm-city-cdo-northwing |
+| Raki-Yata SM City CDO Northwing — two Tonkotsu Shoyu + California Maki | 2 × ₱630 + ₱235 = ₱1,495 | ₱224.25 | ₱1,750 | https://www.foodpanda.ph/restaurant/pdpi/raki-yata-ramen-sm-city-cdo-northwing |
+| Sunnyside Viajero — two Spanish Lattes | 2 × ₱240 = ₱480 | ₱72 | ₱600 | https://www.foodpanda.ph/restaurant/j4kv/sunnyside-coffee-and-roastery-viajero |
+| Sunnyside Viajero — two Spanish Lattes + shared cookie | 2 × ₱240 + ₱150 = ₱630 | ₱94.50 | ₱750 | https://www.foodpanda.ph/restaurant/j4kv/sunnyside-coffee-and-roastery-viajero |
+
+**Price caution:** Both delivery-menu pages displayed temporary 20% app discounts when checked. The estimates deliberately use the higher regular/listed price instead of relying on a temporary promotion. Confirm in-store prices, item availability, and current branch status before a couple travels; no dine-in price guarantee is implied.
