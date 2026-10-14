@@ -181,3 +181,19 @@ header.site .hin > nav a {
 @media (prefers-reduced-motion: reduce) {
   .hero2 .phones > .ph { transform: none !important; }
 }
+
+/* Restore the floating/lift hover interaction on both homepage phone mockups.
+   The responsive layout rules above use !important transforms, so the hover
+   transforms must also be important to win in the cascade. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .hero2 .phones > .p1:hover {
+    transform: rotate(-1deg) translateY(-9px) scale(1.015) !important;
+    filter: drop-shadow(0 16px 16px rgba(7, 18, 55, 0.22));
+    z-index: 4;
+  }
+  .hero2 .phones > .p2:hover {
+    transform: rotate(1deg) translateY(-9px) scale(1.015) !important;
+    filter: drop-shadow(0 16px 16px rgba(7, 18, 55, 0.22));
+    z-index: 4;
+  }
+}
