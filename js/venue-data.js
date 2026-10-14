@@ -257,6 +257,17 @@ window.DATE_COMPASS_VERIFIED_DATA = {
   ],
   activityUpdates: [
     {
+      n: "Classic Bowling date",
+      c: 500,
+      venueName: "SM Bowling — SM CDO Downtown Premier",
+      sourceUrl: "https://stardeals.ph/deals/sm-bowling",
+      sourceLabel: "SM Bowling published deal page (regular value and current offer)",
+      priceStatusLabel: "Published regular game value + shoe rental + 15% buffer",
+      priceBasis: "2 × ₱160 regular game value + 2 × ₱50 shoe rental = ₱420; 15% buffer = ₱483; rounded up to ₱500.",
+      priceNote: "The current SM Bowling deal page lists ₱160 as the regular value for one game and separately states shoe rental costs ₱50. The advertised discounted voucher is not assumed. Estimate covers one game per person plus shoe rental for two, before transport, food or extra games. Confirm current walk-in rates, sock requirements, availability and any holiday restrictions with the venue.",
+      checkedOn: "2026-10-15"
+    },
+    {
       n: "White water rafting on the Cagayan River",
       c: 2800,
       venueName: "Kagay Outdoors",
@@ -344,12 +355,12 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-15"
     },
     {
-      name: "SM Bowling",
-      category: "bowling",
-      area: "Cagayan de Oro",
-      venueStatus: "Local business listing found",
-      priceStatus: "Lane rates and shoe rental need current verification",
-      sourceUrl: "https://www.google.com/maps/search/?api=1&query=SM+Bowling+Cagayan+de+Oro",
+      name: "SM Bowling — SM CDO Downtown Premier",
+      category: "bowling, billiards, karaoke and other indoor games",
+      area: "4th Level, SM CDO Downtown Premier, Claro M. Recto Avenue corner Osmeña Street, Cagayan de Oro",
+      venueStatus: "Venue listed by SM Bowling deal page and local directory",
+      priceStatus: "One-game regular value and shoe rental sourced; other activities require current verification",
+      sourceUrl: "https://stardeals.ph/deals/sm-bowling",
       checkedOn: "2026-10-15"
     },
     {

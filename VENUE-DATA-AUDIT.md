@@ -118,3 +118,14 @@ This batch adds four couple-budget options based on branch-specific delivery-men
 | Sunnyside Viajero — two Spanish Lattes + shared cookie | 2 × ₱240 + ₱150 = ₱630 | ₱94.50 | ₱750 | https://www.foodpanda.ph/restaurant/j4kv/sunnyside-coffee-and-roastery-viajero |
 
 **Price caution:** Both delivery-menu pages displayed temporary 20% app discounts when checked. The estimates deliberately use the higher regular/listed price instead of relying on a temporary promotion. Confirm in-store prices, item availability, and current branch status before a couple travels; no dine-in price guarantee is implied.
+
+
+## Venue research batch 5 — SM Bowling price evidence (15 October 2026)
+
+A source-backed estimate was added to the existing **Classic Bowling date** idea. The current SM Bowling deal page lists a regular value of ₱160 for one game and states that shoe rental is ₱50. The planner uses the regular value rather than the temporary voucher discount.
+
+| Planner option | Calculation for two | 15% cushion | Planner budget | Source |
+|---|---:|---:|---:|---|
+| Classic Bowling date — one game each + shoe rental | 2 × ₱160 + 2 × ₱50 = ₱420 | ₱63 | ₱500 | https://stardeals.ph/deals/sm-bowling |
+
+The ₱500 allowance is for **one game per person plus shoe rental only**. It excludes transport, food, extra games, and any other attraction. The page is a current deal listing, not a guarantee of walk-in pricing; confirm rates, sock requirements, availability, and holiday restrictions with SM Bowling. Older blog posts and social comments showed different rates, so those historical prices were not used.
