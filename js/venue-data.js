@@ -268,6 +268,28 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-15"
     },
     {
+      n: "C-ONE badminton date — weekday happy hour",
+      c: 150,
+      venueName: "C-ONE Sports Center — Kauswagan",
+      sourceUrl: "https://www.findglocal.com/PH/Cagayan-de-Oro/472616319967282/C-ONE-Sports-Center",
+      sourceLabel: "C-ONE Sports Center published rate post (18 August 2026)",
+      priceStatusLabel: "Recently published court rate + 15% buffer",
+      priceBasis: "One court for one hour: ₱110; 15% buffer = ₱126.50; rounded up to ₱150.",
+      priceNote: "C-ONE's 18 August 2026 post lists ₱110 per court/hour for weekday happy hour, 8 AM–4 PM, at Kauswagan. Budget covers one court for one hour only, not equipment rentals, shuttlecocks, transport, or food. Confirm the current rate, branch, and booking availability directly before going.",
+      checkedOn: "2026-10-15"
+    },
+    {
+      n: "C-ONE badminton date — evening or weekend",
+      c: 300,
+      venueName: "C-ONE Sports Center — Kauswagan",
+      sourceUrl: "https://www.findglocal.com/PH/Cagayan-de-Oro/472616319967282/C-ONE-Sports-Center",
+      sourceLabel: "C-ONE Sports Center published rate post (18 August 2026)",
+      priceStatusLabel: "Recently published court rate + 15% buffer",
+      priceBasis: "One court for one hour: ₱220; 15% buffer = ₱253; rounded up to ₱300.",
+      priceNote: "C-ONE's 18 August 2026 post lists ₱220 per court/hour from 4 PM to midnight and on weekends/holidays. Budget covers one court for one hour only, not equipment rentals, shuttlecocks, transport, or food. Confirm the current rate, branch, and booking availability directly before going.",
+      checkedOn: "2026-10-15"
+    },
+    {
       n: "White water rafting on the Cagayan River",
       c: 2800,
       venueName: "Kagay Outdoors",
@@ -352,6 +374,16 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       venueStatus: "Branch listing found; confirm current operating hours",
       priceStatus: "Game credits and activity prices need current verification",
       sourceUrl: "https://www.timezonegames.com/en-ph/locations/mindanao/timezone-centrio/",
+      checkedOn: "2026-10-15"
+    },
+    {
+      name: "C-ONE Sports Center — Kauswagan",
+      category: "badminton and indoor sports",
+      area: "Zone 1, Rodolfo N. Pelaez Boulevard, Kauswagan, Cagayan de Oro",
+      venueStatus: "Current operator-posted court-rate information found; confirm directly before visiting",
+      priceStatus: "One-hour court estimates available; equipment and consumables not verified",
+      sourceUrl: "https://www.findglocal.com/PH/Cagayan-de-Oro/472616319967282/C-ONE-Sports-Center",
+      bookingUrl: "https://c-one.bookingdyno.com/",
       checkedOn: "2026-10-15"
     },
     {
