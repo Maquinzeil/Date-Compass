@@ -23,7 +23,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   assert.ok(html.includes('src="js/app.js?v=20261015e"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015d"'));
-  assert.ok(html.includes('href="css/phone-fix.css?v=20261015c"'));
+  assert.ok(html.includes('href="css/phone-fix.css?v=20261015d"'));
   assert.ok(html.indexOf('href="css/style.css?') < html.indexOf('href="css/phone-fix.css?'), "Responsive overrides must load after the base stylesheet.");
 });
 
