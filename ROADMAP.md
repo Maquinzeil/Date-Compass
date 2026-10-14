@@ -96,20 +96,26 @@
 
 ### Validation record — 15 October 2026
 
-**Automated checks verified**
-- The latest main-branch frontend smoke run passed **29 tests**: [Phase 1 smoke checks](https://github.com/Maquinzeil/Date-Compass/actions/runs/38648845793).
-- The planner test exercises more than 5,000 combinations of budget, area, car availability, duration, setting, activity category, and food style. Impossible combinations are expected to show a clear empty state rather than an unrelated activity.
-- A generated gaming-date ticket is tested across three budgets and three food styles; generated totals must remain within the selected budget.
-- The pricing evidence audit checks all 19 source-backed food ideas and nine source-backed activity updates for source URLs, calculation notes, exclusions, checked dates, and matching planner activity names.
-- Five new CDO venue research entries include Google Maps links and explicit price-verification statuses.
-- Planner input spacing and solid plan-action button styling have automated regression coverage.
-- Latest main-branch GitHub Pages deployment succeeded: [Pages deployment](https://github.com/Maquinzeil/Date-Compass/actions/runs/38648845408).
+**Checks confirmed on the current main branch**
+- Current main was identified as `a34b170931509ebdb22c0c9cb439ac427bcc6e8b`.
+- JavaScript syntax parsing passed for the current `js/app.js` and `js/venue-data.js`.
+- The current venue-data file contains 21 food ideas. All 21 have a name, numeric budget, source URL, checked date, price calculation note, and price caveat; no duplicate food idea names were detected by the basic audit.
+- The two Raki-Yata SM Downtown budgets were checked against their written calculations: two ₱705 ramen bowls budgeted at ₱1,650 after a 15% cushion; two bowls plus ₱235 California Maki budgeted at ₱1,950 after a 15% cushion.
+- The latest main branch also includes the Raki-Yata venue research notes and price caveats.
 
-**Still open; do not mark complete based on automation alone**
+**Earlier automation/deployment evidence (not the current main SHA)**
+- The frontend smoke workflow passed 29 tests on commit `fab9cc6a892abbd57fc3effeb9e8fd069818b9ea`: [Phase 1 smoke checks](https://github.com/Maquinzeil/Date-Compass/actions/runs/38648845793).
+- The GitHub Pages deployment succeeded for commit `fab9cc6a892abbd57fc3effeb9e8fd069818b9ea`: [Pages deployment](https://github.com/Maquinzeil/Date-Compass/actions/runs/38648845408).
+- Current main is newer than that commit. A fresh smoke run and a deployment matching the current main SHA have **not** been confirmed, so do not describe those earlier runs as current-main verification.
+- The existing planner test suite is documented as covering more than 5,000 combinations, gaming-date tickets across budgets and food styles, source-backed pricing evidence, planner input spacing, and solid plan-action buttons. These specific tests have not been rerun against the current main SHA during this recheck.
+
+**Still open; do not mark Phase 1 complete based on syntax checks alone**
+- Run the complete frontend smoke/regression suite against the current main SHA and record its result.
+- Confirm GitHub Pages deploys the current main SHA before relying on the live page for visual verification.
 - Manually inspect the live page on desktop, tablet, and a real phone or mobile emulator.
 - Click through every main navigation link, planner control, Surprise Me flow, activity/food selector, and ticket action in a real browser.
 - Review browser console and network errors, keyboard-only navigation, focus visibility, contrast, and reduced-motion behavior.
-- Visually confirm the latest planner form panel and solid buttons render correctly after deployment.
+- Visually confirm the planner form panel and solid buttons render correctly after deployment.
 - Reconfirm venue operating status, official prices, opening hours, travel requirements, and Google Maps locations before treating any entry as verified for customers.
 - Keep the GitHub Pages site as a development preview, not a launch. Backend, secure owner tools, and reliable online order handling are not complete.
 
