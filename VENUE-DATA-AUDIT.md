@@ -172,3 +172,18 @@ The official rides page lists a ₱900 rides package and a separate entrance fee
 | Forest Park multi-ride package for two | 2 × ₱900 package + 2 × ₱150 entrance = ₱2,100 | ₱315 | ₱2,500 |
 
 Source: [Official Dahilayan Forest Park rides and activities page](https://www.dahilayanforestpark.com/en/rides-activities). Because the page lists entrance separately from the package, this estimate assumes the two fees are charged separately; confirm this with the operator before visiting. Confirm the included rides, operating status, restrictions, and availability. Transport from CDO, food, and other extras are excluded.
+
+
+## Venue research batch 10 — CDO cafes, indoor games, and heritage stop (15 October 2026)
+
+This batch expands the research directory without inventing menu prices. The following locations have been identified for future planner use; where an official price list was not available, the venue is listed for research only and is not treated as a priced recommendation.
+
+| Venue | Evidence found | Price handling | Source |
+|---|---|---|---|
+| H Proper Coffee Roasters — Pueblo | Official location page confirms the CDO branch at Blu Energy, Masterson Avenue, Pueblo de Oro, with contact details and hours. An official CDO menu magazine is linked for follow-up. | Cafe food/drink prices were not verified from that menu in this pass. Do not add a budget until item prices are captured. | [Official location page](https://www.hproper.com/pages/location) · [Official CDO menu magazine](https://cdn.shopify.com/s/files/1/0807/3720/6487/files/CDO_H_PROPER_MENU_MAGAZINE_ISSUE4_MARCH_2026.pdf?v=1776259188) |
+| Elbs Cafe — Kauswagan | Official website lists the Tuscania Commercial Building location and menu categories. | Current item prices were not captured; confirm directly before budgeting. | [Official menu page](https://www.elbscafe.com/menu) |
+| Milestone Coffee + Kitchen Uptown | Official social page identified; current business listings show the Beacon Avenue / Pueblo de Oro branch. | Third-party menu prices are not treated as verified dine-in prices. Confirm directly. | [Official Facebook page](https://www.facebook.com/milestonecoffee.ph) |
+| SM Game Park — SM CDO Downtown | Google Maps listing search identifies the indoor games venue on Level 4. | No current rate card verified. Do not add a priced activity until current rates are confirmed. | [Google Maps search](https://www.google.com/maps/search/?api=1&query=SM+Game+Park+SM+CDO+Downtown) |
+| Duaw Park | City Tourism included Duaw Park among the stops in a 2026 downtown heritage walking tour. | No admission price is asserted. The new ₱100 planner idea is only a sample incidental allowance for two, not a published fee; transport, food, event costs, and purchases are excluded. | [City Tourism heritage-walk report](https://cdo.cagayandeoro.gov.ph/index.php/item/4004-2-day-heritage-walking-tour-gipasiugdahan-sa-city-tourism.html) |
+
+The new planner idea is **Duaw Park and downtown heritage stroll**. Its ₱100 amount is clearly described as a sample incidental allowance rather than a verified venue fee. No source-backed food or cafe budget was added in this batch because current official item prices were not captured.

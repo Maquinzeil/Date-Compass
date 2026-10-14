@@ -653,5 +653,57 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       sourceUrl: "https://www.foodpanda.ph/restaurant/j4kv/sunnyside-coffee-and-roastery-viajero",
       checkedOn: "2026-10-15"
     },
+    {
+      name: "H Proper Coffee Roasters — Pueblo",
+      category: "specialty cafe and roastery",
+      area: "Blu Energy, Masterson Avenue, Pueblo de Oro, Cagayan de Oro",
+      venueStatus: "Official location page confirms the CDO branch, address, contact, and published hours",
+      priceStatus: "Cafe food and drink prices not verified from the official CDO menu in this pass; do not use as a priced planner option yet",
+      sourceUrl: "https://www.hproper.com/pages/location",
+      menuUrl: "https://cdn.shopify.com/s/files/1/0807/3720/6487/files/CDO_H_PROPER_MENU_MAGAZINE_ISSUE4_MARCH_2026.pdf?v=1776259188",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=H+Proper+Coffee+Roasters+Pueblo+Cagayan+de+Oro",
+      checkedOn: "2026-10-15"
+    },
+    {
+      name: "Elbs Cafe — Kauswagan",
+      category: "cafe, coffee, pastries, and meals",
+      area: "Tuscania Commercial Building, St. Ignatius Street, Kauswagan, Cagayan de Oro",
+      venueStatus: "Official website confirms location, menu categories, and listed hours",
+      priceStatus: "Current item prices were not captured from the official menu; confirm before budgeting",
+      sourceUrl: "https://www.elbscafe.com/menu",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Elbs+Cafe+Kauswagan+Cagayan+de+Oro",
+      checkedOn: "2026-10-15"
+    },
+    {
+      name: "Milestone Coffee + Kitchen Uptown",
+      category: "cafe, breakfast, pasta, and casual meals",
+      area: "Block 2, Lot 5 Beacon Avenue, Pueblo de Oro Business Park, Cagayan de Oro",
+      venueStatus: "Official social page identified; branch details also appear in current business listings",
+      priceStatus: "Do not treat third-party menu prices as verified dine-in rates; confirm directly before adding a planner budget",
+      sourceUrl: "https://www.facebook.com/milestonecoffee.ph",
+      socialUrl: "https://www.facebook.com/milestonecoffee.ph",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Milestone+Coffee+Kitchen+Uptown+Cagayan+de+Oro",
+      checkedOn: "2026-10-15"
+    },
+    {
+      name: "SM Game Park — SM CDO Downtown",
+      category: "indoor games and arcade",
+      area: "4th Level, SM CDO Downtown, Cagayan de Oro",
+      venueStatus: "Google Maps business listing found; current operator details need direct confirmation",
+      priceStatus: "Current game rates not verified; do not assign a priced activity until rates are confirmed",
+      sourceUrl: "https://www.google.com/maps/search/?api=1&query=SM+Game+Park+SM+CDO+Downtown",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=SM+Game+Park+SM+CDO+Downtown",
+      checkedOn: "2026-10-15"
+    },
+    {
+      name: "Duaw Park",
+      category: "public park and downtown heritage stop",
+      area: "Downtown Cagayan de Oro, near City Hall and other heritage stops",
+      venueStatus: "Included by City Tourism in a 2026 heritage walking tour; confirm current access and event closures",
+      priceStatus: "No current official admission price was found; the planner's stroll is a sample low-cost idea, not a paid ticket",
+      sourceUrl: "https://cdo.cagayandeoro.gov.ph/index.php/item/4004-2-day-heritage-walking-tour-gipasiugdahan-sa-city-tourism.html",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Duaw+Park+Cagayan+de+Oro",
+      checkedOn: "2026-10-15"
+    },
   ]
 };
