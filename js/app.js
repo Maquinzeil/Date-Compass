@@ -1214,7 +1214,7 @@ function sendContact(event){
  location.href="mailto:"+CONTACT_EMAIL+"?subject="+subject+"&body="+body;
 }
 function home(){
- const ic={a:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',b:'<path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/>',c:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>'};
+ const ic={a:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',b:'<path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/>',c:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>'};
  const cir=(k,c,t,d)=>`<div class="cir ${c}"><div><svg viewBox="0 0 24 24">${ic[k]}</svg><b>${t}</b><span>${d}</span></div></div>`;
  return `<div class="hero2"><i class="c1"></i><i class="c2"></i><i class="c3"></i>
  <div class="txt"><h1>Find your best date spot</h1>
