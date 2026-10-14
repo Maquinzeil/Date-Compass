@@ -268,3 +268,12 @@ test("Dahilayan ride budgets use current official operator rates and disclose ex
   assert.match(venueData, /https:\/\/www\.dahilayanadventurepark\.com\/rides/);
   assert.match(venueData, /Transport from CDO, food, any environmental fee not shown on the official page/);
 });
+
+test("Dahilayan Forest Park ride budgets use official rates and include separate entrance", () => {
+  assert.match(app, /Dahilayan Forest Park buggy trail for two/);
+  assert.match(app, /Dahilayan Forest Park ATV adventure for two/);
+  assert.match(venueData, /c: 2000,[\s\S]*?₱1,400 buggy for two riders \+ 2 × ₱150 entrance/);
+  assert.match(venueData, /c: 2300,[\s\S]*?2 × ₱850 ATV \+ 2 × ₱150 entrance/);
+  assert.match(venueData, /https:\/\/www\.dahilayanforestpark\.com\/en\/rides-activities/);
+  assert.match(venueData, /140kg combined driver\/passenger limit/);
+});
