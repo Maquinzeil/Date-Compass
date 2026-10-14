@@ -268,6 +268,28 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-15"
     },
     {
+      n: "Dahilayan Forest Park buggy trail for two",
+      c: 2000,
+      venueName: "Dahilayan Forest Park Resort",
+      sourceUrl: "https://www.dahilayanforestpark.com/en/rides-activities",
+      sourceLabel: "Official Dahilayan Forest Park rides and activities page",
+      priceStatusLabel: "Operator-published buggy and entrance rates + 15% buffer",
+      priceBasis: "₱1,400 buggy for two riders + 2 × ₱150 entrance = ₱1,700; 15% buffer = ₱1,955; rounded up to ₱2,000.",
+      priceNote: "The official page lists a ₱1,400 buggy for two riders and entrance at ₱150 per person. This estimate assumes entrance is charged separately and includes one guided buggy trail ride only. Transport from CDO, food, and other attractions are excluded. Confirm current rates, availability, and the 140kg combined driver/passenger limit before travelling.",
+      checkedOn: "2026-10-15"
+    },
+    {
+      n: "Dahilayan Forest Park ATV adventure for two",
+      c: 2300,
+      venueName: "Dahilayan Forest Park Resort",
+      sourceUrl: "https://www.dahilayanforestpark.com/en/rides-activities",
+      sourceLabel: "Official Dahilayan Forest Park rides and activities page",
+      priceStatusLabel: "Operator-published ATV and entrance rates + 15% buffer",
+      priceBasis: "2 × ₱850 ATV + 2 × ₱150 entrance = ₱2,000; 15% buffer = ₱2,300.",
+      priceNote: "The official page lists ATV rides at ₱850 per head and entrance at ₱150 per person. This estimate assumes entrance is charged separately and includes one ATV ride per person only. Transport from CDO, food, and other attractions are excluded. Confirm current rates, availability, and trail requirements before travelling.",
+      checkedOn: "2026-10-15"
+    },
+    {
       n: "Dahilayan 840m zipline date for two",
       c: 1400,
       venueName: "Dahilayan Adventure Park",
@@ -396,6 +418,17 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       venueStatus: "Branch listing found; confirm current operating hours",
       priceStatus: "Game credits and activity prices need current verification",
       sourceUrl: "https://www.timezonegames.com/en-ph/locations/mindanao/timezone-centrio/",
+      checkedOn: "2026-10-15"
+    },
+    {
+      name: "Dahilayan Forest Park Resort",
+      category: "forest park and outdoor adventure rides",
+      area: "Barangay Dahilayan, Manolo Fortich, Bukidnon",
+      venueStatus: "Official operator website and published ride rates found",
+      priceStatus: "Entrance and selected ride prices published; transport and incidental fees excluded",
+      sourceUrl: "https://www.dahilayanforestpark.com/en/",
+      priceSourceUrl: "https://www.dahilayanforestpark.com/en/rides-activities",
+      bookingUrl: "https://www.dahilayanforestpark.com/en/reservation",
       checkedOn: "2026-10-15"
     },
     {
