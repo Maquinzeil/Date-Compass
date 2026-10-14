@@ -74,7 +74,7 @@ test("homepage feature panels wait for a user scroll before revealing on initial
   assert.ok(app.includes("if(y>40){document.querySelectorAll"));
   assert.ok(app.includes('rootMargin:"0px 0px -12% 0px"'));
   assert.ok(app.includes("if(!pairedFeature)IO.observe(el)"), "The initial observer must not reveal either homepage feature panel.");
-  assert.ok(app.includes("t.classList.add("in");if(IO)IO.unobserve(t)"), "Scroll-triggered reveal must stop observing the panel after it appears.");
+  assert.ok(app.includes('t.classList.add("in");if(IO)IO.unobserve(t)'), "Scroll-triggered reveal must stop observing the panel after it appears.");
 });
 
 test("homepage feature sections are vertically ordered on desktop with How It Works left and Vibe right; mobile panels stack full-width", () => {
