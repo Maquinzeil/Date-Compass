@@ -284,3 +284,64 @@ test("Dahilayan Forest Park multi-ride package budget discloses separate entranc
   assert.match(venueData, /Confirm which listed rides are included and operating, whether entrance is separate/);
   assert.match(venueData, /https:\/\/www\.dahilayanforestpark\.com\/en\/rides-activities/);
 });
+
+
+test("generating a gaming date renders a usable date ticket across budgets and food styles", () => {
+  const elements = {
+    app: { className: "", innerHTML: "", offsetWidth: 0, classList: { add() {}, remove() {} } },
+    yr: { textContent: "" },
+  };
+  const document = {
+    getElementById(id) { return elements[id] || (elements[id] = { textContent: "", innerHTML: "", classList: { add() {}, remove() {} }, style: { setProperty() {} } }); },
+    querySelectorAll() { return []; },
+    addEventListener() {},
+    createElement() { return { style: { setProperty() {} }, classList: { add() {}, remove() {} }, setAttribute() {}, appendChild() {}, replaceChildren() {} }; },
+  };
+  const context = {
+    document,
+    location: { hostname: "", pathname: "/", hash: "" },
+    history: { pushState() {}, replaceState() {} },
+    localStorage: { getItem() { return null; }, setItem() {} },
+    matchMedia() { return { matches: true }; },
+    addEventListener() {},
+    scrollTo() {},
+    window: {},
+    console,
+    Math,
+    Date,
+    setTimeout() {},
+    navigator: {},
+  };
+  vm.createContext(context);
+  vm.runInContext(venueData, context, { timeout: 5000 });
+  vm.runInContext(app, context, { timeout: 5000 });
+  const results = vm.runInContext(\`(() => {
+    const out = [];
+    for (const budget of [300, 800, 1500]) {
+      for (const foodMode of ["a", "out", "cafe"]) {
+        S.view = "random"; S.p = "a"; S.b = budget; S.t = "a"; S.s = "a";
+        S.car = "a"; S.cat = "games"; S.foodMode = foodMode;
+        S.act = null; S.food = null; S.gen = false;
+        gen();
+        out.push({
+          budget, foodMode,
+          activity: S.act && S.act.n,
+          category: S.act && S.act.cat,
+          food: S.food && S.food.n,
+          total: total(),
+          html: document.getElementById("app").innerHTML
+        });
+      }
+    }
+    return out;
+  })()\`, context, { timeout: 15000 });
+  assert.equal(results.length, 9);
+  for (const result of results) {
+    assert.ok(result.activity, \`Gaming plan missing an activity: \${JSON.stringify(result)}\`);
+    assert.equal(result.category, "games", \`Gaming choice returned the wrong category: \${JSON.stringify(result)}\`);
+    assert.match(result.html, /Your date/, "Generation should render the actual date ticket.");
+    assert.ok(result.html.includes(result.activity), "The selected gaming activity should appear in the rendered ticket.");
+    assert.doesNotMatch(result.html, /No activity matches this category and budget/, "A valid gaming choice should not show the empty-state message.");
+    assert.ok(result.total <= result.budget, \`Generated gaming plan exceeded its budget: \${JSON.stringify({ budget: result.budget, total: result.total, activity: result.activity, food: result.food })}\`);
+  }
+});
