@@ -404,7 +404,7 @@ test("planner choices sit inside a spaced responsive panel and plan actions are 
   assert.match(css, /@media\(max-width:640px\)[\s\S]*?#app \.planner-filters\s*\{[\s\S]*?grid-template-columns:minmax\(0,1fr\)/);
   assert.match(css, /#app \.bar button\.ghost,[\s\S]*?background:var\(--gold\)!important;[\s\S]*?color:var\(--ink\)!important;[\s\S]*?opacity:1!important/);
   assert.ok(html.includes('href="css/style.css?v=20261015d"'));
-  assert.ok(html.includes('src="js/app.js?v=20261015d"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015e"'));
 });
 
 
