@@ -1997,3 +1997,7 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
 #app .contact-submit{align-self:flex-start;min-width:160px;justify-content:center;margin-top:12px}
 #app .contact-form .note{margin:4px 0 0;line-height:1.5}
 @media(max-width:640px){#app .contact-panel{padding:20px 16px}#app .contact-submit{width:100%}}
+
+/* Physical kit question-card offer beneath the custom planner introduction. */
+.kit-promo{margin:12px 0 18px;padding:13px 16px;border:1.5px solid var(--gold);border-left:5px solid #e2467c;border-radius:14px;background:var(--card);color:var(--ink);box-shadow:3px 3px 0 rgba(242,177,52,.24)}
+.kit-promo b{color:var(--ink)}
