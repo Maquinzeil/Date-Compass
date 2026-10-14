@@ -97,28 +97,27 @@ header.site .hin > nav a {
    controls inside the viewport, and make the two phone previews scale without clipping. */
 @media (min-width: 1000px) {
   header.site .hin {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+    display: flex !important;
+    justify-content: space-between !important;
     align-items: center !important;
   }
   header.site .hin > .logo {
-    grid-column: 1 !important;
-    justify-self: start !important;
+    margin-right: auto !important;
   }
   header.site .hin > nav {
-    grid-column: 2 !important;
-    justify-self: center !important;
-    width: max-content !important;
-    max-width: 100% !important;
+    margin-left: auto !important;
+    justify-content: flex-end !important;
+    width: auto !important;
+    max-width: none !important;
   }
 }
 @media (min-width: 641px) and (max-width: 999px) {
   header.site .hin {
-    justify-content: center !important;
+    justify-content: space-between !important;
   }
   header.site .hin > nav {
-    flex: 1 1 100% !important;
-    justify-content: center !important;
+    flex: 0 1 auto !important;
+    justify-content: flex-end !important;
     min-width: 0 !important;
   }
 }
