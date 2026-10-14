@@ -17,6 +17,8 @@ jobs:
         with:
           node-version: 20
       - name: Check JavaScript syntax
-        run: node --check js/app.js
+        run: |
+          node --check js/venue-data.js
+          node --check js/app.js
       - name: Run Phase 1 smoke tests
         run: node --test tests/phase1-smoke.test.mjs

@@ -1,5 +1,5 @@
 // Ideas: n=name, c=estimated cost for two (PHP), p=place (c=CDO, m=Misamis Oriental outside CDO, a=any), t=time (s=short, l=long), s=setting (i=indoor, o=outdoor), r=requires a car (1=yes)
-// ALL entries are unverified placeholders. Check each place and price before publishing.
+// Original A/F ideas are sample estimates; source-backed records are merged from js/venue-data.js and include evidence metadata.
 const Q=[
 "What is one small thing I do that makes you feel loved?",
 "What would your perfect slow Sunday together look like?",
@@ -1091,6 +1091,12 @@ F.push(
  {n:"Convenience-store snack run",m:"takeout",c:150,p:"c",s:"i",d:"Pause the game and pick two drinks plus a shareable snack. ₱150 is a planning allowance for two; check shelf prices and keep the receipt for an exact spend."},
  {n:"Budget fast-food snack break",m:"out",c:180,p:"c",s:"i",d:"Take a break for a small meal or snack together, then continue playing. ₱180 is an estimate for two; check the current menu and choose items that fit."}
 );
+// Merge only source-backed seed records into the existing planner data model.
+const VERIFIED_DATA=window.DATE_COMPASS_VERIFIED_DATA||{};
+if(Array.isArray(VERIFIED_DATA.foodIdeas))F.push(...VERIFIED_DATA.foodIdeas);
+if(Array.isArray(VERIFIED_DATA.activityUpdates)){
+ VERIFIED_DATA.activityUpdates.forEach(v=>{const item=A.find(x=>x.n===v.n);if(item)Object.assign(item,v)});
+}
 const PL={c:"Inside CDO",m:"Misamis Oriental, outside CDO",a:"Anywhere"};
 const BL={300:"Up to ₱300",800:"Up to ₱800",1500:"Up to ₱1,500",5000:"Splurge, ₱1,500 and up"};
 const S={view:"home",p:"c",b:0,t:"a",s:"a",car:"a",cat:"a",foodMode:"a",act:null,food:null,gen:false,q:[],qi:0,from:"random",code:"",surp:false,order:{name:"",partner:"",occasion:"",date:"",delivery:"pickup",address:"",contact:"",email:"",note:""},orderSaved:false};
@@ -1101,6 +1107,15 @@ const app=document.getElementById("app");
 const rnd=a=>a[Math.floor(Math.random()*a.length)];
 const peso=n=>"₱"+n.toLocaleString("en-PH");
 const esc=v=>String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
+function priceEvidenceHtml(x){
+ if(!x||!x.sourceUrl)return "";
+ const source='<a href="'+esc(x.sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+esc(x.sourceLabel||"View source")+'</a>';
+ const venue=x.venueUrl&&x.venueUrl!==x.sourceUrl?' · <a href="'+esc(x.venueUrl)+'" target="_blank" rel="noopener noreferrer">Venue page</a>':"";
+ return '<div class="price-evidence"><p><b>'+esc(x.priceStatusLabel||"Source-backed estimate")+'</b></p>'
+ +(x.priceBasis?'<p>'+esc(x.priceBasis)+'</p>':"")
+ +(x.priceNote?'<p>'+esc(x.priceNote)+'</p>':"")
+ +'<p>Source: '+source+venue+' · checked '+esc(x.checkedOn||"date not recorded")+'</p></div>';
+}
 function loadOrder(){try{const x=JSON.parse(localStorage.getItem("dateCompassOrder")||"null");if(x)S.order={...S.order,...x}}catch(e){}}
 function saveOrderLocal(){try{localStorage.setItem("dateCompassOrder",JSON.stringify(S.order))}catch(e){}}
 loadOrder();
@@ -1177,7 +1192,7 @@ function slot(label,key,pool,item){
  const cu=S.view=="custom",L=key=="act"?A:F;
  return `<div class="card"><div class="lab">${label}</div>`
  +(cu?`<select aria-label="${label}" onchange="pick('${key}',this.value)"><option value="">Choose one (${pool.length} matches)</option>${pool.map(x=>`<option value="${L.indexOf(x)}"${item&&item.n==x.n?" selected":""}>${x.n}, about ${peso(x.c)}</option>`).join("")}</select>`:"")
- +(item?`<h3>${esc(item.n)}</h3><p>${esc(item.d)}</p><p class="tag">Estimated ${peso(item.c)} for two. ${PL[item.p]}. ${CAT[item.cat]?" · "+CAT[item.cat]:""}</p>${guideHtml(item)}`:((!pool.length||S.gen)&&key=="food"?`<p class="note">No food idea matches this food style within the remaining budget. Try another food style, a cheaper activity, or a higher budget.</p>`:""))
+ +(item?`<h3>${esc(item.n)}</h3><p>${esc(item.d)}</p><p class="tag">Suggested budget ${peso(item.c)} for two. ${PL[item.p]}. ${CAT[item.cat]?" · "+CAT[item.cat]:""}</p>${priceEvidenceHtml(item)}${guideHtml(item)}`:((!pool.length||S.gen)&&key=="food"?`<p class="note">No food idea matches this food style within the remaining budget. Try another food style, a cheaper activity, or a higher budget.</p>`:""))
  +`<button class="ghost" onclick="shuffle('${key}')">${cu?"Surprise me":"Try another"}</button></div>`;
 }
 function plan(){
@@ -1186,7 +1201,7 @@ function plan(){
  const t=total(),remaining=Math.max(S.b-t,0),over=t>S.b?" This combination is over budget; choose a cheaper option.":"";
  return `<h2 style="margin-top:22px">Your date</h2>`+slot("Activity","act",ap,S.act)+slot("Food","food",fPool(),S.food)
  +(S.act||S.food?`<div class="total"><b>Budget breakdown for two</b><p>Activity: ${peso(S.act?S.act.c:0)}</p><p>Food: ${peso(S.food?S.food.c:0)}</p><p><b>Estimated plan total: ${peso(t)}</b></p><p>Budget: ${peso(S.b)} · ${t<=S.b?"Remaining: "+peso(remaining):"Over by: "+peso(t-S.b)}</p>${over}</div>`:"")
- +`<p class="note">These are sample date ideas, not verified venue listings. Cost figures are rough estimates for two, not live quotes. Check current prices, opening hours, availability, transport, and safety before going.</p>`
+ +`<p class="note">Budgets are planning estimates for two, not live quotes. Options with a source panel link to a published menu or operator rate and include a conservative buffer; other ideas remain unverified samples. Prices, hours, availability, transport, and safety can change, so confirm details before going.</p>`
  +`<p class="brandline">♥ Date Compass${SITE?" "+SITE:""}</p><div class="bar">`+(S.view=="random"?`<button class="ghost" onclick="gen()">New plan</button>`:"")+`<button class="ghost" onclick="startKit()">Get the Date Compass Kit</button><button class="ghost" id="cp" onclick="copyPlan()">Copy</button></div>`;
 }
 function about(){
