@@ -1,5 +1,5 @@
 // Ideas: n=name, c=estimated cost for two (PHP), p=place (c=CDO, m=Misamis Oriental outside CDO, a=any), t=time (s=short, l=long), s=setting (i=indoor, o=outdoor), r=requires a car (1=yes)
-// ALL entries are unverified placeholders. Check each place and price before publishing.
+// Original A/F ideas are sample estimates; source-backed records are merged from js/venue-data.js and include evidence metadata.
 const Q=[
 "What is one small thing I do that makes you feel loved?",
 "What would your perfect slow Sunday together look like?",
