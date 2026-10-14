@@ -253,7 +253,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceBasis: "2 × ₱240 Spanish Latte + ₱150 cookies = ₱630; 15% buffer = ₱724.50; rounded up to ₱750.",
       priceNote: "The branch menu lists Spanish Latte at ₱240 before its temporary app discount and cookies at ₱150 before its displayed discount. This estimate uses regular listed prices. Delivery prices may differ from dine-in; transport and delivery fees are excluded.",
       checkedOn: "2026-10-15"
-    },,
+    },
     {
       n: "Raki-Yata Ramen SM Downtown: Tonkotsu Shoyu for two",
       m: "out", c: 1650, p: "c", s: "i",

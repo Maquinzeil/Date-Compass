@@ -1155,7 +1155,7 @@ function foodMatchesMode(x,mode){
  return true;
 }
 const fPool=()=>{
- const base=S.act&&S.act.t=="n"?F.filter(x=>x.k):F.filter(x=>!x.k||x.k==2);
+ const base=S.act&&S.act.t=="n"?F.filter(x=>x&&x.k):F.filter(x=>x&&(!x.k||x.k==2));
  const remaining=Math.max(S.b-(S.act?S.act.c:0),0),pref=base.filter(x=>foodMatchesMode(x,S.foodMode));
  const found=opts(pref,{p:S.p,t:"a",s:S.s},remaining);
  if(found.length)return found;
