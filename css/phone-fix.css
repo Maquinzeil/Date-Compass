@@ -1,0 +1,71 @@
+/* Definitive phone mockup fix.
+   Override the earlier absolute-position and fixed-height rules that were clipping the lower phone. */
+.hero2 .phones {
+  display: flex !important;
+  position: relative !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(10px, 2vw, 28px) !important;
+  width: 100% !important;
+  max-width: 760px !important;
+  height: auto !important;
+  min-height: 590px !important;
+  padding: 22px 6px 34px !important;
+  margin: 0 auto !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+.hero2 .phones > .ph {
+  position: relative !important;
+  inset: auto !important;
+  flex: 1 1 0 !important;
+  width: calc(50% - 14px) !important;
+  max-width: 300px !important;
+  min-width: 0 !important;
+  height: clamp(420px, 40vw, 535px) !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+.hero2 .phones > .p1 { transform: rotate(-4deg) !important; }
+.hero2 .phones > .p2 { transform: rotate(4deg) !important; }
+
+@media (min-width: 1200px) {
+  .hero2 .phones { min-height: 640px !important; gap: clamp(18px, 2.5vw, 38px) !important; }
+  .hero2 .phones > .ph { height: clamp(490px, 38vw, 560px) !important; }
+}
+
+@media (max-width: 819px) {
+  .hero2 .phones {
+    width: 100% !important;
+    max-width: 620px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 18px 0 30px !important;
+    gap: clamp(10px, 2.5vw, 20px) !important;
+    overflow: visible !important;
+  }
+  .hero2 .phones > .ph {
+    flex: 1 1 0 !important;
+    width: calc(50% - 5px) !important;
+    max-width: 260px !important;
+    height: clamp(370px, 56vw, 430px) !important;
+    padding: 12px 9px !important;
+    border-width: 4px !important;
+    border-radius: 25px !important;
+  }
+  .hero2 .phones > .p1 { transform: rotate(-3deg) !important; }
+  .hero2 .phones > .p2 { transform: rotate(3deg) !important; }
+  .hero2 .phones .pstatus { margin-bottom: 9px !important; }
+  .hero2 .phones .pl { margin-bottom: 10px !important; }
+  .hero2 .phones .pt { padding: 8px 7px !important; margin-bottom: 7px !important; }
+  .hero2 .phones .kit-title { margin-bottom: 10px !important; }
+  .hero2 .phones .kit-art { height: clamp(80px, 22vw, 100px) !important; margin-bottom: 9px !important; }
+  .hero2 .phones .included { padding: 8px !important; }
+  .hero2 .phones .included span { line-height: 1.4 !important; }
+  .hero2 .phones .kit-tagline { bottom: 8px !important; left: 7px !important; right: 7px !important; padding: 7px 4px !important; }
+}
+
+@media (max-width: 360px) {
+  .hero2 .phones { gap: 8px !important; }
+  .hero2 .phones > .ph { height: 370px !important; padding: 10px 7px !important; }
+}
