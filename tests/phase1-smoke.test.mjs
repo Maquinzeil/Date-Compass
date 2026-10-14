@@ -345,3 +345,29 @@ test("generating a gaming date renders a usable date ticket across budgets and f
     assert.ok(result.total <= result.budget, `Generated gaming plan exceeded its budget: ${JSON.stringify({ budget: result.budget, total: result.total, activity: result.activity, food: result.food })}`);
   }
 });
+
+
+test("all source-backed price records keep complete evidence and match planner activities", () => {
+  const dataContext = { window: {} };
+  vm.createContext(dataContext);
+  vm.runInContext(venueData, dataContext, { timeout: 5000 });
+  const verified = dataContext.window.DATE_COMPASS_VERIFIED_DATA;
+  const foods = verified.foodIdeas.filter(item => item.sourceUrl);
+  const activities = verified.activityUpdates;
+  const records = [...foods, ...activities];
+  assert.equal(foods.length, 19, "Expected 19 source-backed food ideas.");
+  assert.equal(activities.length, 9, "Expected nine source-backed activity updates.");
+  assert.equal(records.length, 28, "Every source-backed food and activity should be included in this evidence audit.");
+  for (const item of records) {
+    assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
+    assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
+    assert.ok(item.priceStatusLabel, `Missing price status for ${item.n}`);
+    assert.ok(item.priceBasis && item.priceBasis.includes("15%"), `Missing 15% budget basis for ${item.n}`);
+    assert.ok(item.priceNote, `Missing exclusions or verification note for ${item.n}`);
+    assert.equal(item.checkedOn, verified.checkedOn, `Price check date mismatch for ${item.n}`);
+    assert.ok(Number.isFinite(item.c) && item.c >= 0, `Invalid budget for ${item.n}`);
+  }
+  for (const item of activities) {
+    assert.ok(app.includes(JSON.stringify(item.n)), `Source-backed activity has no matching planner option: ${item.n}`);
+  }
+});
