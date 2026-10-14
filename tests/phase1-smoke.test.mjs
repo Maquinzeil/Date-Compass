@@ -259,3 +259,12 @@ test("C-ONE badminton options use sourced conservative court-only budgets", () =
   assert.match(venueData, /not equipment rentals, shuttlecocks, transport, or food/);
   assert.match(venueData, /C-ONE Sports Center — Kauswagan/);
 });
+
+test("Dahilayan ride budgets use current official operator rates and disclose exclusions", () => {
+  assert.match(app, /Dahilayan 840m zipline date for two/);
+  assert.match(app, /Dahilayan Razorback mountain coaster for two/);
+  assert.match(venueData, /c: 1400,[\s\S]*?2 × ₱100 entrance \+ 2 × ₱500 840m zipline/);
+  assert.match(venueData, /c: 1200,[\s\S]*?2 × ₱100 entrance \+ 2 × ₱400 single coaster rides/);
+  assert.match(venueData, /https:\/\/www\.dahilayanadventurepark\.com\/rides/);
+  assert.match(venueData, /Transport from CDO, food, any environmental fee not shown on the official page/);
+});
