@@ -2002,27 +2002,9 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
 .kit-promo{margin:12px 0 18px;padding:13px 16px;border:1.5px solid var(--gold);border-left:5px solid #e2467c;border-radius:14px;background:var(--card);color:var(--ink);box-shadow:3px 3px 0 rgba(242,177,52,.24)}
 .kit-promo b{color:var(--ink)}
 
-/* Make the Kit step unmistakable in the planner and kit view. */
-#app .steps .kit-step{background:var(--gold);color:#351018;border:2px solid #e2467c;font-weight:800;box-shadow:0 3px 0 rgba(226,70,124,.2)}
-
-
-/* Progress steps: all three use white pills with pink outlines; Kit is bold/current. */
-#app .steps span{
-  background:#fff !important;
-  color:#351018 !important;
-  border:2px solid #e2467c !important;
-  box-shadow:none !important;
-  font-weight:500 !important;
-}
-#app .steps span.on{
-  background:#fff !important;
-  color:#351018 !important;
-  border-color:#e2467c !important;
-}
+/* Only the Kit pill shape gets the white fill and pink outline. Keep its text styling unchanged. */
 #app .steps span.kit-step{
   background:#fff !important;
-  color:#351018 !important;
   border:2px solid #e2467c !important;
-  font-weight:800 !important;
   box-shadow:none !important;
 }
