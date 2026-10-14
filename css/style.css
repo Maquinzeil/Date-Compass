@@ -1974,3 +1974,12 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
   header.site .hin nav a { padding-left: 3px !important; padding-right: 3px !important; font-size: 10px !important; }
   footer.site .fin nav a { padding-left: 2px !important; padding-right: 2px !important; font-size: 10px !important; }
 }
+
+
+/* Keep both tilted phone mockups fully visible instead of clipping the lower edge. */
+@media (min-width: 820px) {
+  .hero2 .phones { height: 455px !important; }
+}
+@media (max-width: 819px) {
+  .hero2 .phones { height: 350px !important; }
+}
