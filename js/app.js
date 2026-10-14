@@ -1145,7 +1145,7 @@ function sel(label,key){return `<label class="selectfield"><span>${label}</span>
 function filters(){
  const cu=S.view=="custom";
  return `<a class="back" href="#home">Back</a>
- <div class="steps"><span class="on">1 Choose</span><span${cu||S.gen?' class="on"':""}>2 Your plan</span><span${S.act||S.food?' class="on"':""}>3 Kit</span></div>
+ <div class="steps"><span class="on">1 Choose</span><span${cu||S.gen?' class="on"':""}>2 Your plan</span><span class="on kit-step">3 Kit</span></div>
  <h2>${cu?"Build your own date":"Surprise us"}</h2>
  <p class="mute">${cu?"Set the basics, then pick each part yourself.":"Tell us the basics and we choose the rest."}</p>${cu?'<p class="kit-promo">Get the physical kit and receive <b>10 randomly selected date questions</b> to spark fun conversations on your date. ♥</p>':""}
  ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}${sel("Food style","foodMode")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setBudget(this.value)" onchange="render()"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}`
@@ -1272,7 +1272,7 @@ function orderForm(){
 function kitview(){
  if(!S.code)S.code=newCode();
  const o=S.order;
- let h='<a class="back" href="#'+S.from+'">Back to your plan</a><h2>Your date kit</h2><p class="mute">We will collect the details once, then you can send us one clean order message. No back-and-forth hunting for names, dates, or delivery info.</p>';
+ let h='<a class="back" href="#'+S.from+'">Back to your plan</a><div class="steps"><span class="on">1 Choose</span><span class="on">2 Your plan</span><span class="on kit-step" aria-current="step">3 Kit</span></div><h2>Your date kit</h2><p class="mute">We will collect the details once, then you can send us one clean order message. No back-and-forth hunting for names, dates, or delivery info.</p>';
  h+='<div class="kit'+(S.surp?" sealed":"")+'"><div class="kh">Our date</div>'+(S.surp?'<div class="seal">Sealed surprise. Open on the date.</div>':"");
  h+='<div class="kr"><span>For</span><b>'+(esc(o.partner)||"Your partner")+'</b></div><div class="kr"><span>From</span><b>'+(esc(o.name)||"Your name")+'</b></div><div class="kr"><span>Activity</span><b>'+(S.act?S.act.n:"To be decided")+'</b></div><div class="kr"><span>Food</span><b>'+(S.food?S.food.n:"To be decided")+'</b></div>';
  if(o.occasion)h+='<div class="kr"><span>Occasion</span><b>'+esc(o.occasion)+'</b></div>';
