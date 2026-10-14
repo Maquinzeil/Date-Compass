@@ -6,20 +6,24 @@ import { dirname, resolve } from "node:path";
 import vm from "node:vm";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const [app, html, css, responsiveCss] = await Promise.all([
+const [app, html, css, responsiveCss, venueData] = await Promise.all([
   readFile(resolve(root, "js/app.js"), "utf8"),
   readFile(resolve(root, "index.html"), "utf8"),
   readFile(resolve(root, "css/style.css"), "utf8"),
   readFile(resolve(root, "css/phone-fix.css"), "utf8"),
+  readFile(resolve(root, "js/venue-data.js"), "utf8"),
 ]);
 
 test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
+  await access(resolve(root, "js/venue-data.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/app.js?v=20261015b"'));
-  assert.ok(html.includes('href="css/style.css?v=20261015b"'));
-  assert.ok(html.includes('href="css/phone-fix.css?v=20261015b"'));
+  assert.ok(html.includes('src="js/venue-data.js?v=20261015a"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015c"'));
+  assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
+  assert.ok(html.includes('href="css/style.css?v=20261015c"'));
+  assert.ok(html.includes('href="css/phone-fix.css?v=20261015c"'));
   assert.ok(html.indexOf('href="css/style.css?') < html.indexOf('href="css/phone-fix.css?'), "Responsive overrides must load after the base stylesheet.");
 });
 
@@ -144,6 +148,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
     navigator: {},
   };
   vm.createContext(context);
+  vm.runInContext(venueData, context, { timeout: 5000 });
   vm.runInContext(app, context, { timeout: 5000 });
   const result = vm.runInContext(`(() => {
     const budgets = [300, 800, 1500, 5000];
@@ -170,13 +175,19 @@ test("planner runs every area, transport, category, duration, setting, and food-
       }
     const gameDates = A.filter(activity => /Mobile Legends|co-op mobile game|internet-cafe gaming|Online game discovery|Co-op PC game/i.test(activity.n));
     const gameDatesWrongCategory = gameDates.filter(activity => activity.cat !== "games").map(activity => ({ name: activity.n, category: activity.cat }));
-    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, gameDatesWrongCategory, activityCount: A.length, foodCount: F.length };
+    const sourceBackedFoods = F.filter(food => food.sourceUrl);
+    const rafting = A.find(activity => activity.n === "White water rafting on the Cagayan River");
+    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, gameDatesWrongCategory, activityCount: A.length, foodCount: F.length, sourceBackedFoodCount: sourceBackedFoods.length, raftingBudget: rafting && rafting.c, sourcePanelHasLink: priceEvidenceHtml(sourceBackedFoods[0]).includes("href="), allSourceDatesRecorded: sourceBackedFoods.every(food => food.checkedOn === "2026-10-15") };
   })()`, context, { timeout: 30000 });
   assert.ok(result.combinations > 5000, `Expected broad choice coverage, got ${result.combinations}`);
   assert.equal(result.wrongCategory, 0, `Planner ignored the selected activity category: ${JSON.stringify(result)}`);
   assert.equal(result.overBudgetFood, 0, `Food suggestions exceeded remaining budget: ${JSON.stringify(result)}`);
   assert.equal(result.wrongFoodStyle, 0, `Planner ignored the selected food style: ${JSON.stringify(result)}`);
   assert.equal(result.gameDatesWrongCategory.length, 0, `Gaming date was categorized incorrectly: ${JSON.stringify(result.gameDatesWrongCategory)}`);
+  assert.equal(result.sourceBackedFoodCount, 4, "Four source-backed food options should be loaded into the planner.");
+  assert.equal(result.raftingBudget, 2800, "Rafting should use the source-backed two-person estimate plus buffer.");
+  assert.equal(result.sourcePanelHasLink, true, "Source-backed options must display a source link.");
+  assert.equal(result.allSourceDatesRecorded, true, "Source-backed prices must record a check date.");
   assert.ok(result.noActivity > 0, "Impossible category/budget combinations should explain that no match exists instead of showing an unrelated category.");
 });
 
@@ -201,7 +212,7 @@ test("mobile navigation and footer stay single-row and hero phones cannot cover 
   assert.match(css, /\.hero2\s*\{[^}]*overflow:\s*hidden !important/s);
   assert.match(css, /\.phones\s*\{[^}]*height:\s*312px !important/s);
   assert.match(css, /main\.wide \.home-feature-pair > \.hiw\.romance-section \{ grid-template-columns: minmax\(0, 1fr\) !important; \}/);
-  assert.ok(html.includes('href="css/style.css?v=20261015b"'));
+  assert.ok(html.includes('href="css/style.css?v=20261015c"'));
 });
 
 
