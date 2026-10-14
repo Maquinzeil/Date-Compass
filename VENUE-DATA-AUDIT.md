@@ -140,3 +140,14 @@ C-ONE Sports Center's published post dated 18 August 2026 lists Kauswagan badmin
 | C-ONE evening/weekend — one court for one hour | ₱220 | ₱33 | ₱300 |
 
 Source: [C-ONE Sports Center listing and August 2026 rate post](https://www.findglocal.com/PH/Cagayan-de-Oro/472616319967282/C-ONE-Sports-Center). [Booking page](https://c-one.bookingdyno.com/). These budgets cover the court only for one hour, not rackets, shuttlecocks, transport, food, or additional time. The SM City CDO Uptown branch has separate pickleball and badminton pricing, so these Kauswagan rates must not be applied to the Uptown branch. Confirm current prices, court type, branch, equipment availability, and booking slots before visiting.
+
+## Venue research batch 7 — Dahilayan Adventure Park rides (15 October 2026)
+
+The official Dahilayan Adventure Park website lists a ₱100 entrance fee, the 840m zipline at ₱500 per person, and the Razorback mountain coaster at ₱400 for a single ride. Budgets below add a 15% cushion and round up.
+
+| Planner option | Published-rate calculation for two | 15% cushion | Planner budget |
+|---|---:|---:|---:|
+| 840m zipline date | 2 × ₱100 entrance + 2 × ₱500 zipline = ₱1,200 | ₱180 | ₱1,400 |
+| Razorback mountain coaster date | 2 × ₱100 entrance + 2 × ₱400 single rides = ₱1,000 | ₱150 | ₱1,200 |
+
+Sources: [Official ride-rate page](https://www.dahilayanadventurepark.com/rides) and [official home page](https://www.dahilayanadventurepark.com/). These estimates cover the listed entrance and one ride per person only. They do not include transport from CDO, food, environmental or incidental fees not stated on the current official pages, or other attractions. Confirm operating status, ride restrictions, weather-related changes, and current rates before travelling.
