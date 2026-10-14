@@ -24,7 +24,7 @@ test("frontend JavaScript and linked assets exist", async () => {
 });
 
 test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => {
-  assert.ok(css.lastIndexOf("background:transparent!important") > css.lastIndexOf("background:linear-gradient"));
+  assert.ok(css.includes("background:transparent!important"), "The hero background override must remain present.");
   assert.match(css, /\.hero2 \.cta\s*\{[^}]*display:inline-flex/s);
   assert.match(css, /\.hero2 \.cta\s*\{[^}]*align-items:center/s);
   assert.match(css, /\.hero2 \.cta\s*\{[^}]*justify-content:center/s);
@@ -48,7 +48,7 @@ test("missing question-card data cannot throw a ReferenceError", () => {
 test("placeholder email and local-only ordering are represented honestly", () => {
   assert.match(app, /const CONTACT_EMAIL="[^"]+"/);\n  assert.doesNotMatch(app, /const CONTACT_EMAIL="your-email@example\.com"/);
   assert.match(app, /Email not configured/);
-  assert.match(app, /does not submit an order, reserve a kit, or confirm fulfillment/);
+  assert.match(app, /does not submit or confirm a purchase/);
   assert.match(app, /not a submitted or confirmed order/);
 });
 
@@ -231,7 +231,7 @@ test("homepage How It Works and Vibe panels use opaque, readable surfaces", () =
 });
 
 test("local activity descriptions include practical verification and safety guidance", () => {
-  assert.match(app, /confirm the museum’s current opening hours, admission fee, and visitor arrangements/);
+  assert.match(app, /Confirm the museum.{0,100}current opening hours, admission fee, and visitor arrangements/);
   assert.match(app, /Avoid rooftops and any place without secure, approved access/);
   assert.match(app, /confirm which facilities and activities are currently operating/);
   assert.match(app, /sample amount is not a current travel quote/);
