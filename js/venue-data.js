@@ -268,6 +268,28 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-15"
     },
     {
+      n: "Dahilayan 840m zipline date for two",
+      c: 1400,
+      venueName: "Dahilayan Adventure Park",
+      sourceUrl: "https://www.dahilayanadventurepark.com/rides",
+      sourceLabel: "Official Dahilayan Adventure Park ride rates",
+      priceStatusLabel: "Operator-published entrance and ride rates + 15% buffer",
+      priceBasis: "2 × ₱100 entrance + 2 × ₱500 840m zipline = ₱1,200; 15% buffer = ₱1,380; rounded up to ₱1,400.",
+      priceNote: "The official website lists ₱100 entrance and ₱500 per person for the 840m zipline. Estimate covers entrance and one zipline ride per person only. Transport from CDO, food, any environmental fee not shown on the official page, and other attractions are excluded. Check current restrictions, weather, and availability before travelling.",
+      checkedOn: "2026-10-15"
+    },
+    {
+      n: "Dahilayan Razorback mountain coaster for two",
+      c: 1200,
+      venueName: "Dahilayan Adventure Park",
+      sourceUrl: "https://www.dahilayanadventurepark.com/rides",
+      sourceLabel: "Official Dahilayan Adventure Park ride rates",
+      priceStatusLabel: "Operator-published entrance and ride rates + 15% buffer",
+      priceBasis: "2 × ₱100 entrance + 2 × ₱400 single coaster rides = ₱1,000; 15% buffer = ₱1,150; rounded up to ₱1,200.",
+      priceNote: "The official website lists ₱100 entrance and ₱400 for a single Razorback mountain-coaster ride. Estimate covers entrance and one single ride per person only. Transport from CDO, food, any environmental fee not shown on the official page, and other attractions are excluded. Check current restrictions, weather, and availability before travelling.",
+      checkedOn: "2026-10-15"
+    },
+    {
       n: "C-ONE badminton date — weekday happy hour",
       c: 150,
       venueName: "C-ONE Sports Center — Kauswagan",
@@ -374,6 +396,16 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       venueStatus: "Branch listing found; confirm current operating hours",
       priceStatus: "Game credits and activity prices need current verification",
       sourceUrl: "https://www.timezonegames.com/en-ph/locations/mindanao/timezone-centrio/",
+      checkedOn: "2026-10-15"
+    },
+    {
+      name: "Dahilayan Adventure Park",
+      category: "adventure rides and zipline",
+      area: "Barangay Dahilayan, Manolo Fortich, Bukidnon",
+      venueStatus: "Official operator website and current ride-rate page found",
+      priceStatus: "Entrance and selected ride prices published; transport and incidental fees excluded",
+      sourceUrl: "https://www.dahilayanadventurepark.com/",
+      priceSourceUrl: "https://www.dahilayanadventurepark.com/rides",
       checkedOn: "2026-10-15"
     },
     {
