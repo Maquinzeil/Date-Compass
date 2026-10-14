@@ -253,7 +253,33 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceBasis: "2 × ₱240 Spanish Latte + ₱150 cookies = ₱630; 15% buffer = ₱724.50; rounded up to ₱750.",
       priceNote: "The branch menu lists Spanish Latte at ₱240 before its temporary app discount and cookies at ₱150 before its displayed discount. This estimate uses regular listed prices. Delivery prices may differ from dine-in; transport and delivery fees are excluded.",
       checkedOn: "2026-10-15"
+    },,
+    {
+      n: "Raki-Yata Ramen SM Downtown: Tonkotsu Shoyu for two",
+      m: "out", c: 1650, p: "c", s: "i",
+      d: "A Japanese ramen date at the SM CDO Downtown branch. Budget uses the regular listed menu price before temporary app promotions, plus a 15% cushion.",
+      venueName: "Raki-Yata Ramen House — SM Premier Downtown CDO",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/vszj/raki-yata-ramen-house-sm-premier-downtown-cdo",
+      sourceLabel: "Foodpanda SM Premier Downtown menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Raki-Yata+Ramen+SM+Premier+Downtown+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu list price + buffer",
+      priceBasis: "2 × ₱705 Tonkotsu Shoyu = ₱1,410; 15% buffer = ₱1,621.50; rounded up to ₱1,650.",
+      priceNote: "The branch menu displays Tonkotsu Shoyu at a regular listed price of ₱705, with a temporary app price of ₱564. This estimate uses the regular price before promotions. Delivery prices may differ from dine-in; transport and delivery fees are excluded. Confirm current item availability and price before visiting.",
+      checkedOn: "2026-10-15"
     },
+    {
+      n: "Raki-Yata Ramen SM Downtown: two ramen bowls and shared California Maki",
+      m: "out", c: 1950, p: "c", s: "i",
+      d: "A fuller Japanese meal for two at SM CDO Downtown. Budget uses regular listed prices before temporary app promotions, plus a 15% cushion.",
+      venueName: "Raki-Yata Ramen House — SM Premier Downtown CDO",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/vszj/raki-yata-ramen-house-sm-premier-downtown-cdo",
+      sourceLabel: "Foodpanda SM Premier Downtown menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Raki-Yata+Ramen+SM+Premier+Downtown+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu list prices + buffer",
+      priceBasis: "2 × ₱705 Tonkotsu Shoyu + ₱235 California Maki = ₱1,645; 15% buffer = ₱1,891.75; rounded up to ₱1,950.",
+      priceNote: "The branch menu displays Tonkotsu Shoyu at a regular listed price of ₱705 and California Maki at ₱235, with temporary 20% app discounts shown. This estimate uses regular prices before promotions. Delivery prices may differ from dine-in; transport and delivery fees are excluded. Confirm current item availability and price before visiting.",
+      checkedOn: "2026-10-15"
+    }
   ],
   activityUpdates: [
     {
@@ -703,6 +729,16 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceStatus: "No current official admission price was found; the planner's stroll is a sample low-cost idea, not a paid ticket",
       sourceUrl: "https://cdo.cagayandeoro.gov.ph/index.php/item/4004-2-day-heritage-walking-tour-gipasiugdahan-sa-city-tourism.html",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Duaw+Park+Cagayan+de+Oro",
+      checkedOn: "2026-10-15"
+    },
+    {
+      name: "Raki-Yata Ramen House — SM Premier Downtown CDO",
+      category: "Japanese ramen, sushi, and casual dining",
+      area: "2nd Floor, SM Premier Downtown, C.M. Recto Avenue, Cagayan de Oro",
+      venueStatus: "Google Maps business listing and branch-specific delivery menu found",
+      priceStatus: "Regular delivery-menu list prices captured; dine-in prices may differ and temporary app promotions are excluded from estimates",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/vszj/raki-yata-ramen-house-sm-premier-downtown-cdo",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Raki-Yata+Ramen+SM+Premier+Downtown+Cagayan+de+Oro",
       checkedOn: "2026-10-15"
     },
   ]
