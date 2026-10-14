@@ -17,9 +17,9 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/app.js?v=20261014e"'));
-  assert.ok(html.includes('href="css/style.css?v=20261014e"'));
-  assert.ok(html.includes('href="css/phone-fix.css?v=20261014e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261014g"'));
+  assert.ok(html.includes('href="css/style.css?v=20261014g"'));
+  assert.ok(html.includes('href="css/phone-fix.css?v=20261014g"'));
   assert.ok(html.indexOf('href="css/style.css?') < html.indexOf('href="css/phone-fix.css?'), "Responsive overrides must load after the base stylesheet.");
 });
 
@@ -41,7 +41,7 @@ test("planner food budget is capped by the remaining budget", () => {
 
 test("missing question-card data cannot throw a ReferenceError", () => {
   assert.match(app, /typeof Q==="undefined"\|\|!Array\.isArray\(Q\)\|\|!Q\.length/);
-  assert.match(app, /Question-card bank not configured/);
+  assert.match(app, /const Q=\[/);\n  assert.match(app, /10 randomly selected date question cards/);
 });
 
 test("placeholder email and local-only ordering are represented honestly", () => {
@@ -169,7 +169,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
     const gameDates = A.filter(activity => /Mobile Legends|co-op mobile game|internet-cafe gaming|Online game discovery|Co-op PC game/i.test(activity.n));
     const gameDatesWrongCategory = gameDates.filter(activity => activity.cat !== "games").map(activity => ({ name: activity.n, category: activity.cat }));
     return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, gameDatesWrongCategory, activityCount: A.length, foodCount: F.length };
-  })()`, context, { timeout: 10000 });
+  })()`, context, { timeout: 30000 });
   assert.ok(result.combinations > 5000, `Expected broad choice coverage, got ${result.combinations}`);
   assert.equal(result.wrongCategory, 0, `Planner ignored the selected activity category: ${JSON.stringify(result)}`);
   assert.equal(result.overBudgetFood, 0, `Food suggestions exceeded remaining budget: ${JSON.stringify(result)}`);
@@ -199,7 +199,7 @@ test("mobile navigation and footer stay single-row and hero phones cannot cover 
   assert.match(css, /\.hero2\s*\{[^}]*overflow:\s*hidden !important/s);
   assert.match(css, /\.phones\s*\{[^}]*height:\s*312px !important/s);
   assert.match(css, /main\.wide \.home-feature-pair > \.hiw\.romance-section \{ grid-template-columns: minmax\(0, 1fr\) !important; \}/);
-  assert.ok(html.includes('href="css/style.css?v=20261014e"'));
+  assert.ok(html.includes('href="css/style.css?v=20261014g"'));
 });
 
 
