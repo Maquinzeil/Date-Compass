@@ -46,7 +46,7 @@ test("missing question-card data cannot throw a ReferenceError", () => {
 });
 
 test("placeholder email and local-only ordering are represented honestly", () => {
-  assert.match(app, /CONTACT_EMAIL==="your-email@example\.com"/);
+  assert.match(app, /const CONTACT_EMAIL="[^"]+"/);\n  assert.doesNotMatch(app, /const CONTACT_EMAIL="your-email@example\.com"/);
   assert.match(app, /Email not configured/);
   assert.match(app, /does not submit an order, reserve a kit, or confirm fulfillment/);
   assert.match(app, /not a submitted or confirmed order/);
