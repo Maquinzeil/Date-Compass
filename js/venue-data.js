@@ -136,7 +136,72 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceBasis: "2 × ₱315 = ₱630; 15% buffer = ₱724.50; rounded up to ₱750.",
       priceNote: "The official online menu lists this box at ₱315. Confirm the price and item availability at KFC Centrio before visiting; delivery and promotional prices may differ.",
       checkedOn: "2026-10-15"
-    }
+    },
+    {
+      n: "Mang Inasal Ororama CDO: Chicken Inasal Paa Large for two",
+      m: "out", c: 400, p: "c", s: "i",
+      d: "A casual grilled-chicken date with rice. Estimate uses two branch-listed Paa Large meals and a 15% cushion; drinks are not included.",
+      venueName: "Mang Inasal — Ororama Cagayan de Oro",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/f5sw/mang-inasal-ororama-cagayan-de-oro",
+      sourceLabel: "Foodpanda Ororama branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Mang+Inasal+Ororama+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱165 Paa Large = ₱330; 15% buffer = ₱379.50; rounded up to ₱400.",
+      priceNote: "The branch listing shows Paa Large - PM1 at ₱165 with one rice. This is a delivery-menu reference, not a guaranteed dine-in price; drinks, delivery fees, transport, promotions and current availability are not included.",
+      checkedOn: "2026-10-15"
+    },
+    {
+      n: "Chowking SM CDO Downtown: Chicken Lauriat with drinks",
+      m: "out", c: 650, p: "c", s: "i",
+      d: "A fuller Chinese-style fast-food meal date. Estimate uses two branch-listed Fried Chicken Lauriat meals with drinks and a 15% cushion.",
+      venueName: "Chowking — SM CDO Premier",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s9vr/chowking-sm-cdo-premier",
+      sourceLabel: "Foodpanda SM CDO Premier menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Chowking+SM+CDO+Downtown+Premier",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱263 Chicken Lauriat with drink = ₱526; 15% buffer = ₱604.90; rounded up to ₱650.",
+      priceNote: "The branch listing shows Chinese-Style Fried Chicken Lauriat with Drink from ₱263. Delivery-menu prices may differ from dine-in and change with offers or availability. Delivery fees and transport are not included.",
+      checkedOn: "2026-10-15"
+    },
+    {
+      n: "Chowking SM CDO Downtown: Siomai Chao Fan with drinks",
+      m: "out", c: 350, p: "c", s: "i",
+      d: "A lower-cost rice-meal date. Estimate uses two branch-listed Siomai Chao Fan with drinks and a 15% cushion.",
+      venueName: "Chowking — SM CDO Premier",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s9vr/chowking-sm-cdo-premier",
+      sourceLabel: "Foodpanda SM CDO Premier menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Chowking+SM+CDO+Downtown+Premier",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱146 Siomai Chao Fan with drink = ₱292; 15% buffer = ₱335.80; rounded up to ₱350.",
+      priceNote: "The branch listing shows Siomai Chao Fan with Drink from ₱146. Delivery-menu prices may differ from dine-in and change with offers or availability. Delivery fees and transport are not included.",
+      checkedOn: "2026-10-15"
+    },
+    {
+      n: "Jollibee CDO Market City: Chickenjoy with drinks for two",
+      m: "out", c: 300, p: "c", s: "i",
+      d: "A simple Chickenjoy date. Estimate uses two branch-listed one-piece Chickenjoy meals with drinks and a 15% cushion.",
+      venueName: "Jollibee — CDO Market City",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s6vk/jollibee-cdo-market-city",
+      sourceLabel: "Foodpanda Market City branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Jollibee+CDO+Market+City",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱110 1-pc. Chickenjoy with Drink = ₱220; 15% buffer = ₱253; rounded up to ₱300.",
+      priceNote: "The branch listing shows 1-pc. Chickenjoy with Drink at ₱110. Delivery-menu prices may differ from dine-in and change with offers or availability. Delivery fees and transport are not included.",
+      checkedOn: "2026-10-15"
+    },
+    {
+      n: "Jollibee CDO Divisoria: Chickenjoy and Jolly Spaghetti",
+      m: "out", c: 450, p: "c", s: "i",
+      d: "A familiar chicken-and-pasta combo date. Estimate uses two branch-listed Chickenjoy with Jolly Spaghetti meals and a 15% cushion.",
+      venueName: "Jollibee — CDO Divisoria",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/b6jj/jollibee-cdo-divisoria",
+      sourceLabel: "Foodpanda Divisoria branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Jollibee+CDO+Divisoria",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱178 1-pc. Chickenjoy with Jolly Spaghetti Solo = ₱356; 15% buffer = ₱409.40; rounded up to ₱450.",
+      priceNote: "The branch listing shows 1-pc. Chickenjoy with Jolly Spaghetti Solo at ₱178. Delivery-menu prices may differ from dine-in and change with offers or availability. Delivery fees and transport are not included.",
+      checkedOn: "2026-10-15"
+    },
   ],
   activityUpdates: [
     {
@@ -371,6 +436,33 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceStatus: "Published lower-section rate; joiner availability must be confirmed",
       sourceUrl: "https://kagayoutdoors.com/",
       checkedOn: "2026-10-15"
-    }
+    },
+    {
+      name: "Mang Inasal — Ororama Cagayan de Oro",
+      category: "fast food and grilled meals",
+      area: "Ororama Center, Cogon, Cagayan de Oro",
+      venueStatus: "Branch-specific delivery menu found",
+      priceStatus: "Delivery-menu prices captured; dine-in prices may differ",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/f5sw/mang-inasal-ororama-cagayan-de-oro",
+      checkedOn: "2026-10-15"
+    },
+    {
+      name: "Chowking — SM CDO Premier",
+      category: "fast food and Chinese-style meals",
+      area: "SM CDO Downtown Premier, Cagayan de Oro",
+      venueStatus: "Branch-specific delivery menu found",
+      priceStatus: "Delivery-menu prices captured; dine-in prices may differ",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s9vr/chowking-sm-cdo-premier",
+      checkedOn: "2026-10-15"
+    },
+    {
+      name: "Jollibee — CDO Market City",
+      category: "fast food",
+      area: "Market City, Cagayan de Oro",
+      venueStatus: "Branch-specific delivery menu found",
+      priceStatus: "Delivery-menu prices captured; dine-in prices may differ",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s6vk/jollibee-cdo-market-city",
+      checkedOn: "2026-10-15"
+    },
   ]
 };

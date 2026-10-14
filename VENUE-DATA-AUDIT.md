@@ -89,3 +89,18 @@ These are the first menu/operator-backed examples wired into the frontend. The s
 ## Important implementation note
 
 The current planner data in `js/app.js` explicitly describes its entries as unverified placeholders and includes rough estimated costs. This audit is a research ledger, not a claim that all entries have now been verified. Before changing the user-facing data, map each idea to a source and decide whether its cost is an activity allowance, a venue fee, a per-person quote, or a full couple budget. Keep the existing general disclaimer until the data and UI are updated and checked.
+
+
+## Venue research batch 3 — branch-specific fast-food prices (15 October 2026)
+
+This batch adds five couple-budget options based on branch-specific Foodpanda menu listings. Each estimate is calculated from the published listed price, adds a 15% cushion, and rounds up to a practical budget. These are **delivery-menu references**, not guaranteed dine-in prices; transport and delivery fees are excluded. The prices should be rechecked before launch.
+
+| Planner option | Published menu basis for two | 15% cushion | Planner budget | Source |
+|---|---:|---:|---:|---|
+| Mang Inasal Ororama — Paa Large | 2 × ₱165 = ₱330 | ₱49.50 | ₱400 | https://www.foodpanda.ph/restaurant/f5sw/mang-inasal-ororama-cagayan-de-oro |
+| Chowking SM CDO Premier — Chicken Lauriat with drink | 2 × ₱263 = ₱526 | ₱78.90 | ₱650 | https://www.foodpanda.ph/restaurant/s9vr/chowking-sm-cdo-premier |
+| Chowking SM CDO Premier — Siomai Chao Fan with drink | 2 × ₱146 = ₱292 | ₱43.80 | ₱350 | https://www.foodpanda.ph/restaurant/s9vr/chowking-sm-cdo-premier |
+| Jollibee Market City — 1-pc Chickenjoy with drink | 2 × ₱110 = ₱220 | ₱33.00 | ₱300 | https://www.foodpanda.ph/restaurant/s6vk/jollibee-cdo-market-city |
+| Jollibee Divisoria — Chickenjoy with Jolly Spaghetti Solo | 2 × ₱178 = ₱356 | ₱53.40 | ₱450 | https://www.foodpanda.ph/restaurant/b6jj/jollibee-cdo-divisoria |
+
+**Interpretation:** Menu pages expose branch-specific listed prices, but the delivery platform can price items differently from in-store menus and change them with promotions or availability. The new directory entries therefore explicitly keep this distinction visible. The planner budgets are rounded conservative allowances, not checkout totals or live availability checks.
