@@ -151,3 +151,14 @@ The official Dahilayan Adventure Park website lists a ₱100 entrance fee, the 8
 | Razorback mountain coaster date | 2 × ₱100 entrance + 2 × ₱400 single rides = ₱1,000 | ₱150 | ₱1,200 |
 
 Sources: [Official ride-rate page](https://www.dahilayanadventurepark.com/rides) and [official home page](https://www.dahilayanadventurepark.com/). These estimates cover the listed entrance and one ride per person only. They do not include transport from CDO, food, environmental or incidental fees not stated on the current official pages, or other attractions. Confirm operating status, ride restrictions, weather-related changes, and current rates before travelling.
+
+## Venue research batch 8 — Dahilayan Forest Park ride budgets (15 October 2026)
+
+Dahilayan Forest Park Resort's official rides page lists entrance at ₱150 per person, a guided buggy at ₱1,400 for two riders, and ATV at ₱850 per person. Budgets below add a 15% cushion and round up. Entrance is treated as a separate charge because the page lists it separately from the rides.
+
+| Planner option | Published-rate calculation for two | 15% cushion | Planner budget |
+|---|---:|---:|---:|
+| Buggy trail adventure for two | ₱1,400 buggy + 2 × ₱150 entrance = ₱1,700 | ₱255 | ₱2,000 |
+| ATV adventure for two | 2 × ₱850 ATV + 2 × ₱150 entrance = ₱2,000 | ₱300 | ₱2,300 |
+
+Sources: [Official rides and activities page](https://www.dahilayanforestpark.com/en/rides-activities), [official home page](https://www.dahilayanforestpark.com/en/), and [official reservation page](https://www.dahilayanforestpark.com/en/reservation). The buggy listing states a 140kg combined driver/passenger limit. Estimates exclude transport from CDO, food, other attractions, and any incidental fees not stated on the official page. Confirm current rates, requirements, and availability before travelling.
