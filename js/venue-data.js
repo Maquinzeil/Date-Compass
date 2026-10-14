@@ -202,6 +202,58 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceNote: "The branch listing shows 1-pc. Chickenjoy with Jolly Spaghetti Solo at ₱178. Delivery-menu prices may differ from dine-in and change with offers or availability. Delivery fees and transport are not included.",
       checkedOn: "2026-10-15"
     },
+    {
+      n: "Raki-Yata Ramen SM CDO Northwing: Katsu Bento for two",
+      m: "out", c: 600, p: "c", s: "i",
+      d: "A Japanese bento date with rice and sides. Budget uses the menu's regular listed price before temporary delivery-app discounts, plus a 15% cushion.",
+      venueName: "Raki-Yata Ramen — SM City CDO Northwing",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/pdpi/raki-yata-ramen-sm-city-cdo-northwing",
+      sourceLabel: "Foodpanda SM City CDO Northwing menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Raki-Yata+Ramen+SM+City+CDO+Northwing",
+      priceStatusLabel: "Published branch delivery-menu list price + buffer",
+      priceBasis: "2 × ₱250 Katsu Bento = ₱500; 15% buffer = ₱575; rounded up to ₱600.",
+      priceNote: "The menu page shows Katsu Bento at a regular listed price of ₱250, with a temporary 20% app promotion displayed at ₱200. This estimate uses the regular price and adds a 15% cushion. Delivery prices may differ from dine-in; transport and delivery fees are excluded.",
+      checkedOn: "2026-10-15"
+    },
+    {
+      n: "Raki-Yata Ramen SM CDO Northwing: ramen and maki date",
+      m: "out", c: 1750, p: "c", s: "i",
+      d: "A more indulgent Japanese date with two ramen bowls and a shared California Maki. Estimate uses regular listed menu prices before app promotions, plus a 15% cushion.",
+      venueName: "Raki-Yata Ramen — SM City CDO Northwing",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/pdpi/raki-yata-ramen-sm-city-cdo-northwing",
+      sourceLabel: "Foodpanda SM City CDO Northwing menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Raki-Yata+Ramen+SM+City+CDO+Northwing",
+      priceStatusLabel: "Published branch delivery-menu list price + buffer",
+      priceBasis: "2 × ₱630 Tonkotsu Shoyu + ₱235 California Maki = ₱1,495; 15% buffer = ₱1,719.25; rounded up to ₱1,750.",
+      priceNote: "The menu page displays Tonkotsu Shoyu at a regular listed price of ₱630 (temporary app price ₱504) and California Maki at ₱235 (temporary app price ₱188). This estimate uses regular prices before promotions. Delivery prices may differ from dine-in; transport and delivery fees are excluded.",
+      checkedOn: "2026-10-15"
+    },
+    {
+      n: "Sunnyside Coffee and Roastery Viajero: coffee for two",
+      m: "out", c: 600, p: "c", s: "i",
+      d: "A simple coffee date with two Spanish lattes. Estimate uses the regular listed menu price before temporary delivery-app discounts and adds a 15% cushion.",
+      venueName: "Sunnyside Coffee and Roastery — Viajero",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/j4kv/sunnyside-coffee-and-roastery-viajero",
+      sourceLabel: "Foodpanda Viajero branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Sunnyside+Coffee+and+Roastery+Viajero+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu list price + buffer",
+      priceBasis: "2 × ₱240 Spanish Latte = ₱480; 15% buffer = ₱552; rounded up to ₱600.",
+      priceNote: "The branch menu lists Spanish Latte from ₱240 and currently displays a temporary 20% app deal at ₱192. This estimate uses the regular price before the promotion. Delivery prices may differ from dine-in; snacks, transport and delivery fees are excluded.",
+      checkedOn: "2026-10-15"
+    },
+    {
+      n: "Sunnyside Coffee and Roastery Viajero: coffee and shared cookie",
+      m: "out", c: 750, p: "c", s: "i",
+      d: "A sweet café date with two Spanish lattes and a cookie to share. Estimate uses regular listed prices before temporary delivery-app discounts and adds a 15% cushion.",
+      venueName: "Sunnyside Coffee and Roastery — Viajero",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/j4kv/sunnyside-coffee-and-roastery-viajero",
+      sourceLabel: "Foodpanda Viajero branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Sunnyside+Coffee+and+Roastery+Viajero+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu list price + buffer",
+      priceBasis: "2 × ₱240 Spanish Latte + ₱150 cookies = ₱630; 15% buffer = ₱724.50; rounded up to ₱750.",
+      priceNote: "The branch menu lists Spanish Latte at ₱240 before its temporary app discount and cookies at ₱150 before its displayed discount. This estimate uses regular listed prices. Delivery prices may differ from dine-in; transport and delivery fees are excluded.",
+      checkedOn: "2026-10-15"
+    },
   ],
   activityUpdates: [
     {
@@ -462,6 +514,24 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       venueStatus: "Branch-specific delivery menu found",
       priceStatus: "Delivery-menu prices captured; dine-in prices may differ",
       sourceUrl: "https://www.foodpanda.ph/restaurant/s6vk/jollibee-cdo-market-city",
+      checkedOn: "2026-10-15"
+    },
+    {
+      name: "Raki-Yata Ramen — SM City CDO Northwing",
+      category: "Japanese ramen, bento and sushi",
+      area: "SM City CDO Northwing, Masterson Avenue, Cagayan de Oro",
+      venueStatus: "Branch-specific delivery menu found",
+      priceStatus: "Regular list prices recorded; temporary delivery-app promotions excluded from estimates",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/pdpi/raki-yata-ramen-sm-city-cdo-northwing",
+      checkedOn: "2026-10-15"
+    },
+    {
+      name: "Sunnyside Coffee and Roastery — Viajero",
+      category: "cafe and coffee",
+      area: "47B Domingo Velez Street, Cagayan de Oro",
+      venueStatus: "Branch-specific delivery menu found",
+      priceStatus: "Regular list prices recorded; temporary delivery-app promotions excluded from estimates",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/j4kv/sunnyside-coffee-and-roastery-viajero",
       checkedOn: "2026-10-15"
     },
   ]
