@@ -2142,3 +2142,16 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:brightness(0) inver
 #app .home-feature-pair > .quick.vibe-section.in {
   opacity: 1 !important;
 }
+
+
+/* Date Compass brand assets: use the heart-compass mark in navigation and the full wordmark in the footer. */
+.site .logo { gap: 9px; }
+.site .logo .logo-mark { display:block; flex:0 0 auto; width:38px; height:38px; object-fit:contain; }
+.site .logo span { display:inline-block; }
+.site .logo .logo-full { display:block; width:164px; height:auto; max-width:100%; object-fit:contain; }
+.site .footer-logo { display:inline-flex; align-items:flex-start; min-height:0; }
+.site .logo img { border:0; }
+@media (max-width:640px) {
+  header.site .logo .logo-mark { width:34px; height:34px; }
+  footer.site .logo .logo-full { width:148px; }
+}
