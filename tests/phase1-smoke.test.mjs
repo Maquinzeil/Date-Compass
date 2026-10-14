@@ -371,3 +371,28 @@ test("all source-backed price records keep complete evidence and match planner a
     assert.ok(app.includes(JSON.stringify(item.n)), `Source-backed activity has no matching planner option: ${item.n}`);
   }
 });
+
+
+test("new CDO venue research entries have map links and honest price status", () => {
+  const dataContext = { window: {} };
+  vm.createContext(dataContext);
+  vm.runInContext(venueData, dataContext, { timeout: 5000 });
+  const directory = dataContext.window.DATE_COMPASS_VERIFIED_DATA.venueDirectory;
+  const names = [
+    "H Proper Coffee Roasters — Pueblo",
+    "Elbs Cafe — Kauswagan",
+    "Milestone Coffee + Kitchen Uptown",
+    "SM Game Park — SM CDO Downtown",
+    "Duaw Park"
+  ];
+  for (const name of names) {
+    const item = directory.find(entry => entry.name === name);
+    assert.ok(item, `Missing venue research record: ${name}`);
+    assert.match(item.mapUrl || "", /^https:\/\/www\.google\.com\/maps\/search\//, `Missing Google Maps link for ${name}`);
+    assert.ok(item.sourceUrl, `Missing research source for ${name}`);
+    assert.equal(item.checkedOn, "2026-10-15");
+    assert.ok(item.priceStatus, `Missing price-verification status for ${name}`);
+  }
+  assert.ok(app.includes('Duaw Park and downtown heritage stroll'));
+  assert.match(app, /sample incidental allowance for two, not a published admission fee/);
+});
