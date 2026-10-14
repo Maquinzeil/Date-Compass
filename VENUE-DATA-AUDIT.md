@@ -15,6 +15,25 @@ Purpose: track the evidence behind recommendations so estimates are not presente
 - Generic activities (e.g. cooking at home) need planning estimates, not venue verification.
 - Do not imply that this file or the current website provides live availability or booking.
 
+## Source-backed seed prices checked 2026-10-15
+
+These are the first menu/operator-backed examples wired into the frontend. The suggested budget is for two people and rounds up after a 15% cushion. The published price is not a guaranteed current checkout total, and no live availability is implied.
+
+| Venue / option | Source price used | Conservative budget for two | Source and caveats |
+|---|---:|---:|---|
+| Jollibee CDO Divisoria — Burger Steak with fries and drink | ₱165 each in the CDO Divisoria delivery listing | ₱400 | [Foodpanda branch menu](https://www.foodpanda.ph/restaurant/b6jj/jollibee-cdo-divisoria). Delivery-app listing; dine-in, branch prices, offers, and availability may differ. |
+| McDonald's CDO Gusa — Chicken McDo with fries and drink | ₱174 each in the CDO Gusa delivery listing | ₱450 | [Foodpanda branch menu](https://www.foodpanda.ph/restaurant/s3gl/mcdonalds-cdo-gusa). Delivery-app listing; dine-in, platform markups, branch prices, and offers may differ. |
+| KFC Centrio — Original Recipe Tenders Rice Meal | ₱205 each on the official KFC menu | ₱500 | [Official KFC menu](https://www.kfc.com.ph/en/menu) and [Centrio branch page](https://www.kfc.com.ph/en/store-locator/kfc_centrio). Confirm the item and price at the branch. |
+| KFC Centrio — Zinger Steak Fully Loaded Box | ₱315 each on the official KFC menu | ₱750 | [Official KFC menu](https://www.kfc.com.ph/en/menu) and [Centrio branch page](https://www.kfc.com.ph/en/store-locator/kfc_centrio). Confirm the item and price at the branch. |
+| Kagay Outdoors — lower-section white-water rafting | ₱1,200 per person; listed inclusions are transfers, gear, guides, and shower fee | ₱2,800 | [Official operator website](https://kagayoutdoors.com/). The operator lists a six-person minimum but accepts joiners for groups under six. This budget assumes two joiners can be accommodated; availability must be confirmed. Optional packed meals and photos are extra. |
+
+**Implementation notes**
+- The frontend now loads `js/venue-data.js` before `js/app.js`.
+- Source-backed food options carry a source link, source type, date checked, price basis, and caveat. Their `c` value is the conservative budget used by the planner, not the raw menu price.
+- The rafting estimate was raised from the old placeholder ₱2,500 to ₱2,800 based on the operator's published ₱1,200/person lower-section rate plus a 15% buffer.
+- This is only a starter subset. Other activity ideas and food concepts remain sample estimates or unverified until each is researched; do not describe the entire directory as verified.
+- Recheck the source before public launch and after any material price change. The site does not provide live stock, opening-hour, or booking availability.
+
 ## Initial source review
 
 | Current planner idea | What the source supports | Price / availability status | Next action |
