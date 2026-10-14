@@ -28,6 +28,11 @@ Purpose: track the evidence behind recommendations so estimates are not presente
 
 Source: [Frkn' Brgrs official website and menu](https://frknbrgrs.com/). It lists Uptown Strip and Centerpoint branches in CDO. The Single Smash is served with fries; homemade drinks are listed at ₱45 and milkshakes at ₱149. These budgets exclude transport and assume the listed items are available at the selected branch.
 
+| Burger King SM CDO Downtown — Whopper Jr. Meal | ₱200 each on branch delivery listing; 2 × ₱200 + 15% = ₱460 | ₱500 |
+| Burger King SM CDO Downtown — Whopper Meal | ₱329 each on branch delivery listing; 2 × ₱329 + 15% = ₱756.70 | ₱800 |
+
+Source: [Foodpanda SM CDO Downtown Premier menu](https://www.foodpanda.ph/restaurant/s7po/burger-king-sm-cdo-premier). These are branch-specific delivery-menu references; dine-in prices, promotions, and availability may differ. Delivery fees and transportation are not included.
+
 ### Added venue research leads
 
 The data file now includes venue entries and source/status notes for:
