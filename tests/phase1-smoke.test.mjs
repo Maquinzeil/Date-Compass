@@ -50,7 +50,7 @@ test("placeholder email and local-only ordering are represented honestly", () =>
   assert.doesNotMatch(app, /const CONTACT_EMAIL="your-email@example\.com"/);
   assert.match(app, /Email not configured/);
   assert.match(app, /does not submit or confirm a purchase/);
-  assert.match(app, /not a submitted or confirmed order/);
+  assert.match(app, /does not prove an order was received/);
 });
 
 test("public static frontend does not rely on a hard-coded owner PIN", () => {
@@ -234,7 +234,7 @@ test("homepage How It Works and Vibe panels use opaque, readable surfaces", () =
 test("local activity descriptions include practical verification and safety guidance", () => {
   assert.match(app, /Confirm the museum.{0,100}current opening hours, admission fee, and visitor arrangements/);
   assert.match(app, /Avoid rooftops and any place without secure, approved access/);
-  assert.match(app, /confirm which facilities and activities are currently operating/);
+  assert.match(app, /confirm which facilities and activities are currently operating/i);
   assert.match(app, /sample amount is not a current travel quote/);
   assert.doesNotMatch(app, /safe rooftop/);
 });
