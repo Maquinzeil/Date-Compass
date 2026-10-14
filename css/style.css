@@ -2310,3 +2310,23 @@ footer.site .fine {
     font-size: .78rem !important;
   }
 }
+
+/* Source-backed price evidence in date-plan cards */
+#app .price-evidence {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--soft);
+  color: var(--ink);
+  font-size: .88rem;
+  line-height: 1.45;
+}
+#app .price-evidence p { margin: 0 0 6px; }
+#app .price-evidence p:last-child { margin-bottom: 0; }
+#app .price-evidence a {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
