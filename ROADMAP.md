@@ -94,6 +94,25 @@
 
 ---
 
+### Validation record — 15 October 2026
+
+**Automated checks verified**
+- The latest main-branch frontend smoke run passed **29 tests**: [Phase 1 smoke checks](https://github.com/Maquinzeil/Date-Compass/actions/runs/38648845793).
+- The planner test exercises more than 5,000 combinations of budget, area, car availability, duration, setting, activity category, and food style. Impossible combinations are expected to show a clear empty state rather than an unrelated activity.
+- A generated gaming-date ticket is tested across three budgets and three food styles; generated totals must remain within the selected budget.
+- The pricing evidence audit checks all 19 source-backed food ideas and nine source-backed activity updates for source URLs, calculation notes, exclusions, checked dates, and matching planner activity names.
+- Five new CDO venue research entries include Google Maps links and explicit price-verification statuses.
+- Planner input spacing and solid plan-action button styling have automated regression coverage.
+- Latest main-branch GitHub Pages deployment succeeded: [Pages deployment](https://github.com/Maquinzeil/Date-Compass/actions/runs/38648845408).
+
+**Still open; do not mark complete based on automation alone**
+- Manually inspect the live page on desktop, tablet, and a real phone or mobile emulator.
+- Click through every main navigation link, planner control, Surprise Me flow, activity/food selector, and ticket action in a real browser.
+- Review browser console and network errors, keyboard-only navigation, focus visibility, contrast, and reduced-motion behavior.
+- Visually confirm the latest planner form panel and solid buttons render correctly after deployment.
+- Reconfirm venue operating status, official prices, opening hours, travel requirements, and Google Maps locations before treating any entry as verified for customers.
+- Keep the GitHub Pages site as a development preview, not a launch. Backend, secure owner tools, and reliable online order handling are not complete.
+
 ## Phase 2 — Plan the backend before coding it
 
 ### 2.1 Define the first release
