@@ -184,7 +184,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
   assert.equal(result.overBudgetFood, 0, `Food suggestions exceeded remaining budget: ${JSON.stringify(result)}`);
   assert.equal(result.wrongFoodStyle, 0, `Planner ignored the selected food style: ${JSON.stringify(result)}`);
   assert.equal(result.gameDatesWrongCategory.length, 0, `Gaming date was categorized incorrectly: ${JSON.stringify(result.gameDatesWrongCategory)}`);
-  assert.equal(result.sourceBackedFoodCount, 4, "Four source-backed food options should be loaded into the planner.");
+  assert.equal(result.sourceBackedFoodCount, 8, "Eight source-backed food options should be loaded into the planner.");
   assert.equal(result.raftingBudget, 2800, "Rafting should use the source-backed two-person estimate plus buffer.");
   assert.equal(result.sourcePanelHasLink, true, "Source-backed options must display a source link.");
   assert.equal(result.allSourceDatesRecorded, true, "Source-backed prices must record a check date.");
