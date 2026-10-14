@@ -277,3 +277,10 @@ test("Dahilayan Forest Park ride budgets use official rates and include separate
   assert.match(venueData, /https:\/\/www\.dahilayanforestpark\.com\/en\/rides-activities/);
   assert.match(venueData, /140kg combined driver\/passenger limit/);
 });
+
+test("Dahilayan Forest Park multi-ride package budget discloses separate entrance assumption", () => {
+  assert.match(app, /Dahilayan Forest Park multi-ride package for two/);
+  assert.match(venueData, /c: 2500,[\s\S]*?2 × ₱900 rides package \+ 2 × ₱150 entrance/);
+  assert.match(venueData, /Confirm which listed rides are included and operating, whether entrance is separate/);
+  assert.match(venueData, /https:\/\/www\.dahilayanforestpark\.com\/en\/rides-activities/);
+});
