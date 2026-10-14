@@ -15,6 +15,33 @@ Purpose: track the evidence behind recommendations so estimates are not presente
 - Generic activities (e.g. cooking at home) need planning estimates, not venue verification.
 - Do not imply that this file or the current website provides live availability or booking.
 
+## Batch 2: local CDO venues and Frkn' Brgrs menu prices (checked 2026-10-15)
+
+### New source-backed food estimates
+
+| Option for two | Published menu basis | Conservative suggested budget |
+|---|---:|---:|
+| Frkn' Brgrs Single Smash + drink each | 2 × (₱139 burger + ₱45 drink) = ₱368; plus 15% = ₱423.20 | ₱450 |
+| Frkn' Brgrs Burger Steak Supreme + drink each | 2 × (₱149 rice meal + ₱45 drink) = ₱388; plus 15% = ₱446.20 | ₱500 |
+| Frkn' Brgrs Frkn Rice Meal + drink each | 2 × (₱159 rice meal + ₱45 drink) = ₱408; plus 15% = ₱469.20 | ₱500 |
+| Frkn' Brgrs Single Smash + milkshake each | 2 × (₱139 burger + ₱149 milkshake) = ₱576; plus 15% = ₱662.40 | ₱700 |
+
+Source: [Frkn' Brgrs official website and menu](https://frknbrgrs.com/). It lists Uptown Strip and Centerpoint branches in CDO. The Single Smash is served with fries; homemade drinks are listed at ₱45 and milkshakes at ₱149. These budgets exclude transport and assume the listed items are available at the selected branch.
+
+| Burger King SM CDO Downtown — Whopper Jr. Meal | ₱200 each on branch delivery listing; 2 × ₱200 + 15% = ₱460 | ₱500 |
+| Burger King SM CDO Downtown — Whopper Meal | ₱329 each on branch delivery listing; 2 × ₱329 + 15% = ₱756.70 | ₱800 |
+
+Source: [Foodpanda SM CDO Downtown Premier menu](https://www.foodpanda.ph/restaurant/s7po/burger-king-sm-cdo-premier). These are branch-specific delivery-menu references; dine-in prices, promotions, and availability may differ. Delivery fees and transportation are not included.
+
+### Added venue research leads
+
+The data file now includes venue entries and source/status notes for:
+- **Restaurants and food:** Cucina Higala, Raki-Yata Ramen (Centrio, SM Downtown, SM Uptown), Topview Restaurant and Bar, Bowerbird Coffee PH, M.C. Coffee, Bigby's SM Downtown, Burger King SM Downtown and Xavier Divisoria, and Frkn' Brgrs at Centerpoint and Uptown.
+- **Activities and free/low-cost ideas:** Timezone Centrio, SM Bowling, Gaston Park, Golden Friendship Park, Mapawa Nature Park.
+- **Resorts and scenic dining:** Cuesta Roccia, Chali Resort & Conference Center, Seriva Mountain Resort.
+
+**Important status distinction:** venue discovery and a published address are not the same as full verification. The directory records above explicitly mark prices, entrance fees, game credits, room/day-use rates, and other costs as needing current verification where a dependable current price source was not captured. Map search links are discovery links, not official venue websites. No unverified price has been invented for these venues.
+
 ## Source-backed seed prices checked 2026-10-15
 
 These are the first menu/operator-backed examples wired into the frontend. The suggested budget is for two people and rounds up after a 15% cushion. The published price is not a guaranteed current checkout total, and no live availability is implied.
