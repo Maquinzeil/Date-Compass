@@ -1983,3 +1983,17 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
 @media (max-width: 819px) {
   .hero2 .phones { height: 350px !important; }
 }
+
+
+/* Contact page form: clear labels, generous spacing, and responsive sizing. */
+#app .contact-panel{max-width:760px;margin:24px auto;padding:clamp(22px,4vw,38px);background:var(--card);border:1px solid var(--line);border-radius:22px}
+#app .contact-panel h1{margin-top:0}
+#app .contact-intro{color:var(--mute);margin-bottom:24px}
+#app .contact-form{display:flex;flex-direction:column;gap:9px}
+#app .contact-form label{font-weight:700;margin-top:8px}
+#app .contact-form input,#app .contact-form textarea{box-sizing:border-box;width:100%;margin:0;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:inherit}
+#app .contact-form textarea{min-height:140px;resize:vertical}
+#app .contact-form input:focus-visible,#app .contact-form textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-color:var(--pri)}
+#app .contact-submit{align-self:flex-start;min-width:160px;justify-content:center;margin-top:12px}
+#app .contact-form .note{margin:4px 0 0;line-height:1.5}
+@media(max-width:640px){#app .contact-panel{padding:20px 16px}#app .contact-submit{width:100%}}
