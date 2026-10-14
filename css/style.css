@@ -2002,8 +2002,8 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
 .kit-promo{margin:12px 0 18px;padding:13px 16px;border:1.5px solid var(--gold);border-left:5px solid #e2467c;border-radius:14px;background:var(--card);color:var(--ink);box-shadow:3px 3px 0 rgba(242,177,52,.24)}
 .kit-promo b{color:var(--ink)}
 
-/* Keep all three order steps consistent with a white fill and pink outline. */
-#app .orderbox .steps span{
+/* Keep all three progress pills consistent across Build a Date, Surprise Me, and Kit screens. */
+#app .steps span{
   background:#fff !important;
   border:2px solid #e2467c !important;
   color:#4a080e !important;
