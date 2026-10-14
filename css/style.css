@@ -1787,3 +1787,122 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
     transition: none !important;
   }
 }
+
+
+/* Mobile responsive correction: keep nav links on one swipeable row, never strand Contact on a second line. */
+@media (max-width: 640px) {
+  .hin {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 4px !important;
+    padding: 6px 12px 8px !important;
+    min-width: 0 !important;
+  }
+  .site .logo { align-self: flex-start; }
+  .site nav {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    gap: 4px !important;
+    padding: 2px 0 5px !important;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .site nav::-webkit-scrollbar { display: none; }
+  .site nav a {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    padding: 8px 11px !important;
+    min-height: 40px !important;
+  }
+  .fin {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+    padding: 20px 14px 14px !important;
+    min-width: 0 !important;
+  }
+  footer.site .fin nav {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    gap: 4px !important;
+    padding: 2px 0 6px !important;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  footer.site .fin nav::-webkit-scrollbar { display: none; }
+  footer.site .fin nav a {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    padding: 8px 10px !important;
+  }
+  .fine { padding: 0 14px 18px !important; overflow-wrap: anywhere; }
+  /* Keep the hero phones inside their own block so they cannot sit on top of How It Works. */
+  .hero2 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 18px 16px 22px !important;
+    overflow: hidden !important;
+    isolation: isolate;
+  }
+  .hero2 .txt { position: relative !important; z-index: 3 !important; }
+  .hero2 .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero2 .cta { margin: 0 !important; max-width: 100%; text-align: center; }
+  .phones {
+    position: relative !important;
+    display: block !important;
+    flex: 0 0 auto !important;
+    width: calc(100% + 32px) !important;
+    height: 312px !important;
+    margin: 0 -16px !important;
+    overflow: hidden !important;
+    z-index: 2 !important;
+  }
+  .ph {
+    width: min(42vw, 142px) !important;
+    height: 270px !important;
+    padding: 9px 7px !important;
+    font-size: 9px !important;
+    border-width: 4px !important;
+    border-radius: 23px !important;
+    overflow: hidden !important;
+  }
+  .p1 { left: 5% !important; right: auto !important; top: 25px !important; transform: rotate(-5deg) !important; }
+  .p2 { right: 5% !important; left: auto !important; top: 7px !important; transform: rotate(5deg) !important; }
+  .hero2 .c1 { width: 200px !important; height: 200px !important; bottom: -70px !important; }
+  .hiw { margin-top: 28px !important; }
+  main.wide .home-feature-pair { gap: 20px !important; }
+  main.wide .home-feature-pair > .hiw.romance-section,
+  main.wide .home-feature-pair > .quick.vibe-section {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 18px !important;
+    overflow-wrap: anywhere;
+  }
+  main.wide .home-feature-pair > .hiw.romance-section { grid-template-columns: minmax(0, 1fr) !important; }
+  main.wide .home-feature-pair > .hiw.romance-section .circles { justify-content: center !important; }
+  main.wide .home-feature-pair > .quick.vibe-section .quickgrid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 360px) {
+  .phones { height: 292px !important; }
+  .ph { width: 41vw !important; height: 252px !important; padding: 7px 5px !important; }
+  .p1 { left: 3% !important; }
+  .p2 { right: 3% !important; }
+  .hero2 h1 { font-size: clamp(2rem, 10vw, 2.5rem) !important; }
+  .hero2 .cta { padding: 10px 14px !important; font-size: .92rem !important; }
+  main.wide .home-feature-pair > .quick.vibe-section .quickgrid { grid-template-columns: minmax(0, 1fr) !important; }
+}
