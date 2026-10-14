@@ -315,7 +315,7 @@ test("generating a gaming date renders a usable date ticket across budgets and f
   vm.createContext(context);
   vm.runInContext(venueData, context, { timeout: 5000 });
   vm.runInContext(app, context, { timeout: 5000 });
-  const results = vm.runInContext(\`(() => {
+  const results = vm.runInContext(`(() => {
     const out = [];
     for (const budget of [300, 800, 1500]) {
       for (const foodMode of ["a", "out", "cafe"]) {
@@ -334,14 +334,14 @@ test("generating a gaming date renders a usable date ticket across budgets and f
       }
     }
     return out;
-  })()\`, context, { timeout: 15000 });
+  })()`, context, { timeout: 15000 });
   assert.equal(results.length, 9);
   for (const result of results) {
-    assert.ok(result.activity, \`Gaming plan missing an activity: \${JSON.stringify(result)}\`);
-    assert.equal(result.category, "games", \`Gaming choice returned the wrong category: \${JSON.stringify(result)}\`);
+    assert.ok(result.activity, `Gaming plan missing an activity: ${JSON.stringify(result)}`);
+    assert.equal(result.category, "games", `Gaming choice returned the wrong category: ${JSON.stringify(result)}`);
     assert.match(result.html, /Your date/, "Generation should render the actual date ticket.");
     assert.ok(result.html.includes(result.activity), "The selected gaming activity should appear in the rendered ticket.");
     assert.doesNotMatch(result.html, /No activity matches this category and budget/, "A valid gaming choice should not show the empty-state message.");
-    assert.ok(result.total <= result.budget, \`Generated gaming plan exceeded its budget: \${JSON.stringify({ budget: result.budget, total: result.total, activity: result.activity, food: result.food })}\`);
+    assert.ok(result.total <= result.budget, `Generated gaming plan exceeded its budget: ${JSON.stringify({ budget: result.budget, total: result.total, activity: result.activity, food: result.food })}`);
   }
 });
