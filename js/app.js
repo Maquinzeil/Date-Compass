@@ -1218,7 +1218,7 @@ function home(){
  const cir=(k,c,t,d)=>`<div class="cir ${c}"><div><svg viewBox="0 0 24 24">${ic[k]}</svg><b>${t}</b><span>${d}</span></div></div>`;
  return `<div class="hero2"><i class="c1"></i><i class="c2"></i><i class="c3"></i>
  <div class="txt"><h1>Find your best date spot</h1>
- <p class="lead2">Pick a place, budget, and whether you have a car in Cagayan de Oro and Misamis Oriental. Get a full date plan. Order the physical kit when you want the printed experience.</p>
+ <p class="lead2">“The best dates aren’t perfect plans. They’re little moments that become your favorite memories.” ♥</p>
  <div class="hero-actions"><a class="cta" href="#custom">Create your date spot</a><a class="cta cta2" href="#random">Surprise me</a></div></div>
  <div class="phones" aria-label="Date Compass app and physical kit previews">
  <div class="ph p1"><div class="pstatus"><span>9:41</span><span>•••</span></div><div class="pl"><span class="mini-compass" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="19"/><path d="M31 14 26 27 13 32 18 19Z"/></svg></span>Date Compass</div><div class="pt plan-label"><span class="plan-dot"></span><b>Your date plan</b></div><div class="pt"><small>Activity</small><b>Sunset walk at Gaston Park</b></div><div class="pt"><small>Food</small><b>Street food crawl</b></div><div class="pc">Your date plan →</div><span class="hero-tagline">Better dates,<br>closer moments. <span aria-hidden="true">♥</span></span></div>
