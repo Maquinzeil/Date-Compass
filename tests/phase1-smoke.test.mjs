@@ -17,9 +17,9 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/app.js?v=20261014c"'));
+  assert.ok(html.includes('src="js/app.js?v=20261014e"'));
   assert.ok(html.includes('href="css/style.css?v=20261014d"'));
-  assert.ok(html.includes('href="css/phone-fix.css?v=20261014d"'));
+  assert.ok(html.includes('href="css/phone-fix.css?v=20261014e"'));
   assert.ok(html.indexOf('href="css/style.css?') < html.indexOf('href="css/phone-fix.css?'), "Responsive overrides must load after the base stylesheet.");
 });
 
@@ -209,4 +209,16 @@ test("responsive override stylesheet centers navigation and protects phone previ
   assert.match(responsiveCss, /\.hero2 \.phones > \.ph[\s\S]*?height: clamp\(350px, 57vw, 420px\) !important/);
   assert.match(responsiveCss, /@media \(max-width: 380px\)[\s\S]*?\.hero2 \.phones > \.ph[\s\S]*?height: 350px !important/);
   assert.match(responsiveCss, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.hero2 \.phones > \.ph \{ transform: none !important; \}/);
+});
+
+
+test("contact page includes the requested fields and clearly reports send limitations", () => {
+  assert.match(app, /Full Name/);
+  assert.match(app, /Email Address/);
+  assert.match(app, /Mobile Number/);
+  assert.match(app, /What do you need help with\?/);
+  assert.match(app, /Send Message/);
+  assert.match(app, /function sendContact\(event\)/);
+  assert.match(app, /has not been sent/);
+  assert.match(css, /\.contact-form/);
 });
