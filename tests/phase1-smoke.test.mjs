@@ -17,9 +17,9 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/app.js?v=20261014j"'));
-  assert.ok(html.includes('href="css/style.css?v=20261014j"'));
-  assert.ok(html.includes('href="css/phone-fix.css?v=20261014j"'));
+  assert.ok(html.includes('src="js/app.js?v=20261014k"'));
+  assert.ok(html.includes('href="css/style.css?v=20261014k"'));
+  assert.ok(html.includes('href="css/phone-fix.css?v=20261014k"'));
   assert.ok(html.indexOf('href="css/style.css?') < html.indexOf('href="css/phone-fix.css?'), "Responsive overrides must load after the base stylesheet.");
 });
 
@@ -200,7 +200,7 @@ test("mobile navigation and footer stay single-row and hero phones cannot cover 
   assert.match(css, /\.hero2\s*\{[^}]*overflow:\s*hidden !important/s);
   assert.match(css, /\.phones\s*\{[^}]*height:\s*312px !important/s);
   assert.match(css, /main\.wide \.home-feature-pair > \.hiw\.romance-section \{ grid-template-columns: minmax\(0, 1fr\) !important; \}/);
-  assert.ok(html.includes('href="css/style.css?v=20261014j"'));
+  assert.ok(html.includes('href="css/style.css?v=20261014k"'));
 });
 
 
