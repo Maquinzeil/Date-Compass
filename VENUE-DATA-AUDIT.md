@@ -187,3 +187,17 @@ This batch expands the research directory without inventing menu prices. The fol
 | Duaw Park | City Tourism included Duaw Park among the stops in a 2026 downtown heritage walking tour. | No admission price is asserted. The new ₱100 planner idea is only a sample incidental allowance for two, not a published fee; transport, food, event costs, and purchases are excluded. | [City Tourism heritage-walk report](https://cdo.cagayandeoro.gov.ph/index.php/item/4004-2-day-heritage-walking-tour-gipasiugdahan-sa-city-tourism.html) |
 
 The new planner idea is **Duaw Park and downtown heritage stroll**. Its ₱100 amount is clearly described as a sample incidental allowance rather than a verified venue fee. No source-backed food or cafe budget was added in this batch because current official item prices were not captured.
+
+
+## Venue research batch 11 — Raki-Yata SM Premier Downtown (15 October 2026)
+
+Added a separate SM Premier Downtown branch record rather than reusing the SM City Northwing prices. The branch-specific Foodpanda menu lists regular Tonkotsu Shoyu at ₱705 and California Maki at ₱235; temporary 20% app discounts were visible when checked. The planner deliberately uses regular listed prices, adds a 15% cushion, and rounds up.
+
+| Planner option | Regular menu basis for two | 15% cushion | Planner budget |
+|---|---:|---:|---:|
+| Two Tonkotsu Shoyu ramen bowls | 2 × ₱705 = ₱1,410 | ₱211.50 | ₱1,650 |
+| Two Tonkotsu Shoyu + shared California Maki | 2 × ₱705 + ₱235 = ₱1,645 | ₱246.75 | ₱1,950 |
+
+Source: [Foodpanda Raki-Yata Ramen House — SM Premier Downtown CDO menu](https://www.foodpanda.ph/restaurant/vszj/raki-yata-ramen-house-sm-premier-downtown-cdo). Google Maps discovery link: https://www.google.com/maps/search/?api=1&query=Raki-Yata+Ramen+SM+Premier+Downtown+Cagayan+de+Oro.
+
+These are delivery-menu list-price references, not confirmed dine-in prices. The budget excludes transport and delivery fees, and does not imply current item availability or a reservation. Check the branch before visiting.
