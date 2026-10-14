@@ -1906,3 +1906,71 @@ main.wide .home-feature-pair > .quick.vibe-section .quickcat {
   .hero2 .cta { padding: 10px 14px !important; font-size: .92rem !important; }
   main.wide .home-feature-pair > .quick.vibe-section .quickgrid { grid-template-columns: minmax(0, 1fr) !important; }
 }
+
+
+/* Compact mobile link labels ensure Contact stays aligned with the other nav items. */
+.nav-short { display: none; }
+@media (max-width: 640px) {
+  .nav-full { display: none !important; }
+  .nav-short { display: inline !important; }
+  header.site .hin {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 2px !important;
+    padding: 6px 8px 7px !important;
+  }
+  header.site .hin nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0 !important;
+    width: 100% !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+  }
+  header.site .hin nav a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    padding: 8px 5px !important;
+    font-size: clamp(10px, 3.05vw, 12px) !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+  }
+  footer.site .fin nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0 !important;
+    width: 100% !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+  }
+  footer.site .fin nav a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    padding: 8px 4px !important;
+    font-size: clamp(10px, 2.9vw, 12px) !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+  }
+  footer.site .fin { overflow: visible !important; }
+  footer.site .fin > div, footer.site .fin > nav { min-width: 0 !important; max-width: 100% !important; }
+  footer.site .fine { box-sizing: border-box !important; width: 100% !important; padding: 0 12px 18px !important; overflow-wrap: anywhere !important; }
+}
+@media (max-width: 360px) {
+  header.site .hin nav a { padding-left: 3px !important; padding-right: 3px !important; font-size: 10px !important; }
+  footer.site .fin nav a { padding-left: 2px !important; padding-right: 2px !important; font-size: 10px !important; }
+}
