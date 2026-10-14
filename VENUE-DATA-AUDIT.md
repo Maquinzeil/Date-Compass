@@ -129,3 +129,14 @@ A source-backed estimate was added to the existing **Classic Bowling date** idea
 | Classic Bowling date — one game each + shoe rental | 2 × ₱160 + 2 × ₱50 = ₱420 | ₱63 | ₱500 | https://stardeals.ph/deals/sm-bowling |
 
 The ₱500 allowance is for **one game per person plus shoe rental only**. It excludes transport, food, extra games, and any other attraction. The page is a current deal listing, not a guarantee of walk-in pricing; confirm rates, sock requirements, availability, and holiday restrictions with SM Bowling. Older blog posts and social comments showed different rates, so those historical prices were not used.
+
+## Venue research batch 6 — C-ONE badminton court budgets (15 October 2026)
+
+C-ONE Sports Center's published post dated 18 August 2026 lists Kauswagan badminton court rates of ₱110 per court/hour during weekday happy hour (8 AM–4 PM), ₱220 per court/hour from 4 PM to midnight, and ₱220 per court/hour on weekends and holidays. Budgets below add a 15% cushion and round up. This is a recently published social-directory repost of the operator's post, not direct confirmation of today's rate.
+
+| Planner option | Court-rate basis | 15% cushion | Planner budget for two |
+|---|---:|---:|---:|
+| C-ONE weekday happy hour — one court for one hour | ₱110 | ₱16.50 | ₱150 |
+| C-ONE evening/weekend — one court for one hour | ₱220 | ₱33 | ₱300 |
+
+Source: [C-ONE Sports Center listing and August 2026 rate post](https://www.findglocal.com/PH/Cagayan-de-Oro/472616319967282/C-ONE-Sports-Center). [Booking page](https://c-one.bookingdyno.com/). These budgets cover the court only for one hour, not rackets, shuttlecocks, transport, food, or additional time. The SM City CDO Uptown branch has separate pickleball and badminton pricing, so these Kauswagan rates must not be applied to the Uptown branch. Confirm current prices, court type, branch, equipment availability, and booking slots before visiting.
