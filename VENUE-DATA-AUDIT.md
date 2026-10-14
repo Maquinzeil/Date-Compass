@@ -162,3 +162,13 @@ Dahilayan Forest Park Resort's official rides page lists entrance at ₱150 per 
 | ATV adventure for two | 2 × ₱850 ATV + 2 × ₱150 entrance = ₱2,000 | ₱300 | ₱2,300 |
 
 Sources: [Official rides and activities page](https://www.dahilayanforestpark.com/en/rides-activities), [official home page](https://www.dahilayanforestpark.com/en/), and [official reservation page](https://www.dahilayanforestpark.com/en/reservation). The buggy listing states a 140kg combined driver/passenger limit. Estimates exclude transport from CDO, food, other attractions, and any incidental fees not stated on the official page. Confirm current rates, requirements, and availability before travelling.
+
+## Venue research batch 9 — Dahilayan Forest Park multi-ride package (15 October 2026)
+
+The official rides page lists a ₱900 rides package and a separate entrance fee of ₱150 per person. The planner estimates two packages plus two entrance fees, adds a 15% cushion, and rounds up.
+
+| Planner option | Published-rate calculation for two | 15% cushion | Planner budget |
+|---|---:|---:|---:|
+| Forest Park multi-ride package for two | 2 × ₱900 package + 2 × ₱150 entrance = ₱2,100 | ₱315 | ₱2,500 |
+
+Source: [Official Dahilayan Forest Park rides and activities page](https://www.dahilayanforestpark.com/en/rides-activities). Because the page lists entrance separately from the package, this estimate assumes the two fees are charged separately; confirm this with the operator before visiting. Confirm the included rides, operating status, restrictions, and availability. Transport from CDO, food, and other extras are excluded.

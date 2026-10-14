@@ -268,6 +268,17 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-15"
     },
     {
+      n: "Dahilayan Forest Park multi-ride package for two",
+      c: 2500,
+      venueName: "Dahilayan Forest Park Resort",
+      sourceUrl: "https://www.dahilayanforestpark.com/en/rides-activities",
+      sourceLabel: "Official Dahilayan Forest Park rides and activities page",
+      priceStatusLabel: "Operator-published rides package and entrance rates + 15% buffer",
+      priceBasis: "2 × ₱900 rides package + 2 × ₱150 entrance = ₱2,100; 15% buffer = ₱315; rounded up to ₱2,500.",
+      priceNote: "The official page lists a ₱900 rides package and separately lists entrance at ₱150 per person. This estimate assumes entrance is charged separately. Confirm which listed rides are included and operating, whether entrance is separate, and any restrictions before travelling. Transport from CDO, food, and other extras are excluded.",
+      checkedOn: "2026-10-15"
+    },
+    {
       n: "Dahilayan Forest Park buggy trail for two",
       c: 2000,
       venueName: "Dahilayan Forest Park Resort",
