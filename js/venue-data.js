@@ -136,7 +136,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceBasis: "2 × ₱315 = ₱630; 15% buffer = ₱724.50; rounded up to ₱750.",
       priceNote: "The official online menu lists this box at ₱315. Confirm the price and item availability at KFC Centrio before visiting; delivery and promotional prices may differ.",
       checkedOn: "2026-10-15"
-    }
+    },
     {
       n: "Mang Inasal Ororama CDO: Chicken Inasal Paa Large for two",
       m: "out", c: 400, p: "c", s: "i",
@@ -436,7 +436,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceStatus: "Published lower-section rate; joiner availability must be confirmed",
       sourceUrl: "https://kagayoutdoors.com/",
       checkedOn: "2026-10-15"
-    }
+    },
     {
       name: "Mang Inasal — Ororama Cagayan de Oro",
       category: "fast food and grilled meals",
