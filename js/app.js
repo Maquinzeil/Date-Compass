@@ -1,5 +1,37 @@
 // Ideas: n=name, c=estimated cost for two (PHP), p=place (c=CDO, m=Misamis Oriental outside CDO, a=any), t=time (s=short, l=long), s=setting (i=indoor, o=outdoor), r=requires a car (1=yes)
 // ALL entries are unverified placeholders. Check each place and price before publishing.
+const Q=[
+"What is one small thing I do that makes you feel loved?",
+"What would your perfect slow Sunday together look like?",
+"Which memory of us always makes you smile?",
+"What is something new you would love for us to try?",
+"If we could take a spontaneous trip tomorrow, where would we go?",
+"What song reminds you of us, and why?",
+"What is one thing you think we do really well as a team?",
+"What is a tiny adventure we could plan for under ₱300?",
+"What did you first notice about me?",
+"What is one date idea you have secretly wanted to try?",
+"Which food would you happily eat with me every week?",
+"What makes you feel most appreciated in our relationship?",
+"What is something you want us to learn together?",
+"If our relationship had a theme song, what would it be?",
+"What is one funny moment between us you still think about?",
+"What is your favorite way to spend quality time together?",
+"What is a dream you would like me to cheer you on with?",
+"What is something about your childhood you wish I knew more about?",
+"What is one thing that instantly improves your day?",
+"Would you rather plan every detail or go on a surprise date?",
+"What is one tradition you would like us to start?",
+"What is a compliment you remember receiving?",
+"What place would you like to revisit together?",
+"What is one skill you think would be fun for us to learn as a couple?",
+"What does a comforting day together look like when life is stressful?",
+"What is one thing you appreciate about how we handle disagreements?",
+"What would we do on a completely screen-free date?",
+"What is a goal you hope we celebrate together one day?",
+"What is a little thing that makes a house feel like home to you?",
+"What is one question you have always wanted to ask me?"
+];
 const A=[
 {n:"Sunset walk at Gaston Park and Divisoria",c:0,p:"c",t:"s",s:"o",d:"Golden hour in the city center. Go around 4:30 to 5:30pm."},
 {n:"Museo de Oro at Xavier University",c:100,p:"c",t:"s",s:"i",d:"A quiet, cheap indoor date full of local history."},
@@ -1113,9 +1145,9 @@ function sel(label,key){return `<label class="selectfield"><span>${label}</span>
 function filters(){
  const cu=S.view=="custom";
  return `<a class="back" href="#home">Back</a>
- <div class="steps"><span class="on">1 Choose</span><span${cu||S.gen?' class="on"':""}>2 Your plan</span><span>3 Kit</span></div>
+ <div class="steps"><span class="on">1 Choose</span><span${cu||S.gen?' class="on"':""}>2 Your plan</span><span${S.act||S.food?' class="on"':""}>3 Kit</span></div>
  <h2>${cu?"Build your own date":"Surprise us"}</h2>
- <p class="mute">${cu?"Set the basics, then pick each part yourself.":"Tell us the basics and we choose the rest."}</p>
+ <p class="mute">${cu?"Set the basics, then pick each part yourself.":"Tell us the basics and we choose the rest."}</p>${cu?'<p class="kit-promo">Get the physical kit and receive <b>10 randomly selected date questions</b> to spark fun conversations on your date. ♥</p>':""}
  ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}${sel("Food style","foodMode")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setBudget(this.value)" onchange="render()"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}`
  +(cu?"":`<button class="go" onclick="gen()" ${S.b>0?"":"disabled"}>Plan my date</button>`);
 }
@@ -1244,7 +1276,7 @@ function kitview(){
  h+='<div class="kit'+(S.surp?" sealed":"")+'"><div class="kh">Our date</div>'+(S.surp?'<div class="seal">Sealed surprise. Open on the date.</div>':"");
  h+='<div class="kr"><span>For</span><b>'+(esc(o.partner)||"Your partner")+'</b></div><div class="kr"><span>From</span><b>'+(esc(o.name)||"Your name")+'</b></div><div class="kr"><span>Activity</span><b>'+(S.act?S.act.n:"To be decided")+'</b></div><div class="kr"><span>Food</span><b>'+(S.food?S.food.n:"To be decided")+'</b></div>';
  if(o.occasion)h+='<div class="kr"><span>Occasion</span><b>'+esc(o.occasion)+'</b></div>';
- h+='<div class="kitinclude"><b>📦 Planned kit contents — not production-ready</b><p>The question-card bank is not configured. Confirm and approve the final card content before offering a printed kit.</p></div><div class="vou"><span class="tag">Sample voucher preview — not redeemable</span><b>Partner: [Partner name not configured]</b><p>Offer: [Voucher terms not configured]</p><span class="tag">Expiry and redemption terms must be confirmed.</span><div class="code">Card code: '+S.code+'</div></div><div class="kf">Planned with Date Compass.</div></div>';
+ h+='<div class="kitinclude"><b>📦 Planned kit contents — preview only</b><p>Includes 10 randomly selected date question cards. The question ideas are available in this preview; printed production, final card design, and fulfillment still need owner approval.</p></div><div class="vou"><span class="tag">Sample voucher preview — not redeemable</span><b>Partner: [Partner name not configured]</b><p>Offer: [Voucher terms not configured]</p><span class="tag">Expiry and redemption terms must be confirmed.</span><div class="code">Card code: '+S.code+'</div></div><div class="kf">Planned with Date Compass.</div></div>';
  h+='<button class="ghost" onclick="toggleSurp()">'+(S.surp?"Show the plan":"Make it a surprise")+'</button>'+orderForm();
  if(S.orderSaved)h+='<section class="panel success"><h3>Order message draft</h3><p>This is not a submitted or confirmed order. Nothing has been sent, reserved, or scheduled. Copy the draft and send it only through an official channel after the owner confirms contact and fulfillment details.</p><pre class="ordermsg">'+esc(orderText())+'</pre><div class="orderactions"><button id="copyorder" onclick="copyOrder()">Copy for Messenger</button>'+(CONTACT_EMAIL&&CONTACT_EMAIL!=="your-email@example.com"?'<button class="ghost" onclick="emailOrder()">Email draft</button>':'<button class="ghost" disabled>Email not configured</button>')+'</div>'+(CONTACT_EMAIL&&CONTACT_EMAIL!=="your-email@example.com"?'':'<p class="note" id="emailnotice" role="status">Email is unavailable until the owner configures the contact address. You can still copy this draft.</p>')+'<p class="note">Keep the draft code <b>'+S.code+'</b> for reference; it does not prove an order was received.</p></section>';
  return h;
