@@ -6,17 +6,21 @@ import { dirname, resolve } from "node:path";
 import vm from "node:vm";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const [app, html, css] = await Promise.all([
+const [app, html, css, responsiveCss] = await Promise.all([
   readFile(resolve(root, "js/app.js"), "utf8"),
   readFile(resolve(root, "index.html"), "utf8"),
   readFile(resolve(root, "css/style.css"), "utf8"),
+  readFile(resolve(root, "css/phone-fix.css"), "utf8"),
 ]);
 
 test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "css/style.css"));
+  await access(resolve(root, "css/phone-fix.css"));
   assert.ok(html.includes('src="js/app.js?v=20261014c"'));
-  assert.ok(html.includes('href="css/style.css?v=20261014a"'));
+  assert.ok(html.includes('href="css/style.css?v=20261014d"'));
+  assert.ok(html.includes('href="css/phone-fix.css?v=20261014d"'));
+  assert.ok(html.indexOf('href="css/style.css?') < html.indexOf('href="css/phone-fix.css?'), "Responsive overrides must load after the base stylesheet.");
 });
 
 test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => {
@@ -194,5 +198,14 @@ test("mobile navigation and footer stay single-row and hero phones cannot cover 
   assert.match(css, /\.hero2\s*\{[^}]*overflow:\s*hidden !important/s);
   assert.match(css, /\.phones\s*\{[^}]*height:\s*312px !important/s);
   assert.match(css, /main\.wide \.home-feature-pair > \.hiw\.romance-section \{ grid-template-columns: minmax\(0, 1fr\) !important; \}/);
-  assert.ok(html.includes('href="css/style.css?v=20261014b"'));
+  assert.ok(html.includes('href="css/style.css?v=20261014d"'));
+});
+
+
+test("responsive override stylesheet centers navigation and protects phone previews", () => {
+  assert.match(responsiveCss, /@media \(min-width: 1000px\)[\s\S]*?grid-template-columns: minmax\(0, 1fr\) auto minmax\(0, 1fr\)/);
+  assert.match(responsiveCss, /@media \(max-width: 640px\)[\s\S]*?header\.site \.hin > nav[\s\S]*?justify-content: center !important/);
+  assert.match(responsiveCss, /\.hero2 \.phones > \.ph[\s\S]*?height: clamp\(350px, 57vw, 420px\) !important/);
+  assert.match(responsiveCss, /@media \(max-width: 380px\)[\s\S]*?\.hero2 \.phones > \.ph[\s\S]*?height: 350px !important/);
+  assert.match(responsiveCss, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.hero2 \.phones > \.ph \{ transform: none !important; \}/);
 });
