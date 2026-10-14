@@ -97,7 +97,10 @@
 ### Validation record — 15 October 2026
 
 **Automated checks and deployment confirmed**
-- The frontend regression suite passed **29/29 tests** on runtime-fix commit `9d70918f34e37c2b77ab000534e75d1f3e53085c`: [Phase 1 smoke checks](https://github.com/Maquinzeil/Date-Compass/actions/runs/38650843739).
+- The latest frontend regression suite passed **30/30 tests** on commit `abf79377019a67a77e1b81e6312cb2c480e4bc88`: [Phase 1 smoke checks](https://github.com/Maquinzeil/Date-Compass/actions/runs/38652124080).
+- GitHub Pages deployment succeeded for that same commit: [Pages workflow](https://github.com/Maquinzeil/Date-Compass/actions/runs/38652123039).
+- The first check on the prior fix commit caught one stale test assertion that still expected the previous JavaScript cache version. The assertion was corrected; the current run is green.
+- Existing automated runtime checks exercise more than 5,000 combinations of budget, area, car access, duration, setting, activity category, and food style, and separately test generated gaming-date tickets across budgets and food styles. These are JavaScript-level tests, not a substitute for browser-based visual testing.
 - The test suite exercises more than 5,000 planner combinations, gaming-date tickets across budgets and food styles, source-backed price evidence, responsive CSS expectations, planner spacing, and solid action buttons.
 - The run exposed and helped fix a malformed empty food-data entry that crashed planner filtering. The source-backed food count assertions were updated from 19 to 21, matching the 21 actual source-backed food ideas.
 - JavaScript syntax checks passed for both `js/app.js` and `js/venue-data.js`.
@@ -106,7 +109,7 @@
 - A subsequent documentation-only update can create a newer commit and retrigger both workflows; confirm the latest run before treating the branch as fully green.
 
 **Still open; do not mark Phase 1 complete based on automation alone**
-- Confirm the smoke and Pages workflows are successful for the latest commit after any documentation-only follow-up.
+- Recheck the latest smoke and Pages workflows after any further source or documentation changes.
 - Manually inspect the live page on desktop, tablet, and a real phone or mobile emulator.
 - Click through every main navigation link, planner control, Surprise Me flow, activity/food selector, and ticket action in a real browser.
 - Review browser console and network errors, keyboard-only navigation, focus visibility, contrast, and reduced-motion behavior.
