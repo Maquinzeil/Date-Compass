@@ -1147,7 +1147,7 @@ function filters(){
  return `<a class="back" href="#home">Back</a>
  <div class="steps"><span class="on">1 Choose</span><span${cu||S.gen?' class="on"':""}>2 Your plan</span><span class="on kit-step">3 Kit</span></div>
  <h2>${cu?"Build your own date":"Surprise us"}</h2>
- <p class="mute">${cu?"Set the basics, then pick each part yourself.":"Tell us the basics and we choose the rest."}</p>${cu?'<p class="kit-promo">Get the physical kit and receive <b>10 randomly selected date questions</b> to spark fun conversations on your date. ♥</p>':""}
+ <p class="mute">${cu?"Set the basics, then pick each part yourself.":"Tell us the basics and we choose the rest."}</p><p class="kit-promo">Get the physical kit and receive <b>10 randomly selected date questions</b> to spark fun conversations on your date. ♥</p>
  ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}${sel("Food style","foodMode")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setBudget(this.value)" onchange="render()"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}`
  +(cu?"":`<button class="go" onclick="gen()" ${S.b>0?"":"disabled"}>Plan my date</button>`);
 }
