@@ -201,3 +201,23 @@ Added a separate SM Premier Downtown branch record rather than reusing the SM Ci
 Source: [Foodpanda Raki-Yata Ramen House — SM Premier Downtown CDO menu](https://www.foodpanda.ph/restaurant/vszj/raki-yata-ramen-house-sm-premier-downtown-cdo). Google Maps discovery link: https://www.google.com/maps/search/?api=1&query=Raki-Yata+Ramen+SM+Premier+Downtown+Cagayan+de+Oro.
 
 These are delivery-menu list-price references, not confirmed dine-in prices. The budget excludes transport and delivery fees, and does not imply current item availability or a reservation. Check the branch before visiting.
+
+
+## Venue research batch 10 — Museo de Oro admission and interim hours (checked 15 October 2026)
+
+Xavier University's official Museo de Oro notice published on 24 March 2026 says the interim schedule remains in effect **until further notice**:
+
+- Monday: 8:00 AM–12:00 PM
+- Tuesday–Thursday: 8:00 AM–12:00 PM and 1:00–6:00 PM
+- Friday: 8:00 AM–12:00 PM and 1:00–5:00 PM
+- Saturday and Sunday: closed
+
+The university's latest admission-rate notice found in this pass was published on 16 August 2025. It lists regular admission at ₱100 per person, XU students/personnel at ₱30, XU alumni at ₱75, and non-XU students, senior citizens, and PWDs at ₱50. **These are the last published rates found, not a verified current 2026 fee.** The planner now uses ₱250 for two as a conservative planning allowance (based on two regular admissions plus a cushion), clearly marked for confirmation rather than a guaranteed current price.
+
+Contact listed by Xavier University for booking/confirmation: 853-9800 local 9267 or 9269.
+
+Sources:
+- [Official interim hours notice, published 24 March 2026](https://www.xu.edu.ph/xavier-ateneo-bulletin/8034-interim-museum-hours-032026)
+- [Official admission fee notice, published 16 August 2025](https://www.xu.edu.ph/xavier-ateneo-bulletin/7497-admission-fee-rates-and-schedule-museo-de-oro-xcca)
+
+Implementation: planner description and source evidence now show the interim hours, conservative two-person budget, date checked, both official links, and the need to confirm current admission fees before visiting. This is not live availability or a booking.
