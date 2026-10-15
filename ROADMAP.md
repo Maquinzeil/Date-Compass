@@ -81,7 +81,7 @@
 - [ ] Test the main flows in at least two modern browsers.
 - [ ] Test the website on a real phone or a mobile browser emulator.
 - [ ] Check page loading speed and avoid unnecessary large assets.
-- [ ] Remove unused or duplicate code only when its purpose is understood.
+- [x] Remove unused or duplicate code only when its purpose is understood.
 - [ ] Record known issues in GitHub Issues or in a bug log.
 
 ### Phase 1 exit gate — do not move on until:
@@ -361,3 +361,12 @@ The following capabilities **do** need a connected service/backend (or a deliber
 - Shared/online venue-data management, saved plans/accounts, or server-side date-plan generation if included in the first-release scope.
 
 The physical kit question-card bank itself is **content**, not a backend requirement. The frontend can be completed and tested with the card content in place; backend/order handling is a separate later phase. Keep Phase 1 open while its frontend verification and content/trust blockers remain unresolved.
+
+
+## Phase 1 re-check — 15 October 2026 (latest cleanup)
+
+- Confirmed the latest GitHub Actions smoke-test run passed on commit `d4e730f3258d01abfaee66f5f57ebb9222ef281a`: [34/34 Phase 1 smoke checks](https://github.com/Maquinzeil/Date-Compass/actions/runs/38760000966).
+- Confirmed the GitHub Pages workflow also completed successfully for that commit: [Pages build and deployment](https://github.com/Maquinzeil/Date-Compass/actions/runs/38760000094).
+- The duplicate budget-preset CSS block was removed after checking its purpose; the regression suite now checks for CSS uniqueness, reduced-motion support, and the budget preset's visible keyboard focus. This is the only Phase 1 checklist item newly checked in this review.
+- The user has reported that the current layout looks right on mobile and desktop. That is useful feedback, but it does not establish that every target viewport, browser, navigation path, console/network request, or accessibility behavior has been tested.
+- **Phase 1 remains open.** Keep the remaining checklist and exit-gate items unchecked until there is direct evidence for them. Still outstanding are real-browser click-through and console/network checks, keyboard/accessibility/reduced-motion behavior, broader viewport/browser verification, and current venue evidence. The official business contact and physical question-card content also need owner confirmation before order-related features are ready. No live orders or payments should be accepted from the static preview.
