@@ -117,6 +117,17 @@
 - Reconfirm venue operating status, official prices, opening hours, travel requirements, and Google Maps locations before treating any entry as verified for customers.
 - Keep the GitHub Pages site as a development preview, not a launch. Backend, secure owner tools, and reliable online order handling are not complete.
 
+
+### Follow-up validation record — 16 October 2026
+
+- The refresh behavior was narrowed to actual page reloads: it sends the visitor to the top on refresh, then returns browser scroll restoration to `auto` so ordinary back/forward navigation is not intentionally disabled.
+- Latest source commit `d4afd6881e12cd76db643baa490f4bf9186217a4` passed the automated smoke suite (**35/35 tests**) and JavaScript syntax checks: [Phase 1 smoke checks](https://github.com/Maquinzeil/Date-Compass/actions/runs/38769927928).
+- The matching Pages workflow is tracked here: [Pages build and deployment](https://github.com/Maquinzeil/Date-Compass/actions/runs/38769927929).
+- Static review confirmed the local logo, mark, favicon, CSS, JavaScript, venue-data, and test files exist in the repository; no missing local asset path was found in the HTML.
+- The automated planner tests cover more than 5,000 preference combinations and separately exercise gaming-date ticket generation. These checks do not replace manual browser testing.
+- Still required before Phase 1 can be closed: live desktop/mobile visual inspection, real-browser navigation and form testing, console/network review, keyboard-only and contrast checks, and a second-browser test. Do not check the Phase 1 exit boxes until those are actually completed.
+
+
 ## Phase 2 — Plan the backend before coding it
 
 ### 2.1 Define the first release
