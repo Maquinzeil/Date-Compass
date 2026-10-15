@@ -20,7 +20,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
   assert.ok(html.includes('src="js/venue-data.js?v=20261015b"'));
-  assert.ok(html.includes('src="js/app.js?v=20261015f"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015g"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015d"'));
   assert.ok(html.includes('href="css/phone-fix.css?v=20261015d"'));
@@ -393,7 +393,8 @@ test("new CDO venue research entries have map links and honest price status", ()
     "Elbs Cafe — Kauswagan",
     "Milestone Coffee + Kitchen Uptown",
     "SM Game Park — SM CDO Downtown",
-    "Duaw Park"
+    "Duaw Park",
+    "Museo de Oro — Xavier University"
   ];
   for (const name of names) {
     const item = directory.find(entry => entry.name === name);
@@ -408,18 +409,29 @@ test("new CDO venue research entries have map links and honest price status", ()
 });
 
 
+test("Museo de Oro budget and hours use dated official sources without claiming a current fee", () => {
+  assert.match(app, /Museo de Oro at Xavier University",c:250/);
+  assert.match(app, /interim schedule notice \(24 March 2026\)/);
+  assert.match(app, /not a confirmed 2026 fee/);
+  assert.match(app, /853-9800 local 9267 or 9269/);
+  assert.match(app, /xavier-ateneo-bulletin\/7497-admission-fee-rates-and-schedule-museo-de-oro-xcca/);
+  assert.match(app, /xavier-ateneo-bulletin\/8034-interim-museum-hours-032026/);
+  assert.match(venueData, /Museo de Oro — Xavier University/);
+  assert.match(venueData, /Museo\+de\+Oro\+Xavier\+University\+Cagayan\+de\+Oro/);
+});
+
 test("planner choices sit inside a spaced responsive panel and plan actions are solid", () => {
   assert.match(app, /<div class="planner-filters">[\s\S]*?sel\("Where","p"\)[\s\S]*?sel\("Setting","s"\)[\s\S]*?<\/div>/);
   assert.match(css, /#app \.planner-filters\s*\{[\s\S]*?padding:clamp\(18px,3\.2vw,28px\)[\s\S]*?background:var\(--card\)/);
   assert.match(css, /@media\(max-width:640px\)[\s\S]*?#app \.planner-filters\s*\{[\s\S]*?grid-template-columns:minmax\(0,1fr\)/);
   assert.match(css, /#app \.bar button\.ghost,[\s\S]*?background:var\(--gold\)!important;[\s\S]*?color:var\(--ink\)!important;[\s\S]*?opacity:1!important/);
   assert.ok(html.includes('href="css/style.css?v=20261015d"'));
-  assert.ok(html.includes('src="js/app.js?v=20261015f"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015g"'));
 });
 
 
 test("Surprise Me planner button remains actionable and explains missing budget", () => {
   assert.match(app, /<button class="go" onclick="gen\(\)">Plan my date<\/button>/);
   assert.match(app, /Please enter a budget for both of you first/);
-  assert.ok(html.includes('src="js/app.js?v=20261015f"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015g"'));
 });
