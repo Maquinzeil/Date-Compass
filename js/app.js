@@ -1277,7 +1277,30 @@ function qview(){
 const newCode=()=>"DC-"+Math.random().toString(36).slice(2,6).toUpperCase();
 function toggleSurp(){S.surp=!S.surp;render()}
 
-function startKit(){S.from=S.view;if(!S.code)S.code=newCode();S.orderSaved=false;go("kit")}
+function clearKitValidation(){const old=document.getElementById("kit-validation");if(old)old.remove();const budget=document.querySelector(".budgetinput");if(budget)budget.setCustomValidity("");}
+function showKitValidation(message,target){
+ let box=document.getElementById("kit-validation");
+ if(!box){box=document.createElement("p");box.id="kit-validation";box.className="note err kit-validation";box.setAttribute("role","alert");box.setAttribute("aria-live","assertive");const heading=document.querySelector("#app h2");if(heading)heading.insertAdjacentElement("afterend",box);else document.getElementById("app").prepend(box);}
+ box.textContent=message;
+ if(target){target.focus();if(typeof target.reportValidity==="function"&&target.classList.contains("budgetinput"))target.reportValidity();}
+}
+function startKit(){
+ if(S.view==="custom"){
+  const budget=document.querySelector(".budgetinput");
+  if(!(S.b>0)){
+   const message="Please complete the required sections before getting your kit: enter a budget for two and choose an activity. Food is also required when matching food options are available.";
+   if(budget){budget.setCustomValidity("Please enter a budget for two before getting your kit.");}
+   showKitValidation(message,budget);return;
+  }
+  if(!S.act){
+   showKitValidation("Please choose an activity in the Activity section before getting your kit.",document.querySelector('select[aria-label="Activity"]'));return;
+  }
+  if(fPool().length&&!S.food){
+   showKitValidation("Please choose a food option in the Food section before getting your kit.",document.querySelector('select[aria-label="Food"]'));return;
+  }
+ }
+ clearKitValidation();S.from=S.view;if(!S.code)S.code=newCode();S.orderSaved=false;go("kit");
+}
 function readOrderForm(){const g=id=>document.getElementById(id);if(!g("oname"))return;S.order.name=g("oname").value.trim();S.order.partner=g("opartner").value.trim();S.order.occasion=g("ooccasion").value.trim();S.order.date=g("odate").value;S.order.contact=g("ocontact").value.trim();S.order.email=g("oemail").value.trim();S.order.address=g("oaddress")?g("oaddress").value.trim():"";S.order.note=g("onote").value.trim()}
 function setDelivery(v){readOrderForm();S.order.delivery=v;render()}
 function orderText(){const o=S.order;return "DATE COMPASS KIT ORDER\nOrder code: "+S.code+"\nActivity: "+(S.act?S.act.n:"To be decided")+"\nFood: "+(S.food?S.food.n:"To be decided")+"\nCategory: "+(S.act&&S.act.cat?CAT[S.act.cat]:"Not specified")+"\nSurprise version: "+(S.surp?"Yes":"No")+"\n\nCUSTOMER\nName: "+o.name+"\nPartner name: "+o.partner+"\nOccasion: "+(o.occasion||"Not specified")+"\nKit needed by: "+(o.date||"Not specified")+"\nMobile: "+o.contact+"\nEmail: "+o.email+"\n\nFULFILLMENT\nMethod: "+(o.delivery=="delivery"?"Delivery":"Pick up")+"\n"+(o.delivery=="delivery"?"Address: "+(o.address||"Not provided")+"\n":"")+"\nPERSONALIZATION / NOTES\n"+(o.note||"None")+"\n\nEstimated plan total: "+peso(total())+"\nPlease confirm final price, availability, pickup/delivery details, and any partner voucher before production."}
@@ -1320,6 +1343,7 @@ function render(){app.className=S.view=='home'?'wide':'';
 }
 function quickCat(k){S.cat=k;S.gen=false;S.act=null;S.food=null;go("custom")}
 function setBudget(v){
+ clearKitValidation();
  S.b=Math.max(0,Number(v)||0);
  if(S.view=="random")S.gen=false;
  else{
@@ -1332,6 +1356,7 @@ function setBudget(v){
  if(status)status.textContent=S.b>0?"Budget set. Click Plan my date when you are ready.":"Enter a budget for two, then click Plan my date.";
 }
 function setf(k,v){
+ clearKitValidation();
  if(k=="b"){setBudget(v);return}
  S[k]=v;
  if(S.view=="random")S.gen=false;
@@ -1349,7 +1374,7 @@ function gen(){
  const ap=aPool();S.act=ap.length?rnd(ap):null;
  const fp=fPool();S.food=fp.length?rnd(fp):null;S.gen=true;render();
 }
-function pick(k,i){const L=k=="act"?A:F;S[k]=i===""?null:L[+i];if(k=="act"&&S.food&&!fPool().includes(S.food))S.food=null;render()}
+function pick(k,i){clearKitValidation();const L=k=="act"?A:F;S[k]=i===""?null:L[+i];if(k=="act"&&S.food&&!fPool().includes(S.food))S.food=null;render()}
 function shuffle(k){
  const pool=k=="act"?aPool():fPool(),cur=S[k],alt=pool.filter(x=>x!=cur);
  const c=alt.length?rnd(alt):cur;
