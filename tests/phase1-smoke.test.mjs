@@ -27,7 +27,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
   assert.ok(html.includes('src="js/venue-data.js?v=20261015b"'));
-  assert.ok(html.includes('src="js/app.js?v=20261015i"'));
+  assert.ok(html.includes('src="js/app.js?v=20261016b"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
   assert.ok(html.includes('href="css/phone-fix.css?v=20261015e"'));
@@ -449,14 +449,14 @@ test("planner choices sit inside a spaced responsive panel and plan actions are 
   assert.match(css, /@media\(max-width:640px\)[\s\S]*?#app \.planner-filters\s*\{[\s\S]*?grid-template-columns:minmax\(0,1fr\)/);
   assert.match(css, /#app \.bar button\.ghost,[\s\S]*?background:var\(--gold\)!important;[\s\S]*?color:var\(--ink\)!important;[\s\S]*?opacity:1!important/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261015i"'));
+  assert.ok(html.includes('src="js/app.js?v=20261016b"'));
 });
 
 
 test("Surprise Me planner button remains actionable and explains missing budget", () => {
   assert.match(app, /<button class="go" onclick="gen\(\)">Plan my date<\/button>/);
   assert.match(app, /Please enter a budget for both of you first/);
-  assert.ok(html.includes('src="js/app.js?v=20261015i"'));
+  assert.ok(html.includes('src="js/app.js?v=20261016b"'));
 });
 
 test("budget field keeps custom amount entry without a preset button", () => {
@@ -465,11 +465,22 @@ test("budget field keeps custom amount entry without a preset button", () => {
   assert.match(app, /function setBudget\(v\)/);
   assert.doesNotMatch(css, /budget-presets|budget-preset|Quick budget pick for the date planner/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261015i"'));
+  assert.ok(html.includes('src="js/app.js?v=20261016b"'));
 });
 
 
 test("reduced-motion and keyboard focus styles remain accessible", () => {
   assert.ok(css.includes("@media (prefers-reduced-motion: reduce)"));
   assert.ok(css.includes(":focus-visible"));
+});
+
+test("contact form submits through Formspree and reports actual success or failure", () => {
+  assert.match(app, /action="https:\/\/formspree\.io\/f\/mkjokzjv"/);
+  assert.match(app, /async function sendContact\(event\)/);
+  assert.match(app, /fetch\(form\.action/);
+  assert.match(app, /headers:\{"Accept":"application\/json"\}/);
+  assert.match(app, /Your message was sent successfully/);
+  assert.match(app, /We couldn't send your message/);
+  assert.match(app, /name="_gotcha"/);
+  assert.doesNotMatch(app, /location\.href="mailto:"\+CONTACT_EMAIL/);
 });
