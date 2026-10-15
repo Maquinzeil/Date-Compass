@@ -253,7 +253,7 @@ test("homepage How It Works and Vibe panels use opaque, readable surfaces", () =
 });
 
 test("local activity descriptions include practical verification and safety guidance", () => {
-  assert.match(app, /Confirm the museum.{0,100}current opening hours, admission fee, and visitor arrangements/);
+  assert.match(app, /Xavier University’s latest official interim schedule notice \(24 March 2026\)/);
   assert.match(app, /Avoid rooftops and any place without secure, approved access/);
   assert.match(app, /confirm which facilities and activities are currently operating/i);
   assert.match(app, /sample amount is not a current travel quote/);
