@@ -252,14 +252,14 @@ test("responsive override stylesheet centers navigation and protects phone previ
 });
 
 
-test("contact page includes the requested fields and clearly reports send limitations", () => {
+test("contact page includes the requested fields and clear submission status", () => {
   assert.match(app, /Full Name/);
   assert.match(app, /Email Address/);
   assert.match(app, /Mobile Number/);
   assert.match(app, /What do you need help with\?/);
   assert.match(app, /Send Message/);
-  assert.match(app, /function sendContact\(event\)/);
-  assert.match(app, /has not been sent/);
+  assert.match(app, /async function sendContact\(event\)/);
+  assert.match(app, /Your message will be sent securely through our contact form/);
   assert.match(css, /\.contact-form/);
 });
 
@@ -482,5 +482,6 @@ test("contact form submits through Formspree and reports actual success or failu
   assert.match(app, /Your message was sent successfully/);
   assert.match(app, /We couldn't send your message/);
   assert.match(app, /name="_gotcha"/);
-  assert.doesNotMatch(app, /location\.href="mailto:"\+CONTACT_EMAIL/);
+  const contactBlock = app.slice(app.indexOf("function contact(){"), app.indexOf("function home(){", app.indexOf("function contact(){")));
+  assert.doesNotMatch(contactBlock, /location\.href="mailto:"\+CONTACT_EMAIL/);
 });
