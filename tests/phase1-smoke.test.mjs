@@ -14,6 +14,11 @@ const [app, html, css, responsiveCss, venueData] = await Promise.all([
   readFile(resolve(root, "js/venue-data.js"), "utf8"),
 ]);
 
+test("a page refresh starts at the top instead of restoring the previous scroll position", () => {
+  assert.match(html, /history\\.scrollRestoration\\s*=\\s*"manual"/);
+  assert.match(html, /addEventListener\\("load",\\s*\\(\\)\\s*=>\\s*window\\.scrollTo\\(0,\\s*0\\),\\s*\\{\\s*once:\\s*true\\s*\\}\\)/);
+});
+
 test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/app.js"));
   await access(resolve(root, "js/venue-data.js"));
