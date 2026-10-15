@@ -20,10 +20,10 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
   assert.ok(html.includes('src="js/venue-data.js?v=20261015b"'));
-  assert.ok(html.includes('src="js/app.js?v=20261015g"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015h"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
-  assert.ok(html.includes('href="css/style.css?v=20261015d"'));
-  assert.ok(html.includes('href="css/phone-fix.css?v=20261015d"'));
+  assert.ok(html.includes('href="css/style.css?v=20261015e"'));
+  assert.ok(html.includes('href="css/phone-fix.css?v=20261015e"'));
   assert.ok(html.indexOf('href="css/style.css?') < html.indexOf('href="css/phone-fix.css?'), "Responsive overrides must load after the base stylesheet.");
 });
 
@@ -222,7 +222,7 @@ test("mobile navigation and footer stay single-row and hero phones cannot cover 
   assert.match(css, /\.hero2\s*\{[^}]*overflow:\s*hidden !important/s);
   assert.match(css, /\.phones\s*\{[^}]*height:\s*312px !important/s);
   assert.match(css, /main\.wide \.home-feature-pair > \.hiw\.romance-section \{ grid-template-columns: minmax\(0, 1fr\) !important; \}/);
-  assert.ok(html.includes('href="css/style.css?v=20261015d"'));
+  assert.ok(html.includes('href="css/style.css?v=20261015e"'));
 });
 
 
@@ -431,13 +431,22 @@ test("planner choices sit inside a spaced responsive panel and plan actions are 
   assert.match(css, /#app \.planner-filters\s*\{[\s\S]*?padding:clamp\(18px,3\.2vw,28px\)[\s\S]*?background:var\(--card\)/);
   assert.match(css, /@media\(max-width:640px\)[\s\S]*?#app \.planner-filters\s*\{[\s\S]*?grid-template-columns:minmax\(0,1fr\)/);
   assert.match(css, /#app \.bar button\.ghost,[\s\S]*?background:var\(--gold\)!important;[\s\S]*?color:var\(--ink\)!important;[\s\S]*?opacity:1!important/);
-  assert.ok(html.includes('href="css/style.css?v=20261015d"'));
-  assert.ok(html.includes('src="js/app.js?v=20261015g"'));
+  assert.ok(html.includes('href="css/style.css?v=20261015e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015h"'));
 });
 
 
 test("Surprise Me planner button remains actionable and explains missing budget", () => {
   assert.match(app, /<button class="go" onclick="gen\(\)">Plan my date<\/button>/);
   assert.match(app, /Please enter a budget for both of you first/);
-  assert.ok(html.includes('src="js/app.js?v=20261015g"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015h"'));
+});
+
+test("budget field offers a ₱1,500 quick pick above the custom amount input", () => {
+  assert.match(app, /class="budget-presets"[\s\S]*?onclick="setBudgetPreset\(1500\)"[\s\S]*?₱1,500/);
+  assert.match(app, /function setBudgetPreset\(v\)/);
+  assert.match(css, /#app \.budget-presets/);
+  assert.match(css, /#app \.budget-preset:focus-visible/);
+  assert.ok(html.includes('href="css/style.css?v=20261015e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015h"'));
 });
