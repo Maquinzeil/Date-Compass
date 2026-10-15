@@ -333,3 +333,31 @@ When you find a bug, record it as a GitHub Issue with:
 - **Still open:** live visual verification; browser console/network review; mobile/tablet/desktop and cross-browser testing; keyboard, contrast, form-label, and reduced-motion checks; and end-to-end validation of all navigation, planner, and Surprise Me flows.
 - **Still blocked by owner input or real-world verification:** verified venue/activity information and prices, official contact email/order channel, and the approved physical-kit question-card bank. The current order/contact paths are drafts only; no backend, payment, order persistence, automatic email, or fulfillment integration exists.
 - **Status:** automated source-level checks are green, but Phase 1 is **not complete**. Keep every checklist and exit-gate box unchecked until the remaining tests and blockers are addressed.
+
+
+## Phase 1 re-check — 15 October 2026 (after ₱1,500 quick-budget option)
+
+- Added a ₱1,500 quick-pick button above the custom “Budget for two” input. Custom amounts remain available. The quick pick updates the same budget state used by the planner.
+- Added styling, keyboard-visible focus treatment, an automated regression test, and cache-busting asset version updates.
+- Verified GitHub Actions on commit `2a38fb7aefb1a0666f07a1979ede82dfe8f2a7b9`: [Phase 1 smoke checks passed](https://github.com/Maquinzeil/Date-Compass/actions/runs/38674122617) and [GitHub Pages deployment succeeded](https://github.com/Maquinzeil/Date-Compass/actions/runs/38674122930).
+- Automated checks cover JavaScript syntax and planner logic across more than 5,000 combinations. These checks do not replace a real-browser click-through or visual/accessibility audit.
+- The user confirmed the current layout works on both mobile and desktop. Still do not mark the full Phase 1 exit gate complete until the remaining browser console/network, navigation/control, keyboard/accessibility/reduced-motion, and cross-browser/device checks are recorded.
+- Venue evidence remains a content-quality task: keep unverified prices/hours clearly labelled, and do not treat Higala Ridge Food & Park as a priced planner option until current fees/menu/access are confirmed.
+
+### Backend dependency clarification
+
+**No Phase 1 checkbox inherently requires a backend.** Phase 1 is the frontend polish and readiness phase. The following current gaps can be prepared now without building a backend:
+
+- Replace the placeholder contact email with the real business contact, and make sure the contact copy is accurate.
+- Add and review the physical kit's actual question-card content and finalize what the kit includes.
+- Keep local venue records, map links, source notes, estimates, and caveats accurate.
+- Finish browser, keyboard, accessibility, responsive, and frontend error checks.
+
+The following capabilities **do** need a connected service/backend (or a deliberately chosen external form/order provider) before they can work as reliable online features:
+
+- Contact form delivery and secure storage of messages, if messages should be submitted directly rather than opened as an email draft.
+- Receiving and tracking kit orders centrally, notifying the owner, and providing reliable order confirmation.
+- Online checkout/payment verification, order status, and fulfillment records if online payments are offered.
+- Shared/online venue-data management, saved plans/accounts, or server-side date-plan generation if included in the first-release scope.
+
+The physical kit question-card bank itself is **content**, not a backend requirement. The frontend can be completed and tested with the card content in place; backend/order handling is a separate later phase. Keep Phase 1 open while its frontend verification and content/trust blockers remain unresolved.
