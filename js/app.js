@@ -1172,7 +1172,7 @@ function filters(){
  <h2>${cu?"Build your own date":"Surprise us"}</h2>
  <p class="mute">${cu?"Set the basics, then pick each part yourself.":"Tell us the basics and we choose the rest."}</p><p class="kit-promo">Get the physical kit and receive <b>10 randomly selected date questions</b> to spark fun conversations on your date. ♥</p>
  <div class="planner-filters">
- ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}${sel("Food style","foodMode")}<label class="selectfield"><span>Budget for two</span><div class="budget-presets" aria-label="Quick budget choices"><button type="button" class="budget-preset" onclick="setBudgetPreset(1500)" aria-label="Set budget for two to 1,500 pesos">₱1,500</button></div><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setBudget(this.value)" onchange="render()"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}
+ ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}${sel("Food style","foodMode")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setBudget(this.value)" onchange="render()"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}
  ${cu?"":`<button class="go" onclick="gen()">Plan my date</button><p class="note planner-status" id="planner-status" role="status">${S.b>0?"Choose your date preferences, then plan your date.":"Enter a budget for two, then click Plan my date."}</p>`}
  </div>`;
 }
@@ -1319,13 +1319,6 @@ function render(){app.className=S.view=='home'?'wide':'';
  app.innerHTML=v=="home"?home():v=="about"?about():v=="contact"?contact():v=="cards"?cardsview():v=="q"?qview():v=="kit"?kitview():v=="admin-disabled"?adminDisabled():filters()+((v=="custom"||S.gen)?plan():"");
 }
 function quickCat(k){S.cat=k;S.gen=false;S.act=null;S.food=null;go("custom")}
-function setBudgetPreset(v){
- const input=document.querySelector(".budgetinput");
- if(!input)return;
- input.value=String(v);
- setBudget(input.value);
- input.focus();
-}
 function setBudget(v){
  S.b=Math.max(0,Number(v)||0);
  if(S.view=="random")S.gen=false;
