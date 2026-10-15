@@ -732,6 +732,18 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-15"
     },
     {
+      name: "Museo de Oro — Xavier University",
+      category: "museum and local history",
+      area: "Xavier University, Corrales Avenue, Cagayan de Oro",
+      venueStatus: "Xavier University published an interim schedule on 24 March 2026, stated to remain until further notice",
+      priceStatus: "Last published official fee notice (16 August 2025) lists regular admission at ₱100/person; confirm current rates before visiting",
+      sourceUrl: "https://www.xu.edu.ph/xavier-ateneo-bulletin/8034-interim-museum-hours-032026",
+      priceSourceUrl: "https://www.xu.edu.ph/xavier-ateneo-bulletin/7497-admission-fee-rates-and-schedule-museo-de-oro-xcca",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Museo+de+Oro+Xavier+University+Cagayan+de+Oro",
+      contact: "853-9800 local 9267 or 9269",
+      checkedOn: "2026-10-15"
+    },
+    {
       name: "Raki-Yata Ramen House — SM Premier Downtown CDO",
       category: "Japanese ramen, sushi, and casual dining",
       area: "2nd Floor, SM Premier Downtown, C.M. Recto Avenue, Cagayan de Oro",
