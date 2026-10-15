@@ -1218,25 +1218,43 @@ function about(){
  return '<a class="back" href="#home">← Back to the good stuff</a><section class="about-wrap"><div class="about-hero"><span class="about-eyebrow">A LITTLE MORE ABOUT US ♥</span><h1>Because “what should we do?” deserves a better answer.</h1><p class="about-lead">Date Compass turns date-night indecision into a plan you can actually look forward to.</p><div class="about-heartline" aria-hidden="true">♡　♥　♡</div></div><div class="about-content"><section class="about-card"><span class="about-number">01 / THE IDEA</span><h2>Less scrolling. More sparks.</h2><p>We help couples find date ideas that fit their budget, vibe, and transport, with Cagayan de Oro and Misamis Oriental in mind. Whether you’re planning something sweet, playful, relaxed, or totally spontaneous, you can start with a few choices and let Date Compass help with the rest.</p></section><section class="about-card about-card-blush"><span class="about-number">02 / YOUR DATE, YOUR WAY</span><h2>Plan it or leave it to chance.</h2><p>Use <b>Build Me a Date</b> to shape a plan around your preferences, or tap <b>Surprise Me</b> for a fresh combination. Save the idea for your date, then make it your own. The best plans leave room for little unexpected moments, too.</p></section><section class="about-card about-card-gold"><span class="about-number">03 / A LITTLE SOMETHING EXTRA</span><h2>Make it a keepsake.</h2><p>Want to bring the plan off the screen? The optional physical kit is designed to add a tangible touch to your date, including <b>10 randomly selected date questions</b> to spark fun conversations. The questions are part of the physical kit, not the digital plan.</p></section><section class="about-note"><h3>A quick note before you go</h3><p>Date Compass is still growing. Suggestions and costs are estimates, not verified venue listings. Please check current prices, opening hours, availability, transport, and safety before heading out. Online ordering, payment, and automatic email delivery are not connected yet, so an order is not placed just by clicking the website.</p></section><figure class="about-quote"><span class="quote-mark" aria-hidden="true">“</span><blockquote>The best dates aren’t about where you go, but how you make each other feel.</blockquote><figcaption>— A little reminder from Date Compass ♥</figcaption></figure></div></section>';
 }
 function contact(){
- return '<a class="back" href="#home">Back home</a><section class="panel contact-panel"><h1>Contact Us</h1><p class="contact-intro">Have a question or need a hand planning your date? Send us a message.</p><form class="contact-form" id="contactForm" onsubmit="sendContact(event)"><label for="contactName">Full Name</label><input id="contactName" name="name" type="text" autocomplete="name" placeholder="Enter your full name" required maxlength="120"><label for="contactEmail">Email Address</label><input id="contactEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required maxlength="254"><label for="contactMobile">Mobile Number</label><input id="contactMobile" name="mobile" type="tel" autocomplete="tel" placeholder="09xx xxx xxxx" required maxlength="30"><label for="contactMessage">What do you need help with?</label><textarea id="contactMessage" name="message" rows="5" placeholder="Tell us how we can help..." required maxlength="5000"></textarea><button class="cta contact-submit" type="submit">Send Message</button><p id="contactStatus" class="note" role="status" aria-live="polite">Submitting opens your email app with a draft. Review and send it to reach us; this website does not store messages.</p></form></section>';
+ return '<a class="back" href="#home">Back home</a><section class="panel contact-panel"><h1>Contact Us</h1><p class="contact-intro">Have a question or need a hand planning your date? Send us a message.</p><form class="contact-form" id="contactForm" action="https://formspree.io/f/mkjokzjv" method="POST" onsubmit="sendContact(event)"><label for="contactName">Full Name</label><input id="contactName" name="name" type="text" autocomplete="name" placeholder="Enter your full name" required maxlength="120"><label for="contactEmail">Email Address</label><input id="contactEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required maxlength="254"><label for="contactMobile">Mobile Number</label><input id="contactMobile" name="mobile" type="tel" autocomplete="tel" placeholder="09xx xxx xxxx" required maxlength="30"><label for="contactMessage">What do you need help with?</label><textarea id="contactMessage" name="message" rows="5" placeholder="Tell us how we can help..." required maxlength="5000"></textarea><input type="hidden" name="_subject" value="New Date Compass contact message"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px" /><button class="cta contact-submit" type="submit">Send Message</button><p id="contactStatus" class="note" role="status" aria-live="polite">Your message will be sent securely through our contact form. Please do not include passwords or sensitive information.</p></form></section>';
 }
-function sendContact(event){
+async function sendContact(event){
  event.preventDefault();
  const form=document.getElementById("contactForm");
  if(!form||!form.reportValidity())return;
- const name=document.getElementById("contactName").value.trim();
- const email=document.getElementById("contactEmail").value.trim();
- const mobile=document.getElementById("contactMobile").value.trim();
- const message=document.getElementById("contactMessage").value.trim();
  const status=document.getElementById("contactStatus");
- if(!CONTACT_EMAIL||CONTACT_EMAIL==="your-email@example.com"){
-  status.textContent="Your message is filled out, but it has not been sent. Date Compass still needs an official contact email or a connected form service.";
-  return;
+ const button=form.querySelector('button[type="submit"]');
+ if(!status||!button)return;
+ if(form.dataset.submitting==="true")return;
+ form.dataset.submitting="true";
+ const originalLabel=button.textContent;
+ button.disabled=true;
+ button.textContent="Sending...";
+ status.textContent="Sending your message…";
+ status.setAttribute("role","status");
+ try{
+  const response=await fetch(form.action,{
+   method:"POST",
+   body:new FormData(form),
+   headers:{"Accept":"application/json"}
+  });
+  let result={};
+  try{result=await response.json();}catch(_error){}
+  if(!response.ok){
+   const detail=Array.isArray(result.errors)?result.errors.map(error=>error.message).filter(Boolean).join(" "):"";
+   throw new Error(detail||"We couldn't send your message right now. Please try again in a moment.");
+  }
+  form.reset();
+  status.textContent="Thanks for reaching out! Your message was sent successfully. We'll get back to you as soon as we can.";
+ }catch(error){
+  status.textContent=error&&error.message?error.message:"We couldn't send your message. Please check your connection and try again.";
+ }finally{
+  form.dataset.submitting="false";
+  button.disabled=false;
+  button.textContent=originalLabel;
  }
- const subject=encodeURIComponent("Date Compass contact message from "+name);
- const body=encodeURIComponent("Full Name: "+name+"\nEmail Address: "+email+"\nMobile Number: "+mobile+"\n\nWhat do you need help with?\n"+message);
- status.textContent="Opening your email app with your message draft. Please review and send it there.";
- location.href="mailto:"+CONTACT_EMAIL+"?subject="+subject+"&body="+body;
 }
 function home(){
  const ic={a:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',b:'<path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/>',c:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>'};
