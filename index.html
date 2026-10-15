@@ -4,8 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>
-if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-window.addEventListener("load", () => window.scrollTo(0, 0), { once: true });
+const navigationEntry = performance.getEntriesByType("navigation")[0];
+const isPageRefresh = navigationEntry?.type === "reload";
+if (isPageRefresh && "scrollRestoration" in history) history.scrollRestoration = "manual";
+window.addEventListener("load", () => {
+  if (isPageRefresh) window.scrollTo(0, 0);
+  if ("scrollRestoration" in history) history.scrollRestoration = "auto";
+}, { once: true });
 </script>
 <title>Date Compass, date planner for CDO</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
