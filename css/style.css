@@ -2406,3 +2406,10 @@ footer.site .fine {
   border-color:var(--ink)!important;
   opacity:1!important;
 }
+
+
+/* Quick budget pick for the date planner */
+#app .budget-presets{display:flex;gap:8px;margin:0 0 8px}
+#app .budget-preset{appearance:none;border:1px solid var(--pri);border-radius:999px;padding:7px 13px;background:var(--gold);color:var(--ink);font:inherit;font-size:.82rem;font-weight:700;line-height:1.2;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease}
+#app .budget-preset:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(13,47,63,.12)}
+#app .budget-preset:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
