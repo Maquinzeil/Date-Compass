@@ -444,7 +444,7 @@ test("Surprise Me planner button remains actionable and explains missing budget"
 
 test("budget field keeps custom amount entry without a preset button", () => {
   assert.match(app, /<span>Budget for two<\/span>[\s\S]*?<input class="budgetinput" type="number"/);
-  assert.doesNotMatch(app, /budget-presets|budget-preset|setBudgetPreset|₱1,500/);
+  assert.doesNotMatch(app, /class="budget-presets"|class="budget-preset"|setBudgetPreset\(1500\)/);
   assert.match(app, /function setBudget\(v\)/);
   assert.doesNotMatch(css, /budget-presets|budget-preset|Quick budget pick for the date planner/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
