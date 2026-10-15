@@ -221,3 +221,18 @@ Sources:
 - [Official admission fee notice, published 16 August 2025](https://www.xu.edu.ph/xavier-ateneo-bulletin/7497-admission-fee-rates-and-schedule-museo-de-oro-xcca)
 
 Implementation: planner description and source evidence now show the interim hours, conservative two-person budget, date checked, both official links, and the need to confirm current admission fees before visiting. This is not live availability or a booking.
+
+
+## Venue research batch 12 — Higala Ridge Food & Park (checked 15 October 2026)
+
+Added **Higala Ridge Food & Park** to the venue directory based on the Facebook page supplied by the project owner and a current business listing.
+
+- **Location:** Upper Sumpong, Barangay Indahag, Cagayan de Oro City, Misamis Oriental.
+- **Date fit:** scenic hilltop viewpoint and casual food/coffee stop; potentially useful for a sunset date, subject to weather and access.
+- **Contact:** a business listing shows +63 948 324 5407; confirm that the number is current before relying on it.
+- **Hours:** a business listing reports roughly 9:30 AM to midnight daily. This is not yet confirmed against a current official post, so check the venue's page directly before visiting.
+- **Price status:** entrance fee, menu prices, and any minimum spend are not verified. The venue is recorded for research but is **not yet a priced planner recommendation**. Do not assign an invented budget.
+- **Map:** [Google Maps search](https://www.google.com/maps/search/?api=1&query=Higala+Ridge+Food+%26+Park+Upper+Sumpong+Indahag+Cagayan+de+Oro).
+- **Social source:** [Higala Ridge Food & Park on Facebook](https://www.facebook.com/higalaridgefoodandpark).
+
+Next verification step: inspect recent posts from the official Facebook page for entrance/parking fees, food and drink prices, current operating hours, road/access notes, and any minimum spend. If those are not published, contact the venue directly. Only then should a realistic two-person budget and activity entry be added to the planner.
