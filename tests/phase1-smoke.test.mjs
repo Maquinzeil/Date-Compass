@@ -442,18 +442,17 @@ test("Surprise Me planner button remains actionable and explains missing budget"
   assert.ok(html.includes('src="js/app.js?v=20261015h"'));
 });
 
-test("budget field offers a ₱1,500 quick pick above the custom amount input", () => {
-  assert.match(app, /class="budget-presets"[\s\S]*?onclick="setBudgetPreset\(1500\)"[\s\S]*?₱1,500/);
-  assert.match(app, /function setBudgetPreset\(v\)/);
-  assert.match(css, /#app \.budget-presets/);
-  assert.match(css, /#app \.budget-preset:focus-visible/);
-  assert.ok(html.includes('href="css/style.css?v=20261015f"'));
-  assert.ok(html.includes('src="js/app.js?v=20261015h"'));
+test("budget field keeps custom amount entry without a preset button", () => {
+  assert.match(app, /<span>Budget for two<\/span>[\s\S]*?<input class="budgetinput" type="number"/);
+  assert.doesNotMatch(app, /budget-presets|budget-preset|setBudgetPreset|₱1,500/);
+  assert.match(app, /function setBudget\(v\)/);
+  assert.doesNotMatch(css, /budget-presets|budget-preset|Quick budget pick for the date planner/);
+  assert.ok(html.includes('href="css/style.css?v=20261015g"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015i"'));
 });
 
 
-test("reduced-motion and budget-preset styles remain accessible without duplicate CSS", () => {
+test("reduced-motion and keyboard focus styles remain accessible", () => {
   assert.ok(css.includes("@media (prefers-reduced-motion: reduce)"));
-  assert.ok(css.includes("#app .budget-preset:focus-visible{outline:3px solid var(--ink);outline-offset:3px}"));
-  assert.equal(css.split("/* Quick budget pick for the date planner */").length - 1, 1, "Budget preset styles should be defined once.");
+  assert.ok(css.includes(":focus-visible"));
 });
