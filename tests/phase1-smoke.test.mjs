@@ -20,7 +20,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
   assert.ok(html.includes('src="js/venue-data.js?v=20261015b"'));
-  assert.ok(html.includes('src="js/app.js?v=20261015e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015f"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015d"'));
   assert.ok(html.includes('href="css/phone-fix.css?v=20261015d"'));
@@ -57,6 +57,16 @@ test("placeholder email and local-only ordering are represented honestly", () =>
   assert.match(app, /does not prove an order was received/);
 });
 
+test("date kit removes demo names and voucher placeholders while preserving customer notes", () => {
+  assert.match(app, /const legacyDemo=\/\\b\(jasper\|aya\)\\b\/i/);
+  assert.match(app, /localStorage\.removeItem\("dateCompassOrder"\)/);
+  assert.doesNotMatch(app, /esc\(o\.partner\)\|\|"Your partner"/);
+  assert.doesNotMatch(app, /esc\(o\.name\)\|\|"Your name"/);
+  assert.doesNotMatch(app, /Partner: \[Partner name not configured\]|Offer: \[Voucher terms not configured\]/);
+  assert.match(app, /PERSONALIZATION \/ NOTES\\n"\+\(o\.note\|\|"None"\)/);
+  assert.match(app, /id="onote"/);
+});
+
 test("public static frontend does not rely on a hard-coded owner PIN", () => {
   assert.doesNotMatch(app, /const OWNER_PIN\s*=/);
   assert.match(app, /Owner tools are disabled/);
@@ -67,7 +77,7 @@ test("placeholder recommendation count is not advertised as verified inventory",
   assert.doesNotMatch(app, /1,000 wholesome date ideas/);
   assert.match(app, /Sample date ideas for Cagayan de Oro and Misamis Oriental/);
   assert.match(app, /not verified venue listings/);
-  assert.match(app, /Sample voucher preview — not redeemable/);
+  assert.doesNotMatch(app, /Sample voucher preview — not redeemable|Partner: \[Partner name not configured\]|Offer: \[Voucher terms not configured\]/);
 });
 
 
@@ -404,12 +414,12 @@ test("planner choices sit inside a spaced responsive panel and plan actions are 
   assert.match(css, /@media\(max-width:640px\)[\s\S]*?#app \.planner-filters\s*\{[\s\S]*?grid-template-columns:minmax\(0,1fr\)/);
   assert.match(css, /#app \.bar button\.ghost,[\s\S]*?background:var\(--gold\)!important;[\s\S]*?color:var\(--ink\)!important;[\s\S]*?opacity:1!important/);
   assert.ok(html.includes('href="css/style.css?v=20261015d"'));
-  assert.ok(html.includes('src="js/app.js?v=20261015e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015f"'));
 });
 
 
 test("Surprise Me planner button remains actionable and explains missing budget", () => {
   assert.match(app, /<button class="go" onclick="gen\(\)">Plan my date<\/button>/);
   assert.match(app, /Please enter a budget for both of you first/);
-  assert.ok(html.includes('src="js/app.js?v=20261015e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261015f"'));
 });
