@@ -15,8 +15,8 @@ const [app, html, css, responsiveCss, venueData] = await Promise.all([
 ]);
 
 test("a page refresh starts at the top instead of restoring the previous scroll position", () => {
-  assert.match(html, /history\\.scrollRestoration\\s*=\\s*"manual"/);
-  assert.match(html, /addEventListener\\("load",\\s*\\(\\)\\s*=>\\s*window\\.scrollTo\\(0,\\s*0\\),\\s*\\{\\s*once:\\s*true\\s*\\}\\)/);
+  assert.ok(html.includes('history.scrollRestoration = "manual"'));
+  assert.ok(html.includes('window.addEventListener("load", () => window.scrollTo(0, 0), { once: true });'));
 });
 
 test("frontend JavaScript and linked assets exist", async () => {
