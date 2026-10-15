@@ -394,7 +394,8 @@ test("new CDO venue research entries have map links and honest price status", ()
     "Milestone Coffee + Kitchen Uptown",
     "SM Game Park — SM CDO Downtown",
     "Duaw Park",
-    "Museo de Oro — Xavier University"
+    "Museo de Oro — Xavier University",
+    "Higala Ridge Food & Park"
   ];
   for (const name of names) {
     const item = directory.find(entry => entry.name === name);
@@ -404,6 +405,11 @@ test("new CDO venue research entries have map links and honest price status", ()
     assert.equal(item.checkedOn, "2026-10-15");
     assert.ok(item.priceStatus, `Missing price-verification status for ${name}`);
   }
+  const higalaRidge = directory.find(entry => entry.name === "Higala Ridge Food & Park");
+  assert.match(higalaRidge.priceStatus, /not verified/);
+  assert.match(higalaRidge.hoursStatus, /verify directly/);
+  assert.match(higalaRidge.sourceUrl, /facebook\.com\/higalaridgefoodandpark/);
+  assert.doesNotMatch(app, /Higala Ridge Food & Park/);
   assert.ok(app.includes('Duaw Park and downtown heritage stroll'));
   assert.match(app, /sample incidental allowance for two, not a published admission fee/);
 });
