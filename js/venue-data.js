@@ -744,6 +744,18 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-15"
     },
     {
+      name: "Higala Ridge Food & Park",
+      category: "scenic hilltop viewpoint, food and coffee stop",
+      area: "Upper Sumpong, Barangay Indahag, Cagayan de Oro City, Misamis Oriental",
+      venueStatus: "Business listing identifies a ridge-top viewpoint and food/coffee stop; current access and facilities should be confirmed directly",
+      priceStatus: "Current entrance fees, menu prices, and any minimum spend not verified; do not use as a priced planner option until confirmed",
+      sourceUrl: "https://www.facebook.com/higalaridgefoodandpark",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Higala+Ridge+Food+%26+Park+Upper+Sumpong+Indahag+Cagayan+de+Oro",
+      contact: "+63 948 324 5407 (business listing; confirm current)",
+      hoursStatus: "Business listing reports daily hours around 9:30 AM to midnight; verify directly before visiting",
+      checkedOn: "2026-10-15"
+    },
+    {
       name: "Raki-Yata Ramen House — SM Premier Downtown CDO",
       category: "Japanese ramen, sushi, and casual dining",
       area: "2nd Floor, SM Premier Downtown, C.M. Recto Avenue, Cagayan de Oro",
