@@ -453,7 +453,7 @@ test("budget field offers a ₱1,500 quick pick above the custom amount input", 
 
 
 test("reduced-motion and budget-preset styles remain accessible without duplicate CSS", () => {
-  assert.match(css, /@media \\(prefers-reduced-motion: reduce\\)/);
-  assert.match(css, /#app \\.budget-preset:focus-visible\\{outline:3px solid var\\(--ink\\);outline-offset:3px\\}/);
+  assert.ok(css.includes("@media (prefers-reduced-motion: reduce)"));
+  assert.ok(css.includes("#app .budget-preset:focus-visible{outline:3px solid var(--ink);outline-offset:3px}"));
   assert.equal(css.split("/* Quick budget pick for the date planner */").length - 1, 1, "Budget preset styles should be defined once.");
 });
