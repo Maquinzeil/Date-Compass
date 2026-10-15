@@ -44,6 +44,16 @@ test("hero stays unboxed and keeps both phone mockups and centered CTAs", () => 
   assert.match(css, /select\{box-sizing:border-box;width:100%;max-width:100%/);
 });
 
+test("getting the kit validates required budget and plan choices instead of redirecting home", () => {
+  assert.match(app, /function clearKitValidation\(\)/);
+  assert.match(app, /Please complete the required sections before getting your kit/);
+  assert.match(app, /Please choose an activity in the Activity section before getting your kit/);
+  assert.match(app, /Please choose a food option in the Food section before getting your kit/);
+  assert.match(app, /function startKit\(\)\{\s*if\(S\.view==="custom"\)/);
+  assert.match(app, /function setBudget\(v\)\{\s*clearKitValidation\(\)/);
+  assert.match(app, /function pick\(k,i\)\{clearKitValidation\(\)/);
+});
+
 test("planner food budget is capped by the remaining budget", () => {
   assert.ok(app.includes("const remaining=Math.max(S.b-(S.act?S.act.c:0),0),pref=base.filter(x=>foodMatchesMode(x,S.foodMode))"));
   assert.match(app, /if\(k=="act"&&S\.food&&!fPool\(\)\.includes\(S\.food\)\)S\.food=null/);
