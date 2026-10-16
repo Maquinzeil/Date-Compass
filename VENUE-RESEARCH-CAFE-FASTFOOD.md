@@ -209,3 +209,22 @@ These are branch-specific menu observations from publicly accessible online menu
 - Drink-only café ideas must be described as drinks-only; transport, food and any parking fees are not included.
 - A menu price supports a price estimate only. Branch opening status, current stock, dine-in price and date/time availability remain separate checks.
 - These entries are now researched candidates; they should be added to customer-facing planner data only after the planner's existing budget, location, indoor/outdoor and category filters are regression-tested.
+
+
+## Additional branch-specific fast-food checks — 2026-10-16
+
+These four records were added to the planner data after checking the current branch-specific Foodpanda menu pages. Budgets are for two, include a 15% cushion, and are rounded upward.
+
+| Venue / branch | Current listed item | Calculation for two | Planner budget | Source and caveat |
+|---|---|---:|---:|---|
+| McDonald's — Cagayan Ororama | Cheeseburger with fries and drink, ₱129 each | ₱258 subtotal + 15% = ₱296.70 | **₱300** | [Branch menu](https://www.foodpanda.ph/restaurant/s5wb/mcdonalds-cagayan-ororama). Delivery-app price; verify in-store price and offer availability. |
+| Mang Inasal — Gaisano CDO | Paa Large PM1 with one rice, ₱165 each | ₱330 subtotal + 15% = ₱379.50 | **₱400** | [Branch menu](https://www.foodpanda.ph/restaurant/e3ek/mang-inasal-gaisano-cdo). Drinks, transport and delivery fees are extra. |
+| Chowking — Divisoria | Chao Fan with Fried Chicken, ₱170 each | ₱340 subtotal + 15% = ₱391 | **₱400** | [Branch menu](https://www.foodpanda.ph/restaurant/s9rf/chowking-divisoria). Drinks are not included in the listed item; confirm current stock and in-store price. |
+| KFC — Bulua CDO | 1PC Chicken Chop Bowl Meal from ₱140 each | ₱280 subtotal + 15% = ₱322 | **₱350** | [Branch menu](https://www.foodpanda.ph/restaurant/tk5k/kfc-bulua-cdo). Listing says the meal includes a drink; confirm current branch availability. |
+
+### Planner quality rule for these additions
+
+- The branch is part of each planner item name so couples can tell which menu was checked.
+- A delivery-app menu is evidence for a conservative planning estimate, not proof of dine-in pricing or current inventory.
+- The listed budget covers the specified food only. Do not imply that transport, delivery fees, parking or extra drinks are included unless stated.
+- These are food-date options, not a verified booking or reservation; couples should confirm the branch and menu before travelling.
