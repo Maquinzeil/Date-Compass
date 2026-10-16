@@ -599,7 +599,7 @@ test("new source-backed CDO cafe and fast-food ideas remain selectable under int
   vm.createContext(context);
   vm.runInContext(venueData, context, { timeout: 5000 });
   vm.runInContext(app, context, { timeout: 5000 });
-  const results = vm.runInContext('(() => {
+  const results = vm.runInContext(`(() => {
     const cases = [
       { name: "Casa Grande Cafe Nazareth: chicken teriyaki rice bowls", modes: ["cafe", "out"] },
       { name: "Papicholo\'s Nazareth: two Americanos", modes: ["cafe", "out"] },
@@ -619,7 +619,7 @@ test("new source-backed CDO cafe and fast-food ideas remain selectable under int
       }
     }
     return out;
-  })()', context, { timeout: 10000 });
+  })()`, context, { timeout: 10000 });
   assert.equal(results.length, 9);
   for (const result of results) {
     assert.ok(!result.missing, `Missing new venue idea: ${JSON.stringify(result)}`);
