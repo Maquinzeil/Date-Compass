@@ -515,3 +515,23 @@ test("Games category includes cooperative, couples trivia, guessing, puzzle, and
   assert.match(app, /Co-op puzzle hunt using a free phone puzzle",c:0/);
   assert.match(app, /const CAT=\{[\s\S]*games:"Games"/);
 });
+
+
+test("every venue-directory record has a Maps search link and explicit research status", () => {
+  const dataContext = { window: {} };
+  vm.createContext(dataContext);
+  vm.runInContext(venueData, dataContext, { timeout: 5000 });
+  const directory = dataContext.window.DATE_COMPASS_VERIFIED_DATA.venueDirectory;
+  assert.ok(Array.isArray(directory) && directory.length >= 30, "Venue directory should remain a useful, non-empty research list.");
+  const names = new Set();
+  for (const item of directory) {
+    assert.ok(item.name && item.category && item.area, "Every venue needs a name, category, and area.");
+    assert.ok(!names.has(item.name), `Duplicate venue directory record: ${item.name}`);
+    names.add(item.name);
+    assert.match(item.mapUrl || "", /^https:\/\/www\\.google\\.com\/maps\/search\//, `Missing Google Maps search link for ${item.name}`);
+    assert.match(item.sourceUrl || "", /^https:\/\//, `Missing source/research link for ${item.name}`);
+    assert.ok(item.venueStatus, `Missing venue verification status for ${item.name}`);
+    assert.ok(item.priceStatus, `Missing price verification status for ${item.name}`);
+    assert.match(item.checkedOn || "", /^202[0-9]-[0-9]{2}-[0-9]{2}$/, `Missing ISO-style research date for ${item.name}`);
+  }
+});
