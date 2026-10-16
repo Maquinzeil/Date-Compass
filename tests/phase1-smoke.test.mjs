@@ -347,6 +347,8 @@ test("TBC Billiards has a source-backed one-hour budget and current-rate caveat"
   assert.equal((app.match(/n:"TBC Billiards downtown: one-hour pool date for two"/g) || []).length, 1, "TBC Billiards should appear only once in the planner.");
   assert.ok(venueData.includes("https://www.findglocal.com/PH/Cagayan-de-Oro/516935814844454/TBC-Billiards"));
   assert.ok(venueData.includes("One table for one hour: ₱150; 15% buffer = ₱172.50; rounded up to ₱200."));
+  assert.ok(venueData.includes("Fliqshot operator booking page lists courts from ₱350/hour."));
+  assert.ok(venueData.includes("Published listings conflict: Dinky ₱400/hour, Pickleheads about ₱415/hour, PickleHub ₱500/hour."));
   assert.match(venueData, /Confirm the current rate, operating hours, and table availability before visiting/);
 });
 
@@ -438,8 +440,8 @@ test("all source-backed price records keep complete evidence and match planner a
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
   assert.equal(foods.length, 40, "Expected 40 source-backed food ideas.");
-  assert.equal(activities.length, 15, "Expected fifteen currently usable source-backed activity updates.");
-  assert.equal(records.length, 55, "Every source-backed food and currently usable activity should be included in this evidence audit.");
+  assert.equal(activities.length, 16, "Expected sixteen currently usable source-backed activity updates.");
+  assert.equal(records.length, 56, "Every source-backed food and currently usable activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
