@@ -200,8 +200,10 @@ test("planner runs every area, transport, category, duration, setting, and food-
         if (foods.some(food => food.c > Math.max(S.b - S.act.c, 0))) overBudgetFood++;
         if (foodMode !== "a" && foods.some(food => !foodMatchesMode(food, foodMode))) wrongFoodStyle++;
       }
-    const gameDates = A.filter(activity => /Mobile Legends|co-op mobile game|internet-cafe gaming|Online game discovery|Co-op PC game|Board game night at home|DIY couples board game|Make-your-own trivia board game|DIY memory-matching card game|Homemade mini-bowling game|DIY paper-airplane target game|Indoor scavenger-hunt game|DIY cup-stacking challenge game|Cardboard marble-maze game|DIY indoor mini-golf game|Sock-basketball game at home|DIY mystery-envelope challenge game/i.test(activity.n));
+    const gameDates = A.filter(activity => /Mobile Legends|co-op mobile game|internet-cafe gaming|Online game discovery|Co-op PC game|Board game night at home|DIY couples board game|Make-your-own trivia board game|DIY memory-matching card game|Homemade mini-bowling game|DIY paper-airplane target game|Indoor scavenger-hunt game|DIY cup-stacking challenge game|Cardboard marble-maze game|DIY indoor mini-golf game|Sock-basketball game at home|DIY mystery-envelope challenge game|Cooperative story-building game|Couples trivia|Guess the memory couples game|20 Questions mystery guessing game|No-equipment charades game|Puzzle battle|Word-association speed game|Cooperative category-chain game|Co-op puzzle hunt/i.test(activity.n));
     const gameDatesWrongCategory = gameDates.filter(activity => activity.cat !== "games").map(activity => ({ name: activity.n, category: activity.cat }));
+    const gameDatesNotIndoor = gameDates.filter(activity => activity.s !== "i").map(activity => ({ name: activity.n, setting: activity.s }));
+    const gameDatesNotShort = gameDates.filter(activity => activity.t !== "s").map(activity => ({ name: activity.n, duration: activity.t }));
     const sourceBackedFoods = F.filter(food => food.sourceUrl);
     const rafting = A.find(activity => activity.n === "White water rafting on the Cagayan River");
     return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, gameDatesWrongCategory, activityCount: A.length, foodCount: F.length, sourceBackedFoodCount: sourceBackedFoods.length, raftingBudget: rafting && rafting.c, sourcePanelHasLink: priceEvidenceHtml(sourceBackedFoods[0]).includes("href="), allSourceDatesRecorded: sourceBackedFoods.every(food => food.checkedOn === "2026-10-15") };
@@ -211,6 +213,8 @@ test("planner runs every area, transport, category, duration, setting, and food-
   assert.equal(result.overBudgetFood, 0, `Food suggestions exceeded remaining budget: ${JSON.stringify(result)}`);
   assert.equal(result.wrongFoodStyle, 0, `Planner ignored the selected food style: ${JSON.stringify(result)}`);
   assert.equal(result.gameDatesWrongCategory.length, 0, `Gaming date was categorized incorrectly: ${JSON.stringify(result.gameDatesWrongCategory)}`);
+  assert.equal(result.gameDatesNotIndoor.length, 0, `Game activities must remain available under the indoor filter: ${JSON.stringify(result.gameDatesNotIndoor)}`);
+  assert.equal(result.gameDatesNotShort.length, 0, `Short game activities must remain selectable for a two-hour date: ${JSON.stringify(result.gameDatesNotShort)}`);
   for (const name of ["Board game night at home","DIY couples board game from paper and markers","Make-your-own trivia board game","DIY memory-matching card game","Homemade mini-bowling game","DIY paper-airplane target game","Indoor scavenger-hunt game for two","DIY cup-stacking challenge game","Cardboard marble-maze game","DIY indoor mini-golf game","Sock-basketball game at home","DIY mystery-envelope challenge game"]) {
     assert.ok(app.includes(JSON.stringify(name)), `Missing indoor games idea: ${name}`);
   }
