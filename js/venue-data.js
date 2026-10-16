@@ -426,6 +426,30 @@ window.DATE_COMPASS_VERIFIED_DATA = {
   ],
   activityUpdates: [
     {
+      n: "McPars indoor pickleball date for two",
+      c: 500,
+      venueName: "McPars Sports Center",
+      sourceUrl: "https://mcpars.com/",
+      sourceLabel: "McPars Sports Center official rates",
+      venueUrl: "https://mcpars.com/",
+      priceStatusLabel: "Official published hourly court rate + buffer",
+      priceBasis: "Highest published indoor court rate: ₱400/hour; 15% buffer = ₱460; rounded up to ₱500.",
+      priceNote: "Official site lists seven indoor pickleball courts: Court 1 at ₱350/hour and Courts 2–7 at ₱400/hour. Budget covers one court for one hour only; confirm court assignment, paddles/balls, availability and any booking conditions. Food and transport are extra.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "McPars billiards date for two",
+      c: 300,
+      venueName: "McPars Sports Center",
+      sourceUrl: "https://mcpars.com/",
+      sourceLabel: "McPars Sports Center official rates",
+      venueUrl: "https://mcpars.com/",
+      priceStatusLabel: "Official published hourly table rate + buffer",
+      priceBasis: "One billiards table for one hour: ₱250; 15% buffer = ₱287.50; rounded up to ₱300.",
+      priceNote: "Official site lists billiards tables at ₱250/hour. Confirm current operating status, table availability and whether equipment is included. Food and transport are extra.",
+      checkedOn: "2026-10-16"
+    },
+    {
       n: "Classic Bowling date",
       c: 500,
       venueName: "SM Bowling — SM CDO Downtown Premier",
@@ -941,6 +965,16 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-15"
     },
 
+    {
+      name: "McPars Sports Center",
+      category: "indoor pickleball and billiards",
+      area: "Cagayan de Oro City, Misamis Oriental; confirm exact court address before travelling",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=McPars+Sports+Center+Cagayan+de+Oro",
+      venueStatus: "Official website lists indoor pickleball courts and billiards tables",
+      priceStatus: "Official hourly court/table rates published; confirm availability and equipment inclusions",
+      sourceUrl: "https://mcpars.com/",
+      checkedOn: "2026-10-16"
+    },
     {
       name: "McDonald's — Cagayan Ororama",
       category: "fast food, burgers and chicken meals",
