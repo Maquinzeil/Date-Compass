@@ -10,9 +10,9 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 
 | Evidence level | Current count | What the count means | What it does not mean |
 |---|---:|---|---|
-| Source-backed food planner budgets | 43 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
+| Source-backed food planner budgets | 45 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
 | Source-backed activity planner budgets | 16 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
-| **Source-backed priced planner records (food + activities)** | **59** | 43 food records + 16 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
+| **Source-backed priced planner records (food + activities)** | **61** | 45 food records + 16 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
 | **Directly confirmed complete-price-and-availability records** | **0** | No record currently has direct venue confirmation of a complete current cost and date-specific availability documented in this audit. | A current menu, published rate, or third-party listing does not confirm a future slot or every extra charge. |
 | Venue directory / research records | 53 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
 
@@ -23,7 +23,7 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 3. **Directory-only / price unverified:** venue research is useful, but there is not enough reliable price evidence to recommend a fixed venue budget. Keep it out of source-backed priced recommendations until evidence is captured.
 4. **Generic activity estimate:** DIY or at-home activities can use planning estimates, but they are not venue-price verification.
 
-Before launch, review the **59 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
+Before launch, review the **61 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
 
 ## Rules for publishing data
 
@@ -354,3 +354,19 @@ Added three branch-specific café plans using the Nazareth branch's current deli
 - **Current tracker totals:** 43 food records + 16 activity records = **59 source-backed planning records**. Directly confirmed complete current price-and-date-specific-availability records remain **0**.
 
 This is a planning estimate batch, not confirmation of menu stock, dine-in pricing, or table availability. Confirm the branch and current prices before visiting.
+
+
+## Venue research batch 19 — Chowking SM CDO Premier branch menu (checked 17 October 2026)
+
+Added two branch-specific fast-food date options using the Chowking SM CDO Premier delivery-menu listing.
+
+| Planner option for two | Published branch menu basis | 15% cushion | Planner budget |
+|---|---:|---:|---:|
+| One-piece Chinese-style fried chicken meals with drinks | 2 × ₱140 = ₱280 | ₱42 | ₱350 |
+| Chinese-style fried chicken lauriat with drinks | 2 × ₱263 = ₱526 | ₱78.90 | ₱650 |
+
+- **Source:** [Foodpanda Chowking SM CDO Premier menu](https://www.foodpanda.ph/restaurant/s9vr/chowking-sm-cdo-premier).
+- **Evidence status:** branch-specific delivery-menu listing, not a guaranteed dine-in price or proof of item stock. Confirm the current menu and inclusions before visiting. Transport and delivery fees are excluded.
+- **Updated tracker total:** 45 food records + 16 activity records = **61 source-backed planning records**. Directly confirmed complete current price-and-date-specific-availability records remain **0**.
+
+The frontend venue-data cache token was also bumped so browsers are less likely to reuse an older cached dataset.

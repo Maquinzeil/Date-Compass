@@ -566,6 +566,32 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceNote: "The Nazareth branch delivery menu lists Cafe Latte from ₱210 and cookies at ₱150 at regular listed prices; the page may show app promotions. Confirm current item availability and dine-in prices. Transport and delivery fees are excluded.",
       checkedOn: "2026-10-17"
     },
+    {
+      n: "Chowking SM CDO Premier: one-piece chicken meals with drinks for two",
+      m: "out", c: 350, p: "c", s: "i",
+      d: "A budget-friendly Chinese fast-food date. Budget uses two one-piece Chinese-style fried chicken meals with drinks and a 15% cushion.",
+      venueName: "Chowking — SM CDO Premier",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s9vr/chowking-sm-cdo-premier",
+      sourceLabel: "Foodpanda Chowking SM CDO Premier branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Chowking+SM+CDO+Premier",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱140 one-piece Chinese-style fried chicken meal with drink = ₱280; 15% buffer = ₱322; rounded up to ₱350.",
+      priceNote: "The branch delivery menu lists the one-piece chicken meal with drink from ₱140 each. This is a delivery-menu reference, not a guaranteed dine-in price; item availability, promotions, and branch pricing may change. Transport and delivery fees are excluded.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Chowking SM CDO Premier: chicken lauriat with drinks for two",
+      m: "out", c: 650, p: "c", s: "i",
+      d: "A more filling Chowking date with chicken lauriat and a drink each, budgeted with a 15% cushion.",
+      venueName: "Chowking — SM CDO Premier",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s9vr/chowking-sm-cdo-premier",
+      sourceLabel: "Foodpanda Chowking SM CDO Premier branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Chowking+SM+CDO+Premier",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱263 Chinese-style fried chicken lauriat with drink = ₱526; 15% buffer = ₱604.90; rounded up to ₱650.",
+      priceNote: "The branch delivery menu lists Chinese-style fried chicken lauriat with drink from ₱263 each. This is a delivery-menu reference, not a guaranteed dine-in price; confirm current price and item availability. Transport and delivery fees are excluded.",
+      checkedOn: "2026-10-17"
+    },
   ],
   activityUpdates: [
     {

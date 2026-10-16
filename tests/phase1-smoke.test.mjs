@@ -28,7 +28,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/venue-data.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/venue-data.js?v=20261017e"'));
+  assert.ok(html.includes('src="js/venue-data.js?v=20261017f"'));
   assert.ok(html.includes('src="js/app.js?v=20261017c"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
@@ -233,7 +233,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
     assert.ok(app.includes(JSON.stringify(name)), `Missing indoor games idea: ${name}`);
   }
   assert.ok(result.activityCount >= 250, `Expected the added indoor games to expand the planner, got ${result.activityCount} activities.`);
-  assert.equal(result.sourceBackedFoodCount, 43, "All 43 source-backed food options should be loaded into the planner.");
+  assert.equal(result.sourceBackedFoodCount, 45, "All 45 source-backed food options should be loaded into the planner.");
   assert.equal(result.raftingBudget, 2800, "Rafting should use the source-backed two-person estimate plus buffer.");
   assert.equal(result.sourcePanelHasLink, true, "Source-backed options must display a source link.");
   assert.equal(result.allSourceDatesRecorded, true, "Source-backed prices must record a check date.");
@@ -439,9 +439,9 @@ test("all source-backed price records keep complete evidence and match planner a
   const foods = verified.foodIdeas.filter(item => item.sourceUrl);
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
-  assert.equal(foods.length, 43, "Expected 43 source-backed food ideas.");
+  assert.equal(foods.length, 45, "Expected 45 source-backed food ideas.");
   assert.equal(activities.length, 16, "Expected sixteen currently usable source-backed activity updates.");
-  assert.equal(records.length, 59, "Every source-backed food and currently usable activity should be included in this evidence audit.");
+  assert.equal(records.length, 61, "Every source-backed food and currently usable activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
