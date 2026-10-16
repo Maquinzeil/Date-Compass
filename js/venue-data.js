@@ -650,7 +650,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceStatusLabel: "Published hourly table rate + buffer",
       priceBasis: "One table for one hour: ₱150; 15% buffer = ₱172.50; rounded up to ₱200.",
       priceNote: "The local listing shows ₱150/hour and a 3-hour ₱300 promotion in posts dated May and June 2026. This estimate uses the standard hourly rate, not a promotion. Confirm the current rate, operating hours, and table availability before visiting. Food and transport are extra.",
-      checkedOn: "2026-10-17"
+      checkedOn: "2026-10-16"
     },
   ],
   venueDirectory: [
