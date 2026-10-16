@@ -27,7 +27,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
   assert.ok(html.includes('src="js/venue-data.js?v=20261016b"'));
-  assert.ok(html.includes('src="js/app.js?v=20261016f"'));
+  assert.ok(html.includes('src="js/app.js?v=20261016g"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
   assert.ok(html.includes('href="css/phone-fix.css?v=20261015e"'));
@@ -325,11 +325,12 @@ test("Dahilayan Forest Park ride budgets use official rates and include separate
   assert.match(venueData, /140kg combined driver\/passenger limit/);
 });
 
-test("McPars indoor pickleball and billiards budgets use official hourly rates and a 15% buffer", () => {
+test("McPars pickleball is listed with a cautious budget while billiards stays gated until bookable", () => {
   assert.match(app, /McPars indoor pickleball date for two/);
-  assert.match(app, /McPars billiards date for two/);
+  assert.doesNotMatch(app, /McPars billiards date for two/);
   assert.ok(venueData.includes('priceBasis: "Highest published indoor court rate: ₱400/hour; 15% buffer = ₱460; rounded up to ₱500."'));
-  assert.ok(venueData.includes('priceBasis: "One billiards table for one hour: ₱250; 15% buffer = ₱287.50; rounded up to ₱300."'));
+  assert.doesNotMatch(venueData, /n: "McPars billiards date for two"/);
+  assert.doesNotMatch(app, /McPars billiards date for two/);
   assert.ok(venueData.includes("https://mcpars.com/"));
   assert.match(venueData, /McPars Sports Center/);
 });
@@ -412,8 +413,8 @@ test("all source-backed price records keep complete evidence and match planner a
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
   assert.equal(foods.length, 32, "Expected 32 source-backed food ideas.");
-  assert.equal(activities.length, 11, "Expected eleven source-backed activity updates.");
-  assert.equal(records.length, 43, "Every source-backed food and activity should be included in this evidence audit.");
+  assert.equal(activities.length, 10, "Expected ten currently usable source-backed activity updates.");
+  assert.equal(records.length, 42, "Every source-backed food and currently usable activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
@@ -479,7 +480,7 @@ test("planner choices sit inside a spaced responsive panel and plan actions are 
   assert.match(css, /@media\(max-width:640px\)[\s\S]*?#app \.planner-filters\s*\{[\s\S]*?grid-template-columns:minmax\(0,1fr\)/);
   assert.match(css, /#app \.bar button\.ghost,[\s\S]*?background:var\(--gold\)!important;[\s\S]*?color:var\(--ink\)!important;[\s\S]*?opacity:1!important/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261016f"'));
+  assert.ok(html.includes('src="js/app.js?v=20261016g"'));
 });
 
 
