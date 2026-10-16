@@ -3,7 +3,7 @@
  * Recheck the source before launch and whenever a price is edited.
  */
 window.DATE_COMPASS_VERIFIED_DATA = {
-  checkedOn: "2026-10-15",
+  checkedOn: "2026-10-16",
   foodIdeas: [
     {
       n: "Burger King SM CDO Downtown: Whopper Jr. Meals",
@@ -381,6 +381,98 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceNote: "The operator lists the lower section at ₱1,200 per person, with transfers, gear, guides and shower fee included, and says it accepts joiners for groups under six. This estimate assumes two joiners can be accommodated. Availability is not live-confirmed; optional meals/photos and other extras cost more.",
       checkedOn: "2026-10-15"
     }
+
+    {
+      n: "Kagay-an Coffee Cartel Nazareth: two Americanos",
+      m: "out", c: 260, p: "c", s: "i",
+      d: "A simple coffee date at the Nazareth café. Budget covers two 240 ml Americanos with a 15% cushion; food and transport are extra.",
+      venueName: "Kagay-an Coffee Cartel — Nazareth",
+      sourceUrl: "https://kagayan-coffee-cartel.catalog.kyte.site/cartel-brew",
+      sourceLabel: "Official Cartel Brew menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Kagay-an+Coffee+Cartel+Fernandez+Pabayo+Cagayan+de+Oro",
+      priceStatusLabel: "Official menu price + buffer",
+      priceBasis: "2 × ₱110 Americano = ₱220; 15% buffer = ₱253; rounded up to ₱260.",
+      priceNote: "The official online menu lists the 240 ml Americano at ₱110. This is a drinks-only estimate; confirm current branch availability and dine-in price. Food and transport are not included.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "Kagay-an Coffee Cartel Nazareth: tuna rice bowls",
+      m: "out", c: 400, p: "c", s: "i",
+      d: "A casual rice-bowl date at the Nazareth café. Budget covers two listed tuna rice bowls with a 15% cushion.",
+      venueName: "Kagay-an Coffee Cartel — Nazareth",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/t9sf/kagay-an-coffee-cartel",
+      sourceLabel: "Foodpanda branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Kagay-an+Coffee+Cartel+Fernandez+Pabayo+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱170 Tuna Rice Bowl = ₱340; 15% buffer = ₱391; rounded up to ₱400.",
+      priceNote: "The branch delivery menu lists Tuna Rice Bowl at ₱170. Delivery-app prices may differ from dine-in; verify included items and availability. Delivery fees and transport are excluded.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "Sunnyside Coffee Nazareth: two Americanos",
+      m: "out", c: 350, p: "c", s: "i",
+      d: "A coffee date at the Nazareth branch. Budget uses the displayed regular/original price for two Americanos plus a 15% cushion, not the temporary app discount.",
+      venueName: "Sunnyside Coffee and Roastery — Nazareth",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/kjon/sunnyside-coffee-and-roastery-nazareth",
+      sourceLabel: "Foodpanda Nazareth branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Sunnyside+Coffee+and+Roastery+11th+30th+Street+Nazareth+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu regular price + buffer",
+      priceBasis: "2 × ₱150 Americano regular price = ₱300; 15% buffer = ₱345; rounded up to ₱350.",
+      priceNote: "The branch menu displays ₱150 as the regular/original Americano price and a temporary app discount. Estimate uses the regular price; delivery and dine-in prices may differ. Drinks only, food and transport excluded.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "D'Working Cafe: two iced Americanos",
+      m: "out", c: 300, p: "c", s: "i",
+      d: "A low-key coffee stop near Xavier University. Budget covers two large iced Americanos with a 15% cushion; food and transport are extra.",
+      venueName: "D'Working Cafe — Corrales-Hayes",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/h6mv/dworking-cafe",
+      sourceLabel: "Foodpanda branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=D%27Working+Cafe+Corrales+Hayes+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱125 large iced Americano = ₱250; 15% buffer = ₱287.50; rounded up to ₱300.",
+      priceNote: "The branch menu lists a large iced Americano from ₱125. Delivery-app prices may differ from dine-in and current availability. Drinks only; food and transport are excluded.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "D'Working Cafe: two shawarma rice meals",
+      m: "out", c: 450, p: "c", s: "i",
+      d: "A simple rice-meal date at D'Working Cafe. Budget covers two listed shawarma rice meals with a 15% cushion.",
+      venueName: "D'Working Cafe — Corrales-Hayes",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/h6mv/dworking-cafe",
+      sourceLabel: "Foodpanda branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=D%27Working+Cafe+Corrales+Hayes+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱174 Shawarma Rice = ₱348; 15% buffer = ₱400.20; rounded up to ₱450.",
+      priceNote: "The branch delivery menu lists Shawarma Rice at ₱174. Delivery-app prices may differ from dine-in; confirm the current listing and portion. Delivery fees and transport are excluded.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "I Am Coffee Shop Nazareth: two Americanos",
+      m: "out", c: 200, p: "c", s: "i",
+      d: "A budget-friendly coffee stop in Nazareth. Budget covers two Americanos with a 15% cushion; food and transport are extra.",
+      venueName: "I Am Coffee Shop — Nazareth",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/orzp/i-am-coffee-shop-nazareth",
+      sourceLabel: "Foodpanda branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=I+Am+Coffee+Shop+6th+7th+Street+Nazareth+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱80 Americano = ₱160; 15% buffer = ₱184; rounded up to ₱200.",
+      priceNote: "The branch delivery menu lists Americano from ₱80. Delivery-app price is not guaranteed to match dine-in; confirm availability and current branch hours. Drinks only; food and transport excluded.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "17th Ave Coffee CDO: Iced Vietnamese buy-one-take-one",
+      m: "out", c: 150, p: "c", s: "i",
+      d: "A coffee date using the listed Iced Vietnamese buy-one-take-one offer. Budget includes a 15% cushion and is conditional on the offer still being available.",
+      venueName: "17th Ave Coffee — Cagayan de Oro",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/bg59/17th-ave-coffee-cagayan-de-oro",
+      sourceLabel: "Foodpanda branch menu and offer",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=17th+Ave+Coffee+Cagayan+de+Oro",
+      priceStatusLabel: "Published delivery-app offer + buffer",
+      priceBasis: "Listed Iced Vietnamese B1T1 from ₱99; 15% buffer = ₱113.85; rounded up to ₱150.",
+      priceNote: "The menu lists an Iced Vietnamese buy-one-take-one offer from ₱99. Confirm current offer terms, serving size, exact branch and availability before visiting. Food and transport are not included.",
+      checkedOn: "2026-10-16"
+    },
   ],
   venueDirectory: [
     {
@@ -796,6 +888,57 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       sourceUrl: "https://www.foodpanda.ph/restaurant/vszj/raki-yata-ramen-house-sm-premier-downtown-cdo",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Raki-Yata+Ramen+SM+Premier+Downtown+Cagayan+de+Oro",
       checkedOn: "2026-10-15"
+    },
+
+    {
+      name: "Kagay-an Coffee Cartel — Nazareth",
+      category: "cafe, coffee and casual meals",
+      area: "Fernandez Street corner Pabayo Street, Barangay Nazareth, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Kagay-an+Coffee+Cartel+Fernandez+Pabayo+Cagayan+de+Oro",
+      venueStatus: "Official online menu and branch-specific delivery menu found",
+      priceStatus: "Official drink prices and delivery-menu food prices captured; dine-in prices may differ",
+      sourceUrl: "https://kagayan-coffee-cartel.catalog.kyte.site/cartel-brew",
+      checkedOn: "2026-10-16"
+    },
+    {
+      name: "Sunnyside Coffee and Roastery — Nazareth",
+      category: "cafe, coffee and brioche sandwiches",
+      area: "11th Street and 30th Street area, Nazareth, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Sunnyside+Coffee+and+Roastery+11th+30th+Street+Nazareth+Cagayan+de+Oro",
+      venueStatus: "Branch-specific delivery menu and address found",
+      priceStatus: "Regular/original delivery-menu prices captured; dine-in prices may differ",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/kjon/sunnyside-coffee-and-roastery-nazareth",
+      checkedOn: "2026-10-16"
+    },
+    {
+      name: "D'Working Cafe — Corrales-Hayes",
+      category: "cafe, coffee, rice meals and snacks",
+      area: "Corrales-Hayes Streets near Xavier University, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=D%27Working+Cafe+Corrales+Hayes+Cagayan+de+Oro",
+      venueStatus: "Branch-specific delivery menu and local address description found",
+      priceStatus: "Menu prices captured from delivery listing; dine-in prices may differ",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/h6mv/dworking-cafe",
+      checkedOn: "2026-10-16"
+    },
+    {
+      name: "I Am Coffee Shop — Nazareth",
+      category: "coffee shop and light snacks",
+      area: "6th–7th Street area, Barangay Nazareth, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=I+Am+Coffee+Shop+6th+7th+Street+Nazareth+Cagayan+de+Oro",
+      venueStatus: "Branch-specific delivery menu and area address found",
+      priceStatus: "Indicative delivery-menu prices captured; dine-in prices and hours need confirmation",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/orzp/i-am-coffee-shop-nazareth",
+      checkedOn: "2026-10-16"
+    },
+    {
+      name: "17th Ave Coffee — Cagayan de Oro",
+      category: "coffee shop and buy-one-take-one drinks",
+      area: "Cagayan de Oro; exact branch address needs cross-check",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=17th+Ave+Coffee+Cagayan+de+Oro",
+      venueStatus: "Branch-specific delivery menu with drink offer found; exact address not yet cross-checked",
+      priceStatus: "Offer-based delivery price only; confirm terms, branch, and availability before use",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/bg59/17th-ave-coffee-cagayan-de-oro",
+      checkedOn: "2026-10-16"
     },
   ]
 };
