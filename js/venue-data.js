@@ -359,16 +359,16 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-16"
     },
     {
-      n: "17th Ave Coffee CDO: Iced Vietnamese buy-one-take-one",
+      n: "17th Ave Coffee Bonbon: Iced Vietnamese buy-one-take-one",
       m: "out", c: 150, p: "c", s: "i",
-      d: "A coffee date using the listed Iced Vietnamese buy-one-take-one offer. Budget includes a 15% cushion and is conditional on the offer still being available.",
-      venueName: "17th Ave Coffee — Cagayan de Oro",
+      d: "A coffee date using the listed Iced Vietnamese buy-one-take-one offer from the Bonbon listing. Budget includes a 15% cushion and is conditional on the offer still being available.",
+      venueName: "17th Ave Coffee — Bonbon, Cagayan de Oro",
       sourceUrl: "https://www.foodpanda.ph/restaurant/bg59/17th-ave-coffee-cagayan-de-oro",
       sourceLabel: "Foodpanda branch menu and offer",
-      venueUrl: "https://www.google.com/maps/search/?api=1&query=17th+Ave+Coffee+Cagayan+de+Oro",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=17th+Ave+Coffee+207+Zone+6+Bonbon+Cagayan+de+Oro",
       priceStatusLabel: "Published delivery-app offer + buffer",
       priceBasis: "Listed Iced Vietnamese B1T1 from ₱99; 15% buffer = ₱113.85; rounded up to ₱150.",
-      priceNote: "The menu lists an Iced Vietnamese buy-one-take-one offer from ₱99. Confirm current offer terms, serving size, exact branch and availability before visiting. Food and transport are not included.",
+      priceNote: "The branch delivery listing identifies 207 Zone 6, Bonbon, Cagayan de Oro and lists Iced Vietnamese buy-one-take-one from ₱99. Confirm the exact map pin, current offer terms, serving size and availability before visiting. Delivery-app prices may differ from dine-in. Food and transport are not included.",
       checkedOn: "2026-10-16"
     },
     {
@@ -435,18 +435,6 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceStatusLabel: "Official published hourly court rate + buffer",
       priceBasis: "Highest published indoor court rate: ₱400/hour; 15% buffer = ₱460; rounded up to ₱500.",
       priceNote: "Official site lists seven indoor pickleball courts: Court 1 at ₱350/hour and Courts 2–7 at ₱400/hour. Budget covers one court for one hour only; confirm court assignment, paddles/balls, availability and any booking conditions. Food and transport are extra.",
-      checkedOn: "2026-10-16"
-    },
-    {
-      n: "McPars billiards date for two",
-      c: 300,
-      venueName: "McPars Sports Center",
-      sourceUrl: "https://mcpars.com/",
-      sourceLabel: "McPars Sports Center official rates",
-      venueUrl: "https://mcpars.com/",
-      priceStatusLabel: "Official published hourly table rate + buffer",
-      priceBasis: "One billiards table for one hour: ₱250; 15% buffer = ₱287.50; rounded up to ₱300.",
-      priceNote: "Official site lists billiards tables at ₱250/hour. Confirm current operating status, table availability and whether equipment is included. Food and transport are extra.",
       checkedOn: "2026-10-16"
     },
     {
