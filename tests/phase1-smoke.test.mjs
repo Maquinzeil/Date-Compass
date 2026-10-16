@@ -28,7 +28,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/venue-data.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/venue-data.js?v=20261016b"'));
+  assert.ok(html.includes('src="js/venue-data.js?v=20261016c"'));
   assert.ok(html.includes('src="js/app.js?v=20261016h"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
@@ -414,9 +414,9 @@ test("all source-backed price records keep complete evidence and match planner a
   const foods = verified.foodIdeas.filter(item => item.sourceUrl);
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
-  assert.equal(foods.length, 32, "Expected 32 source-backed food ideas.");
+  assert.equal(foods.length, 35, "Expected 32 source-backed food ideas.");
   assert.equal(activities.length, 10, "Expected ten currently usable source-backed activity updates.");
-  assert.equal(records.length, 42, "Every source-backed food and currently usable activity should be included in this evidence audit.");
+  assert.equal(records.length, 45, "Every source-backed food and currently usable activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
