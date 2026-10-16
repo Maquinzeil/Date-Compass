@@ -489,3 +489,25 @@ test("contact form submits through Formspree and reports actual success or failu
   const contactBlock = app.slice(app.indexOf("function contact(){"), app.indexOf("function home(){", app.indexOf("function contact(){")));
   assert.doesNotMatch(contactBlock, /location\.href="mailto:"\+CONTACT_EMAIL/);
 });
+
+
+test("Games category includes cooperative, couples trivia, guessing, puzzle, and no-equipment activities", () => {
+  const names = [
+    "Cooperative story-building game for two",
+    "Couples trivia: how well do you know me?",
+    "Guess the memory couples game",
+    "20 Questions mystery guessing game",
+    "No-equipment charades game for couples",
+    "Puzzle battle: make a riddle and solve it",
+    "Word-association speed game",
+    "Cooperative category-chain game",
+    "Co-op puzzle hunt using a free phone puzzle"
+  ];
+  for (const name of names) {
+    assert.ok(app.includes(`{n:"${name}"`), `Missing game activity: ${name}`);
+  }
+  assert.match(app, /No equipment needed; the activity estimate is ₱0/);
+  assert.match(app, /No props or purchases needed; activity estimate ₱0/);
+  assert.match(app, /Co-op puzzle hunt using a free phone puzzle",c:0/);
+  assert.match(app, /const CAT=\{[\s\S]*games:"Games"/);
+});
