@@ -185,7 +185,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
     const settings = ["a", "i", "o"];
     const categories = Object.keys(CH.cat);
     const foodModes = Object.keys(CH.foodMode);
-    let combinations = 0, noActivity = 0, overBudgetFood = 0, wrongCategory = 0, wrongFoodStyle = 0, wrongActivityArea = 0, wrongFoodArea = 0;
+    let combinations = 0, noActivity = 0, overBudgetFood = 0, wrongCategory = 0, wrongFoodStyle = 0, wrongActivityArea = 0, wrongFoodArea = 0, activityPreferenceRelaxations = 0, foodSettingRelaxations = 0;
     for (const budget of budgets) for (const area of areas) for (const car of cars)
       for (const duration of durations) for (const setting of settings)
       for (const category of categories) for (const foodMode of foodModes) {
@@ -194,11 +194,16 @@ test("planner runs every area, transport, category, duration, setting, and food-
         const activities = aPool();
         combinations++;
         if (!activities.length) { noActivity++; continue; }
+        const strictActivities = A.filter(activity => ok(activity, S) && activity.c <= Math.max(S.b - 150, 0));
+        if (strictActivities.length && activities.some(activity => !strictActivities.includes(activity))) activityPreferenceRelaxations++;
         if (area !== "a" && activities.some(activity => activity.p && activity.p !== "a" && activity.p !== area)) wrongActivityArea++;
         if (category !== "a" && activities.some(activity => activity.cat !== category && !(category === "free" && activity.c <= 150))) wrongCategory++;
         S.act = activities[0];
         const foods = fPool();
         if (foods.some(food => food.c > Math.max(S.b - S.act.c, 0))) overBudgetFood++;
+        const foodCap = Math.max(S.b - S.act.c, 0);
+        const strictFoods = F.filter(food => food && foodMatchesMode(food, S.foodMode) && ok(food, { p: S.p, t: "a", s: S.s }) && food.c <= foodCap);
+        if (strictFoods.length && foods.some(food => !strictFoods.includes(food))) foodSettingRelaxations++;
         if (area !== "a" && foods.some(food => food.p && food.p !== "a" && food.p !== area)) wrongFoodArea++;
         if (foodMode !== "a" && foods.some(food => !foodMatchesMode(food, foodMode))) wrongFoodStyle++;
       }
@@ -208,7 +213,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
     const gameDatesNotShort = gameDates.filter(activity => activity.t !== "s").map(activity => ({ name: activity.n, duration: activity.t }));
     const sourceBackedFoods = F.filter(food => food.sourceUrl);
     const rafting = A.find(activity => activity.n === "White water rafting on the Cagayan River");
-    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, wrongActivityArea, wrongFoodArea, gameDatesWrongCategory, gameDatesNotIndoor, gameDatesNotShort, activityCount: A.length, foodCount: F.length, sourceBackedFoodCount: sourceBackedFoods.length, raftingBudget: rafting && rafting.c, sourcePanelHasLink: priceEvidenceHtml(sourceBackedFoods[0]).includes("href="), allSourceDatesRecorded: sourceBackedFoods.every(food => /^202[0-9]-[0-9]{2}-[0-9]{2}$/.test(food.checkedOn || "") && food.checkedOn <= window.DATE_COMPASS_VERIFIED_DATA.checkedOn) };
+    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, wrongActivityArea, wrongFoodArea, activityPreferenceRelaxations, foodSettingRelaxations, gameDatesWrongCategory, gameDatesNotIndoor, gameDatesNotShort, activityCount: A.length, foodCount: F.length, sourceBackedFoodCount: sourceBackedFoods.length, raftingBudget: rafting && rafting.c, sourcePanelHasLink: priceEvidenceHtml(sourceBackedFoods[0]).includes("href="), allSourceDatesRecorded: sourceBackedFoods.every(food => /^202[0-9]-[0-9]{2}-[0-9]{2}$/.test(food.checkedOn || "") && food.checkedOn <= window.DATE_COMPASS_VERIFIED_DATA.checkedOn) };
   })()`, context, { timeout: 30000 });
   assert.ok(result.combinations > 5000, `Expected broad choice coverage, got ${result.combinations}`);
   assert.equal(result.wrongCategory, 0, `Planner ignored the selected activity category: ${JSON.stringify(result)}`);
@@ -216,6 +221,8 @@ test("planner runs every area, transport, category, duration, setting, and food-
   assert.equal(result.wrongFoodStyle, 0, `Planner ignored the selected food style: ${JSON.stringify(result)}`);
   assert.equal(result.wrongActivityArea, 0, `Planner returned an explicitly out-of-area activity: ${JSON.stringify(result)}`);
   assert.equal(result.wrongFoodArea, 0, `Planner returned an explicitly out-of-area food venue: ${JSON.stringify(result)}`);
+  assert.equal(result.activityPreferenceRelaxations, 0, `Planner relaxed activity filters despite strict matches being available: ${JSON.stringify(result)}`);
+  assert.equal(result.foodSettingRelaxations, 0, `Planner relaxed the food setting despite strict matches being available: ${JSON.stringify(result)}`);
   assert.equal(result.gameDatesWrongCategory.length, 0, `Gaming date was categorized incorrectly: ${JSON.stringify(result.gameDatesWrongCategory)}`);
   assert.equal(result.gameDatesNotIndoor.length, 0, `Game activities must remain available under the indoor filter: ${JSON.stringify(result.gameDatesNotIndoor)}`);
   assert.equal(result.gameDatesNotShort.length, 0, `Short game activities must remain selectable for a two-hour date: ${JSON.stringify(result.gameDatesNotShort)}`);
