@@ -1,6 +1,6 @@
 # Date Compass Venue and Activity Data Audit
 
-Last reviewed: 2026-10-15  
+Last reviewed: 2026-10-17  
 Scope: Cagayan de Oro and Misamis Oriental, Philippines  
 Purpose: track the evidence behind recommendations so estimates are not presented as confirmed venue prices or availability.
 
@@ -11,7 +11,7 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 | Evidence level | Current count | What the count means | What it does not mean |
 |---|---:|---|---|
 | Source-backed food planner budgets | 40 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
-| Source-backed activity planner budgets | 15 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
+| Source-backed activity planner budgets | 16 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
 | **Source-backed priced planner records (food + activities)** | **56** | 40 food records + 16 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
 | **Directly confirmed complete-price-and-availability records** | **0** | No record currently has direct venue confirmation of a complete current cost and date-specific availability documented in this audit. | A current menu, published rate, or third-party listing does not confirm a future slot or every extra charge. |
 | Venue directory / research records | 53 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
@@ -23,7 +23,7 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 3. **Directory-only / price unverified:** venue research is useful, but there is not enough reliable price evidence to recommend a fixed venue budget. Keep it out of source-backed priced recommendations until evidence is captured.
 4. **Generic activity estimate:** DIY or at-home activities can use planning estimates, but they are not venue-price verification.
 
-Before launch, review the **55 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
+Before launch, review the **56 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
 
 ## Rules for publishing data
 
@@ -320,3 +320,19 @@ Both estimates cover one court-hour only, not equipment rental, transport, food,
 1. Verify operator-published badminton, billiards, and bowling rates and equipment inclusions; do not treat historical social posts as direct confirmation.
 2. Continue branch-matched café and fast-food research, prioritizing current item-level menu prices and clear budgets for two.
 3. Keep the 15% buffer, explicit exclusions, source date, and evidence-status wording on each new priced planner idea.
+
+
+## Venue research batch 17 — evidence tracker correction and McPars billiards availability caveat (checked 17 October 2026)
+
+The evidence tracker had a stale activity count: the current dataset contains **40 food records + 16 activity records = 56 source-backed planning records**. This is a count correction only; it does not increase the number of fully verified venues. The count of records with directly confirmed complete current price **and** date-specific availability remains **0**.
+
+### Indoor activity lead: McPars billiards
+
+McPars Sports Center's own website lists billiards at **₱250 per table per hour**, which would produce a provisional two-person court/table budget of ₱300 for one hour after a 15% cushion (₱250 × 1.15 = ₱287.50, rounded up). However, the same site marks billiards as **opening soon / reservations not yet open**, and its payment notice says online payment is paused. Therefore, **do not add billiards as an active priced planner recommendation yet**. Keep the venue in the directory, with the operational-status caveat, until the operator confirms the tables are open and bookable.
+
+- **Source:** [McPars Sports Center official website](https://mcpars.com/).
+- **Published rate basis:** ₱250 per table-hour; equipment, current operating status, and booking availability are not confirmed.
+- **Current handling:** directory lead only; no planner budget published while the activity is marked unavailable/not yet open.
+- **Next check:** revisit the operator page or contact McPars before activating the billiards recommendation.
+
+This is an example of why price evidence and availability evidence must be tracked separately: a posted rate does not mean the activity can currently be booked.

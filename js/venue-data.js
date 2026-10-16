@@ -1138,7 +1138,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       area: "Cagayan de Oro City, Misamis Oriental; confirm exact court address before travelling",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=McPars+Sports+Center+Cagayan+de+Oro",
       venueStatus: "Official website lists indoor pickleball courts and billiards tables",
-      priceStatus: "Official hourly court/table rates published; confirm availability and equipment inclusions",
+      priceStatus: "Official rates published, but billiards is marked opening soon and online payment is paused; confirm operational status, booking, and equipment before recommending",
       sourceUrl: "https://mcpars.com/",
       checkedOn: "2026-10-16"
     },
