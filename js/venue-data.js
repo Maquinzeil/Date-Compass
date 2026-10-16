@@ -1211,6 +1211,36 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-16"
     },
     {
+      name: "Pcklpark — Puntod",
+      category: "indoor pickleball courts",
+      area: "106 Julio Pacana Street, Puntod, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Pcklpark+106+Julio+Pacana+Street+Puntod+Cagayan+de+Oro",
+      venueStatus: "Indoor court venue listed with address and published rates on a third-party court directory",
+      priceStatus: "Directory lists ₱350/hour for a full-size court and ₱100 paddle rental; not yet directly confirmed with venue. Keep directory-only until source and equipment terms are confirmed.",
+      sourceUrl: "https://pickleboard.co/ph/courts/northern-mindanao/cagayan-de-oro/pcklpark",
+      checkedOn: "2026-10-17"
+    },
+    {
+      name: "Dink Xcape Pickle Hub — Camaman-an",
+      category: "indoor pickleball courts",
+      area: "Bontong, Camaman-an, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Dink+Xcape+Pickle+Hub+Bontong+Camaman-an+Cagayan+de+Oro",
+      venueStatus: "Indoor pickleball venue identified in recent local reporting and a court-booking directory",
+      priceStatus: "Third-party listings show rates around ₱350–₱360/hour; rates conflict, so no planner budget until confirmed against the venue's current booking page.",
+      sourceUrl: "https://www.dinkbook.app/",
+      checkedOn: "2026-10-17"
+    },
+    {
+      name: "Timezone Centrio — indoor arcade",
+      category: "indoor arcade and games",
+      area: "3rd Floor, Centrio Mall, Claro M. Recto Avenue corner Corrales Avenue, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Timezone+Centrio+Mall+Cagayan+de+Oro",
+      venueStatus: "Official branch page confirms location and posted operating hours",
+      priceStatus: "Current game-credit and attraction prices not published on the branch page reviewed; keep directory-only until current spend options are verified.",
+      sourceUrl: "https://www.timezonegames.com/en-ph/locations/mindanao/timezone-centrio/",
+      checkedOn: "2026-10-17"
+    },
+    {
       name: "17th Ave Coffee — Cagayan de Oro",
       category: "coffee shop and buy-one-take-one drinks",
       area: "Cagayan de Oro; exact branch address needs cross-check",
