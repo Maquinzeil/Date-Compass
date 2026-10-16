@@ -26,7 +26,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/venue-data.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/venue-data.js?v=20261016a"'));
+  assert.ok(html.includes('src="js/venue-data.js?v=20261016b"'));
   assert.ok(html.includes('src="js/app.js?v=20261016f"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
@@ -556,4 +556,12 @@ test("every venue-directory record has a Maps search link and explicit research 
     assert.ok(item.priceStatus, `Missing price verification status for ${item.name}`);
     assert.match(item.checkedOn || "", /^202[0-9]-[0-9]{2}-[0-9]{2}$/, `Missing ISO-style research date for ${item.name}`);
   }
+});
+
+test("venue-quality gates keep not-yet-bookable activities out and identify the Bonbon coffee branch", () => {
+  assert.ok(venueData.includes('n: "17th Ave Coffee Bonbon: Iced Vietnamese buy-one-take-one"'));
+  assert.ok(venueData.includes('207+Zone+6+Bonbon+Cagayan+de+Oro'));
+  assert.doesNotMatch(venueData, /n: "McPars billiards date for two"/);
+  assert.match(venueData, /McPars indoor pickleball date for two/);
+  assert.match(venueData, /confirm the exact map pin, current offer terms/);
 });
