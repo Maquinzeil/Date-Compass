@@ -12,7 +12,7 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 |---|---:|---|---|
 | Source-backed food planner budgets | 40 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
 | Source-backed activity planner budgets | 15 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
-| **Source-backed priced planner records (food + activities)** | **55** | 40 food records + 15 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
+| **Source-backed priced planner records (food + activities)** | **56** | 40 food records + 16 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
 | **Directly confirmed complete-price-and-availability records** | **0** | No record currently has direct venue confirmation of a complete current cost and date-specific availability documented in this audit. | A current menu, published rate, or third-party listing does not confirm a future slot or every extra charge. |
 | Venue directory / research records | 53 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
 
@@ -302,3 +302,21 @@ This pass adds three indoor activity leads to `venueDirectory`. They are **direc
 2. Calculate budgets for two only when the unit and inclusions are clear; add the existing 15% planning cushion and state exclusions.
 3. Keep conflicting third-party rates and venues without current prices in the directory, not in the priced recommendation count.
 4. After this pass, return to cafés and fast food for additional branch-specific options and two-person budgets.
+
+
+## Venue research batch 16 — reconcile pickleball rates and add operator-priced court option (checked 17 October 2026)
+
+This pass reconciles conflicting Pickle World Limketkai rates instead of silently treating one listing as definitive, and adds a separate Fliqshot court-hour planning estimate from the operator's own booking page.
+
+| Planner option | Evidence and calculation | Budget | Handling |
+|---|---|---:|---|
+| Pickle World Limketkai — one court-hour | Dinky lists ₱400/hour, Pickleheads lists about ₱415/hour, and PickleHub lists ₱500/hour. Using the highest listed rate: ₱500 + 15% (₱75) = ₱575. | ₱600 | Conservative allowance only; listings conflict. Confirm actual current rate, equipment terms, and availability directly. [Dinky](https://www.dinky.ph/courts/pickle-world-limketkai) · [PickleHub](https://picklehub.ph/pickle-world-limketkai?tab=home) · [Pickleheads](https://www.pickleheads.com/courts/ph/northern-mindanao/cagayan-de-oro-city/pickle-world-limketkai) |
+| Fliqshot Pickleball Courts — one court-hour | Operator booking page lists courts from ₱350/hour. ₱350 + 15% (₱52.50) = ₱402.50. | ₱450 | Source-backed planning estimate; confirm the selected court type, equipment rental, booking slot, and current price. [Official booking page](https://fliqshot.ph/) |
+
+Both estimates cover one court-hour only, not equipment rental, transport, food, or extra time. The Fliqshot page identifies three courts and a booking flow; it does not justify claiming a particular slot is available. The conservative Pickle World estimate deliberately uses the highest current third-party rate found because the sources disagree.
+
+### Next research priorities
+
+1. Verify operator-published badminton, billiards, and bowling rates and equipment inclusions; do not treat historical social posts as direct confirmation.
+2. Continue branch-matched café and fast-food research, prioritizing current item-level menu prices and clear budgets for two.
+3. Keep the 15% buffer, explicit exclusions, source date, and evidence-status wording on each new priced planner idea.
