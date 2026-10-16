@@ -206,7 +206,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
     const gameDatesNotShort = gameDates.filter(activity => activity.t !== "s").map(activity => ({ name: activity.n, duration: activity.t }));
     const sourceBackedFoods = F.filter(food => food.sourceUrl);
     const rafting = A.find(activity => activity.n === "White water rafting on the Cagayan River");
-    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, gameDatesWrongCategory, activityCount: A.length, foodCount: F.length, sourceBackedFoodCount: sourceBackedFoods.length, raftingBudget: rafting && rafting.c, sourcePanelHasLink: priceEvidenceHtml(sourceBackedFoods[0]).includes("href="), allSourceDatesRecorded: sourceBackedFoods.every(food => food.checkedOn === "2026-10-15") };
+    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, gameDatesWrongCategory, gameDatesNotIndoor, gameDatesNotShort, activityCount: A.length, foodCount: F.length, sourceBackedFoodCount: sourceBackedFoods.length, raftingBudget: rafting && rafting.c, sourcePanelHasLink: priceEvidenceHtml(sourceBackedFoods[0]).includes("href="), allSourceDatesRecorded: sourceBackedFoods.every(food => food.checkedOn === "2026-10-15") };
   })()`, context, { timeout: 30000 });
   assert.ok(result.combinations > 5000, `Expected broad choice coverage, got ${result.combinations}`);
   assert.equal(result.wrongCategory, 0, `Planner ignored the selected activity category: ${JSON.stringify(result)}`);
