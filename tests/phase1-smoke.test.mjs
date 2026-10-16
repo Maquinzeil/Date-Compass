@@ -14,11 +14,13 @@ const [app, html, css, responsiveCss, venueData] = await Promise.all([
   readFile(resolve(root, "js/venue-data.js"), "utf8"),
 ]);
 
-test("a page refresh starts at the top without disabling normal back/forward restoration", () => {
+test("a page refresh disables browser scroll restoration and returns to the top", () => {
   assert.ok(html.includes('const isPageRefresh = navigationEntry?.type === "reload";'));
   assert.ok(html.includes('if (isPageRefresh && "scrollRestoration" in history) history.scrollRestoration = "manual";'));
-  assert.ok(html.includes('if (isPageRefresh) window.scrollTo(0, 0);'));
-  assert.ok(html.includes('if ("scrollRestoration" in history) history.scrollRestoration = "auto";'));
+  assert.ok(html.includes('if (!isPageRefresh) return;'));
+  assert.ok(html.includes('window.scrollTo(0, 0);'));
+  assert.ok(html.includes('requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, 0)))'));
+  assert.ok(!html.includes('history.scrollRestoration = "auto";'));
 });
 
 test("frontend JavaScript and linked assets exist", async () => {
