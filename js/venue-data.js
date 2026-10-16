@@ -462,6 +462,45 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceNote: "The branch delivery menu lists Cafe Latte at ₱188. Delivery-app prices may differ from dine-in and availability can change. Drinks only; food, transport and delivery fees are excluded.",
       checkedOn: "2026-10-16"
     },
+    {
+      n: "Mang Inasal Gaisano CDO: Pecho Large meals for two",
+      m: "out", c: 500, p: "c", s: "i",
+      d: "A grilled chicken date with the larger pecho meal at the Gaisano CDO branch, plus a 15% cushion.",
+      venueName: "Mang Inasal — Gaisano CDO",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/e3ek/mang-inasal-gaisano-cdo",
+      sourceLabel: "Foodpanda Gaisano CDO branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Mang+Inasal+Gaisano+CDO+Recto+Avenue",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱201 Pecho Large - PM2 = ₱402; 15% buffer = ₱462.30; rounded up to ₱500.",
+      priceNote: "The branch listing shows Pecho Large - PM2 with one rice at ₱201. Delivery-menu prices may differ from dine-in and availability can change. Drinks, transport and delivery fees are not included.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "Chowking Divisoria: Siomai Chao Fan for two",
+      m: "out", c: 300, p: "c", s: "i",
+      d: "A lower-cost rice meal date using the Divisoria branch menu and a 15% cushion.",
+      venueName: "Chowking — Divisoria",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s9rf/chowking-divisoria",
+      sourceLabel: "Foodpanda Chowking Divisoria branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Chowking+Divisoria+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱116 Siomai Chao Fan = ₱232; 15% buffer = ₱266.80; rounded up to ₱300.",
+      priceNote: "The branch listing shows Siomai Chao Fan at ₱116. Drinks are not included in the listed item. Delivery-menu prices may differ from dine-in; confirm current price and availability. Transport and delivery fees are excluded.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "KFC Bulua CDO: Chicken Burger Combos for two",
+      m: "out", c: 400, p: "c", s: "i",
+      d: "A burger-combo alternative at the Bulua branch, budgeted for two with a 15% cushion.",
+      venueName: "KFC — Bulua CDO",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/tk5k/kfc-bulua-cdo",
+      sourceLabel: "Foodpanda KFC Bulua branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=KFC+Bulua+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱165 Chicken Burger Combo = ₱330; 15% buffer = ₱379.50; rounded up to ₱400.",
+      priceNote: "The branch listing shows Chicken Burger Combo from ₱165. Delivery-menu prices may differ from dine-in and availability can change. Confirm combo inclusions at the branch; transport and delivery fees are excluded.",
+      checkedOn: "2026-10-16"
+    },
   ],
   activityUpdates: [
     {
