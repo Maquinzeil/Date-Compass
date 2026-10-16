@@ -415,8 +415,8 @@ test("all source-backed price records keep complete evidence and match planner a
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
   assert.equal(foods.length, 38, "Expected 38 source-backed food ideas.");
-  assert.equal(activities.length, 10, "Expected ten currently usable source-backed activity updates.");
-  assert.equal(records.length, 48, "Every source-backed food and currently usable activity should be included in this evidence audit.");
+  assert.equal(activities.length, 12, "Expected twelve currently usable source-backed activity updates.");
+  assert.equal(records.length, 50, "Every source-backed food and currently usable activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
