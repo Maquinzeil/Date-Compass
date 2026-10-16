@@ -527,6 +527,45 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceNote: "The branch listing shows Chicken Burger Combo from ₱165. Delivery-menu prices may differ from dine-in and availability can change. Confirm combo inclusions at the branch; transport and delivery fees are excluded.",
       checkedOn: "2026-10-16"
     },
+    {
+      n: "Sunnyside Coffee and Roastery Nazareth: two Americanos",
+      m: "out", c: 350, p: "c", s: "i",
+      d: "A simple coffee date at Sunnyside's Nazareth branch. Budget uses two Americanos at the regular listed menu price and adds a 15% cushion.",
+      venueName: "Sunnyside Coffee and Roastery — Nazareth",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/kjon/sunnyside-coffee-and-roastery-nazareth",
+      sourceLabel: "Foodpanda Sunnyside Nazareth branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Sunnyside+Coffee+and+Roastery+Nazareth+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱150 Americano = ₱300; 15% buffer = ₱345; rounded up to ₱350.",
+      priceNote: "The Nazareth branch delivery menu lists Americano from ₱150 at its regular listed price; the page may show app promotions. Dine-in prices and availability may differ. Food, delivery fees, and transport are excluded.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Sunnyside Coffee and Roastery Nazareth: Americanos and a grilled three-cheese sandwich",
+      m: "out", c: 800, p: "c", s: "i",
+      d: "Share one grilled three-cheese sandwich over two Americanos. The budget uses regular listed menu prices and a 15% cushion.",
+      venueName: "Sunnyside Coffee and Roastery — Nazareth",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/kjon/sunnyside-coffee-and-roastery-nazareth",
+      sourceLabel: "Foodpanda Sunnyside Nazareth branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Sunnyside+Coffee+and+Roastery+Nazareth+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱150 Americano + 1 × ₱355 grilled three-cheese sandwich = ₱655; 15% buffer = ₱753.25; rounded up to ₱800.",
+      priceNote: "The branch delivery menu lists Americano at ₱150 and Grilled Three-cheese at ₱355 at regular listed prices; app promotions may appear. This option assumes one sandwich is shared. Dine-in prices may differ; transport and delivery fees are excluded.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Sunnyside Coffee and Roastery Nazareth: cafe lattes and cookies",
+      m: "out", c: 850, p: "c", s: "i",
+      d: "A sweet coffee date with one cafe latte and one cookie each, plus a 15% cushion.",
+      venueName: "Sunnyside Coffee and Roastery — Nazareth",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/kjon/sunnyside-coffee-and-roastery-nazareth",
+      sourceLabel: "Foodpanda Sunnyside Nazareth branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Sunnyside+Coffee+and+Roastery+Nazareth+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱210 Cafe Latte + 2 × ₱150 cookies = ₱720; 15% buffer = ₱828; rounded up to ₱850.",
+      priceNote: "The Nazareth branch delivery menu lists Cafe Latte from ₱210 and cookies at ₱150 at regular listed prices; the page may show app promotions. Confirm current item availability and dine-in prices. Transport and delivery fees are excluded.",
+      checkedOn: "2026-10-17"
+    },
   ],
   activityUpdates: [
     {
@@ -1140,7 +1179,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       venueStatus: "Official website lists indoor pickleball courts and billiards tables",
       priceStatus: "Official rates published, but billiards is marked opening soon and online payment is paused; confirm operational status, booking, and equipment before recommending",
       sourceUrl: "https://mcpars.com/",
-      checkedOn: "2026-10-16"
+      checkedOn: "2026-10-17"
     },
     {
       name: "McDonald's — Cagayan Ororama",

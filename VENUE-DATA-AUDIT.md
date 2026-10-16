@@ -10,9 +10,9 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 
 | Evidence level | Current count | What the count means | What it does not mean |
 |---|---:|---|---|
-| Source-backed food planner budgets | 40 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
+| Source-backed food planner budgets | 43 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
 | Source-backed activity planner budgets | 16 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
-| **Source-backed priced planner records (food + activities)** | **56** | 40 food records + 16 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
+| **Source-backed priced planner records (food + activities)** | **59** | 43 food records + 16 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
 | **Directly confirmed complete-price-and-availability records** | **0** | No record currently has direct venue confirmation of a complete current cost and date-specific availability documented in this audit. | A current menu, published rate, or third-party listing does not confirm a future slot or every extra charge. |
 | Venue directory / research records | 53 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
 
@@ -23,7 +23,7 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 3. **Directory-only / price unverified:** venue research is useful, but there is not enough reliable price evidence to recommend a fixed venue budget. Keep it out of source-backed priced recommendations until evidence is captured.
 4. **Generic activity estimate:** DIY or at-home activities can use planning estimates, but they are not venue-price verification.
 
-Before launch, review the **56 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
+Before launch, review the **59 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
 
 ## Rules for publishing data
 
@@ -336,3 +336,21 @@ McPars Sports Center's own website lists billiards at **₱250 per table per hou
 - **Next check:** revisit the operator page or contact McPars before activating the billiards recommendation.
 
 This is an example of why price evidence and availability evidence must be tracked separately: a posted rate does not mean the activity can currently be booked.
+
+
+## Venue research batch 18 — Sunnyside Coffee and Roastery, Nazareth branch (checked 17 October 2026)
+
+Added three branch-specific café plans using the Nazareth branch's current delivery-menu listing. To avoid relying on temporary discounts, calculations use the regular prices shown on the listing and apply the standard 15% planning cushion.
+
+| Planner option for two | Listed menu basis | Calculation | Budget |
+|---|---|---|---:|
+| Two Americanos | 2 × ₱150 | ₱300 + 15% = ₱345 | ₱350 |
+| Two Americanos + one grilled three-cheese sandwich to share | 2 × ₱150 + ₱355 | ₱655 + 15% = ₱753.25 | ₱800 |
+| Two Cafe Lattes + two cookies | 2 × ₱210 + 2 × ₱150 | ₱720 + 15% = ₱828 | ₱850 |
+
+- **Branch:** Sunnyside Coffee and Roastery — Nazareth, 11 30th Street, Cagayan de Oro.
+- **Source:** [Foodpanda Nazareth branch menu](https://www.foodpanda.ph/restaurant/kjon/sunnyside-coffee-and-roastery-nazareth).
+- **Evidence status:** branch-specific delivery-menu prices, not guaranteed dine-in prices. The listing may show app promotions; these estimates use the regular listed prices. Transport, delivery fees, and any dine-in price difference are excluded.
+- **Current tracker totals:** 43 food records + 16 activity records = **59 source-backed planning records**. Directly confirmed complete current price-and-date-specific-availability records remain **0**.
+
+This is a planning estimate batch, not confirmation of menu stock, dine-in pricing, or table availability. Confirm the branch and current prices before visiting.
