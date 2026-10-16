@@ -12,7 +12,8 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 |---|---:|---|---|
 | Source-backed food planner budgets | 40 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
 | Source-backed activity planner budgets | 15 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
-| **Source-backed priced planner records (food + activities)** | **55** | 40 food records + 15 activity records. | Do not label all 53 “fully verified.” They are evidence-backed estimates with differing source strength and caveats. |
+| **Source-backed priced planner records (food + activities)** | **55** | 40 food records + 15 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
+| **Directly confirmed complete-price-and-availability records** | **0** | No record currently has direct venue confirmation of a complete current cost and date-specific availability documented in this audit. | A current menu, published rate, or third-party listing does not confirm a future slot or every extra charge. |
 | Venue directory / research records | 50 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
 
 ### Status labels to use consistently
