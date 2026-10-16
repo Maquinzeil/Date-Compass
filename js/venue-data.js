@@ -614,6 +614,30 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceNote: "The operator lists the lower section at ₱1,200 per person, with transfers, gear, guides and shower fee included, and says it accepts joiners for groups under six. This estimate assumes two joiners can be accommodated. Availability is not live-confirmed; optional meals/photos and other extras cost more.",
       checkedOn: "2026-10-15"
     },
+    {
+      n: "QSports Club indoor pickleball date for two",
+      c: 650,
+      venueName: "QSports Club — Upper Canitoan",
+      sourceUrl: "https://www.qsportscdo.com/",
+      sourceLabel: "QSports Club official court booking and rates page",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=QSports+Club+Upper+Canitoan+Cagayan+de+Oro",
+      priceStatusLabel: "Official published court and paddle-rental rates + buffer",
+      priceBasis: "₱300 court for one hour + ₱250 pair paddle rental = ₱550; 15% buffer = ₱632.50; rounded up to ₱650.",
+      priceNote: "QSports Club lists indoor pickleball at ₱300/hour and a pair of paddles for ₱250 for the whole day; balls are included free with the rental. Estimate covers one court-hour and one pair rental for two. Confirm rental terms, court availability, and current rates. Transport and food are extra.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "Pickle World Limketkai indoor pickleball date for two",
+      c: 600,
+      venueName: "Pickle World Limketkai",
+      sourceUrl: "https://picklehub.ph/pickle-world-limketkai?tab=home",
+      sourceLabel: "PickleHub venue listing and booking rates",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Pickle+World+Limketkai+Center+Cagayan+de+Oro",
+      priceStatusLabel: "Published hourly court rate + buffer",
+      priceBasis: "One indoor court for one hour: ₱500; 15% buffer = ₱575; rounded up to ₱600.",
+      priceNote: "PickleHub lists indoor courts at ₱500/hour and operating hours of 6 AM–1 AM daily. Budget covers one court-hour only; paddle/ball rental, transport, and food are excluded. Confirm live slot availability, equipment terms, and current rates before going.",
+      checkedOn: "2026-10-16"
+    },
   ],
   venueDirectory: [
     {
