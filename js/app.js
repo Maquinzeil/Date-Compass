@@ -1234,7 +1234,7 @@ function plan(){
  return `<h2 style="margin-top:22px">Your date</h2>`+slot("Activity","act",ap,S.act)+slot("Food","food",fPool(),S.food)
  +(S.act||S.food?`<div class="total"><b>Budget breakdown for two</b><p>Activity: ${peso(S.act?S.act.c:0)}</p><p>Food: ${peso(S.food?S.food.c:0)}</p><p><b>Estimated plan total: ${peso(t)}</b></p><p>Budget: ${peso(S.b)} · ${t<=S.b?"Remaining: "+peso(remaining):"Over by: "+peso(t-S.b)}</p>${over}</div>`:"")
  +`<p class="note">Budgets are planning estimates for two, not live quotes. Options with a source panel link to a published menu or operator rate and include a conservative buffer; other ideas remain unverified samples. Prices, hours, availability, transport, and safety can change, so confirm details before going.</p>`
- +`<p class="brandline">♥ Date Compass${SITE?" "+SITE:""}</p><div class="bar">`+(S.view=="random"?`<button class="ghost" onclick="gen()">New plan</button>`:"")+`<button class="ghost" onclick="startKit()">Get the Date Compass Kit</button><button class="ghost" id="cp" onclick="copyPlan()">Copy</button></div>`;
+ +`<p class="brandline">♥ Date Compass${SITE?" "+SITE:""}</p><div class="bar">`+(S.view=="random"?`<button class="ghost" onclick="gen()">New plan</button>`:"")+`<button class="ghost" onclick="startKit()">Get the Date Compass Kit</button></div>`;
 }
 function about(){
  return '<a class="back" href="#home">← Back to the good stuff</a><section class="about-wrap"><div class="about-hero"><span class="about-eyebrow">A LITTLE MORE ABOUT US ♥</span><h1>Because “what should we do?” deserves a better answer.</h1><p class="about-lead">Date Compass turns date-night indecision into a plan you can actually look forward to.</p><div class="about-heartline" aria-hidden="true">♡　♥　♡</div></div><div class="about-content"><section class="about-card"><span class="about-number">01 / THE IDEA</span><h2>Less scrolling. More sparks.</h2><p>We help couples find date ideas that fit their budget, vibe, and transport, with Cagayan de Oro and Misamis Oriental in mind. Whether you’re planning something sweet, playful, relaxed, or totally spontaneous, you can start with a few choices and let Date Compass help with the rest.</p></section><section class="about-card about-card-blush"><span class="about-number">02 / YOUR DATE, YOUR WAY</span><h2>Plan it or leave it to chance.</h2><p>Use <b>Build Me a Date</b> to shape a plan around your preferences, or tap <b>Surprise Me</b> for a fresh combination. Save the idea for your date, then make it your own. The best plans leave room for little unexpected moments, too.</p></section><section class="about-card about-card-gold"><span class="about-number">03 / A LITTLE SOMETHING EXTRA</span><h2>Make it a keepsake.</h2><p>Want to bring the plan off the screen? The optional physical kit is designed to add a tangible touch to your date, including <b>10 randomly selected date questions</b> to spark fun conversations. The questions are part of the physical kit, not the digital plan.</p></section><section class="about-note"><h3>A quick note before you go</h3><p>Date Compass is still growing. Suggestions and costs are estimates, not verified venue listings. Please check current prices, opening hours, availability, transport, and safety before heading out. Online ordering, payment, and automatic email delivery are not connected yet, so an order is not placed just by clicking the website.</p></section><figure class="about-quote"><span class="quote-mark" aria-hidden="true">“</span><blockquote>The best dates aren’t about where you go, but how you make each other feel.</blockquote><figcaption>— A little reminder from Date Compass ♥</figcaption></figure></div></section>';
@@ -1424,15 +1424,6 @@ function shuffle(k){
 }
 function startQ(){S.from=S.view;if(typeof Q==="undefined"||!Array.isArray(Q)||!Q.length){S.view="cards";render();return}S.q=[...Q].sort(()=>Math.random()-.5).slice(0,10);S.qi=0;go("q")}
 function qn(d){S.qi=Math.max(0,S.qi+d);render();scrollTo(0,0)}
-async function copyPlan(){
- const t=`Date plan for us
-Activity: ${S.act?S.act.n:"to be decided"}
-Food: ${S.food?S.food.n:"to be decided"}
-Estimated total: ${peso(total())}
-Planned with Date Compass${SITE?" "+SITE:""}`;
- const b=document.getElementById("cp");
- try{await navigator.clipboard.writeText(t);b.textContent="Copied"}catch(e){b.textContent="Could not copy, try a screenshot"}
-}
 const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
 let IO=null;
 function reveal(){
