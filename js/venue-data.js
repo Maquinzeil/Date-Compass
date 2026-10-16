@@ -638,6 +638,20 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceNote: "PickleHub lists indoor courts at ₱500/hour and operating hours of 6 AM–1 AM daily. Budget covers one court-hour only; paddle/ball rental, transport, and food are excluded. Confirm live slot availability, equipment terms, and current rates before going.",
       checkedOn: "2026-10-16"
     },
+
+
+    {
+      n: "TBC Billiards downtown: one-hour pool date for two",
+      c: 200,
+      venueName: "TBC Billiards — Corrales Extension",
+      sourceUrl: "https://www.findglocal.com/PH/Cagayan-de-Oro/516935814844454/TBC-Billiards",
+      sourceLabel: "TBC Billiards local listing with posted rates (May/June 2026)",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=TBC+Billiards+Ozzy+Building+Corrales+Extension+Cagayan+de+Oro",
+      priceStatusLabel: "Published hourly table rate + buffer",
+      priceBasis: "One table for one hour: ₱150; 15% buffer = ₱172.50; rounded up to ₱200.",
+      priceNote: "The local listing shows ₱150/hour and a 3-hour ₱300 promotion in posts dated May and June 2026. This estimate uses the standard hourly rate, not a promotion. Confirm the current rate, operating hours, and table availability before visiting. Food and transport are extra.",
+      checkedOn: "2026-10-17"
+    },
   ],
   venueDirectory: [
     {
