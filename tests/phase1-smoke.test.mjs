@@ -327,6 +327,15 @@ test("Dahilayan Forest Park ride budgets use official rates and include separate
   assert.match(venueData, /140kg combined driver\/passenger limit/);
 });
 
+
+test("SM Bowling has a source-backed one-game budget and current-promo caveat", () => {
+  assert.match(app, /SM Bowling Downtown: one-game bowling date for two/);
+  assert.ok(venueData.includes("https://stardeals.ph/deals/sm-bowling"));
+  assert.ok(venueData.includes("https://www.klook.com/en-PH/activity/232246-bowling-at-sm-cdo/"));
+  assert.ok(venueData.includes("Two games at ₱160 each + two shoe rentals at ₱50 each = ₱420; 15% buffer = ₱483; rounded up to ₱500."));
+  assert.match(venueData, /Confirm current rates, promo eligibility, and shoe rental before visiting/);
+});
+
 test("TBC Billiards has a source-backed one-hour budget and current-rate caveat", () => {
   assert.match(app, /TBC Billiards downtown: one-hour pool date for two/);
   assert.ok(venueData.includes("https://www.findglocal.com/PH/Cagayan-de-Oro/516935814844454/TBC-Billiards"));
@@ -422,8 +431,8 @@ test("all source-backed price records keep complete evidence and match planner a
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
   assert.equal(foods.length, 38, "Expected 38 source-backed food ideas.");
-  assert.equal(activities.length, 13, "Expected thirteen currently usable source-backed activity updates.");
-  assert.equal(records.length, 51, "Every source-backed food and currently usable activity should be included in this evidence audit.");
+  assert.equal(activities.length, 14, "Expected fourteen currently usable source-backed activity updates.");
+  assert.equal(records.length, 52, "Every source-backed food and currently usable activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
