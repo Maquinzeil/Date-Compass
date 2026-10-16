@@ -14,7 +14,7 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 | Source-backed activity planner budgets | 15 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
 | **Source-backed priced planner records (food + activities)** | **55** | 40 food records + 15 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
 | **Directly confirmed complete-price-and-availability records** | **0** | No record currently has direct venue confirmation of a complete current cost and date-specific availability documented in this audit. | A current menu, published rate, or third-party listing does not confirm a future slot or every extra charge. |
-| Venue directory / research records | 50 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
+| Venue directory / research records | 53 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
 
 ### Status labels to use consistently
 
@@ -284,3 +284,21 @@ Added two separate, branch-matched food ideas instead of mixing prices from diff
 Sources: [Cartel Brew online menu](https://kagayan-coffee-cartel.catalog.kyte.site/cartel-brew) and [Foodpanda Kagay-an Coffee Cartel — Nazareth menu](https://www.foodpanda.ph/restaurant/t9sf/kagay-an-coffee-cartel).
 
 These are menu-backed planning estimates, not guaranteed dine-in totals. Drinks are not included in the tuna-rice-bowl option; food is not included in the Americano-only option. Transport, delivery fees, and any service charges are excluded. Confirm the exact branch, current prices, and item availability before visiting.
+
+
+## Venue research batch 15 — indoor activity leads and price confidence (checked 17 October 2026)
+
+This pass adds three indoor activity leads to `venueDirectory`. They are **directory-only**, not newly priced planner recommendations, because the price evidence is not yet strong enough for a reliable two-person budget.
+
+| Venue | Evidence found | Current handling |
+|---|---|---|
+| Pcklpark — Puntod | Third-party court directory lists indoor full-size courts at ₱350/hour and paddle rental at ₱100. | Do not promote as a verified planner budget until the venue confirms the current rate and whether rental is per paddle, pair, or court. [Listing](https://pickleboard.co/ph/courts/northern-mindanao/cagayan-de-oro/pcklpark) |
+| Dink Xcape Pickle Hub — Camaman-an | Local reporting and a booking directory identify the indoor venue; third-party prices differ (about ₱350–₱360/hour). | Price conflict remains unresolved. Check the venue's own current booking page or contact before adding a budget. [Booking directory](https://www.dinkbook.app/) · [Local opening report](https://metrocdodev.com/2026/06/07/random-shots-first-look-inside-dink-xcape-picklehub-opens-tomorrow-june-8/) |
+| Timezone Centrio — Centrio Mall | Official branch page confirms the 3rd-floor location and operating hours of 10 AM–9 PM daily. | Current game-credit and attraction prices are not on the reviewed branch page; keep directory-only. [Official branch page](https://www.timezonegames.com/en-ph/locations/mindanao/timezone-centrio/) |
+
+### Indoor activity research priority
+
+1. Get branch-specific, current prices from official booking pages or operators for bowling, badminton, pickleball, billiards, and arcade credits.
+2. Calculate budgets for two only when the unit and inclusions are clear; add the existing 15% planning cushion and state exclusions.
+3. Keep conflicting third-party rates and venues without current prices in the directory, not in the priced recommendation count.
+4. After this pass, return to cafés and fast food for additional branch-specific options and two-person budgets.
