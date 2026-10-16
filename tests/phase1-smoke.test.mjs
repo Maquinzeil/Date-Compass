@@ -568,3 +568,71 @@ test("venue-quality gates keep not-yet-bookable activities out and identify the 
   assert.match(venueData, /McPars indoor pickleball date for two/);
   assert.match(venueData, /confirm the exact map pin, current offer terms/i);
 });
+
+
+test("new source-backed CDO cafe ideas remain selectable under Cafe & dessert and Eat out filters", () => {
+  const elements = {
+    app: { className: "", innerHTML: "", offsetWidth: 0, classList: { add() {}, remove() {} } },
+    yr: { textContent: "" },
+  };
+  const document = {
+    getElementById(id) { return elements[id] || (elements[id] = { textContent: "", innerHTML: "", classList: { add() {}, remove() {} }, style: { setProperty() {} } }); },
+    querySelectorAll() { return []; },
+    addEventListener() {},
+    createElement() { return { style: { setProperty() {} }, classList: { add() {}, remove() {} }, setAttribute() {}, appendChild() {}, replaceChildren() {} }; },
+  };
+  const context = {
+    document,
+    location: { hostname: "", pathname: "/", hash: "" },
+    history: { pushState() {}, replaceState() {} },
+    localStorage: { getItem() { return null; }, setItem() {} },
+    matchMedia() { return { matches: true }; },
+    addEventListener() {},
+    scrollTo() {},
+    window: {},
+    console,
+    Math,
+    Date,
+    setTimeout() {},
+    navigator: {},
+  };
+  vm.createContext(context);
+  vm.runInContext(venueData, context, { timeout: 5000 });
+  vm.runInContext(app, context, { timeout: 5000 });
+  const results = vm.runInContext(`(() => {
+    const names = [
+      "Casa Grande Cafe Nazareth: chicken teriyaki rice bowls",
+      "Papicholo's Nazareth: two Americanos",
+      "Papicholo's Nazareth: two cafe lattes"
+    ];
+    const modes = ["cafe", "out"];
+    const out = [];
+    for (const name of names) {
+      const item = F.find(food => food.n === name);
+      if (!item) {
+        out.push({ name, missing: true });
+        continue;
+      }
+      for (const mode of modes) {
+        S.p = "c"; S.s = "i"; S.t = "a"; S.cat = "a";
+        S.foodMode = mode; S.b = item.c; S.act = { c: 0, t: "s" };
+        out.push({
+          name: item.n,
+          mode,
+          available: fPool().some(food => food.n === item.n),
+          budget: S.b,
+          price: item.c,
+          sourceUrl: item.sourceUrl
+        });
+      }
+    }
+    return out;
+  })()`, context, { timeout: 10000 });
+  assert.equal(results.length, 6);
+  for (const result of results) {
+    assert.ok(!result.missing, `Missing newly added cafe idea: ${JSON.stringify(result)}`);
+    assert.ok(result.available, `Cafe idea is not selectable for ${result.mode}: ${JSON.stringify(result)}`);
+    assert.ok(result.price <= result.budget, `Cafe idea exceeds the selected budget: ${JSON.stringify(result)}`);
+    assert.match(result.sourceUrl || "", /^https:\/\//, `Cafe idea lacks its source link: ${JSON.stringify(result)}`);
+  }
+});
