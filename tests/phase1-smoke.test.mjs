@@ -313,6 +313,15 @@ test("Dahilayan Forest Park ride budgets use official rates and include separate
   assert.match(venueData, /140kg combined driver\/passenger limit/);
 });
 
+test("McPars indoor pickleball and billiards budgets use official hourly rates and a 15% buffer", () => {
+  assert.match(app, /McPars indoor pickleball date for two/);
+  assert.match(app, /McPars billiards date for two/);
+  assert.match(venueData, /c: 500,[\\s\\S]*?Highest published indoor court rate: ₱400\\/hour; 15% buffer = ₱460/);
+  assert.match(venueData, /c: 300,[\\s\\S]*?One billiards table for one hour: ₱250; 15% buffer = ₱287\\.50/);
+  assert.match(venueData, /https:\\/\\/mcpars\\.com\\//);
+  assert.match(venueData, /McPars Sports Center/);
+});
+
 test("Dahilayan Forest Park multi-ride package budget discloses separate entrance assumption", () => {
   assert.match(app, /Dahilayan Forest Park multi-ride package for two/);
   assert.match(venueData, /c: 2500,[\s\S]*?2 × ₱900 rides package \+ 2 × ₱150 entrance/);
@@ -391,8 +400,8 @@ test("all source-backed price records keep complete evidence and match planner a
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
   assert.equal(foods.length, 32, "Expected 32 source-backed food ideas.");
-  assert.equal(activities.length, 9, "Expected nine source-backed activity updates.");
-  assert.equal(records.length, 41, "Every source-backed food and activity should be included in this evidence audit.");
+  assert.equal(activities.length, 11, "Expected eleven source-backed activity updates.");
+  assert.equal(records.length, 43, "Every source-backed food and activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
