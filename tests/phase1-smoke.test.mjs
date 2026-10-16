@@ -28,8 +28,8 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/venue-data.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/venue-data.js?v=20261017c"'));
-  assert.ok(html.includes('src="js/app.js?v=20261017b"'));
+  assert.ok(html.includes('src="js/venue-data.js?v=20261017d"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017c"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
   assert.ok(html.includes('href="css/phone-fix.css?v=20261015e"'));
@@ -336,8 +336,15 @@ test("SM Bowling has a source-backed one-game budget and current-promo caveat", 
   assert.match(venueData, /Confirm current rates, promo eligibility, and shoe rental before visiting/);
 });
 
+test("QSports indoor basketball uses the current official hourly rate plus a buffer", () => {
+  assert.match(app, /QSports Club indoor basketball date for two/);
+  assert.ok(venueData.includes("QSports Club official court booking and rates page"));
+  assert.ok(venueData.includes("One indoor basketball court for one hour: ₱600; 15% buffer = ₱690; rounded up to ₱700."));
+});
+
 test("TBC Billiards has a source-backed one-hour budget and current-rate caveat", () => {
   assert.match(app, /TBC Billiards downtown: one-hour pool date for two/);
+  assert.equal((app.match(/n:"TBC Billiards downtown: one-hour pool date for two"/g) || []).length, 1, "TBC Billiards should appear only once in the planner.");
   assert.ok(venueData.includes("https://www.findglocal.com/PH/Cagayan-de-Oro/516935814844454/TBC-Billiards"));
   assert.ok(venueData.includes("One table for one hour: ₱150; 15% buffer = ₱172.50; rounded up to ₱200."));
   assert.match(venueData, /Confirm the current rate, operating hours, and table availability before visiting/);
@@ -431,8 +438,8 @@ test("all source-backed price records keep complete evidence and match planner a
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
   assert.equal(foods.length, 38, "Expected 38 source-backed food ideas.");
-  assert.equal(activities.length, 14, "Expected fourteen currently usable source-backed activity updates.");
-  assert.equal(records.length, 52, "Every source-backed food and currently usable activity should be included in this evidence audit.");
+  assert.equal(activities.length, 15, "Expected fifteen currently usable source-backed activity updates.");
+  assert.equal(records.length, 53, "Every source-backed food and currently usable activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
@@ -498,14 +505,14 @@ test("planner choices sit inside a spaced responsive panel and plan actions are 
   assert.match(css, /@media\(max-width:640px\)[\s\S]*?#app \.planner-filters\s*\{[\s\S]*?grid-template-columns:minmax\(0,1fr\)/);
   assert.match(css, /#app \.bar button\.ghost,[\s\S]*?background:var\(--gold\)!important;[\s\S]*?color:var\(--ink\)!important;[\s\S]*?opacity:1!important/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261017b"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017c"'));
 });
 
 
 test("Surprise Me planner button remains actionable and explains missing budget", () => {
   assert.match(app, /<button class="go" onclick="gen\(\)">Plan my date<\/button>/);
   assert.match(app, /Please enter a budget for both of you first/);
-  assert.ok(html.includes('src="js/app.js?v=20261017b"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017c"'));
 });
 
 test("budget field keeps custom amount entry without a preset button", () => {
@@ -514,7 +521,7 @@ test("budget field keeps custom amount entry without a preset button", () => {
   assert.match(app, /function setBudget\(v\)/);
   assert.doesNotMatch(css, /budget-presets|budget-preset|Quick budget pick for the date planner/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261017b"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017c"'));
 });
 
 

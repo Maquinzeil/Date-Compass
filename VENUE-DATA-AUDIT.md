@@ -4,6 +4,26 @@ Last reviewed: 2026-10-15
 Scope: Cagayan de Oro and Misamis Oriental, Philippines  
 Purpose: track the evidence behind recommendations so estimates are not presented as confirmed venue prices or availability.
 
+## Evidence tracker snapshot — 17 October 2026
+
+These are **record counts, not counts of unique venues**. A venue may appear in both the priced planner records and the research directory.
+
+| Evidence level | Current count | What the count means | What it does not mean |
+|---|---:|---|---|
+| Source-backed food planner budgets | 38 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
+| Source-backed activity planner budgets | 15 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
+| **Source-backed priced planner records (food + activities)** | **53** | 38 food records + 15 activity records. | Do not label all 53 “fully verified.” They are evidence-backed estimates with differing source strength and caveats. |
+| Venue directory / research records | 50 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
+
+### Status labels to use consistently
+
+1. **Source-backed planning estimate:** the source supports a price basis, but branch variation, a third-party menu, an older post, required extras, or current availability still needs confirmation.
+2. **Current operator-published rate:** a venue's own current rate page supports the listed rate; still confirm the slot, included equipment, restrictions, and any extra charges before visiting.
+3. **Directory-only / price unverified:** venue research is useful, but there is not enough reliable price evidence to recommend a fixed venue budget. Keep it out of source-backed priced recommendations until evidence is captured.
+4. **Generic activity estimate:** DIY or at-home activities can use planning estimates, but they are not venue-price verification.
+
+Before launch, review the **53 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
+
 ## Rules for publishing data
 
 - A named venue's existence/location should be supported by an official venue, government, university, or other reliable source.
@@ -236,3 +256,16 @@ Added **Higala Ridge Food & Park** to the venue directory based on the Facebook 
 - **Social source:** [Higala Ridge Food & Park on Facebook](https://www.facebook.com/higalaridgefoodandpark).
 
 Next verification step: inspect recent posts from the official Facebook page for entrance/parking fees, food and drink prices, current operating hours, road/access notes, and any minimum spend. If those are not published, contact the venue directly. Only then should a realistic two-person budget and activity entry be added to the planner.
+
+
+## Venue research batch 13 — QSports Club indoor basketball (checked 17 October 2026)
+
+The official QSports Club website lists a full-size indoor basketball court at **₱600 per hour**. The planner budget for two is one court-hour plus a 15% cushion: ₱600 × 1.15 = ₱690, rounded up to **₱700**.
+
+- **Planner option:** QSports Club indoor basketball date for two.
+- **Included in the estimate:** one indoor basketball court for one hour only.
+- **Not included / still to confirm:** transport, food, any equipment rental, booking rules, and live court availability.
+- **Source:** [QSports Club official rates and booking page](https://www.qsportscdo.com/).
+- **Location:** Upper Canitoan, Cagayan de Oro; [Google Maps search](https://www.google.com/maps/search/?api=1&query=QSports+Club+Upper+Canitoan+Cagayan+de+Oro).
+
+This is a source-backed planning estimate, not a booking or guarantee of availability.

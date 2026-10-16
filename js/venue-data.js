@@ -3,7 +3,7 @@
  * Recheck the source before launch and whenever a price is edited.
  */
 window.DATE_COMPASS_VERIFIED_DATA = {
-  checkedOn: "2026-10-16",
+  checkedOn: "2026-10-17",
   foodIdeas: [
     {
       n: "Burger King SM CDO Downtown: Whopper Jr. Meals",
@@ -613,6 +613,18 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceBasis: "Lower section: 2 × ₱1,200 = ₱2,400; 15% buffer = ₱2,760; rounded up to ₱2,800.",
       priceNote: "The operator lists the lower section at ₱1,200 per person, with transfers, gear, guides and shower fee included, and says it accepts joiners for groups under six. This estimate assumes two joiners can be accommodated. Availability is not live-confirmed; optional meals/photos and other extras cost more.",
       checkedOn: "2026-10-15"
+    },
+    {
+      n: "QSports Club indoor basketball date for two",
+      c: 700,
+      venueName: "QSports Club — Upper Canitoan",
+      sourceUrl: "https://www.qsportscdo.com/",
+      sourceLabel: "QSports Club official court booking and rates page",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=QSports+Club+Upper+Canitoan+Cagayan+de+Oro",
+      priceStatusLabel: "Official published indoor court rate + buffer",
+      priceBasis: "One indoor basketball court for one hour: ₱600; 15% buffer = ₱690; rounded up to ₱700.",
+      priceNote: "QSports Club lists a full-size indoor basketball court at ₱600/hour. Budget covers one court-hour only; confirm booking availability and any equipment or court-use requirements. Transport and food are extra.",
+      checkedOn: "2026-10-17"
     },
     {
       n: "QSports Club indoor pickleball date for two",
