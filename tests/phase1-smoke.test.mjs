@@ -481,7 +481,7 @@ test("contact form submits through Formspree and reports actual success or failu
   assert.match(app, /headers:\{"Accept":"application\/json"\}/);
   assert.match(app, /Your message was sent successfully/);
   assert.match(app, /We couldn't send your message/);
-  assert.match(app, /name="_gotcha"/);
+  assert.doesNotMatch(app, /name="_gotcha"/);
   const contactBlock = app.slice(app.indexOf("function contact(){"), app.indexOf("function home(){", app.indexOf("function contact(){")));
   assert.doesNotMatch(contactBlock, /location\.href="mailto:"\+CONTACT_EMAIL/);
 });
