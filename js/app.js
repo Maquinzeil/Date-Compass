@@ -1161,8 +1161,8 @@ const aPool=()=>{
  if(strict.length)return strict;
  const sameCategory=opts(A,{...S,cat:S.cat},S.b);
  if(sameCategory.length)return sameCategory;
- // If place/setting/duration are too restrictive, relax those only. Keep category and car constraints.
- return opts(A,{...S,p:"a",s:"a",t:"a",cat:S.cat},S.b);
+ // Preserve the selected area even when relaxing setting and duration. Generic ideas marked "Anywhere" remain eligible, but branch-specific venues from another area must not leak into results.
+ return opts(A,{...S,s:"a",t:"a",cat:S.cat},S.b);
 };
 function foodMatchesMode(x,mode){
  if(mode=="a")return true;
@@ -1182,8 +1182,8 @@ const fPool=()=>{
  const remaining=Math.max(S.b-(S.act?S.act.c:0),0),pref=base.filter(x=>foodMatchesMode(x,S.foodMode));
  const found=opts(pref,{p:S.p,t:"a",s:S.s},remaining);
  if(found.length)return found;
- // Keep the selected food style even when we must relax the place, setting, or duration filters.
- return opts(pref,{p:"a",t:"a",s:"a"},remaining);
+ // Preserve the selected area and food style while relaxing setting and duration. Generic food concepts marked "Anywhere" can still match.
+ return opts(pref,{p:S.p,t:"a",s:"a"},remaining);
 };
 const total=()=>(S.act?S.act.c:0)+(S.food?S.food.c:0);
 const CH={p:{c:"Inside CDO",m:"Outside CDO",a:"Anywhere"},car:{a:"Either",y:"I have a car",n:"No car"},b:{300:"₱300",800:"₱800",1500:"₱1,500",5000:"Splurge"},t:{a:"Any length",s:"2 hours",l:"Half day or more",n:"Overnight"},s:{a:"Either",i:"Indoor",o:"Outdoor"},cat:{a:"All categories",...CAT},foodMode:{a:"Any food style",out:"Eat out",home:"Cook at home",breakfast:"Breakfast",cafe:"Cafe & dessert",street:"Street & market",takeout:"Takeout & picnic",healthy:"Lighter & healthy",special:"Special food date"}};
