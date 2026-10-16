@@ -380,8 +380,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceBasis: "Lower section: 2 × ₱1,200 = ₱2,400; 15% buffer = ₱2,760; rounded up to ₱2,800.",
       priceNote: "The operator lists the lower section at ₱1,200 per person, with transfers, gear, guides and shower fee included, and says it accepts joiners for groups under six. This estimate assumes two joiners can be accommodated. Availability is not live-confirmed; optional meals/photos and other extras cost more.",
       checkedOn: "2026-10-15"
-    }
-
+    },
     {
       n: "Kagay-an Coffee Cartel Nazareth: two Americanos",
       m: "out", c: 260, p: "c", s: "i",
