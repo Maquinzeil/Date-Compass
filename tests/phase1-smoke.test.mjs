@@ -233,7 +233,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
     assert.ok(app.includes(JSON.stringify(name)), `Missing indoor games idea: ${name}`);
   }
   assert.ok(result.activityCount >= 250, `Expected the added indoor games to expand the planner, got ${result.activityCount} activities.`);
-  assert.equal(result.sourceBackedFoodCount, 32, "All 32 source-backed food options should be loaded into the planner.");
+  assert.equal(result.sourceBackedFoodCount, 38, "All 38 source-backed food options should be loaded into the planner.");
   assert.equal(result.raftingBudget, 2800, "Rafting should use the source-backed two-person estimate plus buffer.");
   assert.equal(result.sourcePanelHasLink, true, "Source-backed options must display a source link.");
   assert.equal(result.allSourceDatesRecorded, true, "Source-backed prices must record a check date.");
@@ -414,9 +414,9 @@ test("all source-backed price records keep complete evidence and match planner a
   const foods = verified.foodIdeas.filter(item => item.sourceUrl);
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
-  assert.equal(foods.length, 35, "Expected 35 source-backed food ideas.");
+  assert.equal(foods.length, 38, "Expected 38 source-backed food ideas.");
   assert.equal(activities.length, 10, "Expected ten currently usable source-backed activity updates.");
-  assert.equal(records.length, 45, "Every source-backed food and currently usable activity should be included in this evidence audit.");
+  assert.equal(records.length, 48, "Every source-backed food and currently usable activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
@@ -570,7 +570,7 @@ test("venue-quality gates keep not-yet-bookable activities out and identify the 
 });
 
 
-test("new source-backed CDO cafe ideas remain selectable under Cafe & dessert and Eat out filters", () => {
+test("new source-backed CDO cafe and fast-food ideas remain selectable under intended filters", () => {
   const elements = {
     app: { className: "", innerHTML: "", offsetWidth: 0, classList: { add() {}, remove() {} } },
     yr: { textContent: "" },
@@ -599,40 +599,33 @@ test("new source-backed CDO cafe ideas remain selectable under Cafe & dessert an
   vm.createContext(context);
   vm.runInContext(venueData, context, { timeout: 5000 });
   vm.runInContext(app, context, { timeout: 5000 });
-  const results = vm.runInContext(`(() => {
-    const names = [
-      "Casa Grande Cafe Nazareth: chicken teriyaki rice bowls",
-      "Papicholo's Nazareth: two Americanos",
-      "Papicholo's Nazareth: two cafe lattes"
+  const results = vm.runInContext('(() => {
+    const cases = [
+      { name: "Casa Grande Cafe Nazareth: chicken teriyaki rice bowls", modes: ["cafe", "out"] },
+      { name: "Papicholo\'s Nazareth: two Americanos", modes: ["cafe", "out"] },
+      { name: "Papicholo\'s Nazareth: two cafe lattes", modes: ["cafe", "out"] },
+      { name: "Mang Inasal Gaisano CDO: Pecho Large meals for two", modes: ["out"] },
+      { name: "Chowking Divisoria: Siomai Chao Fan for two", modes: ["out"] },
+      { name: "KFC Bulua CDO: Chicken Burger Combos for two", modes: ["out"] }
     ];
-    const modes = ["cafe", "out"];
     const out = [];
-    for (const name of names) {
-      const item = F.find(food => food.n === name);
-      if (!item) {
-        out.push({ name, missing: true });
-        continue;
-      }
-      for (const mode of modes) {
+    for (const entry of cases) {
+      const item = F.find(food => food.n === entry.name);
+      if (!item) { out.push({ name: entry.name, missing: true }); continue; }
+      for (const mode of entry.modes) {
         S.p = "c"; S.s = "i"; S.t = "a"; S.cat = "a";
         S.foodMode = mode; S.b = item.c; S.act = { c: 0, t: "s" };
-        out.push({
-          name: item.n,
-          mode,
-          available: fPool().some(food => food.n === item.n),
-          budget: S.b,
-          price: item.c,
-          sourceUrl: item.sourceUrl
-        });
+        out.push({ name: item.n, mode, available: fPool().some(food => food.n === item.n), budget: S.b, price: item.c, sourceUrl: item.sourceUrl, priceBasis: item.priceBasis });
       }
     }
     return out;
-  })()`, context, { timeout: 10000 });
-  assert.equal(results.length, 6);
+  })()', context, { timeout: 10000 });
+  assert.equal(results.length, 9);
   for (const result of results) {
-    assert.ok(!result.missing, `Missing newly added cafe idea: ${JSON.stringify(result)}`);
-    assert.ok(result.available, `Cafe idea is not selectable for ${result.mode}: ${JSON.stringify(result)}`);
-    assert.ok(result.price <= result.budget, `Cafe idea exceeds the selected budget: ${JSON.stringify(result)}`);
-    assert.match(result.sourceUrl || "", /^https:\/\//, `Cafe idea lacks its source link: ${JSON.stringify(result)}`);
+    assert.ok(!result.missing, `Missing new venue idea: ${JSON.stringify(result)}`);
+    assert.ok(result.available, `Venue idea is not selectable for ${result.mode}: ${JSON.stringify(result)}`);
+    assert.ok(result.price <= result.budget, `Venue idea exceeds the selected budget: ${JSON.stringify(result)}`);
+    assert.match(result.sourceUrl || "", /^https:\/\//, `Venue idea lacks its source link: ${JSON.stringify(result)}`);
+    assert.match(result.priceBasis || "", /15%/, `Venue idea lacks a documented budget buffer: ${JSON.stringify(result)}`);
   }
 });
