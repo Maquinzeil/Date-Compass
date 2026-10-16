@@ -8,8 +8,11 @@ const navigationEntry = performance.getEntriesByType("navigation")[0];
 const isPageRefresh = navigationEntry?.type === "reload";
 if (isPageRefresh && "scrollRestoration" in history) history.scrollRestoration = "manual";
 window.addEventListener("load", () => {
-  if (isPageRefresh) window.scrollTo(0, 0);
-  if ("scrollRestoration" in history) history.scrollRestoration = "auto";
+  if (!isPageRefresh) return;
+  // Keep browser scroll restoration disabled for this refreshed page so it
+  // cannot restore the old position after our scroll-to-top call.
+  window.scrollTo(0, 0);
+  requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, 0)));
 }, { once: true });
 </script>
 <title>Date Compass, date planner for CDO</title>
