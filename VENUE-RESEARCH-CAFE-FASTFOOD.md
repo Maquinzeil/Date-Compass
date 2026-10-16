@@ -280,3 +280,16 @@ Although the official McPars site publishes billiards at ₱250/hour, the same p
 | Papicholo's — Nazareth | [Branch delivery menu](https://www.foodpanda.ph/restaurant/ngsd/papicholos-nazareth-ngsd) lists Americano at ₱132 and Cafe Latte at ₱188. | Two Americanos: ₱264 subtotal + 15% = ₱303.60; budget **₱350**. Two Cafe Lattes: ₱376 subtotal + 15% = ₱432.40; budget **₱450**. | Added as two separate drinks-only planner ideas. Delivery-app prices may differ from dine-in; food and transport are extra. Verify current branch details and availability before visiting. |
 
 The new records were added to the source-backed planner data only with itemized prices, branch-specific source URLs, separate map links, a 15% cushion, and explicit exclusions. They are desk-researched estimates, not phone-confirmed dine-in quotes.
+
+
+## Indoor activity price research — checked 2026-10-17
+
+| Venue | Evidence | Couple estimate | Decision |
+|---|---|---:|---|
+| TBC Billiards — 3rd Floor Ozzy Building, Corrales Extension | [Local venue listing](https://www.findglocal.com/PH/Cagayan-de-Oro/516935814844454/TBC-Billiards) shows ₱150/table-hour and a 3-hour ₱300 promotion in posts dated May and June 2026. | ₱200 for one hour including 15% buffer; the ₱300/3-hour promo is a potentially better value but should be reconfirmed. | Suitable to add as a cautious, source-backed one-hour billiards idea. Confirm current price, hours, and table availability. |
+| SM Bowling — SM CDO Downtown Premier | [Klook branch listing](https://www.klook.com/en-PH/activity/232246-bowling-at-sm-cdo/) confirms the branch, says one voucher covers one game per player, and shoe rental is ₱50. [StarDeals listing](https://stardeals.ph/deals/sm-bowling) advertises a ₱160 regular game value and promo validity through Nov. 30, 2026. | ₱500 for two: two ₱160 games + two ₱50 shoe rentals = ₱420; 15% buffer = ₱483, rounded up to ₱500. | Keep the existing planner option and clarify that current promo/walk-in conditions may vary. |
+| Timezone Centrio — 3/F Centrio Mall | [Official branch page](https://www.timezonegames.com/en-ph/locations/mindanao/timezone-centrio/) confirms the location and 10 AM–9 PM hours. [Official Powercard page](https://www.timezonegames.com/en-ph/powercards/) says the minimum load for a Red card is ₱200 and a card can be purchased from ₱20 for purchases below ₱500. Neither source gives the number of games or credits that a specific spend buys at this branch. | No reliable fixed cost-per-date estimate. | Keep in the directory as an unpriced arcade option; do not imply ₱200 guarantees a particular number of games. |
+| SM Game Park arcade and other billiards venues | Current, branch-specific game/credit pricing was not verified in this pass. Older CDO articles show historical rates only. | Not estimated. | Do not create a priced planner recommendation until current pricing is confirmed. |
+
+### Budget method
+The SM Bowling estimate uses the listed ₱160 game value and ₱50 shoe rental per person, then adds a 15% buffer: (2 × ₱160 + 2 × ₱50) × 1.15 = ₱483, rounded up to ₱500. This is a desk-researched estimate, not a direct confirmation of walk-in pricing. Do not use expired promotions as current prices.
