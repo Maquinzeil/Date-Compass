@@ -114,3 +114,43 @@ These links open a Google Maps search for the exact branch/location name. They a
 3. Record direct map/listing links for each exact branch and verify branch address/contact/hours.
 4. Expand indoor activities (arcades, bowling, billiards and other date-friendly activities) with price and group-size evidence.
 5. Only then adapt the planner's recommendation data and add visible source/estimate labels. Avoid replacing the whole planner or altering its existing data structures unnecessarily.
+
+
+## Fresh source check — 2026-10-16
+
+This is a source refresh, not a claim of phone-confirmed availability. Keep delivery-menu prices separate from dine-in prices and keep existing estimates labelled accordingly.
+
+### Fast-food source checks
+
+| Venue / branch | Evidence checked | Budget illustration for two | Decision |
+|---|---|---|---|
+| KFC — Centrio | Official [Centrio store page](https://www.kfc.com.ph/en/store-locator/kfc_centrio) identifies the branch at 1159 Ground Floor, Ayala Centrio Mall, Corrales–C.M. Recto Avenue, and lists daily hours of 10:00 AM–8:30 PM. The [official KFC menu](https://www.kfc.com.ph/en/menu) currently lists 1-PC Chicken Meal ₱140, 1-PC Chicken Chop Bowl Meal ₱125, and 2-PC Original Recipe Tenders Rice Meal ₱205. | Two 1-PC Chicken Meals: ₱280 menu subtotal; with 15% cushion ₱322, round to ₱350. Two Chicken Chop Bowl Meals: ₱250 subtotal; with cushion ₱287.50, round to ₱300. | **Suitable for a conservative estimate**, but verify item/price at checkout. Official menu is chain-level, and local availability can vary. Do not treat as a guaranteed dine-in quote. |
+| McDonald's — Cagayan Ororama / Cogon | The [branch-specific Foodpanda menu](https://www.foodpanda.ph/restaurant/s5wb/mcdonalds-cagayan-ororama) lists Burger McDo ₱54, 1-pc Chicken McDo solo ₱99, 1-pc Spicy Chicken McDo solo ₱105, and Cheeseburger with fries and drink from ₱129. The local listing identifies the Ororama Cogon / J.R. Borja Street location. | Two Chicken McDo solo: ₱198 subtotal; 15% cushion = ₱227.70, round to ₱250. Two Cheeseburger combos from ₱129 each: ₱258 subtotal; cushion = ₱296.70, round to ₱300. | **Suitable as delivery-menu-based estimate only.** The listed chicken solo price does not establish that fries/drink are included; don't describe it as a full meal. Dine-in price and branch stock may differ. |
+| Burger King — Xavier Divisoria | The local business listing identifies Pelaez Commercial Arcade, Tirso Neri Street, Divisoria, CDO. No current itemized price list was captured in this refresh. | No responsible branch-specific food budget calculated. | **Directory only** until current item prices are captured. |
+| Burger King — SM CDO Downtown Premier | Local listing identifies the second-floor SM CDO Downtown Premier location. The existing research record has a branch-specific Foodpanda menu reference for Whopper Jr. Meal ₱200 and Whopper Meal ₱329, checked 2026-10-15. | Existing estimates remain ₱500 for two Whopper Jr. Meals and ₱800 for two Whopper Meals, using a 15% cushion and rounding upward. | **Keep as delivery-menu estimates**, not dine-in prices; recheck menu before launch. |
+
+### Café source checks
+
+| Venue | Evidence checked | Illustration for two | Decision |
+|---|---|---|---|
+| Kagayan Coffee Cartel | Online ordering menu: [Cartel Brew menu](https://kagayan-coffee-cartel.catalog.kyte.site/cartel-brew). Current listed examples captured in the prior research pass: Americano 240 ml ₱110; cappuccino/mochaccino 240 ml ₱125; larger Americano ₱130 and cappuccino/mochaccino ₱160. Local listing places the café around Pabayo/Fernandez Streets. | Two small Americanos ₱220 subtotal; with 15% cushion ₱253, round to ₱260. Two small cappuccino/mochaccinos ₱250 subtotal; with cushion ₱287.50, round to ₱300. Food and transport are extra. | **Menu-backed candidate**, but reconfirm item prices and exact branch details before promoting. |
+| H Proper Coffee Roasters — Uptown | [Official Linktree](https://linktr.ee/hproper) provides branch/menu links; local listing places it on Masterson Avenue. The current itemized menu price was not captured as readable text in this pass. | No itemized budget calculated. | **Directory only** until current menu items/prices are transcribed from the official menu. |
+| Sunnyside Coffee and Roastery | Local listing places it near the corner of 11th and 30th Streets, Nazareth. The current itemized menu was not captured in this pass. | No itemized budget calculated. | **Directory only** until current prices are verified. |
+| D'Working Cafe | Branch-specific [Foodpanda menu](https://www.foodpanda.ph/restaurant/h6mv/dworking-cafe) lists examples from ₱125 (large iced Americano), ₱144 (large latte), ₱154 (medium Spanish latte), and ₱174 (large Spanish latte). Exact address/branch details still need cross-checking. | Two drinks selected from the captured range: about ₱250–₱348 subtotal; with 15% cushion, approximately ₱290–₱400, rounded upward by selected items. | **Price evidence, location cross-check pending**; do not show as fully verified until branch identity is confirmed. |
+
+### Indoor activities: current research leads, prices not yet publishable
+
+| Venue | What is supported | Still needed before a priced recommendation |
+|---|---|---|
+| SM Bowling / SM Game Park — SM CDO Downtown | Local listing places the venue on Level 4 of SM CDO Downtown and reports daily hours around 10:00 AM–10:00 PM for bowling; Game Park listing reports 10:00 AM–9:00 PM. | Current bowling rate, lane/session duration, shoe rental, player limit, game-credit rates, and whether prices are per person, lane, or package. Treat directory hours as provisional. |
+| Timezone — Centrio | Local listing places the arcade on Level 3 of Ayala Malls Centrio. Timezone uses a Powercard system. | Current card purchase/load offers and cost per game are machine-specific; obtain current official promotion/rate evidence before budgeting a two-person visit. |
+| FantasyWorld — SM CDO Downtown | Local listing places the indoor-play venue on Level 4 of SM CDO Downtown and identifies attractions including human bowling / obstacle-style play. | Current admission, time limit, age/height restrictions, included attractions, socks/gear requirements, and whether adult companions pay. |
+
+### Quality-control rules applied to this refresh
+
+1. A venue listing supports discovery/location, not current availability.
+2. Menu subtotals and planner budgets must stay separate. Where the estimate uses a 15% cushion, round the total **upward** to a practical budget tier.
+3. A delivery-app menu must be labelled as such; it is not proof of the dine-in price.
+4. Never treat a solo item as a meal bundle unless the menu says the sides/drink are included.
+5. Keep cafés with untranscribed menus and indoor activities with unknown rates in the directory, not the priced planner.
+6. Before launch, refresh source links and confirm operating details; these are desk-research findings, not phone-confirmed quotes.
