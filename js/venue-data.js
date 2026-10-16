@@ -668,13 +668,25 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       n: "Pickle World Limketkai indoor pickleball date for two",
       c: 600,
       venueName: "Pickle World Limketkai",
-      sourceUrl: "https://picklehub.ph/pickle-world-limketkai?tab=home",
-      sourceLabel: "PickleHub venue listing and booking rates",
+      sourceUrl: "https://www.dinky.ph/courts/pickle-world-limketkai",
+      sourceLabel: "Dinky venue-specific rate listing; cross-checked against PickleHub",
       venueUrl: "https://www.google.com/maps/search/?api=1&query=Pickle+World+Limketkai+Center+Cagayan+de+Oro",
-      priceStatusLabel: "Published hourly court rate + buffer",
-      priceBasis: "One indoor court for one hour: ₱500; 15% buffer = ₱575; rounded up to ₱600.",
-      priceNote: "PickleHub lists indoor courts at ₱500/hour and operating hours of 6 AM–1 AM daily. Budget covers one court-hour only; paddle/ball rental, transport, and food are excluded. Confirm live slot availability, equipment terms, and current rates before going.",
-      checkedOn: "2026-10-16"
+      priceStatusLabel: "Conservative published-rate range + 15% buffer",
+      priceBasis: "Published listings conflict: Dinky ₱400/hour, Pickleheads about ₱415/hour, PickleHub ₱500/hour. Use the highest listed rate: ₱500; 15% buffer = ₱575; rounded up to ₱600.",
+      priceNote: "This remains a conservative planning allowance, not a verified checkout total: current third-party listings disagree (₱400, about ₱415, and ₱500 per hour). The budget uses ₱500/hour to avoid understating the cost. It covers one court-hour only; paddle/ball rental, transport, and food are excluded. Confirm the venue actual rate and equipment terms directly. Dinky says live availability is not yet verified.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Fliqshot Pickleball Courts — one-hour court date for two",
+      c: 450,
+      venueName: "Fliqshot Pickleball Courts",
+      sourceUrl: "https://fliqshot.ph/",
+      sourceLabel: "Fliqshot official booking and pricing page",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Fliqshot+Pickleball+Courts+CDO+Indahag",
+      priceStatusLabel: "Operator-published court rate + 15% buffer",
+      priceBasis: "One court for one hour at the listed ₱350 rate; 15% buffer = ₱402.50; rounded up to ₱450.",
+      priceNote: "Fliqshot operator booking page lists courts from ₱350/hour. This estimate covers one court-hour only; confirm which court is available, whether the selected court is indoor or outdoor, paddle/ball rental terms, and current booking availability. Transport and food are excluded.",
+      checkedOn: "2026-10-17"
     },
 
 
