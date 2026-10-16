@@ -245,3 +245,13 @@ The [official McPars Sports Center website](https://mcpars.com/) publishes curre
 ## Availability gate — McPars billiards (checked 2026-10-16)
 
 Although the official McPars site publishes billiards at ₱250/hour, the same page says the billiards tables are being set up and reservations will open soon. The live status is therefore contradictory / not ready for a reliable customer-facing recommendation. **Keep the billiards price in this research ledger only and do not offer it in the planner until the venue confirms that tables are operating and bookable.** The pickleball courts remain listed as available with hourly rates, but couples should still confirm a slot and equipment inclusion.
+
+
+## Additional café and café-meal options — source check on 2026-10-16
+
+| Venue / branch | Menu evidence | Budget for two | Planner status and caveat |
+|---|---|---:|---|
+| Casa Grande Cafe — Nazareth | [Branch delivery menu](https://www.foodpanda.ph/restaurant/mgyv/casa-grande-cafe-nazareth) lists Chicken Teriyaki at ₱128 and describes it as served over steamed rice. | ₱256 subtotal + 15% = ₱294.40; rounded up to **₱300**. | Added as a source-backed rice-bowl idea. Delivery prices may differ from dine-in; confirm current availability. Drinks and transport are extra. |
+| Papicholo's — Nazareth | [Branch delivery menu](https://www.foodpanda.ph/restaurant/ngsd/papicholos-nazareth-ngsd) lists Americano at ₱132 and Cafe Latte at ₱188. | Two Americanos: ₱264 subtotal + 15% = ₱303.60; budget **₱350**. Two Cafe Lattes: ₱376 subtotal + 15% = ₱432.40; budget **₱450**. | Added as two separate drinks-only planner ideas. Delivery-app prices may differ from dine-in; food and transport are extra. Verify current branch details and availability before visiting. |
+
+The new records were added to the source-backed planner data only with itemized prices, branch-specific source URLs, separate map links, a 15% cushion, and explicit exclusions. They are desk-researched estimates, not phone-confirmed dine-in quotes.
