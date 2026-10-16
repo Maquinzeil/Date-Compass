@@ -200,7 +200,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
         if (foods.some(food => food.c > Math.max(S.b - S.act.c, 0))) overBudgetFood++;
         if (foodMode !== "a" && foods.some(food => !foodMatchesMode(food, foodMode))) wrongFoodStyle++;
       }
-    const gameDates = A.filter(activity => /Mobile Legends|co-op mobile game|internet-cafe gaming|Online game discovery|Co-op PC game/i.test(activity.n));
+    const gameDates = A.filter(activity => /Mobile Legends|co-op mobile game|internet-cafe gaming|Online game discovery|Co-op PC game|Board game night at home|DIY couples board game|Make-your-own trivia board game|DIY memory-matching card game|Homemade mini-bowling game|DIY paper-airplane target game|Indoor scavenger-hunt game|DIY cup-stacking challenge game|Cardboard marble-maze game|DIY indoor mini-golf game|Sock-basketball game at home|DIY mystery-envelope challenge game/i.test(activity.n));
     const gameDatesWrongCategory = gameDates.filter(activity => activity.cat !== "games").map(activity => ({ name: activity.n, category: activity.cat }));
     const sourceBackedFoods = F.filter(food => food.sourceUrl);
     const rafting = A.find(activity => activity.n === "White water rafting on the Cagayan River");
@@ -211,6 +211,10 @@ test("planner runs every area, transport, category, duration, setting, and food-
   assert.equal(result.overBudgetFood, 0, `Food suggestions exceeded remaining budget: ${JSON.stringify(result)}`);
   assert.equal(result.wrongFoodStyle, 0, `Planner ignored the selected food style: ${JSON.stringify(result)}`);
   assert.equal(result.gameDatesWrongCategory.length, 0, `Gaming date was categorized incorrectly: ${JSON.stringify(result.gameDatesWrongCategory)}`);
+  for (const name of ["Board game night at home","DIY couples board game from paper and markers","Make-your-own trivia board game","DIY memory-matching card game","Homemade mini-bowling game","DIY paper-airplane target game","Indoor scavenger-hunt game for two","DIY cup-stacking challenge game","Cardboard marble-maze game","DIY indoor mini-golf game","Sock-basketball game at home","DIY mystery-envelope challenge game"]) {
+    assert.ok(app.includes(JSON.stringify(name)), `Missing indoor games idea: ${name}`);
+  }
+  assert.ok(result.activityCount >= 250, `Expected the added indoor games to expand the planner, got ${result.activityCount} activities.`);
   assert.equal(result.sourceBackedFoodCount, 21, "All 21 source-backed food options should be loaded into the planner.");
   assert.equal(result.raftingBudget, 2800, "Rafting should use the source-backed two-person estimate plus buffer.");
   assert.equal(result.sourcePanelHasLink, true, "Source-backed options must display a source link.");
