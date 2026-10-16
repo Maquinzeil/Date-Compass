@@ -60,6 +60,21 @@ These are extra menu choices for branches already researched above. Each budget 
 | Chowking — Divisoria | Two Siomai Chao Fan: 2 × ₱116 = ₱232; +15% = ₱266.80 | **₱300** | [Branch menu](https://www.foodpanda.ph/restaurant/s9rf/chowking-divisoria). Drinks are not included in the listed item. |
 | KFC — Bulua CDO | Two Chicken Burger Combos: 2 × ₱165 = ₱330; +15% = ₱379.50 | **₱400** | [Branch menu](https://www.foodpanda.ph/restaurant/tk5k/kfc-bulua-cdo). Confirm current combo inclusions and branch availability. |
 
+## Indoor activity price research — 2026-10-16
+
+These are planner-ready indoor activity options based on published rates found online. Rates and slots are not live-confirmed, so customers should verify availability and equipment before travelling.
+
+| Venue | Published rate basis | Planner budget for two | What is excluded / needs confirmation |
+|---|---|---:|---|
+| QSports Club — Upper Canitoan | Indoor pickleball court ₱300/hour + pair paddle rental ₱250/day = ₱550; +15% = ₱632.50 | **₱650** | One court-hour and one pair rental; confirm rental terms and availability. Transport and food extra. [Official rates](https://www.qsportscdo.com/) |
+| Pickle World Limketkai | Indoor court ₱500/hour; +15% = ₱575 | **₱600** | One court-hour only. Equipment rental, transport, and food extra; confirm equipment terms and booking availability. [Rates and booking](https://picklehub.ph/pickle-world-limketkai?tab=home) |
+
+### Candidates intentionally not given a firm planner price
+
+- **Timezone Centrio:** official venue page confirms the 3rd-floor location and 10 AM–9 PM opening hours, but a current per-game/Powercard spend was not verified. Keep it as an unpriced directory option until a current credit/package rate is captured. [Official location page](https://www.timezonegames.com/en-ph/locations/mindanao/timezone-centrio/)
+- **SM Game Park — SM CDO Downtown:** the venue is listed as a bowling and multi-activity destination, but a current official walk-in price sheet was not found in this pass. The older published bowling rates are not being reused as current rates. Confirm bowling, shoe rental, billiards, KTV, and arcade prices with the venue before assigning planner budgets.
+- **McPars billiards:** despite the site showing billiards rates, the website also indicates that billiards booking/setup status may be changing. Do not add as a bookable planner recommendation until current booking availability is confirmed.
+
 ## Sources
 
 ### Official or venue-controlled sources
