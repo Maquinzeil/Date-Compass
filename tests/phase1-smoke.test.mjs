@@ -506,7 +506,7 @@ test("Games category includes cooperative, couples trivia, guessing, puzzle, and
   for (const name of names) {
     assert.ok(app.includes(`{n:"${name}"`), `Missing game activity: ${name}`);
   }
-  assert.match(app, /No equipment needed; the activity estimate is ₱0/);
+  assert.match(app, /No equipment needed; the ₱0 activity estimate assumes/);
   assert.match(app, /No props or purchases needed; activity estimate ₱0/);
   assert.match(app, /Co-op puzzle hunt using a free phone puzzle",c:0/);
   assert.match(app, /const CAT=\{[\s\S]*games:"Games"/);
