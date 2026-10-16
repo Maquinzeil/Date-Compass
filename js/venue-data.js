@@ -423,6 +423,45 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceNote: "The branch listing shows the meal from ₱140 with a drink. Delivery-menu prices may differ from dine-in and availability can change. Transport and delivery fees are not included.",
       checkedOn: "2026-10-16"
     },
+    {
+      n: "Casa Grande Cafe Nazareth: chicken teriyaki rice bowls",
+      m: "out", c: 300, p: "c", s: "i",
+      d: "A casual rice-bowl date at the Nazareth café. Estimate covers two listed chicken teriyaki rice bowls with a 15% cushion.",
+      venueName: "Casa Grande Cafe — Nazareth",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/mgyv/casa-grande-cafe-nazareth",
+      sourceLabel: "Foodpanda Casa Grande Cafe Nazareth menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Casa+Grande+Cafe+4th+21st+Street+Nazareth+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱128 Chicken Teriyaki rice bowls = ₱256; 15% buffer = ₱294.40; rounded up to ₱300.",
+      priceNote: "The branch menu describes Chicken Teriyaki as served over steamed rice. Delivery-app prices may differ from dine-in; confirm the current price and item availability. Drinks, transport and delivery fees are excluded.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "Papicholo's Nazareth: two Americanos",
+      m: "out", c: 350, p: "c", s: "i",
+      d: "A relaxed coffee date at the Nazareth branch. Estimate covers two listed Americanos with a 15% cushion; food and transport are extra.",
+      venueName: "Papicholo's — Nazareth",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/ngsd/papicholos-nazareth-ngsd",
+      sourceLabel: "Foodpanda Papicholo's Nazareth menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Papicholos+Nazareth+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱132 Americano = ₱264; 15% buffer = ₱303.60; rounded up to ₱350.",
+      priceNote: "The branch delivery menu lists Americano at ₱132. Delivery-app prices may differ from dine-in and availability can change. Drinks only; food, transport and delivery fees are excluded.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "Papicholo's Nazareth: two cafe lattes",
+      m: "out", c: 450, p: "c", s: "i",
+      d: "A creamier coffee date at the Nazareth branch. Estimate covers two listed cafe lattes with a 15% cushion; food and transport are extra.",
+      venueName: "Papicholo's — Nazareth",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/ngsd/papicholos-nazareth-ngsd",
+      sourceLabel: "Foodpanda Papicholo's Nazareth menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Papicholos+Nazareth+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱188 Cafe Latte = ₱376; 15% buffer = ₱432.40; rounded up to ₱450.",
+      priceNote: "The branch delivery menu lists Cafe Latte at ₱188. Delivery-app prices may differ from dine-in and availability can change. Drinks only; food, transport and delivery fees are excluded.",
+      checkedOn: "2026-10-16"
+    },
   ],
   activityUpdates: [
     {
