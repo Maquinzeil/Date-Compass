@@ -219,7 +219,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
     assert.ok(app.includes(JSON.stringify(name)), `Missing indoor games idea: ${name}`);
   }
   assert.ok(result.activityCount >= 250, `Expected the added indoor games to expand the planner, got ${result.activityCount} activities.`);
-  assert.equal(result.sourceBackedFoodCount, 21, "All 21 source-backed food options should be loaded into the planner.");
+  assert.equal(result.sourceBackedFoodCount, 28, "All 28 source-backed food options should be loaded into the planner.");
   assert.equal(result.raftingBudget, 2800, "Rafting should use the source-backed two-person estimate plus buffer.");
   assert.equal(result.sourcePanelHasLink, true, "Source-backed options must display a source link.");
   assert.equal(result.allSourceDatesRecorded, true, "Source-backed prices must record a check date.");
