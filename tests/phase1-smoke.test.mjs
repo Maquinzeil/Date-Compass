@@ -138,7 +138,7 @@ test("all food-style controls have explicit matching logic and fallback stays bu
     assert.match(app, new RegExp('mode=="' + mode + '"'));
   }
   assert.match(app, /const found=opts\(pref,\{p:S\.p,t:"a",s:S\.s\},remaining\)/);
-  assert.match(app, /return opts\(pref,\{p:"a",t:"a",s:"a"\},remaining\)/);
+  assert.match(app, /return opts\(pref,\{p:S\.p,t:"a",s:"a"\},remaining\)/);
 });
 
 test("having a car does not incorrectly restrict results to car-required activities", () => {
