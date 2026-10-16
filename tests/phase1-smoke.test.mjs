@@ -316,9 +316,9 @@ test("Dahilayan Forest Park ride budgets use official rates and include separate
 test("McPars indoor pickleball and billiards budgets use official hourly rates and a 15% buffer", () => {
   assert.match(app, /McPars indoor pickleball date for two/);
   assert.match(app, /McPars billiards date for two/);
-  assert.match(venueData, /c: 500,[\\s\\S]*?Highest published indoor court rate: ₱400\\/hour; 15% buffer = ₱460/);
-  assert.match(venueData, /c: 300,[\\s\\S]*?One billiards table for one hour: ₱250; 15% buffer = ₱287\\.50/);
-  assert.match(venueData, /https:\\/\\/mcpars\\.com\\//);
+  assert.ok(venueData.includes('priceBasis: "Highest published indoor court rate: ₱400/hour; 15% buffer = ₱460; rounded up to ₱500."'));
+  assert.ok(venueData.includes('priceBasis: "One billiards table for one hour: ₱250; 15% buffer = ₱287.50; rounded up to ₱300."'));
+  assert.ok(venueData.includes("https://mcpars.com/"));
   assert.match(venueData, /McPars Sports Center/);
 });
 
