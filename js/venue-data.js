@@ -371,6 +371,58 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceNote: "The menu lists an Iced Vietnamese buy-one-take-one offer from ₱99. Confirm current offer terms, serving size, exact branch and availability before visiting. Food and transport are not included.",
       checkedOn: "2026-10-16"
     },
+    {
+      n: "McDonald's Cagayan Ororama: cheeseburger combo for two",
+      m: "out", c: 300, p: "c", s: "i",
+      d: "A budget-friendly burger date with fries and drinks. Uses the Cagayan Ororama branch listing and a 15% cushion.",
+      venueName: "McDonald's — Cagayan Ororama",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s5wb/mcdonalds-cagayan-ororama",
+      sourceLabel: "Foodpanda Cagayan Ororama branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=McDonald%27s+Cagayan+Ororama+Cogon",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱129 Cheeseburger with Fries and Drink = ₱258; 15% buffer = ₱296.70; rounded up to ₱300.",
+      priceNote: "The branch listing shows the combo at ₱129. Delivery-app prices and offers can differ from dine-in; confirm price and availability. Transport and delivery fees are not included.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "Mang Inasal Gaisano CDO: Paa Large meals for two",
+      m: "out", c: 400, p: "c", s: "i",
+      d: "A grilled chicken-and-rice date at the Gaisano CDO branch, with a 15% cushion included.",
+      venueName: "Mang Inasal — Gaisano CDO",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/e3ek/mang-inasal-gaisano-cdo",
+      sourceLabel: "Foodpanda Gaisano CDO branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Mang+Inasal+Gaisano+CDO+Recto+Avenue",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱165 Paa Large - PM1 = ₱330; 15% buffer = ₱379.50; rounded up to ₱400.",
+      priceNote: "The branch listing shows Paa Large - PM1 with one rice at ₱165. Delivery-menu prices may differ from dine-in and availability can change. Drinks, transport and delivery fees are not included.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "Chowking Divisoria: Chao Fan with Fried Chicken for two",
+      m: "out", c: 400, p: "c", s: "i",
+      d: "A filling rice-and-chicken date using the Divisoria branch's listed menu price and a 15% cushion.",
+      venueName: "Chowking — Divisoria",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s9rf/chowking-divisoria",
+      sourceLabel: "Foodpanda Chowking Divisoria branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Chowking+Divisoria+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱170 Chao Fan with Fried Chicken = ₱340; 15% buffer = ₱391; rounded up to ₱400.",
+      priceNote: "The branch listing shows Chao Fan with Fried Chicken at ₱170. Delivery-menu prices may differ from dine-in and availability can change. Drinks, transport and delivery fees are not included.",
+      checkedOn: "2026-10-16"
+    },
+    {
+      n: "KFC Bulua CDO: Chicken Chop Bowl meals for two",
+      m: "out", c: 350, p: "c", s: "i",
+      d: "A rice-bowl date at the Bulua branch, using the listed meal price and a 15% cushion.",
+      venueName: "KFC — Bulua CDO",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/tk5k/kfc-bulua-cdo",
+      sourceLabel: "Foodpanda KFC Bulua branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=KFC+Bulua+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱140 1PC Chicken Chop Bowl Meal = ₱280; 15% buffer = ₱322; rounded up to ₱350.",
+      priceNote: "The branch listing shows the meal from ₱140 with a drink. Delivery-menu prices may differ from dine-in and availability can change. Transport and delivery fees are not included.",
+      checkedOn: "2026-10-16"
+    },
   ],
   activityUpdates: [
     {
@@ -889,6 +941,46 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-15"
     },
 
+    {
+      name: "McDonald's — Cagayan Ororama",
+      category: "fast food, burgers and chicken meals",
+      area: "Ororama Cogon, J.R. Borja Street, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=McDonald%27s+Cagayan+Ororama+Cogon",
+      venueStatus: "Branch-specific delivery menu and local branch listing found",
+      priceStatus: "Published delivery-menu prices captured; dine-in prices may differ",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s5wb/mcdonalds-cagayan-ororama",
+      checkedOn: "2026-10-16"
+    },
+    {
+      name: "Mang Inasal — Gaisano CDO",
+      category: "fast food, grilled chicken and rice meals",
+      area: "Gaisano City Mall, Claro M. Recto Avenue, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Mang+Inasal+Gaisano+CDO+Recto+Avenue",
+      venueStatus: "Branch-specific delivery menu found",
+      priceStatus: "Published delivery-menu prices captured; dine-in prices may differ",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/e3ek/mang-inasal-gaisano-cdo",
+      checkedOn: "2026-10-16"
+    },
+    {
+      name: "Chowking — Divisoria",
+      category: "fast food, Chinese-style rice meals and noodles",
+      area: "Divisoria, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Chowking+Divisoria+Cagayan+de+Oro",
+      venueStatus: "Branch-specific delivery menu found",
+      priceStatus: "Published delivery-menu prices captured; dine-in prices may differ",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/s9rf/chowking-divisoria",
+      checkedOn: "2026-10-16"
+    },
+    {
+      name: "KFC — Bulua CDO",
+      category: "fast food, fried chicken and rice bowls",
+      area: "National Road, Barangay Bulua, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=KFC+Bulua+Cagayan+de+Oro",
+      venueStatus: "Branch-specific delivery menu found",
+      priceStatus: "Published delivery-menu prices captured; dine-in prices may differ",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/tk5k/kfc-bulua-cdo",
+      checkedOn: "2026-10-16"
+    },
     {
       name: "Kagay-an Coffee Cartel — Nazareth",
       category: "cafe, coffee and casual meals",
