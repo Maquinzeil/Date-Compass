@@ -228,3 +228,15 @@ These four records were added to the planner data after checking the current bra
 - A delivery-app menu is evidence for a conservative planning estimate, not proof of dine-in pricing or current inventory.
 - The listed budget covers the specified food only. Do not imply that transport, delivery fees, parking or extra drinks are included unless stated.
 - These are food-date options, not a verified booking or reservation; couples should confirm the branch and menu before travelling.
+
+
+## Indoor activity price check — McPars Sports Center (2026-10-16)
+
+The [official McPars Sports Center website](https://mcpars.com/) publishes current hourly rates for indoor activities in Cagayan de Oro:
+
+| Activity | Published rate | Budget for two | Calculation and inclusions |
+|---|---:|---:|---|
+| Indoor pickleball, one court for one hour | Court 1: ₱350/hour; Courts 2–7: ₱400/hour | **₱500** | Uses the higher ₱400 rate; 15% cushion = ₱460, rounded up to ₱500. One court/hour only. |
+| Billiards, one table for one hour | ₱250/hour | **₱300** | ₱250 + 15% = ₱287.50, rounded up to ₱300. One table/hour only. |
+
+**Verification caveats:** the published rates support a conservative activity-only estimate, not a guarantee of available court/table slots. Confirm the exact address, booking requirements, equipment inclusion (paddles/balls or cues), operating status and any additional charges before going. Food and transport are excluded. The two options were added to the planner with those limitations in their descriptions.
