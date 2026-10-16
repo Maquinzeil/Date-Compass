@@ -219,7 +219,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
     assert.ok(app.includes(JSON.stringify(name)), `Missing indoor games idea: ${name}`);
   }
   assert.ok(result.activityCount >= 250, `Expected the added indoor games to expand the planner, got ${result.activityCount} activities.`);
-  assert.equal(result.sourceBackedFoodCount, 28, "All 28 source-backed food options should be loaded into the planner.");
+  assert.equal(result.sourceBackedFoodCount, 32, "All 32 source-backed food options should be loaded into the planner.");
   assert.equal(result.raftingBudget, 2800, "Rafting should use the source-backed two-person estimate plus buffer.");
   assert.equal(result.sourcePanelHasLink, true, "Source-backed options must display a source link.");
   assert.equal(result.allSourceDatesRecorded, true, "Source-backed prices must record a check date.");
@@ -390,9 +390,9 @@ test("all source-backed price records keep complete evidence and match planner a
   const foods = verified.foodIdeas.filter(item => item.sourceUrl);
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
-  assert.equal(foods.length, 28, "Expected 28 source-backed food ideas.");
+  assert.equal(foods.length, 32, "Expected 32 source-backed food ideas.");
   assert.equal(activities.length, 9, "Expected nine source-backed activity updates.");
-  assert.equal(records.length, 37, "Every source-backed food and activity should be included in this evidence audit.");
+  assert.equal(records.length, 41, "Every source-backed food and activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
