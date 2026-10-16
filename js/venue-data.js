@@ -641,6 +641,18 @@ window.DATE_COMPASS_VERIFIED_DATA = {
 
 
     {
+      n: "SM Bowling Downtown: one-game bowling date for two",
+      c: 500,
+      venueName: "SM Bowling — SM CDO Downtown Premier",
+      sourceUrl: "https://stardeals.ph/deals/sm-bowling",
+      sourceLabel: "StarDeals game value listing; Klook branch and shoe-rental details",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=SM+Bowling+SM+CDO+Downtown+Premier",
+      priceStatusLabel: "Published game reference + shoe rental + buffer",
+      priceBasis: "Two games at ₱160 each + two shoe rentals at ₱50 each = ₱420; 15% buffer = ₱483; rounded up to ₱500.",
+      priceNote: "The StarDeals listing shows a ₱160 regular game value and promotion validity through November 30, 2026, subject to its terms. Klook's branch listing says one voucher covers one game per player and shoe rental is ₱50. This is an evidence-based estimate, not a guarantee of current walk-in pricing. Confirm current rates, promo eligibility, and shoe rental before visiting. Transport and food are extra.",
+      checkedOn: "2026-10-16"
+    },
+    {
       n: "TBC Billiards downtown: one-hour pool date for two",
       c: 200,
       venueName: "TBC Billiards — Corrales Extension",
