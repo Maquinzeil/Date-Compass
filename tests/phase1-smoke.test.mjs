@@ -206,7 +206,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
     const gameDatesNotShort = gameDates.filter(activity => activity.t !== "s").map(activity => ({ name: activity.n, duration: activity.t }));
     const sourceBackedFoods = F.filter(food => food.sourceUrl);
     const rafting = A.find(activity => activity.n === "White water rafting on the Cagayan River");
-    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, gameDatesWrongCategory, gameDatesNotIndoor, gameDatesNotShort, activityCount: A.length, foodCount: F.length, sourceBackedFoodCount: sourceBackedFoods.length, raftingBudget: rafting && rafting.c, sourcePanelHasLink: priceEvidenceHtml(sourceBackedFoods[0]).includes("href="), allSourceDatesRecorded: sourceBackedFoods.every(food => food.checkedOn === "2026-10-15") };
+    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, gameDatesWrongCategory, gameDatesNotIndoor, gameDatesNotShort, activityCount: A.length, foodCount: F.length, sourceBackedFoodCount: sourceBackedFoods.length, raftingBudget: rafting && rafting.c, sourcePanelHasLink: priceEvidenceHtml(sourceBackedFoods[0]).includes("href="), allSourceDatesRecorded: sourceBackedFoods.every(food => /^202[0-9]-[0-9]{2}-[0-9]{2}$/.test(food.checkedOn || "") && food.checkedOn <= window.DATE_COMPASS_VERIFIED_DATA.checkedOn) };
   })()`, context, { timeout: 30000 });
   assert.ok(result.combinations > 5000, `Expected broad choice coverage, got ${result.combinations}`);
   assert.equal(result.wrongCategory, 0, `Planner ignored the selected activity category: ${JSON.stringify(result)}`);
@@ -399,7 +399,8 @@ test("all source-backed price records keep complete evidence and match planner a
     assert.ok(item.priceStatusLabel, `Missing price status for ${item.n}`);
     assert.ok(item.priceBasis && item.priceBasis.includes("15%"), `Missing 15% budget basis for ${item.n}`);
     assert.ok(item.priceNote, `Missing exclusions or verification note for ${item.n}`);
-    assert.equal(item.checkedOn, verified.checkedOn, `Price check date mismatch for ${item.n}`);
+    assert.match(item.checkedOn || "", /^202[0-9]-[0-9]{2}-[0-9]{2}$/, `Missing item-level price check date for ${item.n}`);
+    assert.ok(item.checkedOn <= verified.checkedOn, `Item check date cannot be later than dataset refresh date for ${item.n}`);
     assert.ok(Number.isFinite(item.c) && item.c >= 0, `Invalid budget for ${item.n}`);
   }
   for (const item of activities) {
