@@ -27,7 +27,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
   assert.ok(html.includes('src="js/venue-data.js?v=20261016a"'));
-  assert.ok(html.includes('src="js/app.js?v=20261016e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261016f"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
   assert.ok(html.includes('href="css/phone-fix.css?v=20261015e"'));
@@ -185,7 +185,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
     const settings = ["a", "i", "o"];
     const categories = Object.keys(CH.cat);
     const foodModes = Object.keys(CH.foodMode);
-    let combinations = 0, noActivity = 0, overBudgetFood = 0, wrongCategory = 0, wrongFoodStyle = 0;
+    let combinations = 0, noActivity = 0, overBudgetFood = 0, wrongCategory = 0, wrongFoodStyle = 0, wrongActivityArea = 0, wrongFoodArea = 0;
     for (const budget of budgets) for (const area of areas) for (const car of cars)
       for (const duration of durations) for (const setting of settings)
       for (const category of categories) for (const foodMode of foodModes) {
@@ -194,10 +194,12 @@ test("planner runs every area, transport, category, duration, setting, and food-
         const activities = aPool();
         combinations++;
         if (!activities.length) { noActivity++; continue; }
+        if (area !== "a" && activities.some(activity => activity.p && activity.p !== "a" && activity.p !== area)) wrongActivityArea++;
         if (category !== "a" && activities.some(activity => activity.cat !== category && !(category === "free" && activity.c <= 150))) wrongCategory++;
         S.act = activities[0];
         const foods = fPool();
         if (foods.some(food => food.c > Math.max(S.b - S.act.c, 0))) overBudgetFood++;
+        if (area !== "a" && foods.some(food => food.p && food.p !== "a" && food.p !== area)) wrongFoodArea++;
         if (foodMode !== "a" && foods.some(food => !foodMatchesMode(food, foodMode))) wrongFoodStyle++;
       }
     const gameDates = A.filter(activity => /Mobile Legends|co-op mobile game|internet-cafe gaming|Online game discovery|Co-op PC game|Board game night at home|DIY couples board game|Make-your-own trivia board game|DIY memory-matching card game|Homemade mini-bowling game|DIY paper-airplane target game|Indoor scavenger-hunt game|DIY cup-stacking challenge game|Cardboard marble-maze game|DIY indoor mini-golf game|Sock-basketball game at home|DIY mystery-envelope challenge game|Cooperative story-building game|Couples trivia: how well do you know me\?|Guess the memory couples game|20 Questions mystery guessing game|No-equipment charades game|Puzzle battle|Word-association speed game|Cooperative category-chain game|Co-op puzzle hunt/i.test(activity.n));
@@ -206,12 +208,14 @@ test("planner runs every area, transport, category, duration, setting, and food-
     const gameDatesNotShort = gameDates.filter(activity => activity.t !== "s").map(activity => ({ name: activity.n, duration: activity.t }));
     const sourceBackedFoods = F.filter(food => food.sourceUrl);
     const rafting = A.find(activity => activity.n === "White water rafting on the Cagayan River");
-    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, gameDatesWrongCategory, gameDatesNotIndoor, gameDatesNotShort, activityCount: A.length, foodCount: F.length, sourceBackedFoodCount: sourceBackedFoods.length, raftingBudget: rafting && rafting.c, sourcePanelHasLink: priceEvidenceHtml(sourceBackedFoods[0]).includes("href="), allSourceDatesRecorded: sourceBackedFoods.every(food => /^202[0-9]-[0-9]{2}-[0-9]{2}$/.test(food.checkedOn || "") && food.checkedOn <= window.DATE_COMPASS_VERIFIED_DATA.checkedOn) };
+    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, wrongActivityArea, wrongFoodArea, gameDatesWrongCategory, gameDatesNotIndoor, gameDatesNotShort, activityCount: A.length, foodCount: F.length, sourceBackedFoodCount: sourceBackedFoods.length, raftingBudget: rafting && rafting.c, sourcePanelHasLink: priceEvidenceHtml(sourceBackedFoods[0]).includes("href="), allSourceDatesRecorded: sourceBackedFoods.every(food => /^202[0-9]-[0-9]{2}-[0-9]{2}$/.test(food.checkedOn || "") && food.checkedOn <= window.DATE_COMPASS_VERIFIED_DATA.checkedOn) };
   })()`, context, { timeout: 30000 });
   assert.ok(result.combinations > 5000, `Expected broad choice coverage, got ${result.combinations}`);
   assert.equal(result.wrongCategory, 0, `Planner ignored the selected activity category: ${JSON.stringify(result)}`);
   assert.equal(result.overBudgetFood, 0, `Food suggestions exceeded remaining budget: ${JSON.stringify(result)}`);
   assert.equal(result.wrongFoodStyle, 0, `Planner ignored the selected food style: ${JSON.stringify(result)}`);
+  assert.equal(result.wrongActivityArea, 0, `Planner returned an explicitly out-of-area activity: ${JSON.stringify(result)}`);
+  assert.equal(result.wrongFoodArea, 0, `Planner returned an explicitly out-of-area food venue: ${JSON.stringify(result)}`);
   assert.equal(result.gameDatesWrongCategory.length, 0, `Gaming date was categorized incorrectly: ${JSON.stringify(result.gameDatesWrongCategory)}`);
   assert.equal(result.gameDatesNotIndoor.length, 0, `Game activities must remain available under the indoor filter: ${JSON.stringify(result.gameDatesNotIndoor)}`);
   assert.equal(result.gameDatesNotShort.length, 0, `Short game activities must remain selectable for a two-hour date: ${JSON.stringify(result.gameDatesNotShort)}`);
@@ -467,14 +471,14 @@ test("planner choices sit inside a spaced responsive panel and plan actions are 
   assert.match(css, /@media\(max-width:640px\)[\s\S]*?#app \.planner-filters\s*\{[\s\S]*?grid-template-columns:minmax\(0,1fr\)/);
   assert.match(css, /#app \.bar button\.ghost,[\s\S]*?background:var\(--gold\)!important;[\s\S]*?color:var\(--ink\)!important;[\s\S]*?opacity:1!important/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261016e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261016f"'));
 });
 
 
 test("Surprise Me planner button remains actionable and explains missing budget", () => {
   assert.match(app, /<button class="go" onclick="gen\(\)">Plan my date<\/button>/);
   assert.match(app, /Please enter a budget for both of you first/);
-  assert.ok(html.includes('src="js/app.js?v=20261016e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261016f"'));
 });
 
 test("budget field keeps custom amount entry without a preset button", () => {
@@ -483,7 +487,7 @@ test("budget field keeps custom amount entry without a preset button", () => {
   assert.match(app, /function setBudget\(v\)/);
   assert.doesNotMatch(css, /budget-presets|budget-preset|Quick budget pick for the date planner/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261016e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261016f"'));
 });
 
 
