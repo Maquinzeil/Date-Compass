@@ -279,7 +279,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceBasis: "2 × ₱705 Tonkotsu Shoyu + ₱235 California Maki = ₱1,645; 15% buffer = ₱1,891.75; rounded up to ₱1,950.",
       priceNote: "The branch menu displays Tonkotsu Shoyu at a regular listed price of ₱705 and California Maki at ₱235, with temporary 20% app discounts shown. This estimate uses regular prices before promotions. Delivery prices may differ from dine-in; transport and delivery fees are excluded. Confirm current item availability and price before visiting.",
       checkedOn: "2026-10-15"
-    }
+    },
     {
       n: "Kagay-an Coffee Cartel Nazareth: two Americanos",
       m: "out", c: 260, p: "c", s: "i",
