@@ -74,6 +74,39 @@
 - Chowking — SM CDO Premier: https://www.foodpanda.ph/restaurant/s9vr/chowking-sm-cdo-premier
 - KFC — Bulua CDO: https://www.foodpanda.ph/restaurant/tk5k/kfc-bulua-cdo
 
+## Google Maps lookup links
+
+These links open a Google Maps search for the exact branch/location name. They are lookup links, not a guarantee that every pin or business detail has been independently confirmed. Check the selected result's address and recent activity before treating it as verified.
+
+- [Kagayan Coffee Cartel, Pabayo Street, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Kagayan+Coffee+Cartel%2C+Pabayo+Street%2C+Cagayan+de+Oro)
+- [Un & Franc Coffee Bar Ace Medical, Rosario Avenue, Lapasan, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Un+%26+Franc+Coffee+Bar+Ace+Medical%2C+Rosario+Avenue%2C+Lapasan%2C+Cagayan+de+Oro)
+- [D'Working Cafe, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=D'Working+Cafe%2C+Cagayan+de+Oro)
+- [Felisse Cafe, Nacalaban Street, Barangay 20, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Felisse+Cafe%2C+Nacalaban+Street%2C+Barangay+20%2C+Cagayan+de+Oro)
+- [H Proper Coffee Roasters Uptown, Masterson Avenue, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=H+Proper+Coffee+Roasters+Uptown%2C+Masterson+Avenue%2C+Cagayan+de+Oro)
+- [WeeCup Call Cafe & Study Hub, Corrales Avenue, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=WeeCup+Call+Cafe+%26+Study+Hub%2C+Corrales+Avenue%2C+Cagayan+de+Oro)
+- [Bowerbird Coffee Ph, 62 Justo Ramonal Street, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Bowerbird+Coffee+Ph%2C+62+Justo+Ramonal+Street%2C+Cagayan+de+Oro)
+- [Bean Park Cafe DV, 147 Fernandez Street, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Bean+Park+Cafe+DV%2C+147+Fernandez+Street%2C+Cagayan+de+Oro)
+- [Sunnyside Coffee and Roastery, 11th Street and 30th Street, Nazareth, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Sunnyside+Coffee+and+Roastery%2C+11th+Street+and+30th+Street%2C+Nazareth%2C+Cagayan+de+Oro)
+- [Paradigm Coffee & Cocktail, 2nd Street, Nazareth, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Paradigm+Coffee+%26+Cocktail%2C+2nd+Street%2C+Nazareth%2C+Cagayan+de+Oro)
+- [Una Mela Uptown, Masterson Avenue, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Una+Mela+Uptown%2C+Masterson+Avenue%2C+Cagayan+de+Oro)
+- [Starbucks Limketkai Avenue, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Starbucks+Limketkai+Avenue%2C+Cagayan+de+Oro)
+- [Missy Bon Bon Limketkai, Rosario Drive, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Missy+Bon+Bon+Limketkai%2C+Rosario+Drive%2C+Cagayan+de+Oro)
+- [Coffee Project, AllHome Building, Limketkai Drive, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Coffee+Project%2C+AllHome+Building%2C+Limketkai+Drive%2C+Cagayan+de+Oro)
+- [McDonald's CDO Highway, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=McDonald's+CDO+Highway%2C+Cagayan+de+Oro)
+- [McDonald's Cagayan Ororama, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=McDonald's+Cagayan+Ororama%2C+Cagayan+de+Oro)
+- [Jollibee CDO Market City, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Jollibee+CDO+Market+City%2C+Cagayan+de+Oro)
+- [Jollibee SM CDO, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Jollibee+SM+CDO%2C+Cagayan+de+Oro)
+- [Jollibee CDO Divisoria, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Jollibee+CDO+Divisoria%2C+Cagayan+de+Oro)
+- [Mang Inasal Gaisano CDO, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Mang+Inasal+Gaisano+CDO%2C+Cagayan+de+Oro)
+- [Mang Inasal SM Downtown Premier CDO, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Mang+Inasal+SM+Downtown+Premier+CDO%2C+Cagayan+de+Oro)
+- [Mang Inasal Limketkai CDO, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Mang+Inasal+Limketkai+CDO%2C+Cagayan+de+Oro)
+- [Chowking Divisoria, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Chowking+Divisoria%2C+Cagayan+de+Oro)
+- [Chowking Shell Masterson CDO, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Chowking+Shell+Masterson+CDO%2C+Cagayan+de+Oro)
+- [Chowking SM CDO Premier, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Chowking+SM+CDO+Premier%2C+Cagayan+de+Oro)
+- [KFC Bulua CDO, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=KFC+Bulua+CDO%2C+Cagayan+de+Oro)
+- [Burger King Xavier Divisoria, Pelaez Commercial Arcade, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Burger+King+Xavier+Divisoria%2C+Pelaez+Commercial+Arcade%2C+Cagayan+de+Oro)
+- [Burger King SM CDO Downtown Premier, Cagayan de Oro](https://www.google.com/maps/search/?api=1&query=Burger+King+SM+CDO+Downtown+Premier%2C+Cagayan+de+Oro)
+
 ## Next research pass
 
 1. Compare these candidates with the existing 40-entry directory and deduplicate exact branches.
