@@ -202,7 +202,8 @@ test("planner runs every area, transport, category, duration, setting, and food-
         const foods = fPool();
         if (foods.some(food => food.c > Math.max(S.b - S.act.c, 0))) overBudgetFood++;
         const foodCap = Math.max(S.b - S.act.c, 0);
-        const strictFoods = F.filter(food => food && foodMatchesMode(food, S.foodMode) && ok(food, { p: S.p, t: "a", s: S.s }) && food.c <= foodCap);
+        const foodBase = S.act && S.act.t === "n" ? F.filter(food => food && food.k) : F.filter(food => food && (!food.k || food.k === 2));
+        const strictFoods = foodBase.filter(food => foodMatchesMode(food, S.foodMode) && ok(food, { p: S.p, t: "a", s: S.s }) && food.c <= foodCap);
         if (strictFoods.length && foods.some(food => !strictFoods.includes(food))) foodSettingRelaxations++;
         if (area !== "a" && foods.some(food => food.p && food.p !== "a" && food.p !== area)) wrongFoodArea++;
         if (foodMode !== "a" && foods.some(food => !foodMatchesMode(food, foodMode))) wrongFoodStyle++;
