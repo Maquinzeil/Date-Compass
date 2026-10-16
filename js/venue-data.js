@@ -645,6 +645,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       c: 500,
       venueName: "SM Bowling — SM CDO Downtown Premier",
       sourceUrl: "https://stardeals.ph/deals/sm-bowling",
+      priceSourceUrl: "https://www.klook.com/en-PH/activity/232246-bowling-at-sm-cdo/",
       sourceLabel: "StarDeals game value listing; Klook branch and shoe-rental details",
       venueUrl: "https://www.google.com/maps/search/?api=1&query=SM+Bowling+SM+CDO+Downtown+Premier",
       priceStatusLabel: "Published game reference + shoe rental + buffer",
