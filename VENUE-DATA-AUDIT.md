@@ -10,9 +10,9 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 
 | Evidence level | Current count | What the count means | What it does not mean |
 |---|---:|---|---|
-| Source-backed food planner budgets | 38 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
+| Source-backed food planner budgets | 40 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
 | Source-backed activity planner budgets | 15 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
-| **Source-backed priced planner records (food + activities)** | **53** | 38 food records + 15 activity records. | Do not label all 53 “fully verified.” They are evidence-backed estimates with differing source strength and caveats. |
+| **Source-backed priced planner records (food + activities)** | **55** | 40 food records + 15 activity records. | Do not label all 53 “fully verified.” They are evidence-backed estimates with differing source strength and caveats. |
 | Venue directory / research records | 50 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
 
 ### Status labels to use consistently
@@ -22,7 +22,7 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 3. **Directory-only / price unverified:** venue research is useful, but there is not enough reliable price evidence to recommend a fixed venue budget. Keep it out of source-backed priced recommendations until evidence is captured.
 4. **Generic activity estimate:** DIY or at-home activities can use planning estimates, but they are not venue-price verification.
 
-Before launch, review the **53 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
+Before launch, review the **55 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
 
 ## Rules for publishing data
 
@@ -269,3 +269,17 @@ The official QSports Club website lists a full-size indoor basketball court at *
 - **Location:** Upper Canitoan, Cagayan de Oro; [Google Maps search](https://www.google.com/maps/search/?api=1&query=QSports+Club+Upper+Canitoan+Cagayan+de+Oro).
 
 This is a source-backed planning estimate, not a booking or guarantee of availability.
+
+
+## Venue research batch 14 — Kagay-an Coffee Cartel menu options (checked 17 October 2026)
+
+Added two separate, branch-matched food ideas instead of mixing prices from different locations:
+
+| Planner option | Published menu basis for two | 15% cushion | Planner budget | Evidence status |
+|---|---:|---:|---:|---|
+| Kagay-an Coffee Cartel Hayes Street: two Americanos | 2 × ₱110 (240ml Americano) = ₱220 | ₱33 | ₱300 | Cartel Brew online menu; confirm dine-in price and availability |
+| Kagay-an Coffee Cartel Nazareth: tuna rice bowls for two | 2 × ₱170 = ₱340 | ₱51 | ₱400 | Nazareth branch delivery menu; dine-in price may differ |
+
+Sources: [Cartel Brew online menu](https://kagayan-coffee-cartel.catalog.kyte.site/cartel-brew) and [Foodpanda Kagay-an Coffee Cartel — Nazareth menu](https://www.foodpanda.ph/restaurant/t9sf/kagay-an-coffee-cartel).
+
+These are menu-backed planning estimates, not guaranteed dine-in totals. Drinks are not included in the tuna-rice-bowl option; food is not included in the Americano-only option. Transport, delivery fees, and any service charges are excluded. Confirm the exact branch, current prices, and item availability before visiting.

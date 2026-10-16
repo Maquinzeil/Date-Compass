@@ -489,6 +489,32 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-16"
     },
     {
+      n: "Kagay-an Coffee Cartel Hayes Street: two Americanos",
+      m: "out", c: 300, p: "c", s: "i",
+      d: "A simple coffee date at the Hayes Street Cartel Brew menu. Estimate covers one 240ml Americano each, plus a 15% cushion; snacks and transport are extra.",
+      venueName: "Kagay-an Coffee Cartel — Hayes Street",
+      sourceUrl: "https://kagayan-coffee-cartel.catalog.kyte.site/cartel-brew",
+      sourceLabel: "Kagay-an Coffee Cartel Cartel Brew online menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Kagay-an+Coffee+Cartel+88+Hayes+Street+Cagayan+de+Oro",
+      priceStatusLabel: "Published online-menu price + buffer",
+      priceBasis: "2 × ₱110 Americano 240ml = ₱220; 15% buffer = ₱253; rounded up to ₱300.",
+      priceNote: "The Cartel Brew online menu lists a 240ml Americano at ₱110. Confirm the current menu, dine-in price, and item availability before visiting. Food, transport, and any service fees are not included.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Kagay-an Coffee Cartel Nazareth: tuna rice bowls for two",
+      m: "out", c: 400, p: "c", s: "i",
+      d: "A casual rice-bowl date at the Nazareth branch. Estimate covers two listed tuna rice bowls plus a 15% cushion; drinks and transport are extra.",
+      venueName: "Kagay-an Coffee Cartel — Nazareth",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/t9sf/kagay-an-coffee-cartel",
+      sourceLabel: "Foodpanda Kagay-an Coffee Cartel branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Kagay-an+Coffee+Cartel+Nazareth+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱170 Tuna Rice Bowl = ₱340; 15% buffer = ₱391; rounded up to ₱400.",
+      priceNote: "The Nazareth branch delivery menu lists Tuna Rice Bowl at ₱170. Delivery-app prices may differ from dine-in; confirm current price and item availability. Drinks, transport and delivery fees are excluded.",
+      checkedOn: "2026-10-17"
+    },
+    {
       n: "KFC Bulua CDO: Chicken Burger Combos for two",
       m: "out", c: 400, p: "c", s: "i",
       d: "A burger-combo alternative at the Bulua branch, budgeted for two with a 15% cushion.",
