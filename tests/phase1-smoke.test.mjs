@@ -26,7 +26,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/venue-data.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/venue-data.js?v=20261015b"'));
+  assert.ok(html.includes('src="js/venue-data.js?v=20261016a"'));
   assert.ok(html.includes('src="js/app.js?v=20261016d"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
@@ -528,7 +528,7 @@ test("every venue-directory record has a Maps search link and explicit research 
     assert.ok(item.name && item.category && item.area, "Every venue needs a name, category, and area.");
     assert.ok(!names.has(item.name), `Duplicate venue directory record: ${item.name}`);
     names.add(item.name);
-    assert.match(item.mapUrl || "", /^https:\/\/www\\.google\\.com\/maps\/search\//, `Missing Google Maps search link for ${item.name}`);
+    assert.ok((item.mapUrl || "").startsWith("https://www.google.com/maps/search/"), `Missing Google Maps search link for ${item.name}`);
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing source/research link for ${item.name}`);
     assert.ok(item.venueStatus, `Missing venue verification status for ${item.name}`);
     assert.ok(item.priceStatus, `Missing price verification status for ${item.name}`);
