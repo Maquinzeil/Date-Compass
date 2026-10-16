@@ -154,3 +154,34 @@ This is a source refresh, not a claim of phone-confirmed availability. Keep deli
 4. Never treat a solo item as a meal bundle unless the menu says the sides/drink are included.
 5. Keep cafés with untranscribed menus and indoor activities with unknown rates in the directory, not the priced planner.
 6. Before launch, refresh source links and confirm operating details; these are desk-research findings, not phone-confirmed quotes.
+
+
+## Indoor activity price evidence update — 2026-10-16
+
+### SM Bowling — SM CDO Downtown Premier
+
+- **Current offer evidence:** StarDeals' [SM Bowling offer](https://stardeals.ph/deals/sm-bowling) lists one game at ₱127 (regular displayed value ₱160) and explicitly includes SM CDO Downtown Premier as a participating branch. The offer validity shown is 1 September–30 November 2026 on the source checked for this pass. A newer listing version may show an October–December window; check the exact voucher terms at purchase.
+- **Branch evidence:** the same offer identifies the venue at 4/F SM CDO Downtown Premier, Claro M. Recto Avenue, Cagayan de Oro.
+- **Important restrictions:** shoe rental is not included; redemption is subject to lane availability; no reservations are allowed under the offer; holidays are excluded.
+- **Responsible illustration:** two people each playing one voucher-covered game = ₱254 for game entry before shoe rental or other extras. This is **not** a complete date budget until current shoe rental costs and any branch restrictions are confirmed.
+- **Older rate warning:** local articles from 2019 report ₱130 weekday / ₱140 weekend per game and ₱50 shoe rental, but these are stale and must not be presented as current standard rates. They are retained only as historical context, not current pricing evidence.
+- **Planner status:** keep as a research-backed activity lead. If the planner includes the time-limited offer, make the validity window and shoe-rental exclusion explicit; otherwise leave a standard bowling budget unpriced until current direct rates are available.
+
+### Timezone — Centrio
+
+The [official Timezone Powercard page](https://www.timezonegames.com/en-ph/powercards/) states that a Powercard can be obtained starting at ₱20 for transactions below ₱500; transactions of ₱500 or more receive a free Powercard. The Red tier requires a minimum load of ₱200. This does **not** mean that ₱200 buys a fixed number of games: prices differ by machine/attraction and the card purchase/load amount is not the same as the cost of a two-person visit.
+
+- **Responsible illustration:** two people need separate estimates based on chosen machines and play duration. No reliable current per-game rate was captured for Timezone Centrio, so do not invent a single total.
+- **Planner status:** location/activity can be listed; keep a priced arcade package out of the planner until current machine prices or a clearly scoped official offer are captured.
+
+### FantasyWorld — SM CDO Downtown and SM City CDO Uptown
+
+The official [FantasyWorld branch finder](https://myfantasyworld.com/find-a-branch) currently lists both CDO branches and identifies their locations and available attraction types. SM CDO Downtown is listed on Level 4; SM City CDO Uptown is listed on Level 2, North Wing.
+
+- **What this verifies:** branch identity, address and attraction listing.
+- **What this does not verify:** admission price, session duration, whether each listed attraction is currently operating, adult companion fees, height/age rules, or included activities.
+- **Planner status:** directory-only until a current branch-specific rate card or official price confirmation is found.
+
+### Source interpretation note
+
+The current bowling voucher is a time-limited offer, not proof of the venue's standard walk-in price. The Timezone card minimum is not a guaranteed gaming budget. FantasyWorld's official branch listing confirms location and attraction catalogue, not prices. Keep all three distinctions in the planner and evidence ledger.
