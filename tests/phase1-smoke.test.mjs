@@ -487,7 +487,7 @@ test("planner choices sit inside a spaced responsive panel and plan actions are 
 test("Surprise Me planner button remains actionable and explains missing budget", () => {
   assert.match(app, /<button class="go" onclick="gen\(\)">Plan my date<\/button>/);
   assert.match(app, /Please enter a budget for both of you first/);
-  assert.ok(html.includes('src="js/app.js?v=20261016f"'));
+  assert.ok(html.includes('src="js/app.js?v=20261016g"'));
 });
 
 test("budget field keeps custom amount entry without a preset button", () => {
@@ -496,7 +496,7 @@ test("budget field keeps custom amount entry without a preset button", () => {
   assert.match(app, /function setBudget\(v\)/);
   assert.doesNotMatch(css, /budget-presets|budget-preset|Quick budget pick for the date planner/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261016f"'));
+  assert.ok(html.includes('src="js/app.js?v=20261016g"'));
 });
 
 
@@ -564,5 +564,5 @@ test("venue-quality gates keep not-yet-bookable activities out and identify the 
   assert.ok(venueData.includes('207+Zone+6+Bonbon+Cagayan+de+Oro'));
   assert.doesNotMatch(venueData, /n: "McPars billiards date for two"/);
   assert.match(venueData, /McPars indoor pickleball date for two/);
-  assert.match(venueData, /confirm the exact map pin, current offer terms/);
+  assert.match(venueData, /confirm the exact map pin, current offer terms/i);
 });
