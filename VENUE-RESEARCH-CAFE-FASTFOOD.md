@@ -50,6 +50,16 @@
 | Burger King — Xavier Divisoria | Listed at Pelaez Commercial Arcade, Tirso Neri Street, CDO. | Branch-specific local listing found; current itemized menu price not captured in this pass. | Do not assign a priced recommendation until menu prices are verified. | **Branch evidence found; menu prices still needed** |
 | Burger King — SM CDO Downtown Premier | Listed on the second floor of SM CDO Downtown Premier, Claro M. Recto Avenue, CDO. | Branch-specific local listing found; current itemized menu price not captured in this pass. | Do not assign a priced recommendation until menu prices are verified. | **Branch evidence found; menu prices still needed** |
 
+## Additional branch-specific planner options added — 2026-10-16
+
+These are extra menu choices for branches already researched above. Each budget is for two items plus the project's 15% buffer, rounded upward. Delivery-app pricing is indicative, not a guaranteed dine-in quote.
+
+| Venue / branch | Option and price basis | Planner budget for two | Source / caveat |
+|---|---|---:|---|
+| Mang Inasal — Gaisano CDO | Two Pecho Large PM2 meals with one rice each: 2 × ₱201 = ₱402; +15% = ₱462.30 | **₱500** | [Branch menu](https://www.foodpanda.ph/restaurant/e3ek/mang-inasal-gaisano-cdo). Drinks, transport, and delivery fees extra. |
+| Chowking — Divisoria | Two Siomai Chao Fan: 2 × ₱116 = ₱232; +15% = ₱266.80 | **₱300** | [Branch menu](https://www.foodpanda.ph/restaurant/s9rf/chowking-divisoria). Drinks are not included in the listed item. |
+| KFC — Bulua CDO | Two Chicken Burger Combos: 2 × ₱165 = ₱330; +15% = ₱379.50 | **₱400** | [Branch menu](https://www.foodpanda.ph/restaurant/tk5k/kfc-bulua-cdo). Confirm current combo inclusions and branch availability. |
+
 ## Sources
 
 ### Official or venue-controlled sources
