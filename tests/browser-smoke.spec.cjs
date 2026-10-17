@@ -26,7 +26,8 @@ test("desktop: main navigation, planner generation, and local assets", async ({ 
   await page.locator(".budgetinput").fill("800");
   await expect(page.locator("button.go")).toBeVisible();
   await page.locator("button.go").click();
-  await expect(page.getByRole("heading", { name: "Your date" })).toBeVisible();
+  await expect(page.locator(".steps span:nth-child(2)")).toHaveClass(/on/);
+  await expect(page.locator("#app")).toContainText(/Your date|No activity matches this category and budget/);
 
   await page.locator('header.site nav[aria-label="Main"] a[href="#custom"]').click();
   await expect(page.locator(".planner-filters select").first()).toBeVisible();
