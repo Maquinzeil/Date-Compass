@@ -464,8 +464,24 @@ These are **directory-only leads**, not priced or bookable recommendations. Do n
 
 ### Indoor research disposition
 
-- **Timezone Centrio:** the official branch page confirms the Centrio location and posted opening hours, but does not publish current per-game credit prices. Keep it directory-only until a useful current spending reference can be established.
-- **SM Bowling:** existing planner options already use a published game-value reference and shoe-rental cost with caveats; a current walk-in tariff is still not directly confirmed.
-- **C-ONE Kauswagan:** an operator rate post conflicts with a booking-directory “temporarily closed” signal. Keep its existing options provisional and do not describe them as confirmed bookable until the operator resolves the status conflict.
+- **Timezone Centrio:** the official branch page confirms the 3rd-floor location and daily 10 AM–9 PM hours, but does not publish current per-game credit prices. Keep it directory-only until a useful current spending reference can be established.
+- **SM Bowling:** the current StarDeals page (valid into December 2026) shows a discounted voucher and a ₱160 regular value per game, plus ₱50 shoe rental. The planner intentionally budgets using the regular value and rental rather than relying on a promotion; walk-in price and lane availability still need confirmation.
+- **C-ONE Kauswagan:** the operator's 18 August 2026 post publishes ₱110/hour weekday happy-hour court rates and ₱220/hour evening/weekend rates. The booking listing currently displays hourly slots/rates as well, so the earlier temporary-closure signal appears stale or conflicting. Keep the estimate provisional until the intended date/branch is confirmed with the operator; don't claim a specific booking is secured.
+- **Spin City, Sploop!, and World of Fun:** added to the directory based on the current Limketkai tenant directory and/or the World of Fun operator's branch list. Spin City rates found online are from March 2025 and Sploop! rate coverage is from December 2022; World of Fun's historical token data is older still. All three remain directory-only until current per-game/session prices are verified.
 
-The four new outdoor leads do not change the source-backed planner totals because they are deliberately excluded from the priced planner. Continue to keep Phase 1 manual browser checks open.
+The new arcade leads do not change the source-backed planner totals because they are deliberately excluded from the priced planner. Automated Chromium smoke checks are being added to CI, but manual live-browser and accessibility checks remain open.
+
+
+## Venue research batch 24 — indoor arcades and price freshness (checked 17 October 2026)
+
+Added three indoor arcade/recreation leads to the directory only:
+
+- **Spin City, Limketkai Center:** the current mall directory lists the tenant at the 2nd level; a March 2025 local article reported opening rates, but those are too old to present as October 2026 pricing. Verify session length, admission, skate rental, and safety gear directly. [Limketkai Mall directory](https://www.limketkaimall.com/stores/), [March 2025 rate coverage](https://metrocdodev.com/2025/03/12/random-shots-spin-city-sneak-peek-and-skating-rates/).
+- **Sploop! VR Arcade:** the current mall directory lists the tenant. The price coverage found was from December 2022, so no historic ride price was copied into the planner. Verify per-ride rates, ride availability, and any reload/card minimum directly. [Limketkai Mall directory](https://www.limketkaimall.com/stores/), [December 2022 local coverage](https://metrocdodev.com/2022/12/20/random-shots-sploop-1st-vr-theme-park-and-arcade-in-cagayan-de-oro-now-open/).
+- **World of Fun, Limketkai:** the operator's current locations page lists the Limketkai Mall branch, and the mall directory identifies its floor. Historical token rates are not suitable as current price evidence. Verify the current card/token packages and game-credit costs before budgeting. [Operator branch list](https://www.worldoffun.com.ph/locations), [Limketkai Mall directory](https://www.limketkaimall.com/stores/).
+
+No current branch-specific rate was found for these three in this research pass; they are not selectable priced recommendations.
+
+### Browser verification automation
+
+Added a separate Playwright/Chromium smoke workflow to exercise the local static frontend on desktop and mobile, test the Build a Date and Surprise Me flows, check the contact form labels, and detect uncaught JavaScript errors or failed same-origin assets. This is useful real-browser automation, but it does **not** replace manual live-site inspection, cross-browser testing, keyboard-only/accessibility review, contrast review, or reduced-motion checks. Do not mark the Phase 1 exit gate complete until those checks are actually performed.

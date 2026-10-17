@@ -430,3 +430,11 @@ The physical kit question-card bank itself is **content**, not a backend require
 - Added separate Seven Seas Waterpark swim-only and swim-plus-unlimited-slides options using the operator FAQ's published rates and a 15% cushion.
 - Kept McPars billiards out of the selectable planner while its official page's operating/booking signals remain ambiguous; its evidence remains in the research directory until direct confirmation resolves the conflict.
 - Updated activity counts, cache versions, and regression checks. Manual browser/accessibility checks remain open.
+
+
+### Venue and browser follow-up — 17 October 2026 (indoor arcade batch)
+
+- Added Spin City, Sploop! VR Arcade, and World of Fun — Limketkai to the research directory only. The rates found for Spin City (2025) and Sploop! (2022) are historical; World of Fun's historical token listing is also not current enough for a budget. No stale rate was promoted into the selectable planner.
+- Rechecked current source signals for Timezone Centrio, SM Bowling, and C-ONE Kauswagan. The current SM Bowling promotion is treated as optional rather than the base budget. C-ONE has a recent operator rate post and a booking listing displaying hourly slots; keep booking claims provisional until the exact date/branch is confirmed.
+- Added a separate Playwright/Chromium CI smoke workflow for desktop/mobile rendering, planner navigation, budget generation, contact labels, uncaught page errors, and missing local assets.
+- **Manual Phase 1 checks remain open:** live deployed-site visual review, browser console/network inspection in a real session, keyboard-only and screen-reader checks, contrast/reduced-motion review, and a second-browser/device pass. Automated Chromium results must not be described as a complete manual audit.

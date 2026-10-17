@@ -1533,5 +1533,39 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       statusCheckUrl: "https://www.philippinescompass.com/catanico-falls-visitor-guide-and-half-day-itinerary/",
       checkedOn: "2026-10-17"
     },
+    {
+      name: "Spin City — Limketkai Center",
+      category: "indoor roller skating and recreation",
+      area: "2nd Level, East Concourse, Limketkai Center, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Spin+City+Limketkai+Center+Cagayan+de+Oro",
+      venueStatus: "Listed in Limketkai Mall's current official tenant directory; a 2025 launch article also reported the roller rink and published opening rates",
+      priceStatus: "Directory-only lead: published rate image/article is from March 2025; no current October 2026 admission, skate-rental, or session tariff verified",
+      sourceUrl: "https://www.limketkaimall.com/stores/",
+      historicalPriceSourceUrl: "https://metrocdodev.com/2025/03/12/random-shots-spin-city-sneak-peek-and-skating-rates/",
+      checkedOn: "2026-10-17"
+    },
+    {
+      name: "Sploop! VR Arcade — Limketkai Center",
+      category: "VR arcade and simulator rides",
+      area: "2nd Level, East Concourse, Limketkai Center, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Sploop+VR+Arcade+Limketkai+Center+Cagayan+de+Oro",
+      venueStatus: "Listed in Limketkai Mall's current official tenant directory; historic local coverage confirms a VR-ride arcade at the mall",
+      priceStatus: "Directory-only lead: accessible published ride-price coverage dates to December 2022; do not use those historic rates as current",
+      sourceUrl: "https://www.limketkaimall.com/stores/",
+      historicalPriceSourceUrl: "https://metrocdodev.com/2022/12/20/random-shots-sploop-1st-vr-theme-park-and-arcade-in-cagayan-de-oro-now-open/",
+      checkedOn: "2026-10-17"
+    },
+    {
+      name: "World of Fun — Limketkai Mall",
+      category: "indoor arcade and amusement games",
+      area: "2nd Floor, East Concourse, Limketkai Mall, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=World+of+Fun+Limketkai+Mall+Cagayan+de+Oro",
+      venueStatus: "Current branch listed by the operator and Limketkai Mall; no current branch-specific game-credit price list located",
+      priceStatus: "Directory-only lead: historic community and arcade-database token prices are not current enough for a planner budget",
+      sourceUrl: "https://www.worldoffun.com.ph/locations",
+      mallDirectoryUrl: "https://www.limketkaimall.com/stores/",
+      historicalPriceSourceUrl: "https://zenius-i-vanisher.com/v5.2/arcade.php?id=1933",
+      checkedOn: "2026-10-17"
+    },
   ]
 };

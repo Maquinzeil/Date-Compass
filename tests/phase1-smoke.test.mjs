@@ -28,7 +28,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/venue-data.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/venue-data.js?v=20261017k"'));
+  assert.ok(html.includes('src="js/venue-data.js?v=20261017l"'));
   assert.ok(html.includes('src="js/app.js?v=20261017f"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
@@ -742,5 +742,27 @@ test("new outdoor research leads remain directory-only until current prices and 
     assert.equal(item.checkedOn, "2026-10-17");
     assert.match(item.priceStatus || "", /Directory-only lead/);
     assert.ok(!data.activityUpdates.some(entry => entry.n === name), `${name} must not become a priced planner recommendation without evidence.`);
+  }
+});
+
+
+test("indoor arcade research remains directory-only when current branch pricing is missing", () => {
+  const dataContext = { window: {} };
+  vm.createContext(dataContext);
+  vm.runInContext(venueData, dataContext, { timeout: 5000 });
+  const data = dataContext.window.DATE_COMPASS_VERIFIED_DATA;
+  const expected = [
+    "Spin City — Limketkai Center",
+    "Sploop! VR Arcade — Limketkai Center",
+    "World of Fun — Limketkai Mall"
+  ];
+  for (const name of expected) {
+    const item = data.venueDirectory.find(entry => entry.name === name);
+    assert.ok(item, `Missing indoor arcade research lead: ${name}`);
+    assert.ok((item.mapUrl || "").startsWith("https://www.google.com/maps/search/"));
+    assert.ok((item.sourceUrl || "").startsWith("https://"));
+    assert.equal(item.checkedOn, "2026-10-17");
+    assert.match(item.priceStatus || "", /Directory-only lead/);
+    assert.ok(!data.activityUpdates.some(entry => entry.venueName === name || entry.n === name), `${name} must not be a priced planner recommendation without current pricing.`);
   }
 });
