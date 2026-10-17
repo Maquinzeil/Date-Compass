@@ -248,7 +248,7 @@ test("navigation CSS has one canonical hover treatment and no obsolete duplicate
 });
 
 test("budget changes refresh the plan after editing, and navigation keeps keyboard focus visible", () => {
-  assert.match(app, /oninput="setBudget\(this\.value\)" onchange="render\(\)"/);
+  assert.ok(app.includes('oninput="setBudget(this.value)" onchange="commitBudget()"'));
   assert.match(css, /\.site nav a:focus-visible,[\s\S]*?outline: 3px solid #2a0509 !important/);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.site nav a:hover[\s\S]*?transition: none !important/);
 });
@@ -769,7 +769,8 @@ test("indoor arcade research remains directory-only when current branch pricing 
 
 
 test("budget blur defers rendering so the intended planner button click is not swallowed", () => {
-  assert.match(app, /oninput="setBudget\\(this\\.value\\)" onchange="commitBudget\\(\\)"/);
-  assert.match(app, /function commitBudget\\(\\)[\\s\\S]*?setTimeout\\(\\(\\)=>render\\(\\),0\\)/);
+  assert.ok(app.includes('oninput="setBudget(this.value)" onchange="commitBudget()"'));
+  assert.ok(app.includes("function commitBudget(){"));
+  assert.ok(app.includes("setTimeout(()=>render(),0);"));
   assert.ok(!app.includes('onchange="render()"'));
 });
