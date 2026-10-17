@@ -721,3 +721,26 @@ test("latest indoor and outdoor batch has matching planner entries and documente
     assert.ok(line && line.includes('p:"m"') && line.includes('t:"l"'), `Incorrect location/time filter values for ${name}`);
   }
 });
+
+
+test("new outdoor research leads remain directory-only until current prices and access are verified", () => {
+  const dataContext = { window: {} };
+  vm.createContext(dataContext);
+  vm.runInContext(venueData, dataContext, { timeout: 5000 });
+  const data = dataContext.window.DATE_COMPASS_VERIFIED_DATA;
+  const expected = [
+    "Initao–Libertad Protected Landscape and Seascape",
+    "Sinulom Falls and Bolao Cold Spring",
+    "F.S. Catanico Falls",
+    "Mapawa Nature Park"
+  ];
+  for (const name of expected) {
+    const item = data.venueDirectory.find(entry => entry.name === name);
+    assert.ok(item, `Missing outdoor research lead: ${name}`);
+    assert.ok((item.mapUrl || "").startsWith("https://www.google.com/maps/search/"));
+    assert.ok((item.sourceUrl || "").startsWith("https://"));
+    assert.equal(item.checkedOn, "2026-10-17");
+    assert.match(item.priceStatus || "", /Directory-only lead/);
+    assert.ok(!data.activityUpdates.some(entry => entry.n === name), `${name} must not become a priced planner recommendation without evidence.`);
+  }
+});

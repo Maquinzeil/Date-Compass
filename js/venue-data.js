@@ -1500,5 +1500,48 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       sourceUrl: "https://www.foodpanda.ph/restaurant/bg59/17th-ave-coffee-cagayan-de-oro",
       checkedOn: "2026-10-16"
     },
+    {
+      name: "Initao–Libertad Protected Landscape and Seascape",
+      category: "coastal protected area, nature walks and marine eco-tourism",
+      area: "Initao and Libertad, Misamis Oriental, along the Iligan Bay coast",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Initao-Libertad+Protected+Landscape+and+Seascape+Misamis+Oriental",
+      venueStatus: "Government tourism FAQ and DENR protected-area information identify the destination; verify current visitor access, site rules, and exact entry point before travel",
+      priceStatus: "Directory-only lead: no reliable current 2026 admission, activity, or facility price list verified; do not use as a priced planner recommendation",
+      sourceUrl: "https://elgu-initao-misamis-oriental-news.e.gov.ph/faq",
+      officialInfoUrl: "https://pais.bmb.gov.ph/home/info/DENRRX00003",
+      checkedOn: "2026-10-17"
+    },
+    {
+      name: "Sinulom Falls and Bolao Cold Spring",
+      category: "waterfall, cold spring and nature day trip",
+      area: "Tignapoloan access corridor, Cagayan de Oro; confirm the current receiving area and route",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Sinulom+Falls+Bolao+Cold+Spring+Tignapoloan",
+      venueStatus: "Attraction identified in public tourism and legislative sources; current access, road conditions, and day-of operation require direct confirmation",
+      priceStatus: "Directory-only lead: online fee pages are historical or conflicting; no current authoritative 2026 tariff verified",
+      sourceUrl: "https://www.cagayandeoro.gov.ph/index.php/transparency-report/transparency-reports.html?download=83%3Acdeo-ecological-profile&start=20",
+      statusCheckUrl: "https://www.philippinescompass.com/sinulom-falls-tignapoloan-complete-visitor-guide/",
+      checkedOn: "2026-10-17"
+    },
+    {
+      name: "F.S. Catanico Falls",
+      category: "waterfall and riverside nature stop",
+      area: "Barangay F.S. Catanico, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=F.S.+Catanico+Falls+Cagayan+de+Oro",
+      venueStatus: "Local attraction appears in city tourism references and current map listings; confirm access, weather, and local operating status before travel",
+      priceStatus: "Directory-only lead: no current official 2026 entrance fee verified; do not repeat historical fee claims",
+      sourceUrl: "https://www.cagayandeoro.gov.ph/index.php/transparency-report/transparency-reports.html?download=83%3Acdeo-ecological-profile&start=20",
+      statusCheckUrl: "https://www.philippinescompass.com/catanico-falls-visitor-guide-and-half-day-itinerary/",
+      checkedOn: "2026-10-17"
+    },
+    {
+      name: "Mapawa Nature Park",
+      category: "forest park, waterfalls and outdoor adventure",
+      area: "Malasag, Barangay Cugman, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Mapawa+Nature+Park+Malasag+Cagayan+de+Oro",
+      venueStatus: "Destination identified in Cagayan de Oro tourism information and map listings; confirm current operation and which activities are running",
+      priceStatus: "Directory-only lead: current admission, activity packages, and transport costs not verified in this pass",
+      sourceUrl: "https://www.cagayandeoro.gov.ph/index.php/transparency-report/transparency-reports.html?download=83%3Acdeo-ecological-profile&start=20",
+      checkedOn: "2026-10-17"
+    },
   ]
 };

@@ -449,3 +449,23 @@ The operator FAQ lists entrance-and-swim at ₱599/person and the unlimited all-
 - Swim + unlimited slides: 2 × (₱599 + ₱349) = ₱1,896; plus 15% = ₱2,180.40; planning budget **₱2,200** for two.
 
 Official source: [Seven Seas Waterpark FAQ](https://www.sevenseaswaterparkresort.com/faq). Budgets exclude food, transport, lockers, and other extras. Confirm hours, ride operations, and ticket conditions before visiting.
+
+
+## Venue research batch 23 — outdoor/coastal directory leads (checked 17 October 2026)
+
+Added four research-directory entries without adding them to the selectable planner:
+
+- **Initao–Libertad Protected Landscape and Seascape** — the Initao local-government FAQ identifies coastal eco-tourism, snorkeling/diving, beaches, hiking, and birdwatching; the DENR Protected Area Information System records the protected landscape/seascape. No reliable current 2026 entry or activity tariff was verified. Sources: [Initao local-government FAQ](https://elgu-initao-misamis-oriental-news.e.gov.ph/faq), [DENR Protected Area Information System](https://pais.bmb.gov.ph/home/info/DENRRX00003).
+- **Sinulom Falls and Bolao Cold Spring** — public tourism references identify the attraction, but older fee pages conflict with current map information. No current authoritative 2026 fee schedule was verified. Source: [Cagayan de Oro City ecological profile](https://www.cagayandeoro.gov.ph/index.php/transparency-report/transparency-reports.html?download=83%3Acdeo-ecological-profile&start=20).
+- **F.S. Catanico Falls** — listed in city tourism references and current map listings; no current official 2026 entrance fee was verified. Source: [Cagayan de Oro City ecological profile](https://www.cagayandeoro.gov.ph/index.php/transparency-report/transparency-reports.html?download=83%3Acdeo-ecological-profile&start=20).
+- **Mapawa Nature Park** — a forest-and-waterfall destination listed in city tourism references; current admission, activity packages, and operating details need direct confirmation. Source: [Cagayan de Oro City ecological profile](https://www.cagayandeoro.gov.ph/index.php/transparency-report/transparency-reports.html?download=83%3Acdeo-ecological-profile&start=20).
+
+These are **directory-only leads**, not priced or bookable recommendations. Do not reuse historical online entrance fees as current prices. Before promotion, verify the operator/contact, current admission and activity costs, hours, access/road conditions, weather restrictions, and a usable map pin.
+
+### Indoor research disposition
+
+- **Timezone Centrio:** the official branch page confirms the Centrio location and posted opening hours, but does not publish current per-game credit prices. Keep it directory-only until a useful current spending reference can be established.
+- **SM Bowling:** existing planner options already use a published game-value reference and shoe-rental cost with caveats; a current walk-in tariff is still not directly confirmed.
+- **C-ONE Kauswagan:** an operator rate post conflicts with a booking-directory “temporarily closed” signal. Keep its existing options provisional and do not describe them as confirmed bookable until the operator resolves the status conflict.
+
+The four new outdoor leads do not change the source-backed planner totals because they are deliberately excluded from the priced planner. Continue to keep Phase 1 manual browser checks open.
