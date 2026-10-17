@@ -479,3 +479,13 @@ The physical kit question-card bank itself is **content**, not a backend require
 - Corrected the venue audit's launch-review reminder from 65 to 75 priced records so it matches the 49 food + 26 activity evidence tracker snapshot. This does not mean 75 venues are fully verified; the count of directly confirmed complete-price-and-date-specific-availability records remains 0.
 - Source notes and exclusions are in `VENUE-DATA-AUDIT.md`. Transport, food, lockers, and optional shelter rental remain outside the Seven Seas estimates.
 - Keep Phase 1 manual checks open. Venue research should continue in focused batches but is not a prerequisite to begin backend planning; the next backend step is to document the smallest useful first-release scope and data model, without starting implementation until Phase 1 exit checks are completed.
+
+
+## Backend planning — first-release scope and data model (17 October 2026)
+
+- Added `BACKEND-MVP-PLAN.md` as a planning blueprint only; no backend code, production database, live checkout, or order intake was enabled.
+- Scope is one dependable order-to-fulfillment loop: store an order and date-plan snapshot, keep payment status separate, verify payment server-side/webhook-first, send the digital plan email after the agreed trigger, and keep the ten question cards as internal physical-kit fulfillment material rather than a digital customer deliverable.
+- The plan defines proposed orders, order items, payments, provider events, status history, and question-card data; illustrative API routes; privacy/security requirements; release gates; and an implementation sequence.
+- Provider choice is intentionally open pending Philippine eligibility, fees, PHP settlement, refund support, and webhook capability checks. No provider or live payment integration is claimed.
+- Continue to keep real orders disabled until the frontend manual Phase 1 checks, backend test suite, sandbox payment flows, email/print fulfillment, privacy policy, backup/restore, and end-to-end order test are complete.
+- Next planning decision: confirm kit pricing, delivery/pickup method, cancellation/refund policy, and the final email fulfillment promise. Backend implementation should begin only after the Phase 1 manual exit checks are recorded.
