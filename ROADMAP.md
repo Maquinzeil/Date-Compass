@@ -489,3 +489,12 @@ The physical kit question-card bank itself is **content**, not a backend require
 - Provider choice is intentionally open pending Philippine eligibility, fees, PHP settlement, refund support, and webhook capability checks. No provider or live payment integration is claimed.
 - Continue to keep real orders disabled until the frontend manual Phase 1 checks, backend test suite, sandbox payment flows, email/print fulfillment, privacy policy, backup/restore, and end-to-end order test are complete.
 - Next planning decision: confirm kit pricing, delivery/pickup method, cancellation/refund policy, and the final email fulfillment promise. Backend implementation should begin only after the Phase 1 manual exit checks are recorded.
+
+
+### Backend provider research — 17 October 2026
+
+- Added a documented Philippines-focused provider comparison to [`BACKEND-MVP-PLAN.md`](BACKEND-MVP-PLAN.md), using official pricing and developer documentation for PayMongo, Maya Checkout, Xendit, Resend, and Brevo.
+- **Preferred sandbox candidates:** PayMongo for payment acceptance and Resend for transactional email. These are candidates to test, not final production selections; merchant eligibility, account-specific fees, PHP settlement/payout timing, refund terms, sender-domain verification, and staging tests still need confirmation.
+- PayMongo's public documentation describes test/live keys, webhook event handling, refunds, and a go-live checklist. Its public rate examples and the Maya/Xendit comparisons are recorded in the plan with caveats that actual account terms and taxes may differ.
+- No backend code, production database, checkout, or live order intake was enabled. Keep real orders disabled.
+- Manual Phase 1 checks remain open. Provider research is now sufficiently documented to avoid repeatedly restarting the comparison; revisit only when account onboarding or implementation reveals a concrete unanswered question.
