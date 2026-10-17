@@ -905,8 +905,6 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-17"
     },
     {
-      
-    {
       n: "TBC Billiards three-hour date for two",
       c: 350,
       venueName: "TBC Billiards",
