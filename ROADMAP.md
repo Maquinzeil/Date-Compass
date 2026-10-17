@@ -416,3 +416,10 @@ The physical kit question-card bank itself is **content**, not a backend require
 - Added five outdoor activity options: four at Dahilayan Forest Park Resort and one third-party-listed outdoor rooftop pickleball session at Country Village Hotel.
 - Budgets include a 15% cushion and state assumptions about separate entrance fees, transport exclusions, restrictions, and the need to confirm current operation. The Country Village rate and schedule are explicitly third-party evidence, not direct operator confirmation.
 - Updated source-backed activity counts and cache versions, and expanded smoke coverage. This is venue-data work only; it does not close any manual browser, accessibility, or Phase 1 exit checkbox.
+
+
+### Venue research follow-up — 17 October 2026 (batch 22)
+
+- Added Kilobag Falls, Climb Anytime, McPars billiards, and TBC Billiards with source URLs, budget calculations, 15% cushions, and explicit limitations.
+- Corrected the planner's location/time filter values for the previous five outdoor activity cards and added regression coverage so Misamis Oriental long activities do not accidentally appear as CDO short activities.
+- The evidence audit now distinguishes operator-published, government-published, third-party, and directory-only leads. No manual browser/accessibility/Phase 1 exit checkboxes are marked complete by this research batch.

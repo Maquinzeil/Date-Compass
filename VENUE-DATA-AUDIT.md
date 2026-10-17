@@ -11,8 +11,8 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 | Evidence level | Current count | What the count means | What it does not mean |
 |---|---:|---|---|
 | Source-backed food planner budgets | 49 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
-| Source-backed activity planner budgets | 21 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
-| **Source-backed priced planner records (food + activities)** | **70** | 49 food records + 21 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
+| Source-backed activity planner budgets | 25 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
+| **Source-backed priced planner records (food + activities)** | **74** | 49 food records + 25 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
 | **Directly confirmed complete-price-and-availability records** | **0** | No record currently has direct venue confirmation of a complete current cost and date-specific availability documented in this audit. | A current menu, published rate, or third-party listing does not confirm a future slot or every extra charge. |
 | Venue directory / research records | 53 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
 
@@ -413,3 +413,28 @@ Added five outdoor activity options to the planner: four operator-published rate
 - **Updated tracker total:** 49 food records + 21 activity records = **70 source-backed planning records**. Directly confirmed complete current price-and-date-specific-availability records remain **0**.
 
 No prices were invented for outdoor options whose current operator rates could not be confirmed. Further research can expand outdoor options across CDO, coastal Misamis Oriental, and nature/adventure destinations, while keeping directory-only venues separate from priced planner recommendations.
+
+
+## Venue research batch 22 — waterfall, climbing, and billiards (checked 17 October 2026)
+
+Four new source-backed activity records were added to the planner: Kilobag Falls (outdoor, Claveria), Climb Anytime (indoor, Limketkai Mall), McPars Sports Center billiards, and TBC Billiards.
+
+| Planner option for two | Published price basis | 15% cushion | Planner budget | Evidence level |
+|---|---:|---:|---:|---|
+| Kilobag Falls entrance | 2 × ₱200 adult admission = ₱400 | ₱60 | ₱500 | Provincial government page |
+| McPars billiards, one hour | ₱250/table/hour | ₱37.50 | ₱300 | Official operator website |
+| TBC Billiards, three hours | ₱300 published promo | ₱45 | ₱350 | Third-party listing reproducing venue posts; promotion must be confirmed |
+| Climb Anytime, starting rate | 2 × ₱150 = ₱300 | ₱45 | ₱350 | Third-party directory reproducing social post; inclusions must be confirmed |
+
+Sources: [Misamis Oriental provincial government — Kilobag Falls](https://www.misamisoriental.gov.ph/spot-of-the-day-kilobag-falls/); [McPars Sports Center official rates](https://mcpars.com/); [TBC Billiards listing and rate posts](https://www.findglocal.com/PH/Cagayan-de-Oro/516935814844454/TBC-Billiards); [Climb Anytime listing](https://www.findglocal.com/PH/Cagayan-de-Oro/991667607367490/Climb-Anytime).
+
+Kilobag Falls' budget covers entrance only; transport from CDO, food, guides, parking, and other costs are not included. McPars covers one table for one hour. TBC's three-hour promo and Climb Anytime's ₱150 starting price are not guaranteed all-in rates; confirm before visiting. All estimates include a 15% cushion and do not imply date-specific availability.
+
+### Evidence classification rule
+
+- **Operator-published**: the venue's own site or an official venue post publishes the rate. Still confirm current operation, inclusions, and availability.
+- **Government-published**: a government tourism page publishes the admission rate; this does not confirm transport or local service costs.
+- **Third-party listing/social-post reproduction**: useful evidence lead, but promo status, inclusions, and current rates require direct venue confirmation.
+- **Directory-only**: keep out of priced planner recommendations until a defensible price basis is found.
+
+**Updated tracker total:** 49 food records + 25 activity records = **74 source-backed planning records**. Directly confirmed complete current price-and-date-specific-availability records remain **0**.

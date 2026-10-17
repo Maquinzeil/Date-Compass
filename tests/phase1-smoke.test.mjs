@@ -28,8 +28,8 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/venue-data.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/venue-data.js?v=20261017h"'));
-  assert.ok(html.includes('src="js/app.js?v=20261017d"'));
+  assert.ok(html.includes('src="js/venue-data.js?v=20261017i"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017e"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
   assert.ok(html.includes('href="css/phone-fix.css?v=20261015e"'));
@@ -440,8 +440,8 @@ test("all source-backed price records keep complete evidence and match planner a
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
   assert.equal(foods.length, 49, "Expected 49 source-backed food ideas.");
-  assert.equal(activities.length, 21, "Expected 21 source-backed activity updates, including the latest outdoor batch.");
-  assert.equal(records.length, 70, "Every source-backed food and activity should be included in this evidence audit.");
+  assert.equal(activities.length, 25, "Expected 25 source-backed activity updates after the latest indoor/outdoor batch.");
+  assert.equal(records.length, 74, "Every source-backed food and activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
@@ -687,5 +687,35 @@ test("outdoor activity batch uses source-backed prices and explicit status cavea
     assert.ok(item.sourceUrl && item.priceBasis.includes("15%"), `Missing price evidence for ${name}`);
     assert.ok(item.priceNote.includes("Confirm") || item.priceNote.includes("confirm") || item.priceNote.includes("verify"), `Missing verification caveat for ${name}`);
     assert.ok(app.includes(JSON.stringify(name)), `Missing matching planner activity: ${name}`);
+  }
+});
+
+
+test("latest indoor and outdoor batch has matching planner entries and documented evidence", () => {
+  const dataContext = { window: {} };
+  vm.createContext(dataContext);
+  vm.runInContext(venueData, dataContext, { timeout: 5000 });
+  const activities = dataContext.window.DATE_COMPASS_VERIFIED_DATA.activityUpdates;
+  const expected = [
+  "Kilobag Falls nature adventure date for two",
+  "McPars billiards date for two — one hour",
+  "TBC Billiards three-hour date for two",
+  "Climb Anytime beginner climbing date for two"
+];
+  for (const name of expected) {
+    const item = activities.find(entry => entry.n === name);
+    assert.ok(item, `Missing planner data record: ${name}`);
+    assert.ok(item.sourceUrl && item.priceBasis.includes("15%"), `Missing source or budget cushion for ${name}`);
+    assert.ok(item.priceStatusLabel && item.priceNote, `Missing evidence classification/caveat for ${name}`);
+    assert.ok(app.includes(JSON.stringify(name)), `Missing selectable app record: ${name}`);
+  }
+  for (const name of [
+    "Dahilayan Forest Park tandem luge date for two",
+    "Dahilayan Forest Park mini-golf date for two",
+    "Dahilayan Forest Park canopy walk date for two",
+    "Dahilayan Forest Park rainbow slide date for two"
+  ]) {
+    const line = app.split("\\n").find(entry => entry.includes(JSON.stringify(name)));
+    assert.ok(line && line.includes('p:"m"') && line.includes('t:"l"'), `Incorrect location/time filter values for ${name}`);
   }
 });

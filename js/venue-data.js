@@ -892,6 +892,54 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceNote: "A third-party pickleball directory lists outdoor rooftop courts at ₱100 per person and sessions Tuesday, Thursday, Saturday, and Sunday from 3–6 PM. This is not direct venue confirmation; contact the hotel/club to verify the schedule, current rate, equipment, and availability before going. Transport and food are extra.",
       checkedOn: "2026-10-17"
     }
+    {
+      n: "Kilobag Falls nature adventure date for two",
+      c: 500,
+      venueName: "Kilobag Falls",
+      sourceUrl: "https://www.misamisoriental.gov.ph/spot-of-the-day-kilobag-falls/",
+      sourceLabel: "Misamis Oriental provincial government rate post",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Kilobag+Falls+Claveria+Misamis+Oriental",
+      priceStatusLabel: "Provincial government published entrance rate + 15% buffer",
+      priceBasis: "2 × ₱200 adult entrance = ₱400; 15% buffer = ₱460; rounded up to ₱500.",
+      priceNote: "The Provincial Government of Misamis Oriental page lists adult admission at ₱200 and child (ages 5–10) admission at ₱100. Budget covers two adult entrance fees only; transport from CDO, food, guide fees, parking, and other costs are not included because current rates were not established. Confirm route/access, operating status, and any local requirements before travelling.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "McPars billiards date for two — one hour",
+      c: 300,
+      venueName: "McPars Sports Center",
+      sourceUrl: "https://mcpars.com/",
+      sourceLabel: "McPars Sports Center official rates",
+      venueUrl: "https://mcpars.com/",
+      priceStatusLabel: "Official published hourly table rate + 15% buffer",
+      priceBasis: "One billiards table for one hour: ₱250; 15% buffer = ₱287.50; rounded up to ₱300.",
+      priceNote: "McPars' official website lists billiard tables at ₱250/hour and says three tables are available for booking. Budget covers one table for one hour only. Confirm current opening/booking conditions and equipment before visiting; food and transport are extra. The café and full-service restaurant are still marked coming soon on the site.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "TBC Billiards three-hour date for two",
+      c: 350,
+      venueName: "TBC Billiards",
+      sourceUrl: "https://www.findglocal.com/PH/Cagayan-de-Oro/516935814844454/TBC-Billiards",
+      sourceLabel: "Third-party listing reproducing TBC Billiards rate posts (2026)",
+      venueUrl: "https://maps.app.goo.gl/HAA9HWqmA4y7B8YRA?g_st=ic",
+      priceStatusLabel: "Venue rate post syndicated by a third-party listing + 15% buffer",
+      priceBasis: "Published promo: ₱300 for three hours; 15% buffer = ₱345; rounded up to ₱350.",
+      priceNote: "A third-party listing reproduces TBC Billiards posts advertising ₱300 for three hours and ₱150/hour. Treat the three-hour offer as a posted promotion, not guaranteed current walk-in pricing. Confirm the promo, opening hours, and table availability before going. Food and transport are extra.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Climb Anytime beginner climbing date for two",
+      c: 350,
+      venueName: "Climb Anytime — Limketkai Mall",
+      sourceUrl: "https://www.findglocal.com/PH/Cagayan-de-Oro/991667607367490/Climb-Anytime",
+      sourceLabel: "Climb Anytime social post reproduced by third-party business directory (August 2026)",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Climb+Anytime+Limketkai+Mall+Cagayan+de+Oro",
+      priceStatusLabel: "Published starting rate in a social post + 15% buffer",
+      priceBasis: "2 × ₱150 starting rate = ₱300; 15% buffer = ₱345; rounded up to ₱350.",
+      priceNote: "A directory reproducing Climb Anytime's 21 August 2026 post advertises climbing from ₱150. This is a starting rate, not a confirmed all-in price; verify what equipment or entry is included, current rates, and session availability. Transport and food are extra.",
+      checkedOn: "2026-10-17"
+    }
   ],
   venueDirectory: [
     {
