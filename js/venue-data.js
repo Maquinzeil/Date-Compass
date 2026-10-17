@@ -875,7 +875,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       sourceUrl: "https://www.dahilayanforestpark.com/en/rides-activities",
       sourceLabel: "Official Dahilayan Forest Park rides and activities page",
       venueUrl: "https://www.google.com/maps/search/?api=1&query=Dahilayan+Forest+Park+Resort+Manolo+Fortich",
-      priceStatusLabel: undefined,
+      priceStatusLabel: "Operator-published slide and entrance rates + 15% buffer",
       priceBasis: "2 × ₱150 rainbow slide + 2 × ₱150 entrance = ₱600; 15% buffer = ₱690; rounded up to ₱700.",
       priceNote: "The official page lists the Rainbow Slide at ₱150 per person for two drops and entrance at ₱150 per person. This estimate assumes entrance is charged separately. The page lists a minimum age of 7 and maximum weight of 100 kg for the slide. Transport from CDO, food, and other attractions are excluded. Confirm current operation and entrance inclusions before travelling.",
       checkedOn: "2026-10-17"
