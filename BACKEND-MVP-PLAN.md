@@ -198,3 +198,49 @@ Official email references reviewed 17 October 2026:
 - **Preferred candidates for sandbox evaluation:** PayMongo for payments; Resend for transactional email.
 - **Not yet selected for production:** merchant eligibility, approved account, exact settlement/refund terms, sender-domain verification, and successful staging tests are still outstanding.
 - **No backend implementation or live order/payment flow is enabled by this research.**
+
+
+## 11. Backend hosting research and recommended staging stack (17 October 2026)
+
+The frontend is already a static GitHub Pages site. Keep it there; do not migrate or rebuild it just to add backend capabilities. The first backend should be a small API + managed relational database + private admin authentication, with secrets stored only in server-side environment configuration.
+
+### Hosting options compared
+
+| Option | Current documented free/starter characteristics | Fit for Date Compass |
+|---|---|---|
+| **Supabase — recommended for staging evaluation** | Free plan includes PostgreSQL (500 MB/project), 500,000 Edge Function invocations, and up to two free projects; inactive free projects pause after one week and free plan does not include automatic backups. Pro pricing starts at US$25/month, with higher quotas and projects that do not pause. | Strong fit for the proposed PostgreSQL model, managed authentication, and small TypeScript Edge Functions for order creation, payment webhooks, and transactional email. Free is for staging/test data only; do not use a pausing/no-backup free database for real paid orders. Before production, confirm budget, backup/restore, auth configuration, regional latency, and all current terms. |
+| **Cloudflare Workers + D1** | Workers Free documents 100,000 requests/day; D1 Free documents 5 million rows read/day, 100,000 rows written/day, and 5 GB total storage. Workers Paid starts at US$5/month. | Attractive low-cost serverless option, but D1 is SQLite-compatible rather than PostgreSQL. This diverges from the existing plan and would require deliberate schema/SQL adaptation. Consider only if minimizing platform cost is more important than keeping PostgreSQL. |
+| **Render** | Free web services spin down after 15 minutes idle; free Postgres expires 30 days after creation and has no backups. | Fine for a temporary demo, not appropriate for storing real orders on free resources. A paid deployment could be considered, but it does not beat Supabase's integrated Postgres + Auth + Functions simplicity for this small project. |
+
+### Recommended architecture for the next implementation stage
+
+1. Keep GitHub Pages as the frontend and the single source repository.
+2. Create a separate **Supabase staging project** with fake/test customer data only; do not create a production project or enable live checkout yet.
+3. Use PostgreSQL migrations for orders, order_items, payments, provider_events, order_status_events, and question_cards.
+4. Use Supabase Edge Functions for server-side order validation, admin-only operations, provider webhook handling, and transactional email calls. Keep provider keys in project secrets and never in js/ files.
+5. Use Supabase Auth for the private owner/admin login, with server-side authorization checks and database Row Level Security. A hidden admin button is not access control.
+6. Add the payment provider only in sandbox mode after account eligibility and fees are checked. For public webhooks, disable platform JWT verification only for that specific endpoint and implement the payment provider's own signature verification, event deduplication, amount/currency checks, and idempotent transitions.
+7. Do not collect real customer information or rely on the staging free tier for production records. Before launch, move to a suitable paid/production configuration with automatic backups and a tested restore procedure.
+
+### Owner decision worksheet — proposed defaults, not yet approved
+
+These choices affect the real product and should not be silently invented in code.
+
+| Decision | Proposed starting point | Must be confirmed by owner before live orders |
+|---|---|---|
+| Physical kit price | Keep checkout disabled until a final PHP price and included items are decided; calculate margins including printing, packaging, payment fees, and delivery. | Exact kit price and what it includes. |
+| Fulfillment area/method | Start with Cagayan de Oro pickup or locally arranged delivery only if the owner can reliably fulfill it; do not promise Misamis Oriental-wide shipping until cost/timing is known. | Pickup point, delivery coverage, delivery fee, who pays it, and estimated timeframe. |
+| Cancellation/refunds | Clear written policy before payment; refund handling must match provider terms and Philippine consumer-law requirements. Do not promise automatic instant refunds. | Cut-off for cancellation, treatment of already printed kits, delivery-fee treatment, and expected processing window. Obtain appropriate local legal guidance if needed. |
+| Customer email | After verified payment, send a branded email with order reference, the designed digital date plan, and next steps. Do not attach the ten physical question cards. | Exact email wording, whether the digital plan is sent only after payment, and physical fulfillment promise. |
+| Contact data | Name and email required; mobile optional unless the selected delivery method makes it operationally necessary. | Whether phone number is needed for delivery. |
+| Launch posture | Test mode only until manual frontend checks and backend end-to-end gates pass. | Explicit approval to accept the first real order after all gates pass. |
+
+### Official hosting documentation reviewed 17 October 2026
+
+- Supabase pricing and quotas: https://supabase.com/pricing
+- Supabase free-plan behavior and billing: https://supabase.com/docs/guides/platform/billing-on-supabase
+- Supabase Edge Functions, secrets, and webhook configuration: https://supabase.com/docs/guides/functions and https://supabase.com/docs/guides/functions/secrets and https://supabase.com/docs/guides/functions/function-configuration
+- Cloudflare Workers/D1 pricing: https://developers.cloudflare.com/workers/platform/pricing/ and https://developers.cloudflare.com/d1/platform/pricing/
+- Render free instance limitations: https://render.com/docs/free
+
+**Decision:** Use Supabase as the preferred *staging evaluation*, not as an already-created service or an approved production commitment. The next coding step should begin only after the current frontend smoke checks and manual Phase 1 review are recorded. No backend service or live checkout has been created by this research.
