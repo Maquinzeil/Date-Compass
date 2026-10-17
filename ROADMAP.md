@@ -498,3 +498,12 @@ The physical kit question-card bank itself is **content**, not a backend require
 - PayMongo's public documentation describes test/live keys, webhook event handling, refunds, and a go-live checklist. Its public rate examples and the Maya/Xendit comparisons are recorded in the plan with caveats that actual account terms and taxes may differ.
 - No backend code, production database, checkout, or live order intake was enabled. Keep real orders disabled.
 - Manual Phase 1 checks remain open. Provider research is now sufficiently documented to avoid repeatedly restarting the comparison; revisit only when account onboarding or implementation reveals a concrete unanswered question.
+
+
+### Backend hosting and owner-decision research — 17 October 2026
+
+- Added official-doc-based hosting comparison to [BACKEND-MVP-PLAN.md](BACKEND-MVP-PLAN.md): Supabase, Cloudflare Workers + D1, and Render.
+- **Recommended staging evaluation:** Supabase, because it aligns with the planned PostgreSQL schema and bundles managed Auth and Edge Functions. Free tier is for fake/test data only: free projects can pause after inactivity and automatic backups are not included. Do not store live customer orders there.
+- Cloudflare Workers + D1 is a lower-cost alternative, but D1 is SQLite-compatible rather than PostgreSQL, so it requires a deliberate data-model choice. Render free services are not suitable for live orders; its free Postgres expires after 30 days and lacks backups.
+- Added a decision worksheet for kit pricing, local fulfillment, refund/cancellation terms, email promise, required customer details, and launch posture. These are explicitly proposed defaults, not owner-approved business policies; do not invent them in code.
+- No staging service has been created, and no backend or live checkout has been implemented. Start coding only after the latest frontend smoke checks are green and manual Phase 1 review is recorded.
