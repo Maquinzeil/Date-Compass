@@ -1103,13 +1103,13 @@ window.DATE_COMPASS_VERIFIED_DATA = {
     },
     {
       name: "Mapawa Nature Park",
-      category: "nature and outdoor activities",
-      area: "Malasag-Cugman, Cagayan de Oro",
-      mapUrl: "https://www.google.com/maps/search/?api=1&query=Mapawa%20Nature%20Park%2C%20Malasag-Cugman%2C%20Cagayan%20de%20Oro",
-      venueStatus: "Local map listing found",
-      priceStatus: "Entrance and activity fees need current verification",
-      sourceUrl: "https://www.google.com/maps/search/?api=1&query=Mapawa+Nature+Park+Cagayan+de+Oro",
-      checkedOn: "2026-10-15"
+      category: "forest park, waterfalls and outdoor adventure",
+      area: "Malasag, Barangay Cugman, Cagayan de Oro",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Mapawa+Nature+Park+Malasag+Cagayan+de+Oro",
+      venueStatus: "Destination identified in Cagayan de Oro tourism information and map listings; confirm current operation and which activities are running",
+      priceStatus: "Directory-only lead: current admission, activity packages, and transport costs not verified in this pass",
+      sourceUrl: "https://www.cagayandeoro.gov.ph/index.php/transparency-report/transparency-reports.html?download=83%3Acdeo-ecological-profile&start=20",
+      checkedOn: "2026-10-17"
     },
     {
       name: "Cuesta Roccia",
@@ -1531,16 +1531,6 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceStatus: "Directory-only lead: no current official 2026 entrance fee verified; do not repeat historical fee claims",
       sourceUrl: "https://www.cagayandeoro.gov.ph/index.php/transparency-report/transparency-reports.html?download=83%3Acdeo-ecological-profile&start=20",
       statusCheckUrl: "https://www.philippinescompass.com/catanico-falls-visitor-guide-and-half-day-itinerary/",
-      checkedOn: "2026-10-17"
-    },
-    {
-      name: "Mapawa Nature Park",
-      category: "forest park, waterfalls and outdoor adventure",
-      area: "Malasag, Barangay Cugman, Cagayan de Oro",
-      mapUrl: "https://www.google.com/maps/search/?api=1&query=Mapawa+Nature+Park+Malasag+Cagayan+de+Oro",
-      venueStatus: "Destination identified in Cagayan de Oro tourism information and map listings; confirm current operation and which activities are running",
-      priceStatus: "Directory-only lead: current admission, activity packages, and transport costs not verified in this pass",
-      sourceUrl: "https://www.cagayandeoro.gov.ph/index.php/transparency-report/transparency-reports.html?download=83%3Acdeo-ecological-profile&start=20",
       checkedOn: "2026-10-17"
     },
   ]
