@@ -887,7 +887,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       sourceUrl: "https://playpickle.ph/courts/northern-mindanao/cdo-pickleball",
       sourceLabel: "Third-party pickleball directory listing, updated August 2026",
       venueUrl: "https://www.google.com/maps/search/?api=1&query=Country+Village+Hotel+Cagayan+de+Oro",
-      priceStatusLabel: undefined,
+      priceStatusLabel: "Third-party published per-person session rate + 15% buffer",
       priceBasis: "2 × ₱100 per person = ₱200; 15% buffer = ₱230; rounded up to ₱250.",
       priceNote: "A third-party pickleball directory lists outdoor rooftop courts at ₱100 per person and sessions Tuesday, Thursday, Saturday, and Sunday from 3–6 PM. This is not direct venue confirmation; contact the hotel/club to verify the schedule, current rate, equipment, and availability before going. Transport and food are extra.",
       checkedOn: "2026-10-17"
