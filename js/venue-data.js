@@ -839,7 +839,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       sourceUrl: "https://www.dahilayanforestpark.com/en/rides-activities",
       sourceLabel: "Official Dahilayan Forest Park rides and activities page",
       venueUrl: "https://www.google.com/maps/search/?api=1&query=Dahilayan+Forest+Park+Resort+Manolo+Fortich",
-      priceStatusLabel: undefined,
+      priceStatusLabel: "Operator-published tandem ride and entrance rates + 15% buffer",
       priceBasis: "₱850 tandem luge (two rounds) + 2 × ₱150 entrance = ₱1,150; 15% buffer = ₱1,322.50; rounded up to ₱1,400.",
       priceNote: "The official page lists the tandem Forest Luge at ₱850 for two rounds and entrance at ₱150 per person. This estimate assumes entrance is charged separately. Transport from CDO, food, and other attractions are excluded. Confirm current operation, height/weight requirements, and entrance inclusions before travelling.",
       checkedOn: "2026-10-17"
