@@ -715,7 +715,7 @@ test("latest indoor and outdoor batch has matching planner entries and documente
     "Dahilayan Forest Park canopy walk date for two",
     "Dahilayan Forest Park rainbow slide date for two"
   ]) {
-    const line = app.split("\\n").find(entry => entry.includes(JSON.stringify(name)));
+    const line = app.split("\n").find(entry => entry.includes(JSON.stringify(name)));
     assert.ok(line && line.includes('p:"m"') && line.includes('t:"l"'), `Incorrect location/time filter values for ${name}`);
   }
 });
