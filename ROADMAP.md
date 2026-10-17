@@ -471,3 +471,11 @@ The physical kit question-card bank itself is **content**, not a backend require
 - No new selectable venue record or evidence-count increase was made in this pass. Detailed sources and rationale are recorded in `VENUE-DATA-AUDIT.md`.
 - The preceding commit `2f9de1ad` passed Phase 1 smoke checks, browser smoke checks, and Pages deployment. This new documentation commit will trigger fresh runs.
 - Manual Phase 1 exit checks remain open: live visual inspection, real-session console/network review, keyboard/accessibility/contrast/reduced-motion review, and a second-browser/device pass.
+
+
+### Venue research follow-up — 17 October 2026 (Seven Seas and evidence-count correction)
+
+- Rechecked the official Seven Seas Waterpark FAQ against the two existing planner options. The ₱599 entrance-and-swim ticket and ₱349 optional unlimited-slide add-on still match the current ₱1,400 and ₱2,200 couple estimates with a 15% cushion; no duplicate planner record was added.
+- Corrected the venue audit's launch-review reminder from 65 to 75 priced records so it matches the 49 food + 26 activity evidence tracker snapshot. This does not mean 75 venues are fully verified; the count of directly confirmed complete-price-and-date-specific-availability records remains 0.
+- Source notes and exclusions are in `VENUE-DATA-AUDIT.md`. Transport, food, lockers, and optional shelter rental remain outside the Seven Seas estimates.
+- Keep Phase 1 manual checks open. Venue research should continue in focused batches but is not a prerequisite to begin backend planning; the next backend step is to document the smallest useful first-release scope and data model, without starting implementation until Phase 1 exit checks are completed.
