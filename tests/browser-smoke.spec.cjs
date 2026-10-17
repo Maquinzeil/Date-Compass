@@ -19,13 +19,17 @@ test("desktop: main navigation, planner generation, and local assets", async ({ 
 
   await page.locator('header.site nav[aria-label="Main"] a[href="#custom"]').click();
   await expect(page.locator(".budgetinput")).toBeVisible();
-  await page.locator(".budgetinput").fill("800");
-  await page.locator("button.go").click();
-  await expect(page.getByRole("heading", { name: "Your date" })).toBeVisible();
+  await expect(page.locator(".planner-filters select").first()).toBeVisible();
 
   await page.locator('header.site nav[aria-label="Main"] a[href="#random"]').click();
   await expect(page.locator(".budgetinput")).toBeVisible();
+  await page.locator(".budgetinput").fill("800");
   await expect(page.locator("button.go")).toBeVisible();
+  await page.locator("button.go").click();
+  await expect(page.getByRole("heading", { name: "Your date" })).toBeVisible();
+
+  await page.locator('header.site nav[aria-label="Main"] a[href="#custom"]').click();
+  await expect(page.locator(".planner-filters select").first()).toBeVisible();
 
   expect(pageErrors).toEqual([]);
   expect(localFailures).toEqual([]);
