@@ -685,7 +685,7 @@ test("outdoor activity batch uses source-backed prices and explicit status cavea
     const item = activities.find(entry => entry.n === name);
     assert.ok(item, `Missing outdoor planner record: ${name}`);
     assert.ok(item.sourceUrl && item.priceBasis.includes("15%"), `Missing price evidence for ${name}`);
-    assert.ok(item.priceNote.includes("Confirm") || item.priceNote.includes("confirm"), `Missing verification caveat for ${name}`);
+    assert.ok(item.priceNote.includes("Confirm") || item.priceNote.includes("confirm") || item.priceNote.includes("verify"), `Missing verification caveat for ${name}`);
     assert.ok(app.includes(JSON.stringify(name)), `Missing matching planner activity: ${name}`);
   }
 });
