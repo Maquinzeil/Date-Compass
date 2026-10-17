@@ -927,7 +927,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceBasis: "2 × ₱150 starting rate = ₱300; 15% buffer = ₱345; rounded up to ₱350.",
       priceNote: "A directory reproducing Climb Anytime's 21 August 2026 post advertises climbing from ₱150. This is a starting rate, not a confirmed all-in price; verify what equipment or entry is included, current rates, and session availability. Transport and food are extra.",
       checkedOn: "2026-10-17"
-    }
+    },
     {
       n: "Seven Seas Waterpark swim date for two",
       c: 1400,
