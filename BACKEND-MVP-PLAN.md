@@ -145,3 +145,56 @@ Define request/response schemas, validation errors, rate limits, and allowed sta
 9. Launch a small controlled pilot only after the owner can fulfill every order reliably.
 
 **Important:** This plan is a blueprint, not a claim that any backend, database, payment provider, email integration, or live order processing currently exists.
+
+
+## 10. Provider research — Philippines (17 October 2026)
+
+This is a public-documentation comparison, not proof that a merchant account will be approved. Before choosing a provider, the owner must complete onboarding/eligibility checks, confirm the exact business structure and required documents, and review the account-specific contract and settlement schedule.
+
+### Payment provider shortlist
+
+| Provider | Publicly listed Philippine rates (VAT treatment per provider page) | Relevant capabilities | Assessment for Date Compass |
+|---|---|---|---|
+| **PayMongo — first candidate to evaluate** | QR Ph online 1.34%; GCash 2.23%; Maya wallet 1.79%; cards 3.125% + ₱13.39; direct online banking 0.71% or ₱13.39. Public page says rates are exclusive of VAT. | API payments, test/live API keys, webhook events, refunds via API/dashboard. | Best initial sandbox candidate because its docs clearly describe payment/refund webhooks and test-mode integration. Verify merchant eligibility, settlement destination/timing, refund fee treatment, and the methods enabled for the approved account before implementation. |
+| **Maya Checkout — comparison candidate** | Published starting rates: cards 3.50% + ₱10; Maya QR and QRPh 1.0%; GCash 2.0%; ShopeePay 1.85%. | Hosted checkout/payment links and a developer integration offering. | Worth requesting a merchant quote and checking webhook/refund behavior in the actual merchant product. Published rates are starting rates; confirm VAT, settlement, API access, and account-specific terms. |
+| **Xendit — comparison candidate** | Public page lists Philippine QRPh at 1.50% (minimum ₱15) plus ₱11 Xendit processing fee; domestic PHP cards 3.50% plus ₱11 processing fee; GCash/Maya/ShopeePay have their own method rates plus processing fee. VAT may apply. | PHP processing, multiple payment methods, API and webhook-based integrations. | Flexible, but its separately listed processing fee can make low-priced orders less economical. Ask for a complete quote and refund-fee/settlement details before considering it. |
+
+**Illustrative fee check, not a quote:** On a ₱500 payment, the published PayMongo rates imply roughly ₱6.70 for QR Ph, ₱11.15 for GCash, ₱8.95 for Maya wallet, and ₱29.02 for domestic cards before VAT/other account-specific costs. Maya's published starting rates imply ₱5 for QRPh, ₱10 for GCash, and ₱27.50 for cards before VAT/other costs. Xendit's listed QRPh formula implies at least ₱26 (₱15 minimum method fee + ₱11 processing fee) before tax, subject to the current pricing page and merchant contract. These comparisons are illustrative only; do not hard-code fees or pass provider fees to customers without a deliberate pricing policy.
+
+### Payment recommendation
+
+1. Start by applying/evaluating **PayMongo** for a sandbox-first integration; compare Maya Checkout before locking in the provider.
+2. Do not create a live checkout session until the merchant account is approved and the owner has verified PHP settlement, payout timing, refund process/fees, support, chargeback handling, and supported payment methods in writing or in the merchant dashboard.
+3. Create checkout sessions server-side. Treat redirects as informational only; verify webhook authenticity, event ID, expected order reference, amount, and PHP currency. Make webhook handling idempotent and reconcile missed/failed events. Keep provider secret keys in server-side environment secrets only.
+4. Test success, pending, cancellation, failure, duplicate and out-of-order webhooks, invalid signatures, amount/currency mismatch, refund, and delayed settlement in sandbox before production.
+
+Official payment references reviewed 17 October 2026:
+- PayMongo pricing: https://www.paymongo.com/en/pricing
+- PayMongo webhook setup and event handling: https://docs.paymongo.com/docs/creating-a-webhook-endpoint and https://docs.paymongo.com/docs/developer-tools-webhooks-events
+- PayMongo refund process: https://docs.paymongo.com/docs/payment-acceptance-refunds
+- PayMongo go-live security/idempotency checklist: https://docs.paymongo.com/docs/developer-tools-go-live-checklist
+- Maya Business pricing: https://www.maya.ph/business/pricing
+- Xendit pricing: https://www.xendit.co/en/pricing/
+
+### Transactional email shortlist
+
+| Provider | Publicly documented plan/capability | Assessment |
+|---|---|---|
+| **Resend — first candidate to test** | Free transactional tier lists 3,000 emails/month, 100/day, and up to 3 domains; Pro lists US$20/month for 50,000 emails and no daily limit. | A reasonable low-volume starting point for order confirmation and the designed digital date-plan email. Verify a sender domain, configure SPF/DKIM (and DMARC where appropriate), test inbox placement and bounce handling, and keep delivery status/retry logic in the backend. |
+| **Brevo — alternative to compare** | Official API documentation supports transactional email via its messaging API and verified sender configuration. | Keep as a fallback if account onboarding, sender verification, deliverability, regional support, or pricing fits better. Confirm current transactional-email pricing and sending limits directly before selecting it. |
+
+Email implementation rules:
+- Use a verified sender address on a domain the owner controls; do not assume a personal Gmail address can be used as the production API sender.
+- Send only necessary order information. The customer receives the digital date plan; the ten selected question cards remain in the internal print/fulfillment pack and must not be attached to the customer email.
+- Record message ID, attempt count, last error, and sent/delivered/bounced status where available. Retry transient failures safely and expose an admin retry action; a payment must not be charged again just because email failed.
+- Never put API keys in frontend JavaScript. Add the email provider only after a staging backend exists.
+
+Official email references reviewed 17 October 2026:
+- Resend pricing: https://resend.com/pricing
+- Brevo transactional email API: https://developers.brevo.com/docs/send-a-transactional-email
+
+### Decision status
+
+- **Preferred candidates for sandbox evaluation:** PayMongo for payments; Resend for transactional email.
+- **Not yet selected for production:** merchant eligibility, approved account, exact settlement/refund terms, sender-domain verification, and successful staging tests are still outstanding.
+- **No backend implementation or live order/payment flow is enabled by this research.**
