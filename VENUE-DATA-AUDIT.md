@@ -508,3 +508,15 @@ The operator's 18 August 2026 post publishes badminton rates and an August tourn
 ### Browser verification status
 
 The latest automated Chromium browser workflow passed on commit `53919801b51ce17a49b3f586af0af7c9f2912b9b`: desktop/mobile rendering, Build a Date and Surprise Me flows, budget generation, contact labels, uncaught page errors, and failed same-origin asset checks. The Phase 1 smoke suite and Pages deployment also passed on that commit. These are automated checks only. Manual live-site visual review, cross-browser/device review, keyboard and screen-reader accessibility, contrast, reduced-motion, and live console/network checks remain open.
+
+
+## Venue research batch 26 — indoor pricing and status recheck (checked 17 October 2026)
+
+This pass prioritized rates that can safely support a realistic date-for-two budget, rather than adding directory entries just to increase counts.
+
+- **C-ONE Sports Center, Kauswagan:** a recent listing reproduces the 18 August 2026 court-rate post (₱110/court-hour weekday 8 AM–4 PM; ₱220/court-hour after 4 PM and weekends/holidays). A separate map listing shows regular hours and a recent August tournament post shows activity, but Sparrk's Kauswagan listing still labels the court **temporarily closed**. The evidence remains contradictory: retain the existing provisional budget for research purposes, do not claim current bookability, and do not promote the venue as confirmed until the operator confirms the Kauswagan branch and intended date. [Rate post and August activity](https://www.findglocal.com/PH/Cagayan-de-Oro/472616319967282/C-ONE-Sports-Center), [map listing](https://www.waze.com/live-map/directions/ph/northern-mindanao/cagayan-de-oro-city/c-one-badminton-courts?to=place.ChIJoeIe71Tz_zIR-azX_xSrHqo), [conflicting closure label](https://www.sparrk.ph/c-one-sports-center/space/c-one-badminton-courts-kauswagan).
+- **Timezone Centrio:** current branch information confirms the location and opening hours but did not provide a reliable current credit/game price. Keep directory-only; do not estimate token spend from old posts. [Branch listing](https://www.timezonegames.com/en-ph/locations/).
+- **Spin City, Sploop! VR Arcade, World of Fun Limketkai:** current directory/operator listings support these as venue leads, but the rate sources found remain historical or lack current branch-level pricing. Keep them directory-only rather than promoting stale rates into selectable budget recommendations. [Limketkai directory](https://www.limketkaimall.com/stores/), [World of Fun locations](https://www.worldoffun.com.ph/locations).
+- **Decision:** no additional arcade budget was added in this pass because no sufficiently current, branch-specific price evidence was found. The existing Dink Xcape ₱450 estimate remains the best current indoor-court candidate, using the higher of two third-party-listed ₱350–₱360 court-hour rates plus a 15% cushion; it is still an estimate, not a reservation.
+
+This is a source review, not direct operator confirmation. No planner data was changed in this batch. Keep manual Phase 1 browser, accessibility, and live-device checks open.
