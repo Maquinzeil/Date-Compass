@@ -520,3 +520,20 @@ This pass prioritized rates that can safely support a realistic date-for-two bud
 - **Decision:** no additional arcade budget was added in this pass because no sufficiently current, branch-specific price evidence was found. The existing Dink Xcape ₱450 estimate remains the best current indoor-court candidate, using the higher of two third-party-listed ₱350–₱360 court-hour rates plus a 15% cushion; it is still an estimate, not a reservation.
 
 This is a source review, not direct operator confirmation. No planner data was changed in this batch. Keep manual Phase 1 browser, accessibility, and live-device checks open.
+
+
+## Venue research batch 27 — CDO indoor court follow-up (checked 17 October 2026)
+
+### McPars Sports Center — separate pickleball and billiards status
+
+The current official website explicitly labels pickleball **Available Now**, lists seven indoor courts, and publishes ₱350/hour for Court 1 and ₱400/hour for Courts 2–7. The planner already contains a one-hour pickleball estimate for two at ₱500, calculated from the highest listed court rate plus a 15% cushion. Keep the note about confirming the exact court, equipment, booking conditions, and slot; published court rates are not a confirmed reservation. [Official rates and booking information](https://mcpars.com/).
+
+Do not extend that same availability claim to billiards. The site lists three tables at ₱250/hour, but its page uses conflicting wording (“Open 24 hours” alongside “soon” / booking and payment caveats). Keep billiards out of selectable planner recommendations until the operator confirms the tables are open and bookable.
+
+### Pickle Point CDO — useful lead, not yet a priced planner recommendation
+
+A current community-listed venue page identifies Pickle Point in Bulua near the Westbound Bus Terminal and reports ₱350/hour for court rental or ₱150/person for open play. For two people, open play would be ₱300 before any cushion, or ₱350 with a 15% buffer rounded up. However, the page explicitly says the details are community-listed and not confirmed by the venue. Keep this as a **directory-only lead** until the operator confirms the current rate, open-play schedule, address/pin, and equipment terms. [Community listing and contact details](https://pickleballer.ph/venues/pickle-point-cdo).
+
+### Research decision
+
+No new selectable planner record was added in this pass: McPars pickleball is already represented, while McPars billiards and Pickle Point still need a clear operator confirmation before being promoted. This preserves the distinction between current price evidence and current bookability and avoids inflating the verified recommendation count.
