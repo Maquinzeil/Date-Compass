@@ -947,7 +947,8 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       venueStatus: "Operator-posted court-rate information found, but a current Sparrk booking listing labels the Kauswagan courts temporarily closed; contact the venue to confirm it is operating before travelling",
       priceStatus: "Historical posted one-hour court rates are research references only while operational status conflicts; equipment and consumables not verified",
       sourceUrl: "https://www.findglocal.com/PH/Cagayan-de-Oro/472616319967282/C-ONE-Sports-Center",
-      bookingUrl: "https://www.sparrk.ph/c-one-sports-center/space/c-one-badminton-courts-kauswagan",
+      bookingUrl: "https://c-one.bookingdyno.com/",
+      statusCheckUrl: "https://www.sparrk.ph/c-one-sports-center/space/c-one-badminton-courts-kauswagan",
       checkedOn: "2026-10-17"
     },
     {
