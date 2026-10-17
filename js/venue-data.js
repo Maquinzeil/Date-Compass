@@ -863,7 +863,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       sourceUrl: "https://www.dahilayanforestpark.com/en/rides-activities",
       sourceLabel: "Official Dahilayan Forest Park rides and activities page",
       venueUrl: "https://www.google.com/maps/search/?api=1&query=Dahilayan+Forest+Park+Resort+Manolo+Fortich",
-      priceStatusLabel: undefined,
+      priceStatusLabel: "Operator-published canopy-walk and entrance rates + 15% buffer",
       priceBasis: "2 × ₱80 adult canopy walk + 2 × ₱150 entrance = ₱460; 15% buffer = ₱529; rounded up to ₱550.",
       priceNote: "The official page lists the Forest Canopy Walk at ₱80 per adult and entrance at ₱150 per person. This estimate assumes entrance is charged separately. Transport from CDO, food, and other attractions are excluded. Confirm current operation, restrictions, and entrance inclusions before travelling.",
       checkedOn: "2026-10-17"
