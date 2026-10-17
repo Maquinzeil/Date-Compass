@@ -445,3 +445,10 @@ The physical kit question-card bank itself is **content**, not a backend require
 - The new Chromium browser run exposed a real interaction issue: the budget field's blur/change handler re-rendered the planner before the clicked action button could receive its click. The source-level suite had only checked for the old handler string and did not catch the real browser event order.
 - Changed the budget field to commit its final value and defer the refresh until after the current click event, and added a regression assertion. The browser smoke test exercises this interaction on the desktop path.
 - This does not close the manual Phase 1 gate; re-run the browser workflow and keep manual live-site, accessibility, and cross-browser checks open.
+
+
+### Venue research follow-up — 17 October 2026 (indoor court rate cross-check)
+
+- Added Dink Xcape indoor pickleball as a selectable estimate using current booking-platform listings at ₱350–₱360/hour. The planner uses the higher ₱360 rate plus a 15% cushion (₱450 rounded budget), excludes equipment/transport/food, and explicitly states that a displayed schedule is not a confirmed reservation.
+- C-ONE Kauswagan remains provisional: a recent operator rate post and map hours conflict with a third-party “temporarily closed” label. Do not mark it bookable until the operator confirms the specific branch and date.
+- Latest automated Chromium, Phase 1 smoke, and Pages deployment workflows passed on commit `53919801b51ce17a49b3f586af0af7c9f2912b9b`. The next commit will rerun all three checks. Manual visual/accessibility/cross-browser checks remain open and no Phase 1 manual checkbox is closed.

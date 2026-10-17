@@ -490,3 +490,21 @@ Added a separate Playwright/Chromium smoke workflow to exercise the local static
 ### Browser smoke regression — budget field
 
 The first real Chromium run exposed a budget-input blur/change race: the immediate `render()` could replace the planner button before its click handler ran. The input now calls `commitBudget()`, which updates the state and defers the render until after the active click event. The automated browser workflow is being rerun to verify the correction.
+
+
+## Venue research batch 25 — indoor court rate cross-check (checked 17 October 2026)
+
+Added **Dink Xcape indoor pickleball date for two** to the selectable planner as a conservative planning estimate:
+
+- DinkBook's court page lists Dink Xcape from **₱360/hour** and exposes a live schedule view: [DinkBook Dink Xcape court page](https://www.dinkbook.app/courts/dinkxcape).
+- BookingDyno lists Dink Xcape courts at **₱350/hour** with current slot availability: [BookingDyno booking directory](https://bookingdyno.com/bookings).
+- Because the two third-party booking platforms differ by ₱10/hour, the planner uses the higher ₱360 rate, adds 15% (₱414), and rounds up to **₱450**. This is a conservative estimate, not a confirmed checkout total or booking.
+- Budget covers one court-hour only. Paddle/ball rental, transport, and food are excluded; users should confirm exact court, equipment terms, and selected slot before visiting.
+
+### C-ONE Kauswagan status conflict — still unresolved
+
+The operator's 18 August 2026 post publishes badminton rates and an August tournament post documents activity at the venue. Current map listings also show regular opening hours. However, Sparrk still labels the Kauswagan court listing **temporarily closed**, despite showing time-slot/rate data. This evidence does not fully resolve current bookability. Keep C-ONE rate options provisional and do not state a booking is available or secured; the operator needs to confirm the specific branch and date.
+
+### Browser verification status
+
+The latest automated Chromium browser workflow passed on commit `53919801b51ce17a49b3f586af0af7c9f2912b9b`: desktop/mobile rendering, Build a Date and Surprise Me flows, budget generation, contact labels, uncaught page errors, and failed same-origin asset checks. The Phase 1 smoke suite and Pages deployment also passed on that commit. These are automated checks only. Manual live-site visual review, cross-browser/device review, keyboard and screen-reader accessibility, contrast, reduced-motion, and live console/network checks remain open.

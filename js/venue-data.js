@@ -951,7 +951,20 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceBasis: "2 × (₱599 entrance-and-swim + ₱349 unlimited-slide add-on) = ₱1,896; 15% buffer = ₱2,180.40; rounded up to ₱2,200.",
       priceNote: "The official FAQ lists entrance and swim at ₱599 per person and the optional unlimited all-slides add-on at ₱349 per person. Budget includes both for two; food, transport, lockers, and other extras are not included. Confirm height/health restrictions, operating hours, and current ticket conditions before visiting.",
       checkedOn: "2026-10-17"
-    }
+    },
+    {
+      n: "Dink Xcape indoor pickleball date for two",
+      c: 450,
+      venueName: "Dink Xcape Pickle Hub — Camaman-an",
+      sourceUrl: "https://www.dinkbook.app/courts/dinkxcape",
+      priceSourceUrl: "https://bookingdyno.com/bookings",
+      sourceLabel: "Current court-booking platforms; rate cross-check (17 October 2026)",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Dink+Xcape+Pickle+Hub+Bontong+Camaman-an+Cagayan+de+Oro",
+      priceStatusLabel: "Current third-party booking rates (₱350–₱360/hour), conservative high rate + 15% buffer",
+      priceBasis: "Use the higher current listed rate: ₱360 for one court-hour; 15% buffer = ₱414; rounded up to ₱450.",
+      priceNote: "Current booking-platform listings show ₱350/hour and ₱360/hour, so the estimate uses ₱360 to avoid understating the court cost. Budget covers one indoor court-hour only; paddle/ball rental, transport, and food are not included. Confirm the exact court, current checkout rate, equipment terms, and selected time slot before visiting. Live schedules on booking platforms are not a reservation confirmation.",
+      checkedOn: "2026-10-17"
+    },
   ],
   venueDirectory: [
     {
@@ -1475,9 +1488,10 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       category: "indoor pickleball courts",
       area: "Bontong, Camaman-an, Cagayan de Oro",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Dink+Xcape+Pickle+Hub+Bontong+Camaman-an+Cagayan+de+Oro",
-      venueStatus: "Indoor pickleball venue identified in recent local reporting and a court-booking directory",
-      priceStatus: "Third-party listings show rates around ₱350–₱360/hour; rates conflict, so no planner budget until confirmed against the venue's current booking page.",
-      sourceUrl: "https://www.dinkbook.app/",
+      venueStatus: "Indoor pickleball venue identified in recent local reporting and current booking platforms; verify the exact court and slot before travel",
+      priceStatus: "Current booking-platform rates differ slightly (₱350–₱360/hour). Planner uses the higher ₱360 rate plus a 15% cushion as a conservative estimate, not a confirmed checkout total.",
+      sourceUrl: "https://www.dinkbook.app/courts/dinkxcape",
+      bookingUrl: "https://bookingdyno.com/bookings",
       checkedOn: "2026-10-17"
     },
     {

@@ -28,7 +28,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/venue-data.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/venue-data.js?v=20261017l"'));
+  assert.ok(html.includes('src="js/venue-data.js?v=20261017m"'));
   assert.ok(html.includes('src="js/app.js?v=20261017g"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
@@ -440,8 +440,8 @@ test("all source-backed price records keep complete evidence and match planner a
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
   assert.equal(foods.length, 49, "Expected 49 source-backed food ideas.");
-  assert.equal(activities.length, 26, "Expected 26 source-backed activity updates after the latest indoor/outdoor batch.");
-  assert.equal(records.length, 75, "Every source-backed food and activity should be included in this evidence audit.");
+  assert.equal(activities.length, 27, "Expected 27 source-backed activity updates after the latest indoor/outdoor batch.");
+  assert.equal(records.length, 76, "Every source-backed food and activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
@@ -773,4 +773,20 @@ test("budget blur defers rendering so the intended planner button click is not s
   assert.ok(app.includes("function commitBudget(){"));
   assert.ok(app.includes("setTimeout(()=>render(),0);"));
   assert.ok(!app.includes('onchange="render()"'));
+});
+
+
+test("Dink Xcape indoor pickleball uses the conservative current booking rate without claiming confirmed availability", () => {
+  const dataContext = { window: {} };
+  vm.createContext(dataContext);
+  vm.runInContext(venueData, dataContext, { timeout: 5000 });
+  const data = dataContext.window.DATE_COMPASS_VERIFIED_DATA;
+  const item = data.activityUpdates.find(entry => entry.n === "Dink Xcape indoor pickleball date for two");
+  assert.ok(item, "Missing Dink Xcape indoor pickleball recommendation.");
+  assert.equal(item.c, 450);
+  assert.ok(item.sourceUrl.includes("/courts/dinkxcape"));
+  assert.ok(item.priceBasis.includes("₱360") && item.priceBasis.includes("15%"));
+  assert.match(item.priceNote, /₱350\/hour and ₱360\/hour/);
+  assert.match(item.priceNote, /Live schedules .* not a reservation confirmation/);
+  assert.ok(app.includes(JSON.stringify(item.n)), "Dink Xcape recommendation must be selectable.");
 });
