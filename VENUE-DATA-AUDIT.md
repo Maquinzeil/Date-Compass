@@ -23,7 +23,7 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 3. **Directory-only / price unverified:** venue research is useful, but there is not enough reliable price evidence to recommend a fixed venue budget. Keep it out of source-backed priced recommendations until evidence is captured.
 4. **Generic activity estimate:** DIY or at-home activities can use planning estimates, but they are not venue-price verification.
 
-Before launch, review the **65 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
+Before launch, review the **75 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
 
 ## Rules for publishing data
 
@@ -537,3 +537,14 @@ A current community-listed venue page identifies Pickle Point in Bulua near the 
 ### Research decision
 
 No new selectable planner record was added in this pass: McPars pickleball is already represented, while McPars billiards and Pickle Point still need a clear operator confirmation before being promoted. This preserves the distinction between current price evidence and current bookability and avoids inflating the verified recommendation count.
+
+
+## Venue research batch 28 — Seven Seas Waterpark official-rate recheck (17 October 2026)
+
+The official FAQ was rechecked against the existing planner records. It currently lists entrance-and-swim at ₱599 per person and an optional unlimited all-slides add-on at ₱349 per person. It also lists the Beach Gazebo at ₱900, Privateer at ₱700, and Islander Hut at ₱600. The existing planner records already reflect the two ticket combinations: ₱1,400 for swim-only for two and ₱2,200 for entrance, swim, and unlimited slides for two, each using a 15% cushion rounded up. No duplicate record was added.
+
+The official FAQ is the primary rate source: https://www.sevenseaswaterparkresort.com/faq. These amounts are ticket estimates only; transport, food, lockers, and optional shelter rental are excluded. The official ticket page does not confirm that a particular date's facilities are operating or that tickets are available, so customers should reconfirm operating hours, slide restrictions, and current ticket conditions before visiting.
+
+### Evidence-count correction
+
+The evidence tracker snapshot lists 49 food planner records and 26 activity planner records, for **75 source-backed priced planner records** total. The launch-review reminder previously said 65, which did not match the snapshot; it has been corrected to 75. Counts remain records, not unique venues, and the directly confirmed complete-price-and-date-specific-availability count remains 0.
