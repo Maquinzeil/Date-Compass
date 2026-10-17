@@ -452,3 +452,13 @@ The physical kit question-card bank itself is **content**, not a backend require
 - Added Dink Xcape indoor pickleball as a selectable estimate using current booking-platform listings at ₱350–₱360/hour. The planner uses the higher ₱360 rate plus a 15% cushion (₱450 rounded budget), excludes equipment/transport/food, and explicitly states that a displayed schedule is not a confirmed reservation.
 - C-ONE Kauswagan remains provisional: a recent operator rate post and map hours conflict with a third-party “temporarily closed” label. Do not mark it bookable until the operator confirms the specific branch and date.
 - Latest automated Chromium, Phase 1 smoke, and Pages deployment workflows passed on commit `53919801b51ce17a49b3f586af0af7c9f2912b9b`. The next commit will rerun all three checks. Manual visual/accessibility/cross-browser checks remain open and no Phase 1 manual checkbox is closed.
+
+
+### Venue research follow-up — 17 October 2026 (indoor pricing/status recheck)
+
+- Rechecked current evidence for C-ONE Kauswagan, Timezone Centrio, Spin City, Sploop! VR Arcade, and World of Fun Limketkai.
+- C-ONE remains provisional because a recent rate/activity signal conflicts with a third-party “temporarily closed” label. No booking claim was made.
+- No arcade budget was added because current branch-specific game/session rates were not verified. Older rates remain excluded; the current Dink Xcape court estimate remains explicitly provisional.
+- Detailed source notes were appended to `VENUE-DATA-AUDIT.md`. No venue planner data or Phase 1 completion checkbox was changed.
+- Before this documentation update, commit `57cf7a79587a81176d4df19c90de6e38683db0b9` had green Phase 1 smoke checks, browser smoke checks, and Pages deployment. Verify the new runs after this commit.
+- Manual Phase 1 exit checks remain open: live desktop/tablet/mobile visual review, real-session console/network review, keyboard/accessibility/contrast/reduced-motion review, and a second-browser/device pass.
