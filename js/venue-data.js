@@ -905,17 +905,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       checkedOn: "2026-10-17"
     },
     {
-      n: "McPars billiards date for two — one hour",
-      c: 300,
-      venueName: "McPars Sports Center",
-      sourceUrl: "https://mcpars.com/",
-      sourceLabel: "McPars Sports Center official rates",
-      venueUrl: "https://mcpars.com/",
-      priceStatusLabel: "Official published hourly table rate + 15% buffer",
-      priceBasis: "One billiards table for one hour: ₱250; 15% buffer = ₱287.50; rounded up to ₱300.",
-      priceNote: "McPars' official website lists billiard tables at ₱250/hour and says three tables are available for booking. Budget covers one table for one hour only. Confirm current opening/booking conditions and equipment before visiting; food and transport are extra. The café and full-service restaurant are still marked coming soon on the site.",
-      checkedOn: "2026-10-17"
-    },
+      
     {
       n: "TBC Billiards three-hour date for two",
       c: 350,
@@ -938,6 +928,30 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceStatusLabel: "Published starting rate in a social post + 15% buffer",
       priceBasis: "2 × ₱150 starting rate = ₱300; 15% buffer = ₱345; rounded up to ₱350.",
       priceNote: "A directory reproducing Climb Anytime's 21 August 2026 post advertises climbing from ₱150. This is a starting rate, not a confirmed all-in price; verify what equipment or entry is included, current rates, and session availability. Transport and food are extra.",
+      checkedOn: "2026-10-17"
+    }
+    {
+      n: "Seven Seas Waterpark swim date for two",
+      c: 1400,
+      venueName: "Seven Seas Waterpark & Resort",
+      sourceUrl: "https://www.sevenseaswaterparkresort.com/faq",
+      sourceLabel: "Official Seven Seas Waterpark FAQ",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Seven+Seas+Waterpark+Barra+Opol+Misamis+Oriental",
+      priceStatusLabel: "Official entrance-and-swim rate + 15% buffer",
+      priceBasis: "2 × ₱599 entrance-and-swim tickets = ₱1,198; 15% buffer = ₱1,377.70; rounded up to ₱1,400.",
+      priceNote: "The official FAQ lists entrance and swim at ₱599 per person. This option does not include the optional unlimited all-slides add-on, listed separately at ₱349 per person. Food, transport, lockers, and other extras are not included. Confirm opening hours, attractions in operation, and current ticket conditions before visiting.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Seven Seas Waterpark unlimited-slide date for two",
+      c: 2200,
+      venueName: "Seven Seas Waterpark & Resort",
+      sourceUrl: "https://www.sevenseaswaterparkresort.com/faq",
+      sourceLabel: "Official Seven Seas Waterpark FAQ",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Seven+Seas+Waterpark+Barra+Opol+Misamis+Oriental",
+      priceStatusLabel: "Official entrance, swim, and slide add-on rates + 15% buffer",
+      priceBasis: "2 × (₱599 entrance-and-swim + ₱349 unlimited-slide add-on) = ₱1,896; 15% buffer = ₱2,180.40; rounded up to ₱2,200.",
+      priceNote: "The official FAQ lists entrance and swim at ₱599 per person and the optional unlimited all-slides add-on at ₱349 per person. Budget includes both for two; food, transport, lockers, and other extras are not included. Confirm height/health restrictions, operating hours, and current ticket conditions before visiting.",
       checkedOn: "2026-10-17"
     }
   ],

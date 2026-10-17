@@ -28,8 +28,8 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "js/venue-data.js"));
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
-  assert.ok(html.includes('src="js/venue-data.js?v=20261017i"'));
-  assert.ok(html.includes('src="js/app.js?v=20261017e"'));
+  assert.ok(html.includes('src="js/venue-data.js?v=20261017j"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017f"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
   assert.ok(html.includes('href="css/phone-fix.css?v=20261015e"'));
@@ -440,8 +440,8 @@ test("all source-backed price records keep complete evidence and match planner a
   const activities = verified.activityUpdates;
   const records = [...foods, ...activities];
   assert.equal(foods.length, 49, "Expected 49 source-backed food ideas.");
-  assert.equal(activities.length, 25, "Expected 25 source-backed activity updates after the latest indoor/outdoor batch.");
-  assert.equal(records.length, 74, "Every source-backed food and activity should be included in this evidence audit.");
+  assert.equal(activities.length, 26, "Expected 26 source-backed activity updates after the latest indoor/outdoor batch.");
+  assert.equal(records.length, 75, "Every source-backed food and activity should be included in this evidence audit.");
   for (const item of records) {
     assert.match(item.sourceUrl || "", /^https:\/\//, `Missing valid source URL for ${item.n}`);
     assert.ok(item.sourceLabel, `Missing source label for ${item.n}`);
@@ -520,14 +520,14 @@ test("planner choices sit inside a spaced responsive panel and plan actions are 
   assert.match(css, /@media\(max-width:640px\)[\s\S]*?#app \.planner-filters\s*\{[\s\S]*?grid-template-columns:minmax\(0,1fr\)/);
   assert.match(css, /#app \.bar button\.ghost,[\s\S]*?background:var\(--gold\)!important;[\s\S]*?color:var\(--ink\)!important;[\s\S]*?opacity:1!important/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261017e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017f"'));
 });
 
 
 test("Surprise Me planner button remains actionable and explains missing budget", () => {
   assert.match(app, /<button class="go" onclick="gen\(\)">Plan my date<\/button>/);
   assert.match(app, /Please enter a budget for both of you first/);
-  assert.ok(html.includes('src="js/app.js?v=20261017e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017f"'));
 });
 
 test("budget field keeps custom amount entry without a preset button", () => {
@@ -536,7 +536,7 @@ test("budget field keeps custom amount entry without a preset button", () => {
   assert.match(app, /function setBudget\(v\)/);
   assert.doesNotMatch(css, /budget-presets|budget-preset|Quick budget pick for the date planner/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261017e"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017f"'));
 });
 
 
@@ -681,6 +681,7 @@ test("outdoor activity batch uses source-backed prices and explicit status cavea
   "Dahilayan Forest Park rainbow slide date for two",
   "Country Village Hotel rooftop outdoor pickleball date for two"
 ];
+  assert.doesNotMatch(app, /McPars billiards date for two/, "McPars billiards remains directory-only until operational status and booking are confirmed.");
   for (const name of expected) {
     const item = activities.find(entry => entry.n === name);
     assert.ok(item, `Missing outdoor planner record: ${name}`);
@@ -698,9 +699,10 @@ test("latest indoor and outdoor batch has matching planner entries and documente
   const activities = dataContext.window.DATE_COMPASS_VERIFIED_DATA.activityUpdates;
   const expected = [
   "Kilobag Falls nature adventure date for two",
-  "McPars billiards date for two — one hour",
   "TBC Billiards three-hour date for two",
-  "Climb Anytime beginner climbing date for two"
+  "Climb Anytime beginner climbing date for two",
+  "Seven Seas Waterpark swim date for two",
+  "Seven Seas Waterpark unlimited-slide date for two"
 ];
   for (const name of expected) {
     const item = activities.find(entry => entry.n === name);

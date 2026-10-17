@@ -1105,9 +1105,11 @@ A.push(
     {n:"Dahilayan Forest Park rainbow slide date for two",c:700,p:"m",t:"l",s:"o",d:"Add a playful outdoor slide stop to a mountain day out. Budget includes two slide tickets and assumed separate entrance fees; check age/weight restrictions and operation before travelling."},
     {n:"Country Village Hotel rooftop outdoor pickleball date for two",c:250,p:"c",t:"s",s:"o",d:"Try outdoor rooftop pickleball together in a listed afternoon session. The directory's per-person rate and schedule need direct venue confirmation; confirm paddle availability and budget transport separately."},
 {n:"Kilobag Falls nature adventure date for two",c:500,p:"m",t:"l",s:"o",d:"Take a nature-focused day trip to Kilobag Falls in Claveria. The budget covers two adult entrance fees only; transport, food, guide fees, and other costs are extra. Confirm access and conditions before travelling."},
-{n:"McPars billiards date for two — one hour",c:300,p:"c",t:"s",s:"i",d:"Challenge each other to a relaxed hour of billiards. Budget covers one table for one hour with a 15% cushion; food and transport are extra. Confirm the venue's current hours and booking conditions."},
 {n:"TBC Billiards three-hour date for two",c:350,p:"c",t:"l",s:"i",d:"Play a few rounds without rushing: a third-party listing reproduces TBC Billiards' ₱300 three-hour promo. Confirm the offer is still active before relying on this ₱350 planning budget, which includes a 15% cushion."},
 {n:"Climb Anytime beginner climbing date for two",c:350,p:"c",t:"s",s:"i",d:"Try indoor climbing together at Limketkai Mall. The ₱350 budget is based on a published starting rate of ₱150 per climber plus a 15% cushion; confirm equipment inclusions and the current rate before visiting."}
+,
+{n:"Seven Seas Waterpark swim date for two",c:1400,p:"m",t:"l",s:"o",d:"Spend the day swimming and enjoying the waterpark's included facilities. The ₱1,400 budget for two covers entrance and swim only, with a 15% cushion; unlimited slides cost extra."},
+{n:"Seven Seas Waterpark unlimited-slide date for two",c:2200,p:"m",t:"l",s:"o",d:"Make it a full waterpark day with entrance, swim access, and the optional unlimited-slide add-on for both people. Budget includes a 15% cushion but excludes transport, food, and lockers."}
 
 );
 A.forEach(x=>x.cat=category(x));

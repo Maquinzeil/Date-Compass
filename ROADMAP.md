@@ -423,3 +423,10 @@ The physical kit question-card bank itself is **content**, not a backend require
 - Added Kilobag Falls, Climb Anytime, McPars billiards, and TBC Billiards with source URLs, budget calculations, 15% cushions, and explicit limitations.
 - Corrected the planner's location/time filter values for the previous five outdoor activity cards and added regression coverage so Misamis Oriental long activities do not accidentally appear as CDO short activities.
 - The evidence audit now distinguishes operator-published, government-published, third-party, and directory-only leads. No manual browser/accessibility/Phase 1 exit checkboxes are marked complete by this research batch.
+
+
+### Venue research follow-up — 17 October 2026 (Seven Seas and booking gate)
+
+- Added separate Seven Seas Waterpark swim-only and swim-plus-unlimited-slides options using the operator FAQ's published rates and a 15% cushion.
+- Kept McPars billiards out of the selectable planner while its official page's operating/booking signals remain ambiguous; its evidence remains in the research directory until direct confirmation resolves the conflict.
+- Updated activity counts, cache versions, and regression checks. Manual browser/accessibility checks remain open.

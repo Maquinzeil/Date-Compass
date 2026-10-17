@@ -11,8 +11,8 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 | Evidence level | Current count | What the count means | What it does not mean |
 |---|---:|---|---|
 | Source-backed food planner budgets | 49 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
-| Source-backed activity planner budgets | 25 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
-| **Source-backed priced planner records (food + activities)** | **74** | 49 food records + 25 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
+| Source-backed activity planner budgets | 26 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
+| **Source-backed priced planner records (food + activities)** | **75** | 49 food records + 26 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
 | **Directly confirmed complete-price-and-availability records** | **0** | No record currently has direct venue confirmation of a complete current cost and date-specific availability documented in this audit. | A current menu, published rate, or third-party listing does not confirm a future slot or every extra charge. |
 | Venue directory / research records | 53 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
 
@@ -417,12 +417,13 @@ No prices were invented for outdoor options whose current operator rates could n
 
 ## Venue research batch 22 — waterfall, climbing, and billiards (checked 17 October 2026)
 
-Four new source-backed activity records were added to the planner: Kilobag Falls (outdoor, Claveria), Climb Anytime (indoor, Limketkai Mall), McPars Sports Center billiards, and TBC Billiards.
+Five new source-backed activity records were added to the planner in this research cycle: Kilobag Falls (outdoor, Claveria), Climb Anytime (indoor, Limketkai Mall), TBC Billiards, and two Seven Seas Waterpark ticket configurations. McPars billiards remains directory-only because the operator page has conflicting operational signals and needs direct confirmation.
 
 | Planner option for two | Published price basis | 15% cushion | Planner budget | Evidence level |
 |---|---:|---:|---:|---|
 | Kilobag Falls entrance | 2 × ₱200 adult admission = ₱400 | ₱60 | ₱500 | Provincial government page |
-| McPars billiards, one hour | ₱250/table/hour | ₱37.50 | ₱300 | Official operator website |
+| Seven Seas Waterpark entrance and swim | 2 × ₱599 = ₱1,198 | ₱179.70 | ₱1,400 | Official operator FAQ; swim only, slides extra |
+| Seven Seas Waterpark entrance, swim, and unlimited slides | 2 × (₱599 + ₱349) = ₱1,896 | ₱284.40 | ₱2,200 | Official operator FAQ; transport/food excluded |
 | TBC Billiards, three hours | ₱300 published promo | ₱45 | ₱350 | Third-party listing reproducing venue posts; promotion must be confirmed |
 | Climb Anytime, starting rate | 2 × ₱150 = ₱300 | ₱45 | ₱350 | Third-party directory reproducing social post; inclusions must be confirmed |
 
@@ -437,4 +438,14 @@ Kilobag Falls' budget covers entrance only; transport from CDO, food, guides, pa
 - **Third-party listing/social-post reproduction**: useful evidence lead, but promo status, inclusions, and current rates require direct venue confirmation.
 - **Directory-only**: keep out of priced planner recommendations until a defensible price basis is found.
 
-**Updated tracker total:** 49 food records + 25 activity records = **74 source-backed planning records**. Directly confirmed complete current price-and-date-specific-availability records remain **0**.
+**Updated tracker total:** 49 food records + 26 activity records = **75 source-backed planning records**. Directly confirmed complete current price-and-date-specific-availability records remain **0**.
+
+
+### Additional outdoor batch — Seven Seas Waterpark, Opol (17 October 2026)
+
+The operator FAQ lists entrance-and-swim at ₱599/person and the unlimited all-slides add-on at ₱349/person. The planner now offers both configurations so the base ticket is not mistaken for full slide access:
+
+- Swim-only: 2 × ₱599 = ₱1,198; plus 15% = ₱1,377.70; planning budget **₱1,400** for two.
+- Swim + unlimited slides: 2 × (₱599 + ₱349) = ₱1,896; plus 15% = ₱2,180.40; planning budget **₱2,200** for two.
+
+Official source: [Seven Seas Waterpark FAQ](https://www.sevenseaswaterparkresort.com/faq). Budgets exclude food, transport, lockers, and other extras. Confirm hours, ride operations, and ticket conditions before visiting.
