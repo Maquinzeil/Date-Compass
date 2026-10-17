@@ -29,7 +29,7 @@ test("frontend JavaScript and linked assets exist", async () => {
   await access(resolve(root, "css/style.css"));
   await access(resolve(root, "css/phone-fix.css"));
   assert.ok(html.includes('src="js/venue-data.js?v=20261017l"'));
-  assert.ok(html.includes('src="js/app.js?v=20261017f"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017g"'));
   assert.ok(html.indexOf("js/venue-data.js") < html.indexOf("js/app.js"), "Venue data must load before the planner.");
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
   assert.ok(html.includes('href="css/phone-fix.css?v=20261015e"'));
@@ -520,14 +520,14 @@ test("planner choices sit inside a spaced responsive panel and plan actions are 
   assert.match(css, /@media\(max-width:640px\)[\s\S]*?#app \.planner-filters\s*\{[\s\S]*?grid-template-columns:minmax\(0,1fr\)/);
   assert.match(css, /#app \.bar button\.ghost,[\s\S]*?background:var\(--gold\)!important;[\s\S]*?color:var\(--ink\)!important;[\s\S]*?opacity:1!important/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261017f"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017g"'));
 });
 
 
 test("Surprise Me planner button remains actionable and explains missing budget", () => {
   assert.match(app, /<button class="go" onclick="gen\(\)">Plan my date<\/button>/);
   assert.match(app, /Please enter a budget for both of you first/);
-  assert.ok(html.includes('src="js/app.js?v=20261017f"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017g"'));
 });
 
 test("budget field keeps custom amount entry without a preset button", () => {
@@ -536,7 +536,7 @@ test("budget field keeps custom amount entry without a preset button", () => {
   assert.match(app, /function setBudget\(v\)/);
   assert.doesNotMatch(css, /budget-presets|budget-preset|Quick budget pick for the date planner/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261017f"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017g"'));
 });
 
 
@@ -765,4 +765,11 @@ test("indoor arcade research remains directory-only when current branch pricing 
     assert.match(item.priceStatus || "", /Directory-only lead/);
     assert.ok(!data.activityUpdates.some(entry => entry.venueName === name || entry.n === name), `${name} must not be a priced planner recommendation without current pricing.`);
   }
+});
+
+
+test("budget blur defers rendering so the intended planner button click is not swallowed", () => {
+  assert.match(app, /oninput="setBudget\\(this\\.value\\)" onchange="commitBudget\\(\\)"/);
+  assert.match(app, /function commitBudget\\(\\)[\\s\\S]*?setTimeout\\(\\(\\)=>render\\(\\),0\\)/);
+  assert.ok(!app.includes('onchange="render()"'));
 });

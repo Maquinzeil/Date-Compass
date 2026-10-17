@@ -438,3 +438,10 @@ The physical kit question-card bank itself is **content**, not a backend require
 - Rechecked current source signals for Timezone Centrio, SM Bowling, and C-ONE Kauswagan. The current SM Bowling promotion is treated as optional rather than the base budget. C-ONE has a recent operator rate post and a booking listing displaying hourly slots; keep booking claims provisional until the exact date/branch is confirmed.
 - Added a separate Playwright/Chromium CI smoke workflow for desktop/mobile rendering, planner navigation, budget generation, contact labels, uncaught page errors, and missing local assets.
 - **Manual Phase 1 checks remain open:** live deployed-site visual review, browser console/network inspection in a real session, keyboard-only and screen-reader checks, contrast/reduced-motion review, and a second-browser/device pass. Automated Chromium results must not be described as a complete manual audit.
+
+
+### Browser smoke finding — 17 October 2026 (budget input interaction)
+
+- The new Chromium browser run exposed a real interaction issue: the budget field's blur/change handler re-rendered the planner before the clicked action button could receive its click. The source-level suite had only checked for the old handler string and did not catch the real browser event order.
+- Changed the budget field to commit its final value and defer the refresh until after the current click event, and added a regression assertion. The browser smoke test exercises this interaction on the desktop path.
+- This does not close the manual Phase 1 gate; re-run the browser workflow and keep manual live-site, accessibility, and cross-browser checks open.

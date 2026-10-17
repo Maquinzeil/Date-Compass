@@ -1212,7 +1212,7 @@ function filters(){
  <h2>${cu?"Build your own date":"Surprise us"}</h2>
  <p class="mute">${cu?"Set the basics, then pick each part yourself.":"Tell us the basics and we choose the rest."}</p><p class="kit-promo">Get the physical kit and receive <b>10 randomly selected date questions</b> to spark fun conversations on your date. ♥</p>
  <div class="planner-filters">
- ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}${sel("Food style","foodMode")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setBudget(this.value)" onchange="render()"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}
+ ${sel("Where","p")}${sel("Do you have a car?","car")}${sel("Category","cat")}${sel("Food style","foodMode")}<label class="selectfield"><span>Budget for two</span><input class="budgetinput" type="number" min="0" step="50" inputmode="numeric" value="${S.b||""}" placeholder="e.g. 800" aria-label="Budget for two" oninput="setBudget(this.value)" onchange="commitBudget()"><small>Enter your actual total budget for both of you.</small></label>${sel("How long","t")}${sel("Setting","s")}
  ${cu?"":`<button class="go" onclick="gen()">Plan my date</button><p class="note planner-status" id="planner-status" role="status">${S.b>0?"Choose your date preferences, then plan your date.":"Enter a budget for two, then click Plan my date."}</p>`}
  </div>`;
 }
@@ -1412,6 +1412,12 @@ function setBudget(v){
  if(btn)btn.disabled=false;
  const status=document.getElementById("planner-status");
  if(status)status.textContent=S.b>0?"Budget set. Click Plan my date when you are ready.":"Enter a budget for two, then click Plan my date.";
+}
+function commitBudget(){
+ const input=document.querySelector(".budgetinput");
+ if(input)setBudget(input.value);
+ // Let the button/select click that caused blur finish before refreshing the view.
+ setTimeout(()=>render(),0);
 }
 function setf(k,v){
  clearKitValidation();

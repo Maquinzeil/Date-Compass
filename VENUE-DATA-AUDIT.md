@@ -485,3 +485,8 @@ No current branch-specific rate was found for these three in this research pass;
 ### Browser verification automation
 
 Added a separate Playwright/Chromium smoke workflow to exercise the local static frontend on desktop and mobile, test the Build a Date and Surprise Me flows, check the contact form labels, and detect uncaught JavaScript errors or failed same-origin assets. This is useful real-browser automation, but it does **not** replace manual live-site inspection, cross-browser testing, keyboard-only/accessibility review, contrast review, or reduced-motion checks. Do not mark the Phase 1 exit gate complete until those checks are actually performed.
+
+
+### Browser smoke regression — budget field
+
+The first real Chromium run exposed a budget-input blur/change race: the immediate `render()` could replace the planner button before its click handler ran. The input now calls `commitBudget()`, which updates the state and defers the render until after the active click event. The automated browser workflow is being rerun to verify the correction.
