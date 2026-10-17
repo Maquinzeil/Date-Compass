@@ -592,6 +592,58 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceNote: "The branch delivery menu lists Chinese-style fried chicken lauriat with drink from ₱263 each. This is a delivery-menu reference, not a guaranteed dine-in price; confirm current price and item availability. Transport and delivery fees are excluded.",
       checkedOn: "2026-10-17"
     },
+    {
+      n: "Lonewolf Cafe 8th Street: two hot Americanos",
+      m: "out", c: 250, p: "c", s: "i",
+      d: "A simple, low-cost coffee date at Lonewolf Cafe's 8th Street branch. The budget covers one hot Americano each plus a 15% cushion.",
+      venueName: "Lonewolf Cafe — 8th Street",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/e982/lonewolf-cafe-8th-street",
+      sourceLabel: "Foodpanda Lonewolf Cafe 8th Street branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Lonewolf+Cafe+8th+Street+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱105 Hot Americano = ₱210; 15% buffer = ₱241.50; rounded up to ₱250.",
+      priceNote: "The 8th Street branch delivery menu lists Hot Americano at ₱105 each. Delivery-menu prices may differ from dine-in, and menu stock or branch details can change. Food, transport, and delivery fees are excluded.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Lonewolf Cafe 8th Street: two iced cafe lattes",
+      m: "out", c: 400, p: "c", s: "i",
+      d: "A relaxed iced-coffee date with one iced cafe latte each and a 15% planning cushion.",
+      venueName: "Lonewolf Cafe — 8th Street",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/e982/lonewolf-cafe-8th-street",
+      sourceLabel: "Foodpanda Lonewolf Cafe 8th Street branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Lonewolf+Cafe+8th+Street+Cagayan+de+Oro",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱160 Iced Cafe Latte = ₱320; 15% buffer = ₱368; rounded up to ₱400.",
+      priceNote: "The 8th Street branch delivery menu lists Iced Cafe Latte at ₱160 each. Delivery-menu prices may differ from dine-in, and menu stock or branch details can change. Food, transport, and delivery fees are excluded.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Jollibee SM CDO Premier: Chickenjoy with drinks for two",
+      m: "out", c: 300, p: "c", s: "i",
+      d: "A familiar quick meal date with one-piece Chickenjoy and a drink each, plus a 15% cushion.",
+      venueName: "Jollibee — CDO SM Premier",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/a0ct/jollibee-cdo-sm-premier",
+      sourceLabel: "Foodpanda Jollibee SM CDO Premier branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Jollibee+SM+CDO+Premier",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱110 1-pc. Chickenjoy with drink = ₱220; 15% buffer = ₱253; rounded up to ₱300.",
+      priceNote: "The SM CDO Premier branch delivery menu lists 1-pc. Chickenjoy with drink at ₱110. This is a delivery-menu reference, not a guaranteed dine-in price; confirm current item availability. Transport and delivery fees are excluded.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Jollibee SM CDO Premier: Chickenjoy and Jolly Spaghetti for two",
+      m: "out", c: 450, p: "c", s: "i",
+      d: "A more filling fast-food date with one-piece Chickenjoy and Jolly Spaghetti each, budgeted with a 15% cushion.",
+      venueName: "Jollibee — CDO SM Premier",
+      sourceUrl: "https://www.foodpanda.ph/restaurant/a0ct/jollibee-cdo-sm-premier",
+      sourceLabel: "Foodpanda Jollibee SM CDO Premier branch menu",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Jollibee+SM+CDO+Premier",
+      priceStatusLabel: "Published branch delivery-menu price + buffer",
+      priceBasis: "2 × ₱178 1-pc. Chickenjoy with Jolly Spaghetti Solo = ₱356; 15% buffer = ₱409.40; rounded up to ₱450.",
+      priceNote: "The SM CDO Premier branch delivery menu lists 1-pc. Chickenjoy with Jolly Spaghetti Solo at ₱178. This is a delivery-menu reference, not a guaranteed dine-in price; confirm current item availability. Transport and delivery fees are excluded.",
+      checkedOn: "2026-10-17"
+    },
   ],
   activityUpdates: [
     {
@@ -892,11 +944,11 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       category: "badminton and indoor sports",
       area: "Zone 1, Rodolfo N. Pelaez Boulevard, Kauswagan, Cagayan de Oro",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=C-ONE%20Sports%20Center%20%E2%80%94%20Kauswagan%2C%20Zone%201%2C%20Rodolfo%20N.%20Pelaez%20Boulevard%2C%20Kauswagan%2C%20Cagayan%20de%20Oro",
-      venueStatus: "Current operator-posted court-rate information found; confirm directly before visiting",
-      priceStatus: "One-hour court estimates available; equipment and consumables not verified",
+      venueStatus: "Operator-posted court-rate information found, but a current Sparrk booking listing labels the Kauswagan courts temporarily closed; contact the venue to confirm it is operating before travelling",
+      priceStatus: "Historical posted one-hour court rates are research references only while operational status conflicts; equipment and consumables not verified",
       sourceUrl: "https://www.findglocal.com/PH/Cagayan-de-Oro/472616319967282/C-ONE-Sports-Center",
-      bookingUrl: "https://c-one.bookingdyno.com/",
-      checkedOn: "2026-10-15"
+      bookingUrl: "https://www.sparrk.ph/c-one-sports-center/space/c-one-badminton-courts-kauswagan",
+      checkedOn: "2026-10-17"
     },
     {
       name: "SM Bowling — SM CDO Downtown Premier",

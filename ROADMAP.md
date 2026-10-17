@@ -402,3 +402,10 @@ The physical kit question-card bank itself is **content**, not a backend require
 - No additional source-code change was made during this pass because the static review did not establish another reproducible defect. Avoid changing working UI code without a verified reason.
 - **Still open:** live-browser testing of navigation and planner flows, phone/tablet/desktop layout, keyboard-only operation, focus and contrast, reduced-motion behavior, and browser console/network requests. Those checks cannot be claimed as complete from source inspection or GitHub Actions alone.
 - **Still open before launch:** recheck venue prices, operating status, travel requirements, and availability with current sources or direct venue confirmation. Keep backend order storage, secure owner tools, and online payments out of scope until separately designed and tested.
+
+
+### Follow-up validation record — 17 October 2026
+
+- Latest checked commit before this research batch: `bf90ee7e1d9aaff86eddf50d8ccd46032f54751e`; the Phase 1 smoke checks and GitHub Pages deployment both succeeded.
+- This work continues to keep venue research separate from the backend launch gate: source-backed estimates are being added in manageable batches, while unknown or conflicting operating status is explicitly flagged.
+- Manual browser checks are **still open**. No Phase 1 exit checkbox is marked complete by this note. Still required: live desktop/tablet/mobile visual inspection, click-through of navigation and planner flows, console/network review, keyboard/focus/contrast/reduced-motion checks, and a second-browser test.

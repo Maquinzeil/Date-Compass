@@ -10,9 +10,9 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 
 | Evidence level | Current count | What the count means | What it does not mean |
 |---|---:|---|---|
-| Source-backed food planner budgets | 45 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
+| Source-backed food planner budgets | 49 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
 | Source-backed activity planner budgets | 16 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
-| **Source-backed priced planner records (food + activities)** | **61** | 45 food records + 16 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
+| **Source-backed priced planner records (food + activities)** | **65** | 49 food records + 16 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
 | **Directly confirmed complete-price-and-availability records** | **0** | No record currently has direct venue confirmation of a complete current cost and date-specific availability documented in this audit. | A current menu, published rate, or third-party listing does not confirm a future slot or every extra charge. |
 | Venue directory / research records | 53 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
 
@@ -23,7 +23,7 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 3. **Directory-only / price unverified:** venue research is useful, but there is not enough reliable price evidence to recommend a fixed venue budget. Keep it out of source-backed priced recommendations until evidence is captured.
 4. **Generic activity estimate:** DIY or at-home activities can use planning estimates, but they are not venue-price verification.
 
-Before launch, review the **61 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
+Before launch, review the **65 priced records individually** for source freshness and whether every cost component is included. Do not mark a record “fully verified” merely because it has a URL.
 
 ## Rules for publishing data
 
@@ -370,3 +370,26 @@ Added two branch-specific fast-food date options using the Chowking SM CDO Premi
 - **Updated tracker total:** 45 food records + 16 activity records = **61 source-backed planning records**. Directly confirmed complete current price-and-date-specific-availability records remain **0**.
 
 The frontend venue-data cache token was also bumped so browsers are less likely to reuse an older cached dataset.
+
+
+## Venue research batch 20 — Lonewolf Cafe and Jollibee SM CDO Premier (checked 17 October 2026)
+
+Added four branch-specific planner options from current branch delivery-menu listings. Budgets use the regular listed menu prices and a 15% planning cushion; they are not guaranteed dine-in prices.
+
+| Planner option for two | Published menu basis | Calculation with 15% cushion | Budget |
+|---|---|---|---:|
+| Lonewolf Cafe 8th Street — two hot Americanos | 2 × ₱105 = ₱210 | ₱241.50 | ₱250 |
+| Lonewolf Cafe 8th Street — two iced cafe lattes | 2 × ₱160 = ₱320 | ₱368 | ₱400 |
+| Jollibee SM CDO Premier — Chickenjoy with drinks | 2 × ₱110 = ₱220 | ₱253 | ₱300 |
+| Jollibee SM CDO Premier — Chickenjoy with Jolly Spaghetti | 2 × ₱178 = ₱356 | ₱409.40 | ₱450 |
+
+- **Lonewolf source:** [Foodpanda 8th Street branch menu](https://www.foodpanda.ph/restaurant/e982/lonewolf-cafe-8th-street).
+- **Jollibee source:** [Foodpanda SM CDO Premier branch menu](https://www.foodpanda.ph/restaurant/a0ct/jollibee-cdo-sm-premier).
+- **Evidence status:** branch-specific delivery-menu listings; dine-in prices, item stock, and current availability are not confirmed. Transport and delivery fees are excluded.
+- **Updated tracker total:** 49 food records + 16 activity records = **65 source-backed planning records**. Directly confirmed complete current price-and-date-specific-availability records remain **0**.
+
+### Indoor activity status check
+
+The current Sparrk listing for C-ONE Badminton Courts Kauswagan labels the venue **Temporarily Closed**, despite an operator-posted August 2026 rate notice. The directory now flags this conflict and directs maintainers to confirm operating status before travelling. The existing planner entries remain provisional and should not be described as confirmed bookable slots. Source: [C-ONE Kauswagan booking listing](https://www.sparrk.ph/c-one-sports-center/space/c-one-badminton-courts-kauswagan).
+
+No new arcade or billiards budget was added in this batch: the reviewed Timezone Centrio branch page does not publish current per-game credit prices, and McPars billiards' operational status remains ambiguous. This avoids manufacturing a price just to increase the count.
