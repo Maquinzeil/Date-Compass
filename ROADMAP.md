@@ -462,3 +462,12 @@ The physical kit question-card bank itself is **content**, not a backend require
 - Detailed source notes were appended to `VENUE-DATA-AUDIT.md`. No venue planner data or Phase 1 completion checkbox was changed.
 - Before this documentation update, commit `57cf7a79587a81176d4df19c90de6e38683db0b9` had green Phase 1 smoke checks, browser smoke checks, and Pages deployment. Verify the new runs after this commit.
 - Manual Phase 1 exit checks remain open: live desktop/tablet/mobile visual review, real-session console/network review, keyboard/accessibility/contrast/reduced-motion review, and a second-browser/device pass.
+
+
+### Venue research follow-up — 17 October 2026 (indoor court leads)
+
+- Rechecked the current official McPars website. Its seven indoor pickleball courts and ₱350–₱400/hour court rates support the existing ₱500 planning estimate for two, including the 15% buffer. Billiards remains excluded because current operating/booking language is contradictory.
+- Added Pickle Point CDO as a directory-only lead based on community-listed court/open-play rates (₱350/hour rental or ₱150/person open play). The listing itself says the details are not venue-confirmed, so it is not promoted into the planner.
+- No new selectable venue record or evidence-count increase was made in this pass. Detailed sources and rationale are recorded in `VENUE-DATA-AUDIT.md`.
+- The preceding commit `2f9de1ad` passed Phase 1 smoke checks, browser smoke checks, and Pages deployment. This new documentation commit will trigger fresh runs.
+- Manual Phase 1 exit checks remain open: live visual inspection, real-session console/network review, keyboard/accessibility/contrast/reduced-motion review, and a second-browser/device pass.
