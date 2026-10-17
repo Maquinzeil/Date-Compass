@@ -520,14 +520,14 @@ test("planner choices sit inside a spaced responsive panel and plan actions are 
   assert.match(css, /@media\(max-width:640px\)[\s\S]*?#app \.planner-filters\s*\{[\s\S]*?grid-template-columns:minmax\(0,1fr\)/);
   assert.match(css, /#app \.bar button\.ghost,[\s\S]*?background:var\(--gold\)!important;[\s\S]*?color:var\(--ink\)!important;[\s\S]*?opacity:1!important/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261017g"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017h"'));
 });
 
 
 test("Surprise Me planner button remains actionable and explains missing budget", () => {
   assert.match(app, /<button class="go" onclick="gen\(\)">Plan my date<\/button>/);
   assert.match(app, /Please enter a budget for both of you first/);
-  assert.ok(html.includes('src="js/app.js?v=20261017g"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017h"'));
 });
 
 test("budget field keeps custom amount entry without a preset button", () => {
@@ -536,7 +536,7 @@ test("budget field keeps custom amount entry without a preset button", () => {
   assert.match(app, /function setBudget\(v\)/);
   assert.doesNotMatch(css, /budget-presets|budget-preset|Quick budget pick for the date planner/);
   assert.ok(html.includes('href="css/style.css?v=20261015g"'));
-  assert.ok(html.includes('src="js/app.js?v=20261017g"'));
+  assert.ok(html.includes('src="js/app.js?v=20261017h"'));
 });
 
 
