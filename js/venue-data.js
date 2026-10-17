@@ -851,7 +851,7 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       sourceUrl: "https://www.dahilayanforestpark.com/en/rides-activities",
       sourceLabel: "Official Dahilayan Forest Park rides and activities page",
       venueUrl: "https://www.google.com/maps/search/?api=1&query=Dahilayan+Forest+Park+Resort+Manolo+Fortich",
-      priceStatusLabel: undefined,
+      priceStatusLabel: "Operator-published mini-golf and entrance rates + 15% buffer",
       priceBasis: "2 × ₱50 mini-golf + 2 × ₱150 assumed entrance = ₱400; 15% buffer = ₱460; rounded up to ₱500.",
       priceNote: "The official page lists Forest Putt mini-golf at ₱50 and entrance at ₱150 per person. This estimate assumes entrance is charged separately and that ₱50 applies per player. Transport from CDO, food, and other attractions are excluded. Confirm the rate, course availability, and entrance inclusions before travelling.",
       checkedOn: "2026-10-17"
