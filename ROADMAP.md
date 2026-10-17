@@ -409,3 +409,10 @@ The physical kit question-card bank itself is **content**, not a backend require
 - Latest checked commit before this research batch: `bf90ee7e1d9aaff86eddf50d8ccd46032f54751e`; the Phase 1 smoke checks and GitHub Pages deployment both succeeded.
 - This work continues to keep venue research separate from the backend launch gate: source-backed estimates are being added in manageable batches, while unknown or conflicting operating status is explicitly flagged.
 - Manual browser checks are **still open**. No Phase 1 exit checkbox is marked complete by this note. Still required: live desktop/tablet/mobile visual inspection, click-through of navigation and planner flows, console/network review, keyboard/focus/contrast/reduced-motion checks, and a second-browser test.
+
+
+### Venue research follow-up — 17 October 2026 (outdoor batch)
+
+- Added five outdoor activity options: four at Dahilayan Forest Park Resort and one third-party-listed outdoor rooftop pickleball session at Country Village Hotel.
+- Budgets include a 15% cushion and state assumptions about separate entrance fees, transport exclusions, restrictions, and the need to confirm current operation. The Country Village rate and schedule are explicitly third-party evidence, not direct operator confirmation.
+- Updated source-backed activity counts and cache versions, and expanded smoke coverage. This is venue-data work only; it does not close any manual browser, accessibility, or Phase 1 exit checkbox.

@@ -832,6 +832,66 @@ window.DATE_COMPASS_VERIFIED_DATA = {
       priceNote: "The local listing shows ₱150/hour and a 3-hour ₱300 promotion in posts dated May and June 2026. This estimate uses the standard hourly rate, not a promotion. Confirm the current rate, operating hours, and table availability before visiting. Food and transport are extra.",
       checkedOn: "2026-10-16"
     },
+    {
+      n: "Dahilayan Forest Park tandem luge date for two",
+      c: 1400,
+      venueName: "Dahilayan Forest Park Resort",
+      sourceUrl: "https://www.dahilayanforestpark.com/en/rides-activities",
+      sourceLabel: "Official Dahilayan Forest Park rides and activities page",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Dahilayan+Forest+Park+Resort+Manolo+Fortich",
+      priceStatusLabel: undefined,
+      priceBasis: "₱850 tandem luge (two rounds) + 2 × ₱150 entrance = ₱1,150; 15% buffer = ₱1,322.50; rounded up to ₱1,400.",
+      priceNote: "The official page lists the tandem Forest Luge at ₱850 for two rounds and entrance at ₱150 per person. This estimate assumes entrance is charged separately. Transport from CDO, food, and other attractions are excluded. Confirm current operation, height/weight requirements, and entrance inclusions before travelling.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Dahilayan Forest Park mini-golf date for two",
+      c: 500,
+      venueName: "Dahilayan Forest Park Resort",
+      sourceUrl: "https://www.dahilayanforestpark.com/en/rides-activities",
+      sourceLabel: "Official Dahilayan Forest Park rides and activities page",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Dahilayan+Forest+Park+Resort+Manolo+Fortich",
+      priceStatusLabel: undefined,
+      priceBasis: "2 × ₱50 mini-golf + 2 × ₱150 assumed entrance = ₱400; 15% buffer = ₱460; rounded up to ₱500.",
+      priceNote: "The official page lists Forest Putt mini-golf at ₱50 and entrance at ₱150 per person. This estimate assumes entrance is charged separately and that ₱50 applies per player. Transport from CDO, food, and other attractions are excluded. Confirm the rate, course availability, and entrance inclusions before travelling.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Dahilayan Forest Park canopy walk date for two",
+      c: 550,
+      venueName: "Dahilayan Forest Park Resort",
+      sourceUrl: "https://www.dahilayanforestpark.com/en/rides-activities",
+      sourceLabel: "Official Dahilayan Forest Park rides and activities page",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Dahilayan+Forest+Park+Resort+Manolo+Fortich",
+      priceStatusLabel: undefined,
+      priceBasis: "2 × ₱80 adult canopy walk + 2 × ₱150 entrance = ₱460; 15% buffer = ₱529; rounded up to ₱550.",
+      priceNote: "The official page lists the Forest Canopy Walk at ₱80 per adult and entrance at ₱150 per person. This estimate assumes entrance is charged separately. Transport from CDO, food, and other attractions are excluded. Confirm current operation, restrictions, and entrance inclusions before travelling.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Dahilayan Forest Park rainbow slide date for two",
+      c: 700,
+      venueName: "Dahilayan Forest Park Resort",
+      sourceUrl: "https://www.dahilayanforestpark.com/en/rides-activities",
+      sourceLabel: "Official Dahilayan Forest Park rides and activities page",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Dahilayan+Forest+Park+Resort+Manolo+Fortich",
+      priceStatusLabel: undefined,
+      priceBasis: "2 × ₱150 rainbow slide + 2 × ₱150 entrance = ₱600; 15% buffer = ₱690; rounded up to ₱700.",
+      priceNote: "The official page lists the Rainbow Slide at ₱150 per person for two drops and entrance at ₱150 per person. This estimate assumes entrance is charged separately. The page lists a minimum age of 7 and maximum weight of 100 kg for the slide. Transport from CDO, food, and other attractions are excluded. Confirm current operation and entrance inclusions before travelling.",
+      checkedOn: "2026-10-17"
+    },
+    {
+      n: "Country Village Hotel rooftop outdoor pickleball date for two",
+      c: 250,
+      venueName: "Country Village Hotel Pickleball — rooftop",
+      sourceUrl: "https://playpickle.ph/courts/northern-mindanao/cdo-pickleball",
+      sourceLabel: "Third-party pickleball directory listing, updated August 2026",
+      venueUrl: "https://www.google.com/maps/search/?api=1&query=Country+Village+Hotel+Cagayan+de+Oro",
+      priceStatusLabel: undefined,
+      priceBasis: "2 × ₱100 per person = ₱200; 15% buffer = ₱230; rounded up to ₱250.",
+      priceNote: "A third-party pickleball directory lists outdoor rooftop courts at ₱100 per person and sessions Tuesday, Thursday, Saturday, and Sunday from 3–6 PM. This is not direct venue confirmation; contact the hotel/club to verify the schedule, current rate, equipment, and availability before going. Transport and food are extra.",
+      checkedOn: "2026-10-17"
+    }
   ],
   venueDirectory: [
     {

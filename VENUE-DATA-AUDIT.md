@@ -11,8 +11,8 @@ These are **record counts, not counts of unique venues**. A venue may appear in 
 | Evidence level | Current count | What the count means | What it does not mean |
 |---|---:|---|---|
 | Source-backed food planner budgets | 49 | Food/date options have a source URL, item-price basis, a two-person planning budget, check date, and caveat in `js/venue-data.js`. | Not every amount is a dine-in price; some come from branch-specific delivery menus and may vary by branch or promotion. |
-| Source-backed activity planner budgets | 16 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
-| **Source-backed priced planner records (food + activities)** | **65** | 49 food records + 16 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
+| Source-backed activity planner budgets | 21 | Activity options have a source URL, price basis, planning budget, check date, and caveat in `js/venue-data.js`. | Does not guarantee live availability, current walk-in pricing, equipment inclusion, or booking. |
+| **Source-backed priced planner records (food + activities)** | **70** | 49 food records + 21 activity records. | These are evidence-backed planning estimates, not automatically fully verified venue recommendations. |
 | **Directly confirmed complete-price-and-availability records** | **0** | No record currently has direct venue confirmation of a complete current cost and date-specific availability documented in this audit. | A current menu, published rate, or third-party listing does not confirm a future slot or every extra charge. |
 | Venue directory / research records | 53 | Named venue leads have a location/research source, Maps link, and explicit status in the directory. | Directory inclusion alone does not make a venue a priced planner recommendation. |
 
@@ -393,3 +393,23 @@ Added four branch-specific planner options from current branch delivery-menu lis
 The current Sparrk listing for C-ONE Badminton Courts Kauswagan labels the venue **Temporarily Closed**, despite an operator-posted August 2026 rate notice. The directory now flags this conflict and directs maintainers to confirm operating status before travelling. The existing planner entries remain provisional and should not be described as confirmed bookable slots. Source: [C-ONE Kauswagan booking listing](https://www.sparrk.ph/c-one-sports-center/space/c-one-badminton-courts-kauswagan).
 
 No new arcade or billiards budget was added in this batch: the reviewed Timezone Centrio branch page does not publish current per-game credit prices, and McPars billiards' operational status remains ambiguous. This avoids manufacturing a price just to increase the count.
+
+
+## Venue research batch 21 — outdoor activities in Misamis Oriental and CDO (checked 17 October 2026)
+
+Added five outdoor activity options to the planner: four operator-published rate options at Dahilayan Forest Park Resort in Manolo Fortich (tandem Forest Luge, mini-golf, Forest Canopy Walk, and Rainbow Slide) plus a third-party-listed outdoor rooftop pickleball session at Country Village Hotel in Cagayan de Oro.
+
+| Planner option for two | Published price basis | 15% cushion | Planner budget |
+|---|---:|---:|---:|
+| Dahilayan Forest Park tandem Forest Luge | ₱850 tandem ride + ₱300 assumed separate entrance = ₱1,150 | ₱172.50 | ₱1,400 |
+| Dahilayan Forest Park mini-golf | 2 × ₱50 + ₱300 assumed separate entrance = ₱400 | ₱60 | ₱500 |
+| Dahilayan Forest Park canopy walk | 2 × ₱80 + ₱300 assumed separate entrance = ₱460 | ₱69 | ₱550 |
+| Dahilayan Forest Park Rainbow Slide | 2 × ₱150 + ₱300 assumed separate entrance = ₱600 | ₱90 | ₱700 |
+| Country Village Hotel rooftop pickleball | 2 × ₱100/person = ₱200 | ₱30 | ₱250 |
+
+- **Dahilayan Forest Park source:** [Official rides and activities page](https://www.dahilayanforestpark.com/en/rides-activities). The page lists ₱150 entrance per person, but these estimates deliberately treat entrance as a separate charge; confirm whether each activity price includes admission and which rides are operating before travelling.
+- **Country Village source:** [PlayPickle.ph listing](https://playpickle.ph/courts/northern-mindanao/cdo-pickleball), a third-party directory updated August 2026. Its listed ₱100/person rate and Tue/Thu/Sat/Sun 3–6 PM schedule are not direct venue confirmation; contact the hotel/club before relying on them.
+- Budgets exclude transport from CDO and food. These are source-backed planning estimates, not confirmed date-specific bookings.
+- **Updated tracker total:** 49 food records + 21 activity records = **70 source-backed planning records**. Directly confirmed complete current price-and-date-specific-availability records remain **0**.
+
+No prices were invented for outdoor options whose current operator rates could not be confirmed. Further research can expand outdoor options across CDO, coastal Misamis Oriental, and nature/adventure destinations, while keeping directory-only venues separate from priced planner recommendations.
