@@ -31,3 +31,18 @@ test("the existing static frontend remains disconnected from backend order intak
   const app = await readFile(resolve(root, "js/app.js"), "utf8");
   assert.doesNotMatch(html + app, /supabase\.co|createClient\(|order-intake/);
 });
+
+test("staging schema keeps operational tables private and payment retries deduplicated", async () => {
+  const sql = await readFile(resolve(root, "supabase/migrations/20261018102240_initial_order_schema.sql"), "utf8");
+  const names = ["orders", "order_items", "payments", "provider_events", "order_status_events", "question_cards", "email_deliveries"];
+  for (const name of names) {
+    assert.ok(sql.includes(`create table public.${name} (`), `missing table ${name}`);
+    assert.ok(sql.includes(`alter table public.${name} enable row level security;`), `RLS missing for ${name}`);
+  }
+  assert.ok(sql.includes("from anon, authenticated;"), "browser roles must not receive table access");
+  assert.ok(sql.includes("payments_provider_payment_unique"), "provider payment IDs must be unique");
+  assert.ok(sql.includes("payments_idempotency_unique"), "payment idempotency keys must be unique");
+  assert.ok(sql.includes("unique (provider, provider_event_id)"), "webhook event retries must be deduplicated");
+  assert.ok(sql.includes("currency = 'PHP'"), "initial currency must be constrained to PHP");
+  assert.ok(!sql.toLowerCase().includes("create policy"), "no public access policy should be added yet");
+});
