@@ -1,8 +1,10 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { createClient } from "npm:@supabase/supabase-js@2";
 
+const allowedOrigin = Deno.env.get("DATE_COMPASS_ALLOWED_ORIGIN") ?? "https://maquinzeil.github.io";
 const corsHeaders = {
-  "Access-Control-Allow-Origin": Deno.env.get("DATE_COMPASS_ALLOWED_ORIGIN") ?? "https://maquinzeil.github.io",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Origin": allowedOrigin,
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-submission-key",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Content-Type": "application/json; charset=utf-8",
   "Vary": "Origin",
@@ -43,7 +45,7 @@ function validateDraft(value: unknown): { ok: true; draft: OrderDraft } | { ok: 
   if (typeof email !== "string" || email.trim().length > 320 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
     return { ok: false, message: "A valid customerEmail is required." };
   }
-  if (mobile !== undefined && mobile !== null && (typeof mobile !== "string" || mobile.length > 40)) {
+  if (mobile !== undefined && mobile !== null && (typeof mobile !== "string" || mobile.trim().length > 40)) {
     return { ok: false, message: "customerMobile must be a string of at most 40 characters." };
   }
   if (plannedDate !== undefined && plannedDate !== null &&
@@ -54,7 +56,7 @@ function validateDraft(value: unknown): { ok: true; draft: OrderDraft } | { ok: 
   if (!isRecord(snapshot)) return { ok: false, message: "planSnapshot must be a JSON object." };
   if (JSON.stringify(snapshot).length > 20000) return { ok: false, message: "planSnapshot is too large." };
   if (typeof kitRequested !== "boolean") return { ok: false, message: "kitRequested must be true or false." };
-  if (notes !== undefined && notes !== null && (typeof notes !== "string" || notes.length > 2000)) {
+  if (notes !== undefined && notes !== null && (typeof notes !== "string" || notes.trim().length > 2000)) {
     return { ok: false, message: "fulfillmentNotes must be at most 2000 characters." };
   }
 
@@ -63,28 +65,34 @@ function validateDraft(value: unknown): { ok: true; draft: OrderDraft } | { ok: 
     draft: {
       customerName: name.trim(),
       customerEmail: email.trim().toLowerCase(),
-      customerMobile: typeof mobile === "string" ? mobile.trim() : null,
+      customerMobile: typeof mobile === "string" ? mobile.trim() || null : null,
       plannedDate: typeof plannedDate === "string" ? plannedDate : null,
       planSnapshot: snapshot,
       kitRequested,
-      fulfillmentNotes: typeof notes === "string" ? notes.trim() : null,
+      fulfillmentNotes: typeof notes === "string" ? notes.trim() || null : null,
     },
   };
+}
+
+async function sha256(value: string): Promise<string> {
+  const bytes = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
 Deno.serve(async (request: Request) => {
   if (request.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
   if (request.method !== "POST") return json(405, { error: "method_not_allowed" });
 
-  // Deliberately fail closed until server-owned pricing, abuse controls, privacy copy,
-  // and the persistence transaction have been reviewed and tested. This prevents the
-  // public site from accidentally creating real orders while backend work is in progress.
+  const origin = request.headers.get("Origin");
+  if (origin && origin !== allowedOrigin) return json(403, { error: "origin_not_allowed" });
+
+  // Deliberately fail closed until rate limiting/abuse controls, privacy copy, and
+  // end-to-end tests are approved. This flag must remain unset/false for staging.
   if (Deno.env.get("DATE_COMPASS_ORDER_INTAKE_ENABLED") !== "true") {
     return json(503, { error: "order_intake_disabled", message: "Date Compass order intake is not live yet." });
   }
 
-  // This second gate is intentional: the flag alone must not activate order creation.
-  // Implement persistence only after trusted pricing and the final order contract are approved.
   let body: unknown;
   try {
     body = await request.json();
@@ -94,9 +102,54 @@ Deno.serve(async (request: Request) => {
   const result = validateDraft(body);
   if (!result.ok) return json(400, { error: "invalid_order_draft", message: result.message });
 
-  return json(501, {
-    error: "order_intake_not_implemented",
-    message: "Draft validation is ready, but order persistence is intentionally not enabled.",
+  const submissionKey = request.headers.get("X-Submission-Key")?.trim() ?? "";
+  if (submissionKey.length < 16 || submissionKey.length > 128) {
+    return json(400, { error: "invalid_submission_key", message: "A 16–128 character submission key is required." });
+  }
+
+  const supabaseUrl = Deno.env.get("SUPABASE_URL");
+  const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (!supabaseUrl || !serviceRoleKey) {
+    return json(503, { error: "order_service_unconfigured" });
+  }
+
+  // The fingerprint covers only the normalized customer/order draft, never browser prices.
+  const fingerprint = await sha256(JSON.stringify(result.draft));
+  const supabase = createClient(supabaseUrl, serviceRoleKey, {
+    auth: { autoRefreshToken: false, persistSession: false },
+  });
+  const { data, error } = await supabase.rpc("create_order_transaction", {
+    p_submission_key: submissionKey,
+    p_submission_fingerprint: fingerprint,
+    p_draft: result.draft,
+  });
+
+  if (error) {
+    if (error.message.includes("digital_plan_unavailable")) {
+      return json(409, { error: "product_not_configured", product: "digital_plan" });
+    }
+    if (error.message.includes("physical_kit_unavailable")) {
+      return json(409, { error: "product_not_configured", product: "physical_kit" });
+    }
+    if (error.message.includes("submission_key_payload_mismatch")) {
+      return json(409, { error: "submission_key_conflict" });
+    }
+    if (error.code === "22023") return json(400, { error: "invalid_order_request" });
+    // Avoid returning database internals or customer data to the caller.
+    return json(500, { error: "order_creation_failed" });
+  }
+
+  if (!isRecord(data) || typeof data.publicReference !== "string") {
+    return json(500, { error: "order_creation_failed" });
+  }
+  return json(201, {
+    publicReference: data.publicReference,
+    orderStatus: data.orderStatus,
+    currency: data.currency,
+    totalMinor: data.totalMinor,
+    reused: data.reused === true,
+    paymentRequired: true,
+    paymentConfigured: false,
   });
 });
 
