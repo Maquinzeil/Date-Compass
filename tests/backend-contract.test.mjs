@@ -80,7 +80,7 @@ test("atomic order creation prices products only from the server catalog and is 
   assert.match(sql, /product_code = 'digital_plan' and active = true/i);
   assert.match(sql, /product_code = 'physical_kit' and active = true/i);
   assert.match(sql, /submission_key_payload_mismatch/i);
-  assert.match(sql, /on conflict \(submission_key\) do nothing/i);
+  assert.ok(sql.includes("on conflict (submission_key) where submission_key is not null do nothing"));
   assert.match(sql, /insert into public\.order_items/i);
   assert.match(sql, /insert into public\.order_status_events/i);
   assert.match(sql, /revoke all on function public\.create_order_transaction\(text, text, jsonb\) from public, anon, authenticated/i);
@@ -123,5 +123,5 @@ test("order intake has request-size and private rate-limit guards", async () => 
 
 test("order submission conflict-target fix uses the partial unique index predicate", async () => {
   const sql = await readFile(resolve(root, "supabase/migrations/20261019123000_fix_order_submission_conflict_target.sql"), "utf8");
-  assert.match(sql, /on conflict \\(submission_key\\) where submission_key is not null do nothing/i);
+  assert.ok(sql.includes("on conflict (submission_key) where submission_key is not null do nothing"));
 });
