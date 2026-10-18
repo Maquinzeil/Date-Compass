@@ -46,3 +46,11 @@ test("staging schema keeps operational tables private and payment retries dedupl
   assert.ok(sql.includes("currency = 'PHP'"), "initial currency must be constrained to PHP");
   assert.ok(!sql.toLowerCase().includes("create policy"), "no public access policy should be added yet");
 });
+
+test("order submissions have a database uniqueness guard for safe retries", async () => {
+  const sql = await readFile(resolve(root, "supabase/migrations/20261018103700_add_order_submission_idempotency.sql"), "utf8");
+  assert.match(sql, /add column submission_key text/i);
+  assert.match(sql, /char_length\(submission_key\) between 16 and 128/i);
+  assert.match(sql, /create unique index orders_submission_key_unique/i);
+  assert.match(sql, /where submission_key is not null/i);
+});
