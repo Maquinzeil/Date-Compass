@@ -10,8 +10,6 @@ test("order intake stays fail-closed and cannot be enabled into live processing 
   const source = await readFile(resolve(root, "supabase/functions/order-intake/index.ts"), "utf8");
   assert.match(source, /DATE_COMPASS_ORDER_INTAKE_ENABLED.*!== "true"/);
   assert.match(source, /order_intake_disabled/);
-  assert.match(source, /order_intake_disabled/);
-  assert.match(source, /DATE_COMPASS_ORDER_INTAKE_ENABLED.*!== "true"/);
   assert.match(source, /create_order_transaction/);
   assert.match(source, /paymentConfigured: false/);
   assert.doesNotMatch(source, /createCheckoutSession|paymentIntent|providerSecret/i);
@@ -101,4 +99,23 @@ test("order intake uses server RPC, validates idempotency, and stays gated witho
   assert.match(source, /paymentConfigured: false/);
   assert.doesNotMatch(source, /value\.total|value\.price|value\.amount/);
   assert.doesNotMatch(source, /checkoutSession|paymentIntent|PAYMONGO_SECRET/i);
+});
+
+
+test("order intake has request-size and private rate-limit guards", async () => {
+  const source = await readFile(resolve(root, "supabase/functions/order-intake/index.ts"), "utf8");
+  const sql = await readFile(resolve(root, "supabase/migrations/20261019120000_add_private_order_intake_rate_limit.sql"), "utf8");
+  assert.match(source, /request_too_large/);
+  assert.match(source, /consume_order_intake_rate_limit/);
+  assert.match(source, /p_window_seconds: 900/);
+  assert.match(source, /p_max_requests: 10/);
+  assert.match(source, /rate_limit_exceeded/);
+  assert.match(source, /rate_limit_unavailable/);
+  assert.match(source, /const rateKey = await sha256/);
+  assert.match(sql, /create table public\.order_intake_rate_limits/i);
+  assert.match(sql, /enable row level security/i);
+  assert.match(sql, /revoke all on table public\.order_intake_rate_limits from public, anon, authenticated/i);
+  assert.match(sql, /security invoker/i);
+  assert.match(sql, /grant execute on function public\.consume_order_intake_rate_limit\(text, integer, integer\) to service_role/i);
+  assert.doesNotMatch(sql, /grant execute[^;]*to anon|grant execute[^;]*to authenticated/i);
 });
