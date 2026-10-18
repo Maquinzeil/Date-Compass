@@ -1,6 +1,6 @@
 # Date Compass Backend MVP Plan
 
-**Status:** Planning only. No backend implementation or live order/payment flow is enabled by this document.  
+**Status:** Initial private staging database schema implemented in Supabase and versioned in `supabase/migrations/20261018102000_initial_order_schema.sql`. No API/Edge Functions, live order flow, payment integration, or production processing is enabled.  
 **Planning date:** 17 October 2026  
 **Product scope:** Date Compass date planner and physical date-question kit for couples in Cagayan de Oro and Misamis Oriental.
 
@@ -144,7 +144,7 @@ Define request/response schemas, validation errors, rate limits, and allowed sta
 8. Run security, failure-path, and end-to-end tests.
 9. Launch a small controlled pilot only after the owner can fulfill every order reliably.
 
-**Important:** This plan is a blueprint, not a claim that any backend, database, payment provider, email integration, or live order processing currently exists.
+**Implementation status:** The staging Supabase project and initial schema now exist. Order/API logic, private admin access, payment integration, email integration, and live order processing are not implemented or enabled.
 
 
 ## 10. Provider research — Philippines (17 October 2026)
@@ -243,4 +243,4 @@ These choices affect the real product and should not be silently invented in cod
 - Cloudflare Workers/D1 pricing: https://developers.cloudflare.com/workers/platform/pricing/ and https://developers.cloudflare.com/d1/platform/pricing/
 - Render free instance limitations: https://render.com/docs/free
 
-**Decision:** Use Supabase as the preferred *staging evaluation*, not as an already-created service or an approved production commitment. The next coding step should begin only after the current frontend smoke checks and manual Phase 1 review are recorded. No backend service or live checkout has been created by this research.
+**Decision/status update (18 October 2026):** Supabase staging project `date-compass-staging` was created in Singapore (`ap-southeast-1`; project ref `duxlvatgqmpymjbaobzy`). The initial private schema was applied and verified: `orders`, `order_items`, `payments`, `provider_events`, `order_status_events`, `question_cards`, and `email_deliveries`. All seven tables have RLS enabled and currently deny SELECT to `anon` and `authenticated`; no policies are configured yet. The Supabase security advisor reports this no-policy state as informational. This is intentional fail-closed protection until the server-side functions and admin authorization model are implemented. No Edge Functions, live checkout, provider secrets, real customer data, or production order flow have been added. Next: build and test server-side order validation/API functions, define admin authorization, seed question-card content, and add automated backend tests before connecting the frontend.
