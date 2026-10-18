@@ -10,8 +10,10 @@ test("order intake stays fail-closed and cannot be enabled into live processing 
   const source = await readFile(resolve(root, "supabase/functions/order-intake/index.ts"), "utf8");
   assert.match(source, /DATE_COMPASS_ORDER_INTAKE_ENABLED.*!== "true"/);
   assert.match(source, /order_intake_disabled/);
-  assert.match(source, /order_intake_not_implemented/);
-  assert.match(source, /return json\(501,/);
+  assert.match(source, /order_intake_disabled/);
+  assert.match(source, /DATE_COMPASS_ORDER_INTAKE_ENABLED.*!== "true"/);
+  assert.match(source, /create_order_transaction/);
+  assert.match(source, /paymentConfigured: false/);
   assert.doesNotMatch(source, /createCheckoutSession|paymentIntent|providerSecret/i);
 });
 
@@ -68,4 +70,35 @@ test("server-owned product catalog requires explicit prices and keeps both paid 
   assert.match(sql, /enable row level security/i);
   assert.match(sql, /revoke all on table public\.product_catalog from anon, authenticated/i);
   assert.doesNotMatch(sql, /create policy/i);
+});
+
+
+test("atomic order creation prices products only from the server catalog and is private", async () => {
+  const sql = await readFile(resolve(root, "supabase/migrations/20261019113000_add_atomic_server_order_creation.sql"), "utf8");
+  assert.match(sql, /create or replace function public\.create_order_transaction/i);
+  assert.match(sql, /security invoker/i);
+  assert.match(sql, /set search_path = ''/i);
+  assert.match(sql, /from public\.product_catalog/i);
+  assert.match(sql, /product_code = 'digital_plan' and active = true/i);
+  assert.match(sql, /product_code = 'physical_kit' and active = true/i);
+  assert.match(sql, /submission_key_payload_mismatch/i);
+  assert.match(sql, /on conflict \(submission_key\) do nothing/i);
+  assert.match(sql, /insert into public\.order_items/i);
+  assert.match(sql, /insert into public\.order_status_events/i);
+  assert.match(sql, /revoke all on function public\.create_order_transaction\(text, text, jsonb\) from public, anon, authenticated/i);
+  assert.match(sql, /grant execute on function public\.create_order_transaction\(text, text, jsonb\) to service_role/i);
+  assert.doesNotMatch(sql, /grant execute[^;]*to anon|grant execute[^;]*to authenticated/i);
+});
+
+test("order intake uses server RPC, validates idempotency, and stays gated without payment integration", async () => {
+  const source = await readFile(resolve(root, "supabase/functions/order-intake/index.ts"), "utf8");
+  assert.match(source, /X-Submission-Key/);
+  assert.match(source, /crypto\.subtle\.digest\("SHA-256"/);
+  assert.match(source, /supabase\.rpc\("create_order_transaction"/);
+  assert.match(source, /SUPABASE_SERVICE_ROLE_KEY/);
+  assert.match(source, /origin_not_allowed/);
+  assert.match(source, /paymentRequired: true/);
+  assert.match(source, /paymentConfigured: false/);
+  assert.doesNotMatch(source, /value\.total|value\.price|value\.amount/);
+  assert.doesNotMatch(source, /checkoutSession|paymentIntent|PAYMONGO_SECRET/i);
 });
