@@ -119,3 +119,9 @@ test("order intake has request-size and private rate-limit guards", async () => 
   assert.match(sql, /grant execute on function public\.consume_order_intake_rate_limit\(text, integer, integer\) to service_role/i);
   assert.doesNotMatch(sql, /grant execute[^;]*to anon|grant execute[^;]*to authenticated/i);
 });
+
+
+test("order submission conflict-target fix uses the partial unique index predicate", async () => {
+  const sql = await readFile(resolve(root, "supabase/migrations/20261019123000_fix_order_submission_conflict_target.sql"), "utf8");
+  assert.match(sql, /on conflict \\(submission_key\\) where submission_key is not null do nothing/i);
+});
