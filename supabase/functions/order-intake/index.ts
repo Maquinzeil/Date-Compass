@@ -93,6 +93,33 @@ Deno.serve(async (request: Request) => {
     return json(503, { error: "order_intake_disabled", message: "Date Compass order intake is not live yet." });
   }
 
+  const contentLength = Number(request.headers.get("Content-Length") ?? "0");
+  if (contentLength > 30000) return json(413, { error: "request_too_large" });
+
+  const supabaseUrl = Deno.env.get("SUPABASE_URL");
+  const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (!supabaseUrl || !serviceRoleKey) {
+    return json(503, { error: "order_service_unconfigured" });
+  }
+
+  // Supabase's edge gateway supplies the connecting IP. Store only a salted hash,
+  // never the raw address. The service-role key acts as a server-only salt.
+  const forwarded = request.headers.get("x-forwarded-for");
+  const clientIp = request.headers.get("cf-connecting-ip") ??
+    (forwarded ? forwarded.split(",")[0].trim() : "");
+  if (!clientIp) return json(503, { error: "rate_limit_identity_unavailable" });
+  const rateKey = await sha256(`${clientIp}:${serviceRoleKey}`);
+  const supabase = createClient(supabaseUrl, serviceRoleKey, {
+    auth: { autoRefreshToken: false, persistSession: false },
+  });
+  const { data: allowed, error: rateError } = await supabase.rpc("consume_order_intake_rate_limit", {
+    p_key_hash: rateKey,
+    p_window_seconds: 900,
+    p_max_requests: 10,
+  });
+  if (rateError) return json(503, { error: "rate_limit_unavailable" });
+  if (allowed !== true) return json(429, { error: "rate_limit_exceeded" });
+
   let body: unknown;
   try {
     body = await request.json();
@@ -107,17 +134,8 @@ Deno.serve(async (request: Request) => {
     return json(400, { error: "invalid_submission_key", message: "A 16–128 character submission key is required." });
   }
 
-  const supabaseUrl = Deno.env.get("SUPABASE_URL");
-  const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
-  if (!supabaseUrl || !serviceRoleKey) {
-    return json(503, { error: "order_service_unconfigured" });
-  }
-
   // The fingerprint covers only the normalized customer/order draft, never browser prices.
   const fingerprint = await sha256(JSON.stringify(result.draft));
-  const supabase = createClient(supabaseUrl, serviceRoleKey, {
-    auth: { autoRefreshToken: false, persistSession: false },
-  });
   const { data, error } = await supabase.rpc("create_order_transaction", {
     p_submission_key: submissionKey,
     p_submission_fingerprint: fingerprint,
