@@ -210,13 +210,15 @@ test("planner runs every area, transport, category, duration, setting, and food-
         if (area !== "a" && foods.some(food => food.p && food.p !== "a" && food.p !== area)) wrongFoodArea++;
         if (foodMode !== "a" && foods.some(food => !foodMatchesMode(food, foodMode))) wrongFoodStyle++;
       }
+    S.b = 2000; S.p = "m"; S.car = "a"; S.t = "a"; S.s = "a"; S.cat = "night"; S.foodMode = "cafe"; S.act = null;
+    const outsideCdoCafeMatches = fPool().length;
     const gameDates = A.filter(activity => /Mobile Legends|co-op mobile game|internet-cafe gaming|Online game discovery|Co-op PC game|Board game night at home|DIY couples board game|Make-your-own trivia board game|DIY memory-matching card game|Homemade mini-bowling game|DIY paper-airplane target game|Indoor scavenger-hunt game|DIY cup-stacking challenge game|Cardboard marble-maze game|DIY indoor mini-golf game|Sock-basketball game at home|DIY mystery-envelope challenge game|Cooperative story-building game|Couples trivia: how well do you know me\?|Guess the memory couples game|20 Questions mystery guessing game|No-equipment charades game|Puzzle battle|Word-association speed game|Cooperative category-chain game|Co-op puzzle hunt/i.test(activity.n));
     const gameDatesWrongCategory = gameDates.filter(activity => activity.cat !== "games").map(activity => ({ name: activity.n, category: activity.cat }));
     const gameDatesNotIndoor = gameDates.filter(activity => activity.s !== "i").map(activity => ({ name: activity.n, setting: activity.s }));
     const gameDatesNotShort = gameDates.filter(activity => activity.t !== "s").map(activity => ({ name: activity.n, duration: activity.t }));
     const sourceBackedFoods = F.filter(food => food.sourceUrl);
     const rafting = A.find(activity => activity.n === "White water rafting on the Cagayan River");
-    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, wrongActivityArea, wrongFoodArea, activityPreferenceRelaxations, foodSettingRelaxations, gameDatesWrongCategory, gameDatesNotIndoor, gameDatesNotShort, activityCount: A.length, foodCount: F.length, sourceBackedFoodCount: sourceBackedFoods.length, raftingBudget: rafting && rafting.c, sourcePanelHasLink: priceEvidenceHtml(sourceBackedFoods[0]).includes("href="), allSourceDatesRecorded: sourceBackedFoods.every(food => /^202[0-9]-[0-9]{2}-[0-9]{2}$/.test(food.checkedOn || "") && food.checkedOn <= window.DATE_COMPASS_VERIFIED_DATA.checkedOn) };
+    return { combinations, noActivity, overBudgetFood, wrongCategory, wrongFoodStyle, wrongActivityArea, wrongFoodArea, outsideCdoCafeMatches, activityPreferenceRelaxations, foodSettingRelaxations, gameDatesWrongCategory, gameDatesNotIndoor, gameDatesNotShort, activityCount: A.length, foodCount: F.length, sourceBackedFoodCount: sourceBackedFoods.length, raftingBudget: rafting && rafting.c, sourcePanelHasLink: priceEvidenceHtml(sourceBackedFoods[0]).includes("href="), allSourceDatesRecorded: sourceBackedFoods.every(food => /^202[0-9]-[0-9]{2}-[0-9]{2}$/.test(food.checkedOn || "") && food.checkedOn <= window.DATE_COMPASS_VERIFIED_DATA.checkedOn) };
   })()`, context, { timeout: 30000 });
   assert.ok(result.combinations > 5000, `Expected broad choice coverage, got ${result.combinations}`);
   assert.equal(result.wrongCategory, 0, `Planner ignored the selected activity category: ${JSON.stringify(result)}`);
@@ -224,6 +226,7 @@ test("planner runs every area, transport, category, duration, setting, and food-
   assert.equal(result.wrongFoodStyle, 0, `Planner ignored the selected food style: ${JSON.stringify(result)}`);
   assert.equal(result.wrongActivityArea, 0, `Planner returned an explicitly out-of-area activity: ${JSON.stringify(result)}`);
   assert.equal(result.wrongFoodArea, 0, `Planner returned an explicitly out-of-area food venue: ${JSON.stringify(result)}`);
+  assert.ok(result.outsideCdoCafeMatches > 1, `Outside-CDO cafe/dessert filter should offer multiple generic concepts, not one: ${JSON.stringify(result)}`);
   assert.equal(result.activityPreferenceRelaxations, 0, `Planner relaxed activity filters despite strict matches being available: ${JSON.stringify(result)}`);
   assert.equal(result.foodSettingRelaxations, 0, `Planner relaxed the food setting despite strict matches being available: ${JSON.stringify(result)}`);
   assert.equal(result.gameDatesWrongCategory.length, 0, `Gaming date was categorized incorrectly: ${JSON.stringify(result.gameDatesWrongCategory)}`);
