@@ -54,3 +54,18 @@ test("order submissions have a database uniqueness guard for safe retries", asyn
   assert.match(sql, /create unique index orders_submission_key_unique/i);
   assert.match(sql, /where submission_key is not null/i);
 });
+
+
+test("server-owned product catalog requires explicit prices and keeps both paid products inactive by default", async () => {
+  const sql = await readFile(resolve(root, "supabase/migrations/20261019100000_add_server_owned_product_catalog.sql"), "utf8");
+  assert.match(sql, /create table public\.product_catalog/i);
+  assert.match(sql, /'digital_plan'/);
+  assert.match(sql, /'physical_kit'/);
+  assert.match(sql, /price_minor integer/);
+  assert.match(sql, /not active or \(price_minor is not null and price_minor > 0\)/i);
+  assert.match(sql, /'Digital Date Plan', null, 'PHP', false/);
+  assert.match(sql, /'Physical Date Kit', null, 'PHP', false/);
+  assert.match(sql, /enable row level security/i);
+  assert.match(sql, /revoke all on table public\.product_catalog from anon, authenticated/i);
+  assert.doesNotMatch(sql, /create policy/i);
+});
