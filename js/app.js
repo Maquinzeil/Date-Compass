@@ -1145,6 +1145,9 @@ if(Array.isArray(VERIFIED_DATA.foodIdeas))F.push(...VERIFIED_DATA.foodIdeas);
 if(Array.isArray(VERIFIED_DATA.activityUpdates)){
  VERIFIED_DATA.activityUpdates.forEach(v=>{const item=A.find(x=>x.n===v.n);if(item)Object.assign(item,v)});
 }
+// Unverified sample food ideas are flexible date concepts, not branch-specific venue listings.
+// Make them area-neutral so choosing Outside CDO does not hide generic cafe/dessert ideas.
+F.forEach(x=>{if(x&&!x.sourceUrl)x.p="a"});
 const PL={c:"Inside CDO",m:"Misamis Oriental, outside CDO",a:"Anywhere"};
 const BL={300:"Up to ₱300",800:"Up to ₱800",1500:"Up to ₱1,500",5000:"Splurge, ₱1,500 and up"};
 const S={view:"home",p:"c",b:0,t:"a",s:"a",car:"a",cat:"a",foodMode:"a",act:null,food:null,gen:false,q:[],qi:0,from:"random",code:"",surp:false,order:{name:"",partner:"",occasion:"",date:"",delivery:"pickup",address:"",contact:"",email:"",note:""},orderSaved:false};
