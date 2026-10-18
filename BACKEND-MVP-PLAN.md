@@ -261,3 +261,15 @@ The owner confirmed that the digital date plan is paid: customers do not receive
 A new staging migration, `supabase/migrations/20261019100000_add_server_owned_product_catalog.sql`, creates a private `product_catalog` for `digital_plan` and `physical_kit`. Both products start inactive with no configured price. This is intentional: order creation must reject an unpriced/inactive product, never trust browser totals, and never guess prices. The migration has been applied to the staging project. The catalog has not been connected to order intake, no prices have been set, and no checkout or real orders are enabled.
 
 Next: add contract coverage for the catalog's fail-closed pricing constraints, then implement and test server-only order persistence with a transaction, duplicate-submission handling, and order items priced from this catalog. Keep the frontend disconnected until that work and the security review are complete.
+
+
+## 12. Atomic order creation implementation (19 October 2026)
+
+The staging database now has a versioned migration for atomic order creation through a restricted PostgreSQL function. The function:
+- Uses the server-owned catalog to price the required paid Digital Date Plan and optional paid Physical Date Kit; browser-provided prices/totals are never read.
+- Creates the order, item snapshots, and initial status event in one transaction.
+- Uses a unique submission key plus a SHA-256 draft fingerprint to make retries safe and reject a key reused with different order details.
+- Returns only a public reference, current order status, currency, total in minor units, and whether an existing submission was reused.
+- Is `SECURITY INVOKER`, has a fixed empty search path, and grants execution only to `service_role`; staging verification confirmed `anon` and `authenticated` cannot execute it.
+
+The Edge Function source now calls this transaction using the server-side service-role key and remains gated by `DATE_COMPASS_ORDER_INTAKE_ENABLED`. It has not been deployed or enabled. Both products remain inactive with unset prices, so even a server-side call cannot create a new order until the owner configures catalog prices and activates the products. Payment integration, rate limiting/abuse controls, privacy copy, email delivery, private admin review, and physical fulfillment are still outstanding. No customer/order rows were created during this work.
