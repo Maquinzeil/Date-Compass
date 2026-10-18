@@ -251,4 +251,13 @@ A staging-only schema migration, `supabase/migrations/20261018103700_add_order_s
 
 The migration was applied to staging and verified by querying the column and unique index. A backend contract test now checks that the migration retains the column, length check, and uniqueness guard. The public frontend remains disconnected, no real orders have been inserted, and order intake remains disabled/not implemented.
 
-**Next recommended implementation step:** design and test a server-only order transaction against synthetic staging data, with server-owned pricing configuration and unique submission handling. Before enabling persistence, inspect the existing table constraints and decide whether an order without a physical kit is a free preview or a paid digital-plan product; do not infer product prices from the browser. Keep the migration and CI checks green before adding the database write path.
+**Next recommended implementation step:** design and test a server-only order transaction against synthetic staging data, with server-owned pricing configuration and unique submission handling. Before enabling persistence, inspect the existing table constraints and use the confirmed paid digital-plan model. The physical kit is an additional paid product option; do not infer product prices from the browser. Keep the migration and CI checks green before adding the database write path.
+
+
+## 13. Confirmed product/payment rule (19 October 2026)
+
+The owner confirmed that the digital date plan is paid: customers do not receive the digital copy unless payment is verified. The physical date kit is also a paid product when requested, in addition to the digital plan. The physical kit contains the printed plan and ten randomly selected question cards; those question cards remain internal to physical fulfillment and are not included in the digital email.
+
+A new staging migration, `supabase/migrations/20261019100000_add_server_owned_product_catalog.sql`, creates a private `product_catalog` for `digital_plan` and `physical_kit`. Both products start inactive with no configured price. This is intentional: order creation must reject an unpriced/inactive product, never trust browser totals, and never guess prices. The migration has been applied to the staging project. The catalog has not been connected to order intake, no prices have been set, and no checkout or real orders are enabled.
+
+Next: add contract coverage for the catalog's fail-closed pricing constraints, then implement and test server-only order persistence with a transaction, duplicate-submission handling, and order items priced from this catalog. Keep the frontend disconnected until that work and the security review are complete.
