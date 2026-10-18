@@ -22,3 +22,5 @@ jobs:
           node --check js/app.js
       - name: Run Phase 1 smoke tests
         run: node --test tests/phase1-smoke.test.mjs
+      - name: Run backend safety contract tests
+        run: node --test tests/backend-contract.test.mjs
