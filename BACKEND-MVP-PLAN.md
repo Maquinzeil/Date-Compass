@@ -273,3 +273,14 @@ The staging database now has a versioned migration for atomic order creation thr
 - Is `SECURITY INVOKER`, has a fixed empty search path, and grants execution only to `service_role`; staging verification confirmed `anon` and `authenticated` cannot execute it.
 
 The Edge Function source now calls this transaction using the server-side service-role key and remains gated by `DATE_COMPASS_ORDER_INTAKE_ENABLED`. It has not been deployed or enabled. Both products remain inactive with unset prices, so even a server-side call cannot create a new order until the owner configures catalog prices and activates the products. Payment integration, rate limiting/abuse controls, privacy copy, email delivery, private admin review, and physical fulfillment are still outstanding. No customer/order rows were created during this work.
+
+
+## 13. Abuse protection and transactional verification (19 October 2026)
+
+Added a private fixed-window rate limiter for order intake. The endpoint is configured to allow at most 10 requests per hashed client identity in a 15-minute window, rejects request bodies over 30 KB, fails closed if the rate-limit service or client identity is unavailable, and returns a generic 429 after the limit. The raw IP is not stored; the rate-limit key is a SHA-256 hash salted with the server-only service-role key. The rate-limit table has RLS enabled and no browser-role access; only service_role can call the rate-limit function.
+
+A rollback-only staging transaction tested order creation using temporary sentinel catalog prices (100 and 250 minor units) and a synthetic invalid-domain email. The function returned a total of 350 minor units and produced one order with two item snapshots inside the transaction. The transaction was rolled back. A follow-up query verified there are zero orders/items and both catalog products remain inactive with NULL prices. A separate rollback-only rate-limit test verified the request cap rejects the third call when the test limit is two.
+
+During this test, PostgreSQL exposed an idempotency bug: the order insert did not specify the predicate of the partial unique index. This was fixed by using `ON CONFLICT (submission_key) WHERE submission_key IS NOT NULL DO NOTHING`, applied to staging and recorded in a follow-up migration. Contract tests now assert the exact conflict target.
+
+Still not launch-ready: rate limiting depends on the gateway-provided client identity and must be verified in a deployed Edge Function; the function remains undeployed and disabled. Do not enable it until the deployment environment, abuse controls, payment provider/webhooks, email, admin authorization, privacy copy, and fulfillment have passed end-to-end tests.
