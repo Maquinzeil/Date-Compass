@@ -507,3 +507,16 @@ The physical kit question-card bank itself is **content**, not a backend require
 - Cloudflare Workers + D1 is a lower-cost alternative, but D1 is SQLite-compatible rather than PostgreSQL, so it requires a deliberate data-model choice. Render free services are not suitable for live orders; its free Postgres expires after 30 days and lacks backups.
 - Added a decision worksheet for kit pricing, local fulfillment, refund/cancellation terms, email promise, required customer details, and launch posture. These are explicitly proposed defaults, not owner-approved business policies; do not invent them in code.
 - No staging service has been created, and no backend or live checkout has been implemented. Start coding only after the latest frontend smoke checks are green and manual Phase 1 review is recorded.
+
+
+### Automated verification follow-up — 18 October 2026
+
+- Checked the latest commit before this note, `a8af311482805547cfd0cea9b81f6a6cc6e04689`. All three GitHub Actions workflows passed:
+  - [Phase 1 smoke checks](https://github.com/Maquinzeil/Date-Compass/actions/runs/39019473409)
+  - [Browser smoke checks](https://github.com/Maquinzeil/Date-Compass/actions/runs/39019473404)
+  - [GitHub Pages build and deployment](https://github.com/Maquinzeil/Date-Compass/actions/runs/39019473349)
+- The automated browser job completed its desktop/mobile Chromium checks, including planner navigation, budget generation, contact labels, uncaught page errors, and missing local assets. The Phase 1 job also passed JavaScript syntax and regression checks.
+- These green checks confirm automated coverage and a successful deployment; they do **not** complete the manual Phase 1 exit gate.
+- Still required: visually inspect the deployed site at desktop, tablet, and phone sizes; manually click through navigation, planner, Surprise Me, and ticket flows; review browser console/network requests; test keyboard-only navigation, focus, contrast, and reduced-motion behavior; and check a second browser or real device.
+- No Phase 1 manual checkbox was marked complete. The live page could not be interactively inspected in this pass, so no claim is made that manual testing is done.
+- **Recommended next step:** perform that short manual review before backend implementation. Venue research and backend-provider comparisons are documented enough to pause unless a concrete question blocks implementation. Supabase remains a staging candidate only; do not enter real customer data or accept live orders.
