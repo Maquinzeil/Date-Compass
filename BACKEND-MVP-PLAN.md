@@ -1,6 +1,6 @@
 # Date Compass Backend MVP Plan
 
-**Status:** Initial private staging database schema implemented in Supabase and versioned in `supabase/migrations/20261018102000_initial_order_schema.sql`. No API/Edge Functions, live order flow, payment integration, or production processing is enabled.  
+**Status:** Initial private staging database schema implemented in Supabase and versioned in `supabase/migrations/20261018102240_initial_order_schema.sql`. No API/Edge Functions, live order flow, payment integration, or production processing is enabled.  
 **Planning date:** 17 October 2026  
 **Product scope:** Date Compass date planner and physical date-question kit for couples in Cagayan de Oro and Misamis Oriental.
 
