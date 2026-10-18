@@ -101,7 +101,7 @@ begin
     nullif(trim(coalesce(p_draft ->> 'fulfillmentNotes', '')), ''),
     'PHP', v_total, v_total, 'submitted'
   )
-  on conflict (submission_key) do nothing
+  on conflict (submission_key) where submission_key is not null do nothing
   returning * into v_order;
 
   if not found then
