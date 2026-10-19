@@ -1,0 +1,34 @@
+name: Staging backend gateway smoke test
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/staging-backend-smoke.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  edge-function-gateway:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify order intake rejects unauthenticated requests
+        shell: bash
+        run: |
+          set -euo pipefail
+          endpoint="https://duxlvatgqmpymjbaobzy.supabase.co/functions/v1/order-intake"
+          status="$(curl --silent --show-error --output response.json --write-out '%{http_code}' \
+            --max-time 20 \
+            --request POST \
+            --header 'Content-Type: application/json' \
+            --data '{}' \
+            "$endpoint")"
+          echo "Unauthenticated gateway response: HTTP $status"
+          if [[ "$status" != "401" ]]; then
+            echo "Expected Supabase JWT gateway to reject the request with HTTP 401."
+            cat response.json
+            exit 1
+          fi
+          echo "PASS: unauthenticated request rejected before order intake."
